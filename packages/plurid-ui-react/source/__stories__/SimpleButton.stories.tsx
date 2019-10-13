@@ -18,7 +18,7 @@ storiesOf(
     return (
         <SimpleButton
             theme={themes.depict}
-            text="soo"
+            text="Create"
             {...actions}
         />
     );
