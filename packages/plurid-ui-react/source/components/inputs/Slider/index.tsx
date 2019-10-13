@@ -18,20 +18,17 @@ interface SliderProperties {
     max: number;
     value: number;
     defaultValue: number;
-    step?: number;
     name: string;
-    showValue?: boolean;
-    width?: number;
     handleInput: (value: number) => void;
-    atChange: () => void;
+    showValue?: boolean;
+    step?: number;
+    width?: number;
 }
 
 const Slider: React.FC<SliderProperties> = (properties) => {
     const {
         theme,
         level,
-        atChange,
-
         min,
         max,
         value,
