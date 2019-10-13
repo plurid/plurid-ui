@@ -19,7 +19,7 @@ storiesOf(
 .addDecorator(withKnobs)
 .add('with text', () => {
     const level = number('Level', 0);
-    const _text = text('Text', 'PureButton');
+    const _text = text('Text', 'Pure Button');
 
     return (
         <PureButton
