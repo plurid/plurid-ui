@@ -34,4 +34,23 @@ storiesOf(
             {...actions}
         />
     );
+})
+.add('floating point', () => {
+    const value = number('Value', 50);
+    const showValue = boolean('Show Value', false);
+
+    return (
+        <Slider
+            theme={themes.light}
+            min={0}
+            max={100}
+            value={value}
+            defaultValue={70}
+            step={0.1}
+            showValue={showValue}
+            name="name"
+            handleInput={() => {}}
+            {...actions}
+        />
+    );
 });
