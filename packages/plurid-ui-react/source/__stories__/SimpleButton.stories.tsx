@@ -14,7 +14,7 @@ const actions = {
 storiesOf(
     'SimpleButton',
     module,
-).add("with text", () => {
+).add('with text', () => {
     return (
         <SimpleButton
             theme={themes.depict}
