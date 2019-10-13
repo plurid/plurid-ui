@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {
+    useState,
+} from 'react';
 import themes, { Theme } from '@plurid/plurid-themes';
 
 import {
@@ -20,7 +22,7 @@ interface SliderProperties {
     name: string;
     showValue?: boolean;
     width?: number;
-    handleInput: any;
+    handleInput: (value: number) => void;
     atChange: () => void;
 }
 
@@ -35,9 +37,11 @@ const Slider: React.FC<SliderProperties> = (properties) => {
         value,
         defaultValue,
         step,
-
+        handleInput,
         showValue,
     } = properties;
+
+    const [mouseOver, setMouseOver] = useState(false);
 
     const _theme = theme === undefined
         ? themes.plurid
@@ -51,13 +55,21 @@ const Slider: React.FC<SliderProperties> = (properties) => {
         ? 1
         : step;
 
+    const handleDoubleClick = () => {
+        handleInput(defaultValue);
+    }
+
+    const handleSliderInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+        handleInput(parseFloat(event.target.value));
+    }
+
     return (
         <StyledSlider
             theme={_theme}
         >
             <StyledSliderInputContainer
                 theme={_theme}
-                // hovered={hovered}
+                hovered={mouseOver}
             >
                 <input
                     type="range"
@@ -66,10 +78,11 @@ const Slider: React.FC<SliderProperties> = (properties) => {
                     name={name}
                     value={value}
                     step={_step}
-                    // onMouseEnter={this.toggleHover}
-                    // onMouseLeave={this.toggleHover}
-                    // onChange={this.handleSliderInput}
-                    // onDoubleClick={this.handleDoubleClick}
+                    onMouseEnter={() => setMouseOver(true)}
+                    onMouseLeave={() => setMouseOver(false)}
+                    onMouseMove={() => mouseOver ? setMouseOver(true) : null}
+                    onChange={handleSliderInput}
+                    onDoubleClick={handleDoubleClick}
                 />
             </StyledSliderInputContainer>
 

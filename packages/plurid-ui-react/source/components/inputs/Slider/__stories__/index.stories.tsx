@@ -19,6 +19,7 @@ storiesOf(
 .addDecorator(withKnobs)
 .add('basic', () => {
     const value = number('Value', 50);
+    const showValue = boolean('Show Value', false);
 
     return (
         <Slider
@@ -27,6 +28,7 @@ storiesOf(
             max={100}
             value={value}
             defaultValue={70}
+            showValue={showValue}
             name="name"
             handleInput={() => {}}
             {...actions}

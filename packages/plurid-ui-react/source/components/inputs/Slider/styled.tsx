@@ -6,19 +6,8 @@ import styled from 'styled-components';
 export const StyledSlider = styled.div`
     display: flex;
     align-items: center;
-`;
-
-
-export const StyledSliderType = styled.div`
-    text-align: left;
-    margin-left: 8px;
-    width: 20px;
-`;
-
-
-export const StyledSliderValue = styled.div`
-    float: right;
-    font-size: 12px;
+    font-family: Ubuntu, 'Work Sans', -apple-system, BlinkMacSystemFont, Roboto,
+        'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 `;
 
 
@@ -140,4 +129,12 @@ export const StyledSliderInputContainer: any = styled.div`
     input[type=range]:focus::-ms-fill-upper {
         background: ${(props: any) => props.theme.colorPrimary };
     }
+`;
+
+
+export const StyledSliderValue = styled.div`
+    user-select: none;
+    font-size: 0.8rem;
+    min-width: 1.4rem;
+    text-align: right;
 `;
