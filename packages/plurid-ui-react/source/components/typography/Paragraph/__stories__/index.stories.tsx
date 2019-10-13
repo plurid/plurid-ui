@@ -21,7 +21,7 @@ storiesOf(
     module,
 )
 .addDecorator(withKnobs)
-.add('simple heading', () => {
+.add('simple paragraph', () => {
     const size = select(label, options, defaultValue);
     const _size = size === 'small'
         || size === 'normal'
