@@ -12,6 +12,7 @@ interface SwitchProperties {
     theme?: Theme;
     level?: number;
     round?: boolean;
+    exclusive?: boolean;
     checked: boolean;
     atChange: () => void;
 }
@@ -21,6 +22,7 @@ const Switch: React.FC<SwitchProperties> = (properties) => {
         theme,
         level,
         round,
+        exclusive,
         checked,
         atChange,
     } = properties;
@@ -50,6 +52,7 @@ const Switch: React.FC<SwitchProperties> = (properties) => {
                 theme={_theme}
                 level={_level}
                 round={_round}
+                exclusive={exclusive}
                 checked={checked}
             />
         </StyledSwitch>

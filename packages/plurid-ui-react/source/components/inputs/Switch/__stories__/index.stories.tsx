@@ -19,6 +19,7 @@ storiesOf(
 .addDecorator(withKnobs)
 .add('not checked', () => {
     const checked = boolean('Checked', false);
+    const exclusive = boolean('Exclusive', false);
     const round = boolean('Round', true);
     const level = number('Level', 0);
 
@@ -26,6 +27,7 @@ storiesOf(
         <Switch
             theme={themes.depict}
             checked={checked}
+            exclusive={exclusive}
             level={level}
             round={round}
             {...actions}
