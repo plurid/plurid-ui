@@ -3,7 +3,7 @@ import themes from '@plurid/plurid-themes';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { SimpleButton } from '../';
+import LinkButton from '../';
 
 
 
@@ -12,13 +12,13 @@ const actions = {
 };
 
 storiesOf(
-    'SimpleButton',
+    'LinkButton',
     module,
 ).add('with text', () => {
     return (
-        <SimpleButton
-            theme={themes.depict}
-            text="Create"
+        <LinkButton
+            theme={themes.light}
+            text="soo"
             {...actions}
         />
     );

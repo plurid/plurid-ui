@@ -3,7 +3,7 @@ import themes from '@plurid/plurid-themes';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { Switch } from '../';
+import Switch from '../';
 
 
 
