@@ -1,16 +1,11 @@
 import React from 'react';
 import themes from '@plurid/plurid-themes';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, number } from '@storybook/addon-knobs';
 
 import Slider from '../';
 
 
-
-const actions = {
-    atChange: action('atChange'),
-};
 
 storiesOf(
     'Slider',
@@ -29,9 +24,7 @@ storiesOf(
             value={value}
             defaultValue={70}
             showValue={showValue}
-            name="name"
-            handleInput={() => {}}
-            {...actions}
+            atChange={() => {}}
         />
     );
 })
@@ -42,15 +35,13 @@ storiesOf(
     return (
         <Slider
             theme={themes.light}
+            step={0.1}
             min={0}
             max={100}
             value={value}
             defaultValue={70}
-            step={0.1}
             showValue={showValue}
-            name="name"
-            handleInput={() => {}}
-            {...actions}
+            atChange={() => {}}
         />
     );
 });
