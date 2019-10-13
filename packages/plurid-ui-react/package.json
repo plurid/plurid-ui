@@ -32,7 +32,7 @@
         "npm": ">=5"
     },
     "scripts": {
-        "storybook": "start-storybook -p 6006",
+        "storybook": "start-storybook -p 9001 -c storybook",
         "build.storybook": "build-storybook",
         "spec": "jest",
         "lint": "eslint ./source/index.ts",
@@ -51,6 +51,7 @@
     "devDependencies": {
         "@babel/core": "^7.6.4",
         "@storybook/addon-actions": "^5.2.3",
+        "@storybook/addon-info": "^5.2.3",
         "@storybook/addon-links": "^5.2.3",
         "@storybook/addons": "^5.2.3",
         "@storybook/react": "^5.2.3",
@@ -63,12 +64,15 @@
         "@types/styled-components": "^4.1.19",
         "@typescript-eslint/eslint-plugin": "^2.3.3",
         "@typescript-eslint/parser": "^2.3.3",
+        "awesome-typescript-loader": "^5.2.1",
         "babel-loader": "^8.0.6",
         "enzyme": "^3.10.0",
         "enzyme-adapter-react-16": "^1.15.1",
         "eslint": "^6.5.1",
         "jest": "^24.9.0",
         "react": "^16.8.3",
+        "react-docgen-typescript-loader": "^3.3.0",
+        "react-docgen-typescript-webpack-plugin": "^1.1.0",
         "react-dom": "^16.8.3",
         "react-test-renderer": "^16.10.2",
         "rollup": "^1.23.1",
