@@ -12,7 +12,7 @@ storiesOf(
     module,
 )
 .addDecorator(withKnobs)
-.add('simple heading', () => {
+.add('basic heading', () => {
     return (
         <Heading1
             theme={themes.light}
