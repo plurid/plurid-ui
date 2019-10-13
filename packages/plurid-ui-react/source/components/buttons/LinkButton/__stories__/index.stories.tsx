@@ -18,7 +18,7 @@ storiesOf(
     return (
         <LinkButton
             theme={themes.light}
-            text="soo"
+            text="Link Button"
             {...actions}
         />
     );
