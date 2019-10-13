@@ -3,23 +3,9 @@ import styled from 'styled-components';
 
 
 export const StyledPureButton: any = styled.button`
-    display: block;
     color: ${(props: any) => {
         return props.theme.colorPrimary;
     }};
-    /* width: 100%; */
-    min-width: 150px;
-    padding: 0 25px;
-    border: none;
-    outline: none;
-    user-select: none;
-    cursor: pointer;
-    display: grid;
-    place-content: center;
-    border-radius: 20px;
-    font-size: 15px;
-    font-weight: bold;
-    height: 40px;
     background-color: ${(props: any) => {
         switch (props.level) {
             case 0:
@@ -34,11 +20,24 @@ export const StyledPureButton: any = styled.button`
                 return props.theme.backgroundColorPrimary;
         }
     }};
-    /* background-color: hsl(247, 19%, 29%); */
-    box-shadow: 0px 10px 10px 0px ${(props: any) => {
+    box-shadow: 0px 8px 8px 0px ${(props: any) => {
         return props.theme.boxShadowUmbraColor;
     }};
-    /* box-shadow: 0px 10px 10px 0px hsla(220, 40%, 5%, 0.5); */
+
+    display: block;
+    min-width: 10rem;
+    padding: 0 1.4rem;
+    border: none;
+    outline: none;
+    user-select: none;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+    border-radius: 1.4rem;
+    font-size: 1rem;
+    line-height: 1.2;
+    font-weight: bold;
+    height: 2.8rem;
     transition: box-shadow 200ms linear;
 
     :hover {
@@ -56,13 +55,11 @@ export const StyledPureButton: any = styled.button`
                     return props.theme.backgroundColorSecondary;
             }
         }};
-        /* background-color: hsl(247, 19%, 39%); */
     }
 
     :active {
         box-shadow: 0px 3px 3px 0px ${(props: any) => {
             return props.theme.boxShadowUmbraColor;
         }};
-        /* box-shadow: 0px 3px 3px 0px hsla(220, 40%, 5%, 0.5); */
     }
 `;
