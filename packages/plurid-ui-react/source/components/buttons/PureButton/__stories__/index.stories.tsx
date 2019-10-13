@@ -2,8 +2,9 @@ import React from 'react';
 import themes from '@plurid/plurid-themes';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { withKnobs, text, number } from '@storybook/addon-knobs';
 
-import SimpleButton from '../';
+import PureButton from '../';
 
 
 
@@ -12,13 +13,19 @@ const actions = {
 };
 
 storiesOf(
-    'SimpleButton',
+    'PureButton',
     module,
-).add('with text', () => {
+)
+.addDecorator(withKnobs)
+.add('with text', () => {
+    const level = number('Level', 0);
+    const _text = text('Text', 'PureButton');
+
     return (
-        <SimpleButton
+        <PureButton
             theme={themes.depict}
-            text="Create"
+            text={_text}
+            level={level}
             {...actions}
         />
     );

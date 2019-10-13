@@ -1,5 +1,5 @@
 // buttons
-import SimpleButton from './components/buttons/SimpleButton';
+import PureButton from './components/buttons/PureButton';
 import LinkButton from './components/buttons/LinkButton';
 
 // inputs
@@ -9,7 +9,7 @@ import Switch from './components/inputs/Switch';
 
 export {
     // buttons
-    SimpleButton,
+    PureButton,
     LinkButton,
 
     // inputs
