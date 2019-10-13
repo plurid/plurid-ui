@@ -34,4 +34,5 @@ const SimpleButton: React.FC<SimpleButtonProperties> = (properties) => {
     );
 }
 
+
 export default SimpleButton;

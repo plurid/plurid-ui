@@ -34,4 +34,5 @@ const LinkButton: React.FC<LinkButtonProperties> = (properties) => {
     );
 }
 
+
 export default LinkButton;

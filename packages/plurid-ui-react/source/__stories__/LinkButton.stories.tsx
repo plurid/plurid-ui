@@ -14,7 +14,7 @@ const actions = {
 storiesOf(
     'LinkButton',
     module,
-).add("with text", () => {
+).add('with text', () => {
     return (
         <LinkButton
             theme={themes.light}
