@@ -33,7 +33,7 @@
     },
     "scripts": {
         "storybook": "start-storybook -p 9001 -c storybook",
-        "build.storybook": "build-storybook",
+        "build.storybook": "build-storybook -c storybook",
         "spec": "jest",
         "lint": "eslint ./source/index.ts",
         "clean": "rm -rf ./build",
