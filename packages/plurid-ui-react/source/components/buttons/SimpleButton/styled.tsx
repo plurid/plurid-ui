@@ -7,18 +7,19 @@ export const StyledSimpleButton = styled.button`
     color: ${(props: any) => {
         return props.theme.colorPrimary;
     }};
-    /* color: white; */
-    width: 100%;
+    /* width: 100%; */
+    min-width: 150px;
+    padding: 0 25px;
     border: none;
     outline: none;
     user-select: none;
     cursor: pointer;
     display: grid;
     place-content: center;
-    border-radius: 50px;
+    border-radius: 20px;
     font-size: 15px;
     font-weight: bold;
-    height: 50px;
+    height: 40px;
     background-color: ${(props: any) => {
         return props.theme.backgroundColorSecondary;
     }};
