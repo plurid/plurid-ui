@@ -10,22 +10,28 @@ import {
 
 interface SwitchProperties {
     theme?: Theme;
+    level?: number;
+    round?: boolean;
     checked: boolean;
     atChange: () => void;
-    round?: boolean;
 }
 
 const Switch: React.FC<SwitchProperties> = (properties) => {
     const {
         theme,
+        level,
+        round,
         checked,
         atChange,
-        round,
     } = properties;
 
     const _theme = theme === undefined
         ? themes.plurid
         : theme;
+
+    const _level = level === undefined
+        ? 0
+        : level;
 
     const _round = round === undefined
         ? true
@@ -42,8 +48,9 @@ const Switch: React.FC<SwitchProperties> = (properties) => {
             />
             <StyledSwitchSlider
                 theme={_theme}
-                checked={checked}
+                level={_level}
                 round={_round}
+                checked={checked}
             />
         </StyledSwitch>
     );

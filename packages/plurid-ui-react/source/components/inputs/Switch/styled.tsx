@@ -24,11 +24,22 @@ export const StyledSwitchSlider: any = styled.span`
     right: 0;
     bottom: 0;
     transition: .4s;
+    box-shadow: inset 0 2px 3px black;
 
     background-color: ${(props: any) => {
-        return props.theme.backgroundColorSecondary;
+        switch (props.level) {
+            case 0:
+                return props.theme.backgroundColorPrimary;
+            case 1:
+                return props.theme.backgroundColorSecondary;
+            case 2:
+                return props.theme.backgroundColorTertiary;
+            case 3:
+                return props.theme.backgroundColorQuaternary;
+            default:
+                return props.theme.backgroundColorPrimary;
+        }
     }};
-    box-shadow: inset 0 2px 3px black;
 
     border-radius: ${(props: any) => {
         if (props.round) {

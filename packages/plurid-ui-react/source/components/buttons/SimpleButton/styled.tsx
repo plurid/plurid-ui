@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 
 
-export const StyledSimpleButton = styled.button`
+export const StyledSimpleButton: any = styled.button`
     display: block;
     color: ${(props: any) => {
         return props.theme.colorPrimary;
@@ -21,7 +21,18 @@ export const StyledSimpleButton = styled.button`
     font-weight: bold;
     height: 40px;
     background-color: ${(props: any) => {
-        return props.theme.backgroundColorSecondary;
+        switch (props.level) {
+            case 0:
+                return props.theme.backgroundColorPrimary;
+            case 1:
+                return props.theme.backgroundColorSecondary;
+            case 2:
+                return props.theme.backgroundColorTertiary;
+            case 3:
+                return props.theme.backgroundColorQuaternary;
+            default:
+                return props.theme.backgroundColorPrimary;
+        }
     }};
     /* background-color: hsl(247, 19%, 29%); */
     box-shadow: 0px 10px 10px 0px ${(props: any) => {
@@ -32,7 +43,18 @@ export const StyledSimpleButton = styled.button`
 
     :hover {
         background-color: ${(props: any) => {
-            return props.theme.backgroundColorTertiary;
+            switch (props.level) {
+                case 0:
+                    return props.theme.backgroundColorSecondary;
+                case 1:
+                    return props.theme.backgroundColorTertiary;
+                case 2:
+                    return props.theme.backgroundColorQuaternary;
+                case 3:
+                    return props.theme.backgroundColorPrimary;
+                default:
+                    return props.theme.backgroundColorSecondary;
+            }
         }};
         /* background-color: hsl(247, 19%, 39%); */
     }
