@@ -6,6 +6,7 @@ import PureButton from './components/buttons/PureButton';
 import LinkButton from './components/buttons/LinkButton';
 
 // inputs
+import Slider from './components/inputs/Slider';
 import Switch from './components/inputs/Switch';
 
 // typography
@@ -23,6 +24,7 @@ export {
     LinkButton,
 
     // inputs
+    Slider,
     Switch,
 
     // typography

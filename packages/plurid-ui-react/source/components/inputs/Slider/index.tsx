@@ -90,7 +90,7 @@ const Slider: React.FC<SliderProperties> = (properties) => {
                 <StyledSliderValue
                     theme={_theme}
                 >
-                    {parseInt(value + '')}
+                    {parseFloat(value + '')}
                 </StyledSliderValue>
             )}
         </StyledSlider>

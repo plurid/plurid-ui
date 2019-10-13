@@ -135,6 +135,6 @@ export const StyledSliderInputContainer: any = styled.div`
 export const StyledSliderValue = styled.div`
     user-select: none;
     font-size: 0.8rem;
-    min-width: 1.4rem;
+    min-width: 1.6rem;
     text-align: right;
 `;
