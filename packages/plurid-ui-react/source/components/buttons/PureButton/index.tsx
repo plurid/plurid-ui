@@ -10,6 +10,7 @@ import {
 interface PureButtonProperties {
     theme?: Theme;
     level?: number;
+    size?: 'small' | 'normal' | 'large';
     text: string;
     atClick: () => void;
 }
@@ -18,6 +19,7 @@ const PureButton: React.FC<PureButtonProperties> = (properties) => {
     const {
         theme,
         level,
+        size,
         text,
         atClick,
     } = properties;
@@ -30,10 +32,15 @@ const PureButton: React.FC<PureButtonProperties> = (properties) => {
         ? 0
         : level;
 
+    const _size = size === undefined
+        ? 'normal'
+        : size;
+
     return (
         <StyledPureButton
             theme={_theme}
             level={_level}
+            size={_size}
             onClick={atClick}
         >
             {text}

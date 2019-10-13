@@ -25,19 +25,75 @@ export const StyledPureButton: any = styled.button`
     }};
 
     display: block;
-    min-width: 10rem;
-    padding: 0 1.4rem;
+    min-width: ${(props: any) => {
+        switch (props.size) {
+            case 'small':
+                return '8rem';
+            case 'normal':
+                return '10rem';
+            case 'large':
+                return '12rem';
+            default:
+                return '10rem';
+        }
+    }};
+    border-radius: ${(props: any) => {
+        switch (props.size) {
+            case 'small':
+                return '1rem';
+            case 'normal':
+                return '1.2rem';
+            case 'large':
+                return '1.4rem';
+            default:
+                return '1.2rem';
+        }
+    }};
+    padding: ${(props: any) => {
+        switch (props.size) {
+            case 'small':
+                return '0 1.2rem';
+            case 'normal':
+                return '0 1.4rem';
+            case 'large':
+                return '0 1.6rem';
+            default:
+                return '0 1.4rem';
+        }
+    }};
+    font-size: ${(props: any) => {
+        switch (props.size) {
+            case 'small':
+                return '0.8rem';
+            case 'normal':
+                return '0.9rem';
+            case 'large':
+                return '1rem';
+            default:
+                return '0.9rem';
+        }
+    }};
+    height: ${(props: any) => {
+        switch (props.size) {
+            case 'small':
+                return '2rem';
+            case 'normal':
+                return '2.4rem';
+            case 'large':
+                return '2.8rem';
+            default:
+                return '2.4rem';
+        }
+    }};
+
     border: none;
     outline: none;
     user-select: none;
     cursor: pointer;
     display: grid;
     place-content: center;
-    border-radius: 1.4rem;
-    font-size: 1rem;
     line-height: 1.2;
     font-weight: bold;
-    height: 2.8rem;
     transition: box-shadow 200ms linear;
 
     :hover {
