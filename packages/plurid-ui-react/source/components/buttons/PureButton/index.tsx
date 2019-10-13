@@ -2,19 +2,19 @@ import React from 'react';
 import themes, { Theme } from '@plurid/plurid-themes';
 
 import {
-    StyledSimpleButton,
+    StyledPureButton,
 } from './styled';
 
 
 
-interface SimpleButtonProperties {
+interface PureButtonProperties {
     theme?: Theme;
     level?: number;
     text: string;
     atClick: () => void;
 }
 
-const SimpleButton: React.FC<SimpleButtonProperties> = (properties) => {
+const PureButton: React.FC<PureButtonProperties> = (properties) => {
     const {
         theme,
         level,
@@ -31,15 +31,15 @@ const SimpleButton: React.FC<SimpleButtonProperties> = (properties) => {
         : level;
 
     return (
-        <StyledSimpleButton
+        <StyledPureButton
             theme={_theme}
             level={_level}
             onClick={atClick}
         >
             {text}
-        </StyledSimpleButton>
+        </StyledPureButton>
     );
 }
 
 
-export default SimpleButton;
+export default PureButton;

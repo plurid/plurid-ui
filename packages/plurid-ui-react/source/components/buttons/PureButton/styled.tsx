@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 
 
-export const StyledSimpleButton: any = styled.button`
+export const StyledPureButton: any = styled.button`
     display: block;
     color: ${(props: any) => {
         return props.theme.colorPrimary;
