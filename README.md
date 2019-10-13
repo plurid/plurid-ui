@@ -12,4 +12,4 @@
 
 [@plurid/plurid-ui-react][plurid-ui-react] • plurid' ui react components
 
-[plurid-ui-react]: https://github.com/plurid/plurid/tree/master/packages/plurid-ui-react
+[plurid-ui-react]: https://github.com/plurid/plurid-ui/tree/master/packages/plurid-ui-react
