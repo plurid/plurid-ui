@@ -1,16 +1,11 @@
-import {
-    StyledButton,
-    StyledLinkButton,
-} from './components/buttons';
-
-import {
-    StyledSwitch,
-} from './components/inputs';
+// buttons
+import SimpleButton from './components/buttons/SimpleButton';
+import LinkButton from './components/buttons/LinkButton';
 
 
 
-export default {
-    Button: StyledButton,
-    LinkButton: StyledLinkButton,
-    Switch: StyledSwitch,
+export {
+    // buttons
+    SimpleButton,
+    LinkButton,
 }

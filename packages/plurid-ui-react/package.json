@@ -44,12 +44,14 @@
         "prepublishOnly": "yarn build"
     },
     "peerDependencies": {
+        "@plurid/plurid-themes": "*",
         "react": ">=16",
         "react-dom": ">=16",
         "styled-components": ">=4"
     },
     "devDependencies": {
         "@babel/core": "^7.6.4",
+        "@plurid/plurid-themes": "^0.1.0",
         "@storybook/addon-actions": "^5.2.3",
         "@storybook/addon-info": "^5.2.3",
         "@storybook/addon-links": "^5.2.3",

@@ -28,18 +28,3 @@ export const StyledButton = styled.button`
         box-shadow: 0px 3px 3px 0px hsla(220, 40%, 5%, 0.5);
     }
 `;
-
-export const StyledLinkButton = styled.button`
-    display: block;
-    color: white;
-    width: 100%;
-    border: none;
-    outline: none;
-    user-select: none;
-    cursor: pointer;
-    display: grid;
-    place-content: center;
-    font-size: 15px;
-    font-weight: bold;
-    background: transparent;
-`;
