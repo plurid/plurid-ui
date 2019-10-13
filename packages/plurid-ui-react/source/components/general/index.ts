@@ -20,7 +20,10 @@ const GlobalStyles = createGlobalStyle`
             'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        color: white;
+
+        color: ${(props: any) => {
+            return props.theme.colorPrimary;
+        }};
         background: ${(props: any) => {
             return props.theme.backgroundColorPrimary;
         }};

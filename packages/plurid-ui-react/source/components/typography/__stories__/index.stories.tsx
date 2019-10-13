@@ -3,9 +3,7 @@ import themes from '@plurid/plurid-themes';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 
-import Heading1 from '../Heading1';
-import Heading2 from '../Heading2';
-import Heading3 from '../Heading3';
+import Heading from '../Heading';
 import Paragraph from '../Paragraph';
 
 
@@ -18,23 +16,26 @@ storiesOf(
 .add('basic', () => {
     return (
         <div>
-            <Heading1
+            <Heading
                 theme={themes.light}
+                type="h1"
             >
                 Heading 1
-            </Heading1>
+            </Heading>
 
-            <Heading2
+            <Heading
                 theme={themes.light}
+                type="h2"
             >
                 Heading 2
-            </Heading2>
+            </Heading>
 
-            <Heading3
+            <Heading
                 theme={themes.light}
+                type="h3"
             >
                 Heading 3
-            </Heading3>
+            </Heading>
 
             <Paragraph
                 theme={themes.light}
