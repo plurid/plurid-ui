@@ -23,10 +23,24 @@ export const StyledSwitchSlider: any = styled.span`
     left: 0;
     right: 0;
     bottom: 0;
-    transition: .4s;
+    transition: .4s ease-in-out;
     box-shadow: inset 0 2px 3px black;
 
     background-color: ${(props: any) => {
+        if (props.exclusive && !props.checked) {
+            switch (props.level) {
+                case 0:
+                    return props.theme.backgroundColorPrimaryAlpha;
+                case 1:
+                    return props.theme.backgroundColorSecondaryAlpha;
+                case 2:
+                    return props.theme.backgroundColorTertiaryAlpha;
+                case 3:
+                    return props.theme.backgroundColorQuaternaryAlpha;
+                default:
+                    return props.theme.backgroundColorPrimaryAlpha;
+            }
+        }
         switch (props.level) {
             case 0:
                 return props.theme.backgroundColorPrimary;
@@ -40,7 +54,6 @@ export const StyledSwitchSlider: any = styled.span`
                 return props.theme.backgroundColorPrimary;
         }
     }};
-
     border-radius: ${(props: any) => {
         if (props.round) {
             return '34px';
