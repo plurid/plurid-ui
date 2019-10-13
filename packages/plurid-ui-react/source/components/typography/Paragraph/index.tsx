@@ -10,12 +10,14 @@ import {
 interface ParagraphProperties {
     theme?: Theme;
     size?: 'small' | 'normal' | 'large';
+    fontFamily?: 'sans-serif' | 'serif';
 }
 
 const Paragraph: React.FC<React.PropsWithChildren<ParagraphProperties>> = (properties) => {
     const {
         theme,
         size,
+        fontFamily,
         children,
     } = properties;
 
@@ -27,10 +29,15 @@ const Paragraph: React.FC<React.PropsWithChildren<ParagraphProperties>> = (prope
         ? 'normal'
         : size;
 
+    const _fontFamily = fontFamily === undefined
+        ? 'sans-serif'
+        : fontFamily;
+
     return (
         <StyledParagraph
             theme={_theme}
             size={_size}
+            fontFamily={_fontFamily}
         >
             {children}
         </StyledParagraph>
