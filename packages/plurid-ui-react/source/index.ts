@@ -8,6 +8,10 @@ import LinkButton from './components/buttons/LinkButton';
 // inputs
 import Switch from './components/inputs/Switch';
 
+// typography
+import Heading from './components/typography/Heading';
+import Paragraph from './components/typography/Paragraph';
+
 
 
 export {
@@ -20,4 +24,8 @@ export {
 
     // inputs
     Switch,
+
+    // typography
+    Heading,
+    Paragraph,
 }
