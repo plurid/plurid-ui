@@ -5,13 +5,16 @@ import {
     StyledHeading1,
     StyledHeading2,
     StyledHeading3,
+    StyledHeading4,
+    StyledHeading5,
+    StyledHeading6,
 } from './styled';
 
 
 
 interface HeadingProperties {
     theme?: Theme;
-    type?: 'h1' | 'h2' | 'h3';
+    type?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 
 const Heading: React.FC<React.PropsWithChildren<HeadingProperties>> = (properties) => {
@@ -53,6 +56,30 @@ const Heading: React.FC<React.PropsWithChildren<HeadingProperties>> = (propertie
                 >
                     {children}
                 </StyledHeading3>
+            );
+        case 'h4':
+            return (
+                <StyledHeading4
+                    theme={_theme}
+                >
+                    {children}
+                </StyledHeading4>
+            );
+        case 'h5':
+            return (
+                <StyledHeading5
+                    theme={_theme}
+                >
+                    {children}
+                </StyledHeading5>
+            );
+        case 'h6':
+            return (
+                <StyledHeading6
+                    theme={_theme}
+                >
+                    {children}
+                </StyledHeading6>
             );
     }
 }
