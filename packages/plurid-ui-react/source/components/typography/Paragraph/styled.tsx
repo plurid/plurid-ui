@@ -4,7 +4,16 @@ import styled from 'styled-components';
 
 export const StyledParagraph: any = styled.p`
     color: ${props => props.theme.colorPrimary};
-    font-family: 'Ubuntu';
+    font-family: ${(props: any) => {
+        switch (props.fontFamily) {
+            case 'sans-serif':
+                return "Ubuntu, 'Work Sans', -apple-system, BlinkMacSystemFont, Roboto, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif";
+            case 'serif':
+                return "'Noto Serif', 'Source Serif Pro', Georgia, Times, serif";
+            default:
+                return props.fontFamily;
+        }
+    }};
     font-size: ${(props: any) => {
         switch (props.size) {
             case 'small':
