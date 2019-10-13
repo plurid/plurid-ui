@@ -1,0 +1,72 @@
+{
+    "name": "@plurid/plurid-ui-react",
+    "version": "0.1.0",
+    "description": "Plurid UI React Components for Plurid Apps",
+    "keywords": [
+        "plurid",
+        "ui",
+        "components"
+    ],
+    "author": "Jan Cavel <caveljan@plurid.com> (https://plurid.com)",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/plurid/utilities"
+    },
+    "bugs": {
+        "email": "feedback@plurid.com",
+        "url": "https://github.com/plurid/utilities/issues"
+    },
+    "homepage": "https://github.com/plurid/utilities",
+    "publishConfig": {
+        "access": "public"
+    },
+    "files": [
+        "build/"
+    ],
+    "main": "build/index.js",
+    "module": "build/index.es.js",
+    "jsnext:main": "build/index.es.js",
+    "engines": {
+        "node": ">=8",
+        "npm": ">=5"
+    },
+    "scripts": {
+        "spec": "jest",
+        "lint": "eslint ./source/index.ts",
+        "clean": "rm -rf ./build",
+        "start": "yarn clean && rollup -c -w",
+        "build.dev": "yarn clean && rollup -c",
+        "build.prod": "rollup -c --environment BUILD:production",
+        "build": "yarn clean && yarn lint && yarn spec && yarn build.prod",
+        "prepublishOnly": "yarn build"
+    },
+    "peerDependencies": {
+        "react": ">=16",
+        "react-dom": ">=16",
+        "styled-components": ">=4"
+    },
+    "devDependencies": {
+        "@svgr/rollup": "^4.3.3",
+        "@types/enzyme": "^3.10.3",
+        "@types/enzyme-adapter-react-16": "^1.0.5",
+        "@types/jest": "^24.0.18",
+        "@types/react": "^16.9.5",
+        "@types/react-dom": "^16.9.1",
+        "@types/styled-components": "^4.1.19",
+        "@typescript-eslint/eslint-plugin": "^2.3.3",
+        "@typescript-eslint/parser": "^2.3.3",
+        "enzyme": "^3.10.0",
+        "enzyme-adapter-react-16": "^1.15.1",
+        "eslint": "^6.5.1",
+        "jest": "^24.9.0",
+        "react": "^16.8.3",
+        "react-dom": "^16.8.3",
+        "react-test-renderer": "^16.10.2",
+        "rollup": "^1.23.1",
+        "rollup-plugin-typescript2": "^0.24.3",
+        "styled-components": "^4.3.2",
+        "ts-jest": "^24.1.0",
+        "typescript": "^3.6.4"
+    }
+}
