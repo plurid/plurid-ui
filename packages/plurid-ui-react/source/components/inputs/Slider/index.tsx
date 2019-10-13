@@ -14,28 +14,30 @@ import {
 interface SliderProperties {
     theme?: Theme;
     level?: number;
+    name?: string;
+    step?: number;
+    showValue?: boolean;
+
     min: number;
     max: number;
     value: number;
     defaultValue: number;
-    name: string;
-    handleInput: (value: number) => void;
-    showValue?: boolean;
-    step?: number;
-    width?: number;
+    atChange: (value: number) => void;
 }
 
 const Slider: React.FC<SliderProperties> = (properties) => {
     const {
         theme,
         level,
+        name,
+        step,
+        showValue,
+
         min,
         max,
         value,
         defaultValue,
-        step,
-        handleInput,
-        showValue,
+        atChange,
     } = properties;
 
     const [mouseOver, setMouseOver] = useState(false);
@@ -53,11 +55,11 @@ const Slider: React.FC<SliderProperties> = (properties) => {
         : step;
 
     const handleDoubleClick = () => {
-        handleInput(defaultValue);
+        atChange(defaultValue);
     }
 
     const handleSliderInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-        handleInput(parseFloat(event.target.value));
+        atChange(parseFloat(event.target.value));
     }
 
     return (

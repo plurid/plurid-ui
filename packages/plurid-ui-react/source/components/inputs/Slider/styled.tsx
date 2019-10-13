@@ -23,11 +23,11 @@ export const StyledSliderInputContainer: any = styled.div`
         article: https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
         tool: http://danielstern.ca/range.css/
     */
-    input[type=range] {
+   input[type=range] {
         -webkit-appearance: none;
         width: 100%;
         margin: 6.5px 0;
-        padding: 5px 0;
+        padding: 10px 0;
         background: transparent;
     }
 
@@ -45,19 +45,20 @@ export const StyledSliderInputContainer: any = styled.div`
 
     input[type=range]::-webkit-slider-thumb {
         border: 2px solid ${(props: any) => props.theme.colorPrimary };
-        height: 15px;
-        width: 15px;
+        height: 26px;
+        width: 26px;
         border-radius: 50px;
         background: ${(props: any) => {
             if (props.hovered) {
                 return props.theme.colorPrimary;
             }
 
-            return props.theme.backgroundColorPrimary;
+            // return '#384158';
+            return props.theme.backgroundColorTertiary;
         }};
         cursor: pointer;
         -webkit-appearance: none;
-        margin-top: -6.5px;
+        margin-top: -13px;
     }
 
     input[type=range]:focus::-webkit-slider-runnable-track {
@@ -82,7 +83,8 @@ export const StyledSliderInputContainer: any = styled.div`
                 return props.theme.colorPrimary;
             }
 
-            return props.theme.backgroundColorPrimary;
+            // return '#384158';
+            return props.theme.backgroundColorTertiary;
         }};
         cursor: pointer;
     }
@@ -116,7 +118,8 @@ export const StyledSliderInputContainer: any = styled.div`
                 return props.theme.colorPrimary;
             }
 
-            return props.theme.backgroundColorPrimary;
+            // return '#384158';
+            return props.theme.backgroundColorTertiary;
         }};
         cursor: pointer;
         height: 2px;
