@@ -21,6 +21,7 @@ interface SliderProperties {
     valueRight?: boolean;
     thumbSize?: 'small' | 'normal' | 'large';
     width?: number | string;
+    valueSign?: string;
 
     min: number;
     max: number;
@@ -36,9 +37,9 @@ const Slider: React.FC<SliderProperties> = (properties) => {
         name,
         step,
         namedValueAbove,
-        valueRight,
         thumbSize,
         width,
+        valueSign,
 
         min,
         max,
@@ -87,7 +88,7 @@ const Slider: React.FC<SliderProperties> = (properties) => {
                     <StyledSliderValue
                         theme={_theme}
                     >
-                        {parseFloat(value + '')}
+                        {value}{valueSign}
                     </StyledSliderValue>
                 </StyledNamedValue>
             )}
@@ -113,14 +114,6 @@ const Slider: React.FC<SliderProperties> = (properties) => {
                     onDoubleClick={handleDoubleClick}
                 />
             </StyledSliderInputContainer>
-
-            {valueRight && (
-                <StyledSliderValue
-                    theme={_theme}
-                >
-                    {parseFloat(value + '')}
-                </StyledSliderValue>
-            )}
         </StyledSlider>
     );
 }
