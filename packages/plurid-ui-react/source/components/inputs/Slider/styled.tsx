@@ -35,6 +35,14 @@ export const StyledNamedValue: any = styled.div`
 `;
 
 
+export const StyledSliderValue = styled.div`
+    user-select: none;
+    font-size: 0.8rem;
+    min-width: 1.6rem;
+    text-align: right;
+`;
+
+
 export const StyledSliderInputContainer: any = styled.div`
     width: ${(props: any) => {
         if (props.width) {
@@ -203,12 +211,4 @@ export const StyledSliderInputContainer: any = styled.div`
     input[type=range]:focus::-ms-fill-upper {
         background: ${(props: any) => props.theme.colorPrimary };
     }
-`;
-
-
-export const StyledSliderValue = styled.div`
-    user-select: none;
-    font-size: 0.8rem;
-    min-width: 1.6rem;
-    text-align: right;
 `;

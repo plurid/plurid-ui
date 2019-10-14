@@ -12,14 +12,17 @@ import {
 
 
 
-const DEFAULT_LEVEL = 0;
-const DEFAULT_THUMB_SIZE = 'large';
-const DEFAULT_STEP = 1;
 const DEFAULT_VALUE = 0;
 const DEFAULT_MIN = 0;
 const DEFAULT_MAX = 100;
+const DEFAULT_STEP = 1;
+const DEFAULT_LEVEL = 0;
+const DEFAULT_THUMB_SIZE = 'large';
 
 interface SliderProperties {
+    value: number;
+    atChange: (value: number) => void;
+
     defaultValue?: number;
     min?: number;
     max?: number;
@@ -31,13 +34,13 @@ interface SliderProperties {
     width?: number | string;
     valueSign?: string;
     namedValueAbove?: boolean;
-
-    value: number;
-    atChange: (value: number) => void;
 }
 
 const Slider: React.FC<SliderProperties> = (properties) => {
     const {
+        value,
+        atChange,
+
         defaultValue,
         min,
         max,
@@ -49,9 +52,6 @@ const Slider: React.FC<SliderProperties> = (properties) => {
         width,
         valueSign,
         namedValueAbove,
-
-        value,
-        atChange,
     } = properties;
 
     const [mouseOver, setMouseOver] = useState(false);
@@ -110,7 +110,7 @@ const Slider: React.FC<SliderProperties> = (properties) => {
                     type="range"
                     min={min || DEFAULT_MIN}
                     max={max || DEFAULT_MAX}
-                    name={name}
+                    name={name || ''}
                     value={value}
                     step={_step}
                     onMouseEnter={() => setMouseOver(true)}

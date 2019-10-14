@@ -29,67 +29,67 @@ storiesOf(
 .add('basic', () => {
     const value = number('Value', 50);
 
-    const level = number('Level', 0);
-    const width = number('Width', 100);
     const name = text('Name', '');
-    const valueSign = text('Value Sign', '');
-    const namedValueAbove = boolean('Show Named Value Above', false);
+    const level = number('Level', 0);
     const thumbSize = select(label, options, defaultValue);
     const _thumbSize = thumbSize === 'small'
         || thumbSize === 'normal'
         || thumbSize === 'large'
             ? thumbSize
             : 'normal';
+    const width = number('Width', 100);
+    const valueSign = text('Value Sign', '');
+    const namedValueAbove = boolean('Show Named Value Above', false);
 
     return (
         <Slider
-            theme={themes.light}
-            min={0}
-            max={100}
             value={value}
-            defaultValue={70}
             atChange={() => {}}
 
+            defaultValue={70}
+            min={0}
+            max={100}
             name={name}
-            namedValueAbove={namedValueAbove}
+            theme={themes.light}
             level={level}
             thumbSize={_thumbSize}
-            valueSign={valueSign}
             width={width}
+            valueSign={valueSign}
+            namedValueAbove={namedValueAbove}
         />
     );
 })
 .add('floating point', () => {
     const value = number('Value', 50);
 
-    const level = number('Level', 0);
-    const width = number('Width', 100);
     const name = text('Name', '');
-    const valueSign = text('Value Sign', '');
-    const namedValueAbove = boolean('Show Named Value Above', false);
+    const level = number('Level', 0);
     const thumbSize = select(label, options, defaultValue);
     const _thumbSize = thumbSize === 'small'
         || thumbSize === 'normal'
         || thumbSize === 'large'
             ? thumbSize
             : 'normal';
+    const width = number('Width', 100);
+    const valueSign = text('Value Sign', '');
+    const namedValueAbove = boolean('Show Named Value Above', false);
 
     return (
         <Slider
-            theme={themes.light}
-            step={0.1}
-            min={0}
-            max={100}
             value={value}
-            defaultValue={70}
             atChange={() => {}}
 
+            defaultValue={70}
+            min={0}
+            max={100}
+            step={0.1}
             name={name}
-            namedValueAbove={namedValueAbove}
+            theme={themes.light}
             level={level}
             thumbSize={_thumbSize}
-            valueSign={valueSign}
             width={width}
+            valueSign={valueSign}
+            namedValueAbove={namedValueAbove}
         />
     );
 });
