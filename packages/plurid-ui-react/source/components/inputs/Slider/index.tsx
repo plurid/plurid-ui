@@ -17,6 +17,7 @@ interface SliderProperties {
     name?: string;
     step?: number;
     showValue?: boolean;
+    thumbSize?: 'small' | 'normal' | 'large';
 
     min: number;
     max: number;
@@ -32,6 +33,7 @@ const Slider: React.FC<SliderProperties> = (properties) => {
         name,
         step,
         showValue,
+        thumbSize,
 
         min,
         max,
@@ -49,6 +51,10 @@ const Slider: React.FC<SliderProperties> = (properties) => {
     const _level = level === undefined
         ? 0
         : level;
+
+    const _thumbSize = thumbSize === undefined
+        ? 'large'
+        : thumbSize;
 
     const _step = step === undefined
         ? 1
@@ -69,6 +75,8 @@ const Slider: React.FC<SliderProperties> = (properties) => {
             <StyledSliderInputContainer
                 theme={_theme}
                 hovered={mouseOver}
+                thumbSize={_thumbSize}
+                level={_level}
             >
                 <input
                     type="range"
