@@ -53,7 +53,7 @@ export const StyledSliderInputContainer: any = styled.div`
    input[type=range] {
         -webkit-appearance: none;
         width: 100%;
-        margin: 4px 0;
+        margin: 2px 0;
         padding: 10px 0;
         background: transparent;
         cursor: pointer;

@@ -30,6 +30,7 @@ storiesOf(
     const value = number('Value', 50);
 
     const level = number('Level', 0);
+    const width = number('Width', 100);
     const name = text('Name', '');
     const valueSign = text('Value Sign', '');
     const namedValueAbove = boolean('Show Named Value Above', false);
@@ -54,12 +55,24 @@ storiesOf(
             level={level}
             thumbSize={_thumbSize}
             valueSign={valueSign}
+            width={width}
         />
     );
 })
 .add('floating point', () => {
     const value = number('Value', 50);
-    const valueRight = boolean('Show Value Right', false);
+
+    const level = number('Level', 0);
+    const width = number('Width', 100);
+    const name = text('Name', '');
+    const valueSign = text('Value Sign', '');
+    const namedValueAbove = boolean('Show Named Value Above', false);
+    const thumbSize = select(label, options, defaultValue);
+    const _thumbSize = thumbSize === 'small'
+        || thumbSize === 'normal'
+        || thumbSize === 'large'
+            ? thumbSize
+            : 'normal';
 
     return (
         <Slider
@@ -69,8 +82,14 @@ storiesOf(
             max={100}
             value={value}
             defaultValue={70}
-            valueRight={valueRight}
             atChange={() => {}}
+
+            name={name}
+            namedValueAbove={namedValueAbove}
+            level={level}
+            thumbSize={_thumbSize}
+            valueSign={valueSign}
+            width={width}
         />
     );
 });
