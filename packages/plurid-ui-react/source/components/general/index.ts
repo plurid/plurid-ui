@@ -1,5 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 
+import {
+    fontFamilySansSerif,
+} from '../../data/constants';
+
 
 
 const GlobalStyles = createGlobalStyle`
@@ -16,15 +20,20 @@ const GlobalStyles = createGlobalStyle`
         height: 100%;
         margin: 0;
         padding: 0;
-        font-family: Ubuntu, 'Work Sans', -apple-system, BlinkMacSystemFont, Roboto,
-            'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-family: ${fontFamilySansSerif};
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
 
         color: ${(props: any) => {
+            if (props.dark) {
+                return props.theme.backgroundColorBright;
+            }
             return props.theme.colorPrimary;
         }};
         background: ${(props: any) => {
+            if (props.dark) {
+                return props.theme.backgroundColorDark;
+            }
             return props.theme.backgroundColorPrimary;
         }};
     }
