@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+import {
+    fontFamilySansSerif,
+    fontFamilySerif,
+} from '../../../data/constants';
+
 
 
 export const StyledParagraph: any = styled.p`
@@ -7,9 +12,9 @@ export const StyledParagraph: any = styled.p`
     font-family: ${(props: any) => {
         switch (props.fontFamily) {
             case 'sans-serif':
-                return "Ubuntu, 'Work Sans', -apple-system, BlinkMacSystemFont, Roboto, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif";
+                return fontFamilySansSerif;
             case 'serif':
-                return "'Noto Serif', 'Source Serif Pro', Georgia, Times, serif";
+                return fontFamilySerif;
             default:
                 return props.fontFamily;
         }
