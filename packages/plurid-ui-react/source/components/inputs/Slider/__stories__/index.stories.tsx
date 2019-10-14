@@ -27,6 +27,7 @@ storiesOf(
 .addDecorator(withKnobs)
 .add('basic', () => {
     const value = number('Value', 50);
+    const level = number('Level', 0);
     const showValue = boolean('Show Value', false);
     const thumbSize = select(label, options, defaultValue);
     const _thumbSize = thumbSize === 'small'
@@ -46,6 +47,7 @@ storiesOf(
             atChange={() => {}}
 
             thumbSize={_thumbSize}
+            level={level}
         />
     );
 })
