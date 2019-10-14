@@ -12,39 +12,45 @@ import {
 
 
 
+const DEFAULT_LEVEL = 0;
+const DEFAULT_THUMB_SIZE = 'large';
+const DEFAULT_STEP = 1;
+const DEFAULT_VALUE = 0;
+const DEFAULT_MIN = 0;
+const DEFAULT_MAX = 100;
+
 interface SliderProperties {
+    defaultValue?: number;
+    min?: number;
+    max?: number;
+    step?: number;
+    name?: string;
     theme?: Theme;
     level?: number;
-    name?: string;
-    step?: number;
-    namedValueAbove?: boolean;
-    valueRight?: boolean;
     thumbSize?: 'small' | 'normal' | 'large';
     width?: number | string;
     valueSign?: string;
+    namedValueAbove?: boolean;
 
-    min: number;
-    max: number;
     value: number;
-    defaultValue: number;
     atChange: (value: number) => void;
 }
 
 const Slider: React.FC<SliderProperties> = (properties) => {
     const {
+        defaultValue,
+        min,
+        max,
+        step,
+        name,
         theme,
         level,
-        name,
-        step,
-        namedValueAbove,
         thumbSize,
         width,
         valueSign,
+        namedValueAbove,
 
-        min,
-        max,
         value,
-        defaultValue,
         atChange,
     } = properties;
 
@@ -55,19 +61,19 @@ const Slider: React.FC<SliderProperties> = (properties) => {
         : theme;
 
     const _level = level === undefined
-        ? 0
+        ? DEFAULT_LEVEL
         : level;
 
     const _thumbSize = thumbSize === undefined
-        ? 'large'
+        ? DEFAULT_THUMB_SIZE
         : thumbSize;
 
     const _step = step === undefined
-        ? 1
+        ? DEFAULT_STEP
         : step;
 
     const handleDoubleClick = () => {
-        atChange(defaultValue);
+        atChange(defaultValue || DEFAULT_VALUE);
     }
 
     const handleSliderInput = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -102,8 +108,8 @@ const Slider: React.FC<SliderProperties> = (properties) => {
             >
                 <input
                     type="range"
-                    min={min}
-                    max={max}
+                    min={min || DEFAULT_MIN}
+                    max={max || DEFAULT_MAX}
                     name={name}
                     value={value}
                     step={_step}
