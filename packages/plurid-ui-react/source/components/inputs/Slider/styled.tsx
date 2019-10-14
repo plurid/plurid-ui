@@ -45,20 +45,51 @@ export const StyledSliderInputContainer: any = styled.div`
 
     input[type=range]::-webkit-slider-thumb {
         border: 2px solid ${(props: any) => props.theme.colorPrimary };
-        height: 26px;
-        width: 26px;
-        border-radius: 50px;
+        height: ${(props: any) => {
+            switch (props.thumbSize) {
+                case 'small':
+                    return '14px';
+                case 'normal':
+                    return '20px';
+                case 'large':
+                    return '26px';
+                default:
+                    return '26px';
+            }
+        }};
+        width: ${(props: any) => {
+            switch (props.thumbSize) {
+                case 'small':
+                    return '14px';
+                case 'normal':
+                    return '20px';
+                case 'large':
+                    return '26px';
+                default:
+                    return '26px';
+            }
+        }};
         background: ${(props: any) => {
             if (props.hovered) {
                 return props.theme.colorPrimary;
             }
-
-            // return '#384158';
             return props.theme.backgroundColorTertiary;
         }};
+        margin-top: ${(props: any) => {
+            switch (props.thumbSize) {
+                case 'small':
+                    return '-7px';
+                case 'normal':
+                    return '-10px';
+                case 'large':
+                    return '-13px';
+                default:
+                    return '-13px';
+            }
+        }};
+        border-radius: 50px;
         cursor: pointer;
         -webkit-appearance: none;
-        margin-top: -13px;
     }
 
     input[type=range]:focus::-webkit-slider-runnable-track {
