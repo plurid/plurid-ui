@@ -1,19 +1,45 @@
 import styled from 'styled-components';
 
+import {
+    fontFamilySansSerif,
+} from '../../../data/constants';
 
 
 
-export const StyledSlider = styled.div`
+export const StyledSlider: any = styled.div`
+    display: grid;
+    align-items: center;
+    font-family: ${fontFamilySansSerif};
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+
+    width: ${(props: any) => {
+        if (props.width) {
+            if (typeof props.width === 'string') {
+                return props.width;
+            }
+            return props.width + 'px';
+        }
+        return '100px';
+    }};
+`;
+
+
+export const StyledNamedValue: any = styled.div`
     display: flex;
     align-items: center;
-    font-family: Ubuntu, 'Work Sans', -apple-system, BlinkMacSystemFont, Roboto,
-        'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    user-select: none;
 `;
 
 
 export const StyledSliderInputContainer: any = styled.div`
     width: ${(props: any) => {
         if (props.width) {
+            if (typeof props.width === 'string') {
+                return props.width;
+            }
             return props.width + 'px';
         }
         return '100px';
@@ -26,9 +52,10 @@ export const StyledSliderInputContainer: any = styled.div`
    input[type=range] {
         -webkit-appearance: none;
         width: 100%;
-        margin: 6.5px 0;
+        margin: 4px 0;
         padding: 10px 0;
         background: transparent;
+        cursor: pointer;
     }
 
     input[type=range]:focus {
@@ -90,13 +117,13 @@ export const StyledSliderInputContainer: any = styled.div`
         margin-top: ${(props: any) => {
             switch (props.thumbSize) {
                 case 'small':
-                    return '-7px';
+                    return '-6px';
                 case 'normal':
-                    return '-10px';
+                    return '-9px';
                 case 'large':
-                    return '-13px';
+                    return '-12px';
                 default:
-                    return '-13px';
+                    return '-12px';
             }
         }};
         border-radius: 50px;

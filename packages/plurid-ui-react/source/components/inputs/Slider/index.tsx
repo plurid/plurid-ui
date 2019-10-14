@@ -5,6 +5,7 @@ import themes, { Theme } from '@plurid/plurid-themes';
 
 import {
     StyledSlider,
+    StyledNamedValue,
     StyledSliderInputContainer,
     StyledSliderValue,
 } from './styled';
@@ -16,8 +17,10 @@ interface SliderProperties {
     level?: number;
     name?: string;
     step?: number;
-    showValue?: boolean;
+    namedValueAbove?: boolean;
+    valueRight?: boolean;
     thumbSize?: 'small' | 'normal' | 'large';
+    width?: number | string;
 
     min: number;
     max: number;
@@ -32,8 +35,10 @@ const Slider: React.FC<SliderProperties> = (properties) => {
         level,
         name,
         step,
-        showValue,
+        namedValueAbove,
+        valueRight,
         thumbSize,
+        width,
 
         min,
         max,
@@ -71,12 +76,28 @@ const Slider: React.FC<SliderProperties> = (properties) => {
     return (
         <StyledSlider
             theme={_theme}
+            width={width}
         >
+            {namedValueAbove && (
+                <StyledNamedValue>
+                    <div>
+                        {name}
+                    </div>
+
+                    <StyledSliderValue
+                        theme={_theme}
+                    >
+                        {parseFloat(value + '')}
+                    </StyledSliderValue>
+                </StyledNamedValue>
+            )}
+
             <StyledSliderInputContainer
                 theme={_theme}
                 hovered={mouseOver}
                 thumbSize={_thumbSize}
                 level={_level}
+                width={width}
             >
                 <input
                     type="range"
@@ -93,7 +114,7 @@ const Slider: React.FC<SliderProperties> = (properties) => {
                 />
             </StyledSliderInputContainer>
 
-            {showValue && (
+            {valueRight && (
                 <StyledSliderValue
                     theme={_theme}
                 >
