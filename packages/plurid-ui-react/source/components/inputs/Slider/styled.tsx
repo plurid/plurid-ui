@@ -29,7 +29,8 @@ export const StyledNamedValue: any = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    line-height: 16px;
     user-select: none;
 `;
 

@@ -31,7 +31,7 @@ storiesOf(
 
     const level = number('Level', 0);
     const name = text('Name', '');
-    const valueRight = boolean('Show Value Right', false);
+    const valueSign = text('Value Sign', '');
     const namedValueAbove = boolean('Show Named Value Above', false);
     const thumbSize = select(label, options, defaultValue);
     const _thumbSize = thumbSize === 'small'
@@ -51,9 +51,9 @@ storiesOf(
 
             name={name}
             namedValueAbove={namedValueAbove}
-            valueRight={valueRight}
             level={level}
             thumbSize={_thumbSize}
+            valueSign={valueSign}
         />
     );
 })
