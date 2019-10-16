@@ -2,20 +2,49 @@ import styled from 'styled-components';
 
 
 
-export const StyledLinkButton = styled.button`
+export const StyledLinkButton: any = styled.button`
     color: ${(props: any) => {
-        return props.theme.colorPrimary;
+        switch (props.level) {
+            case 0:
+                return props.theme.colorPrimary;
+            case 1:
+                return props.theme.colorSecondary;
+            case 2:
+                return props.theme.colorTertiary;
+            default:
+                return props.theme.colorPrimary;
+        }
+    }};
+    margin: ${(props: any) => {
+        if (props.inline) {
+            return '0';
+        }
+        return '0 1rem';
+    }};
+    padding: ${(props: any) => {
+        if (props.inline) {
+            return '0';
+        }
+        return 'initial';
+    }};
+    font-size: ${(props: any) => {
+        if (props.inline) {
+            return 'initial';
+        }
+        return '1rem';
+    }};
+    display: ${(props: any) => {
+        if (props.inline) {
+            return 'inline';
+        }
+        return 'grid';
     }};
 
-    display: block;
-    margin: 0 1rem;
     border: none;
     outline: none;
     user-select: none;
     cursor: pointer;
-    display: grid;
     place-content: center;
-    font-size: 1rem;
     font-weight: bold;
     background: transparent;
 `;

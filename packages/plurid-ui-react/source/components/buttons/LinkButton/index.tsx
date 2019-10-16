@@ -7,27 +7,41 @@ import {
 
 
 
+const DEFAULT_LEVEL = 0;
+
 interface LinkButtonProperties {
-    theme?: Theme;
     text: string;
     atClick: () => void;
+
+    theme?: Theme;
+    level?: number;
+    inline?: boolean;
 }
 
 const LinkButton: React.FC<LinkButtonProperties> = (properties) => {
     const {
-        theme,
         text,
         atClick,
+
+        theme,
+        level,
+        inline,
     } = properties;
 
     const _theme = theme === undefined
         ? themes.plurid
         : theme;
 
+    const _level = level === undefined
+        ? DEFAULT_LEVEL
+        : level;
+
     return (
         <StyledLinkButton
-            theme={_theme}
             onClick={atClick}
+            theme={_theme}
+            level={_level}
+            inline={inline}
         >
             {text}
         </StyledLinkButton>
