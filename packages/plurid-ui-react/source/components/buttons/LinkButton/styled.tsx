@@ -29,7 +29,7 @@ export const StyledLinkButton: any = styled.button`
     }};
     font-size: ${(props: any) => {
         if (props.inline) {
-            return 'initial';
+            return 'inherit';
         }
         return '1rem';
     }};
