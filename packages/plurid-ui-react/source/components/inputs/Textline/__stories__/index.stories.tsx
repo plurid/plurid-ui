@@ -29,20 +29,22 @@ storiesOf(
 )
 .addDecorator(withKnobs)
 .add('basic', () => {
-    const round = boolean('Round', true);
-    const devisible = boolean('Devisible', false);
-    const center = boolean('Center', false);
+    const textValue = text('Text', '');
+
     const autoCorrect = text('AutoCorrect', '');
     const spellCheck = boolean('SpellCheck', false);
-    const level = number('Level', 0);
+
     const theme = select(themeLabel, themeOptions, defaultThemeValue);
-    const textValue = text('Text', '');
+    const level = number('Level', 0);
+    const devisible = boolean('Devisible', false);
+    const center = boolean('Center', false);
+    const round = boolean('Round', true);
 
     return (
         <PluridTextline
             text={textValue}
 
-            placeholder="foo"
+            placeholder="placeholder"
             autoCorrect={autoCorrect}
             spellCheck={spellCheck}
 
