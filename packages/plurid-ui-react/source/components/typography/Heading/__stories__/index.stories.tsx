@@ -8,7 +8,7 @@ import Heading from '../';
 
 
 storiesOf(
-    'Heading',
+    'PluridHeading',
     module,
 )
 .addDecorator(withKnobs)

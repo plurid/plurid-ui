@@ -7,10 +7,11 @@ import {
 
 
 
-interface SwitchProperties {
+interface TextlineProperties {
     text: string;
     atChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 
+    type?: 'text' | 'password';
     placeholder?: string;
     autoCapitalize?: string;
     autoComplete?: string;
@@ -23,11 +24,29 @@ interface SwitchProperties {
     width?: string | number;
 }
 
-const Textline: React.FC<SwitchProperties> = (properties) => {
+
+/**
+ * @param text `string`
+ * @param atChange `(event: React.ChangeEvent<HTMLInputElement>) => void`
+ *
+ * @param type optional - `'text' | 'password'`
+ * @param placeholder optional - `string`
+ * @param autoCapitalize optional - `string`
+ * @param autoComplete optional - `string`
+ * @param autoCorrect optional - `string`
+ * @param spellCheck optional - `boolean`
+ *
+ * @param theme optional - `Theme`
+ * @param level optional - `number`
+ * @param round optional - `boolean`
+ * @param width optional - `string | number`
+ */
+const Textline: React.FC<TextlineProperties> = (properties) => {
     const {
         text,
         atChange,
 
+        type,
         placeholder,
         autoCapitalize,
         autoComplete,
@@ -39,6 +58,10 @@ const Textline: React.FC<SwitchProperties> = (properties) => {
         round,
         width,
     } = properties;
+
+    const _type = type === undefined
+        ? 'text'
+        : type;
 
     const _theme = theme === undefined
         ? themes.plurid
@@ -60,7 +83,7 @@ const Textline: React.FC<SwitchProperties> = (properties) => {
             width={width}
         >
             <input
-                type="text"
+                type={_type}
 
                 value={text}
                 onChange={atChange}

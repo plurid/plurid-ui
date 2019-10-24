@@ -17,7 +17,7 @@ const actions = {
 };
 
 storiesOf(
-    'LinkButton',
+    'PluridLinkButton',
     module,
 )
 .addDecorator(withKnobs)

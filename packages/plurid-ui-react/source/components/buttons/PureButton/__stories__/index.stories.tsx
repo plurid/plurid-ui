@@ -27,7 +27,7 @@ const options = {
 const defaultValue = 'normal';
 
 storiesOf(
-    'PureButton',
+    'PluridPureButton',
     module,
 )
 .addDecorator(withKnobs)

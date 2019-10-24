@@ -22,7 +22,7 @@ const options = {
 const defaultValue = 'normal';
 
 storiesOf(
-    'Slider',
+    'PluridSlider',
     module,
 )
 .addDecorator(withKnobs)
