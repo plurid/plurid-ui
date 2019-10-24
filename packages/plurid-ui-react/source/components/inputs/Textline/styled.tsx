@@ -13,7 +13,6 @@ export const StyledTextline: any = styled.div`
         outline: none;
         padding: 0.6rem 1rem;
         font-size: 0.8rem;
-        width: 100%;
         min-height: 36px;
 
         background-color: ${(props: any) => {
@@ -41,6 +40,17 @@ export const StyledTextline: any = styled.div`
                 return '1000px';
             }
             return '0px';
+        }};
+        width: ${(props: any) => {
+            if (!props.width) {
+                return '100%';
+            }
+
+            if (typeof props.width === 'number') {
+                return props.width + 'px';
+            }
+
+            return props.width;
         }};
 
         ::placeholder {

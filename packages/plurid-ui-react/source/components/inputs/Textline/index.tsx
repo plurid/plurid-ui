@@ -13,6 +13,7 @@ interface SwitchProperties {
     theme?: Theme;
     level?: number;
     round?: boolean;
+    width?: string | number;
     atChange: () => void;
 }
 
@@ -23,6 +24,7 @@ const Textline: React.FC<SwitchProperties> = (properties) => {
         theme,
         level,
         round,
+        width,
         atChange,
     } = properties;
 
@@ -43,6 +45,7 @@ const Textline: React.FC<SwitchProperties> = (properties) => {
             theme={_theme}
             level={_level}
             round={_round}
+            width={width}
         >
             <input
                 type="text"
