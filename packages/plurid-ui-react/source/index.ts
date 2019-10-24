@@ -2,16 +2,17 @@
 import GlobalStyles from './components/general';
 
 // buttons
-import PureButton from './components/buttons/PureButton';
-import LinkButton from './components/buttons/LinkButton';
+import PluridPureButton from './components/buttons/PureButton';
+import PluridLinkButton from './components/buttons/LinkButton';
 
 // inputs
-import Slider from './components/inputs/Slider';
-import Switch from './components/inputs/Switch';
+import PluridSlider from './components/inputs/Slider';
+import PluridSwitch from './components/inputs/Switch';
+import PluridTextline from './components/inputs/Textline';
 
 // typography
-import Heading from './components/typography/Heading';
-import Paragraph from './components/typography/Paragraph';
+import PluridHeading from './components/typography/Heading';
+import PluridParagraph from './components/typography/Paragraph';
 
 
 
@@ -20,14 +21,15 @@ export {
     GlobalStyles,
 
     // buttons
-    PureButton,
-    LinkButton,
+    PluridPureButton,
+    PluridLinkButton,
 
     // inputs
-    Slider,
-    Switch,
+    PluridSlider,
+    PluridSwitch,
+    PluridTextline,
 
     // typography
-    Heading,
-    Paragraph,
+    PluridHeading,
+    PluridParagraph,
 }
