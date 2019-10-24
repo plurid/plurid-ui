@@ -2,15 +2,51 @@ import styled from 'styled-components';
 
 
 
-export const StyledTextline: any = styled.label`
+export const StyledTextline: any = styled.div`
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 100%;
 
     input {
-        opacity: 0;
-        width: 0;
-        height: 0;
+        box-sizing: border-box;
+        border: none;
+        outline: none;
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+        width: 100%;
+        min-height: 36px;
+
+        background-color: ${(props: any) => {
+            switch (props.level) {
+                case 0:
+                    return props.theme.backgroundColorPrimary;
+                case 1:
+                    return props.theme.backgroundColorSecondary;
+                case 2:
+                    return props.theme.backgroundColorTertiary;
+                case 3:
+                    return props.theme.backgroundColorQuaternary;
+                default:
+                    return props.theme.backgroundColorPrimary;
+            }
+        }};
+        color: ${(props: any) => {
+            return props.theme.colorPrimary;
+        }};
+        box-shadow: inset 0px 4px 4px ${(props: any) => {
+            return props.theme.boxShadowUmbraColor;
+        }};
+        border-radius: ${(props: any) => {
+            if (props.round) {
+                return '1000px';
+            }
+            return '0px';
+        }};
+
+        ::placeholder {
+            color: ${(props: any) => {
+                return props.theme.colorSecondary;
+            }};
+        }
     }
 `;
