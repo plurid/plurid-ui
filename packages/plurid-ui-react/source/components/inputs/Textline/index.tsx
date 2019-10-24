@@ -8,6 +8,8 @@ import {
 
 
 interface SwitchProperties {
+    text: string;
+    placeholder?: string;
     theme?: Theme;
     level?: number;
     round?: boolean;
@@ -16,6 +18,8 @@ interface SwitchProperties {
 
 const Textline: React.FC<SwitchProperties> = (properties) => {
     const {
+        text,
+        placeholder,
         theme,
         level,
         round,
@@ -37,9 +41,13 @@ const Textline: React.FC<SwitchProperties> = (properties) => {
     return (
         <StyledTextline
             theme={_theme}
+            level={_level}
+            round={_round}
         >
             <input
                 type="text"
+                placeholder={placeholder}
+                value={text}
                 onChange={() => atChange()}
             />
         </StyledTextline>
