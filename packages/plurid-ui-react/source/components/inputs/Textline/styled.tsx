@@ -60,6 +60,13 @@ export const StyledTextline: any = styled.div`
 
             return props.width;
         }};
+        text-align: ${(props: any) => {
+            if (props.center) {
+                return 'center';
+            }
+
+            return 'left';
+        }};
 
         ::placeholder {
             color: ${(props: any) => {

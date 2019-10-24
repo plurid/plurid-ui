@@ -31,6 +31,9 @@ storiesOf(
 .add('basic', () => {
     const round = boolean('Round', true);
     const devisible = boolean('Devisible', false);
+    const center = boolean('Center', false);
+    const autoCorrect = text('AutoCorrect', '');
+    const spellCheck = boolean('SpellCheck', false);
     const level = number('Level', 0);
     const theme = select(themeLabel, themeOptions, defaultThemeValue);
     const textValue = text('Text', '');
@@ -40,9 +43,12 @@ storiesOf(
             text={textValue}
 
             placeholder="foo"
+            autoCorrect={autoCorrect}
+            spellCheck={spellCheck}
 
             theme={themes[theme]}
             devisible={devisible}
+            center={center}
             level={level}
             round={round}
             {...actions}
