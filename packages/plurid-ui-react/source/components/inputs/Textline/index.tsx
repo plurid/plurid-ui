@@ -9,23 +9,35 @@ import {
 
 interface SwitchProperties {
     text: string;
+    atChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+
     placeholder?: string;
+    autoCapitalize?: string;
+    autoComplete?: string;
+    autoCorrect?: string;
+    spellCheck?: boolean;
+
     theme?: Theme;
     level?: number;
     round?: boolean;
     width?: string | number;
-    atChange: () => void;
 }
 
 const Textline: React.FC<SwitchProperties> = (properties) => {
     const {
         text,
+        atChange,
+
         placeholder,
+        autoCapitalize,
+        autoComplete,
+        autoCorrect,
+        spellCheck,
+
         theme,
         level,
         round,
         width,
-        atChange,
     } = properties;
 
     const _theme = theme === undefined
@@ -49,9 +61,15 @@ const Textline: React.FC<SwitchProperties> = (properties) => {
         >
             <input
                 type="text"
-                placeholder={placeholder}
+
                 value={text}
-                onChange={() => atChange()}
+                onChange={atChange}
+
+                placeholder={placeholder}
+                autoCapitalize={autoCapitalize}
+                autoComplete={autoComplete}
+                autoCorrect={autoCorrect}
+                spellCheck={spellCheck}
             />
         </StyledTextline>
     );
