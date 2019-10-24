@@ -13,7 +13,7 @@ const actions = {
 };
 
 storiesOf(
-    'Switch',
+    'PluridSwitch',
     module,
 )
 .addDecorator(withKnobs)

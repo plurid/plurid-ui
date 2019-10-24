@@ -17,7 +17,7 @@ const options = {
 const defaultValue = 'normal';
 
 storiesOf(
-    'Paragraph',
+    'PluridParagraph',
     module,
 )
 .addDecorator(withKnobs)
