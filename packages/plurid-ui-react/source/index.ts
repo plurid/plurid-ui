@@ -6,6 +6,7 @@ import PluridPureButton from './components/buttons/PureButton';
 import PluridLinkButton from './components/buttons/LinkButton';
 
 // inputs
+import PluridSelect from './components/inputs/Select';
 import PluridSlider from './components/inputs/Slider';
 import PluridSwitch from './components/inputs/Switch';
 import PluridTextline from './components/inputs/Textline';
@@ -25,6 +26,7 @@ export {
     PluridLinkButton,
 
     // inputs
+    PluridSelect,
     PluridSlider,
     PluridSwitch,
     PluridTextline,
