@@ -1,5 +1,5 @@
 // general
-import GlobalStyles from './components/general';
+import PluridGlobalStyles from './components/general';
 
 // buttons
 import PluridPureButton from './components/buttons/PureButton';
@@ -18,7 +18,7 @@ import PluridParagraph from './components/typography/Paragraph';
 
 export {
     // general
-    GlobalStyles,
+    PluridGlobalStyles,
 
     // buttons
     PluridPureButton,
