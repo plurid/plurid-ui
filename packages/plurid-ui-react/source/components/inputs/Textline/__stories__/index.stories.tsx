@@ -30,6 +30,7 @@ storiesOf(
 .addDecorator(withKnobs)
 .add('basic', () => {
     const round = boolean('Round', true);
+    const devisible = boolean('Devisible', false);
     const level = number('Level', 0);
     const theme = select(themeLabel, themeOptions, defaultThemeValue);
     const textValue = text('Text', '');
@@ -37,8 +38,11 @@ storiesOf(
     return (
         <PluridTextline
             text={textValue}
+
             placeholder="foo"
+
             theme={themes[theme]}
+            devisible={devisible}
             level={level}
             round={round}
             {...actions}

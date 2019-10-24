@@ -20,6 +20,7 @@ interface TextlineProperties {
 
     theme?: Theme;
     level?: number;
+    devisible?: boolean;
     round?: boolean;
     width?: string | number;
 }
@@ -55,6 +56,7 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
 
         theme,
         level,
+        devisible,
         round,
         width,
     } = properties;
@@ -79,6 +81,7 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
         <StyledTextline
             theme={_theme}
             level={_level}
+            devisible={devisible}
             round={_round}
             width={width}
         >
