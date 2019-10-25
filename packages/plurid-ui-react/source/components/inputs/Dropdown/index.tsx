@@ -20,8 +20,8 @@ interface Item {
 
 interface DropdownProps {
     selectables: (Item | string)[];
-    selected: string;
-    onSelect: any;
+    selected: Item | string;
+    atSelect: (selection: Item | string, kind?: string) => void;
 
     left?: boolean;
     kind?: string;
@@ -37,12 +37,11 @@ interface DropdownProps {
 
 
 const Dropdown: React.FC<DropdownProps> = (props) => {
-    const [showList, setShowList] = useState(false);
 
     const {
         selected,
         selectables,
-        onSelect,
+        atSelect,
 
         left,
         kind,
@@ -61,11 +60,22 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
         ? 0
         : level;
 
+    const [showList, setShowList] = useState(false);
+    const [selectedBackgroundColor, setSelectedBackgroundColor] = useState(_theme.backgroundColorTertiary);
+
     useEffect(() => {
         if (!dropdownToggled) {
             setShowList(false);
         }
     }, [dropdownToggled]);
+
+    useEffect(() => {
+        if (_level === 2) {
+            setSelectedBackgroundColor(_theme.backgroundColorSecondary);
+        } else {
+            setSelectedBackgroundColor(_theme.backgroundColorTertiary);
+        }
+    }, [_level]);
 
     return (
         <StyledDropdown
@@ -75,10 +85,16 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
             <StyledDropdownSelected
                 onClick={() => {
                     setShowList(!showList);
-                    setDropdownToggled(kind);
+
+                    if (setDropdownToggled) {
+                        setDropdownToggled(kind);
+                    }
                 }}
             >
-                {selected}
+                {typeof selected === 'string'
+                    ? selected
+                    : selected.value
+                }
             </StyledDropdownSelected>
 
             {showList && (
@@ -96,17 +112,28 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
                                 ? selectable
                                 : selectable.value;
 
+                            let isSelected = false;
+                            if (typeof selected === 'string') {
+                                if (selected === selectableID) {
+                                    isSelected = true;
+                                }
+                            } else {
+                                if (selected.id === selectableID) {
+                                    isSelected = true;
+                                }
+                            }
+
                             return (
                                 <li
                                     key={selectableID}
-                                    onClick={() => onSelect(selectable, kind)}
+                                    onClick={() => kind
+                                        ? atSelect(selectable, kind)
+                                        : atSelect(selectable)
+                                    }
                                     style={{
-                                        backgroundColor:
-                                            selected === selectableID
-                                                ? _level === 2
-                                                    ? _theme.backgroundColorSecondary
-                                                    : _theme.backgroundColorTertiary
-                                                : '',
+                                        backgroundColor: isSelected
+                                            ? selectedBackgroundColor
+                                            : '',
                                     }}
                                 >
                                     {selectableValue}
