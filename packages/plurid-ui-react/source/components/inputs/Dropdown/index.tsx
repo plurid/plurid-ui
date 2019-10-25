@@ -23,11 +23,16 @@ interface DropdownProps {
     selected: string;
     onSelect: any;
 
+    left?: boolean;
     kind?: string;
     dropdownToggled?: boolean;
-    setDropdownToggled?: any
+    setDropdownToggled?: any;
 
     theme?: Theme;
+    level?: number;
+    devisible?: boolean;
+    round?: boolean;
+    width?: string | number;
 }
 
 
@@ -38,16 +43,23 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
         selected,
         selectables,
         onSelect,
+
+        left,
         kind,
         dropdownToggled,
         setDropdownToggled,
 
         theme,
+        level,
     } = props;
 
     const _theme = theme === undefined
         ? themes.plurid
         : theme;
+
+    const _level = level === undefined
+        ? 0
+        : level;
 
     useEffect(() => {
         if (!dropdownToggled) {
@@ -56,7 +68,10 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
     }, [dropdownToggled]);
 
     return (
-        <StyledDropdown>
+        <StyledDropdown
+            theme={_theme}
+            left={left}
+        >
             <StyledDropdownSelected
                 onClick={() => {
                     setShowList(!showList);
@@ -68,7 +83,9 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
 
             {showList && (
                 <StyledDropdownList
-                    theme={theme}
+                    theme={_theme}
+                    left={left}
+                    level={_level}
                 >
                     <ul>
                         {selectables.map((selectable) => {
@@ -84,9 +101,12 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
                                     key={selectableID}
                                     onClick={() => onSelect(selectable, kind)}
                                     style={{
-                                        backgroundColor: selected === selectableID
-                                            ? _theme.backgroundColorTertiary
-                                            : '',
+                                        backgroundColor:
+                                            selected === selectableID
+                                                ? _level === 2
+                                                    ? _theme.backgroundColorSecondary
+                                                    : _theme.backgroundColorTertiary
+                                                : '',
                                     }}
                                 >
                                     {selectableValue}
