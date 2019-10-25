@@ -10,6 +10,7 @@ import {
 interface TextlineProperties {
     text: string;
     atChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    atKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 
     type?: 'text' | 'password';
     placeholder?: string;
@@ -30,6 +31,7 @@ interface TextlineProperties {
 /**
  * @param text `string`
  * @param atChange `(event: React.ChangeEvent<HTMLInputElement>) => void`
+ * @param atKeyDown `(event: React.KeyboardEvent<HTMLInputElement>) => void`
  *
  * @param type optional - `'text' | 'password'`
  * @param placeholder optional - `string`
@@ -49,6 +51,7 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
     const {
         text,
         atChange,
+        atKeyDown,
 
         type,
         placeholder,
@@ -95,6 +98,7 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
 
                 value={text}
                 onChange={atChange}
+                onKeyDown={atKeyDown}
 
                 placeholder={placeholder}
                 autoCapitalize={autoCapitalize}
