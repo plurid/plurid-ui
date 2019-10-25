@@ -40,8 +40,10 @@ storiesOf(
         'Three'
     ];
 
+    const left = boolean('Left', false);
+
     const theme = select(themeLabel, themeOptions, defaultThemeValue);
-    // const level = number('Level', 0);
+    const level = number('Level', 0);
     // const devisible = boolean('Devisible', false);
     // const round = boolean('Round', true);
 
@@ -51,9 +53,11 @@ storiesOf(
             selected="One"
             onSelect={() => {}}
 
+            left={left}
+
             theme={themes[theme]}
+            level={level}
             // devisible={devisible}
-            // level={level}
             // round={round}
             {...actions}
         />

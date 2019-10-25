@@ -2,8 +2,17 @@ import styled from 'styled-components';
 
 
 
-export const StyledDropdown = styled.div`
-    text-align: right;
+export const StyledDropdown: any = styled.div`
+    color: ${(props: any) => {
+        return props.theme.colorPrimary;
+    }};
+    text-align: ${(props: any) => {
+        if (props.left) {
+            return 'left';
+        }
+        return 'right';
+    }};
+
     position: relative;
 `;
 
@@ -15,15 +24,37 @@ export const StyledDropdownSelected: any = styled.div`
 
 export const StyledDropdownList: any = styled.div`
     background: ${(props: any) => {
-        return props.theme.backgroundColorSecondary;
+        switch (props.level) {
+            case 0:
+                return props.theme.backgroundColorPrimary;
+            case 1:
+                return props.theme.backgroundColorSecondary;
+            case 2:
+                return props.theme.backgroundColorTertiary;
+            case 3:
+                return props.theme.backgroundColorQuaternary;
+            default:
+                return props.theme.backgroundColorPrimary;
+        }
     }};
     color: ${(props: any) => {
         return props.theme.colorPrimary;
     }};
+    left: ${(props: any) => {
+        if (props.left) {
+            return '0px';
+        }
+        return 'auto';
+    }};
+    right: ${(props: any) => {
+        if (props.left) {
+            return 'auto';
+        }
+        return '0px';
+    }};
 
     position: absolute;
     top: 20px;
-    right: 0px;
     border-radius: 10px;
     width: 60px;
     z-index: 9999;
@@ -42,6 +73,9 @@ export const StyledDropdownList: any = styled.div`
 
     ul li:hover {
         background: ${(props: any) => {
+            if (props.level === 2) {
+                return props.theme.backgroundColorSecondary;
+            }
             return props.theme.backgroundColorTertiary;
         }};
     }
