@@ -40,6 +40,21 @@ storiesOf(
         'Three'
     ];
 
+    const selectablesItems = [
+        {
+            id: '1_MONTH',
+            value: '1 Month',
+        },
+        {
+            id: '1_YEAR',
+            value: '1 Year',
+        },
+        {
+            id: '100_YEARS',
+            value: '100 Years',
+        },
+    ];
+
     const left = boolean('Left', false);
 
     const theme = select(themeLabel, themeOptions, defaultThemeValue);
@@ -49,9 +64,9 @@ storiesOf(
 
     return (
         <PluridDropdown
-            selectables={selectables}
-            selected="One"
-            onSelect={() => {}}
+            selectables={selectablesItems}
+            selected={selectablesItems[0]}
+            atSelect={(selected) => {console.log(selected)}}
 
             left={left}
 

@@ -19,6 +19,7 @@ export const StyledDropdown: any = styled.div`
 
 export const StyledDropdownSelected: any = styled.div`
     cursor: pointer;
+    user-select: none;
 `;
 
 
@@ -56,7 +57,7 @@ export const StyledDropdownList: any = styled.div`
     position: absolute;
     top: 20px;
     border-radius: 10px;
-    width: 60px;
+    min-width: 60px;
     z-index: 9999;
     box-shadow: 0px 3px 5px 1px hsla(327, 94%, 10%, 0.7);
 
@@ -67,7 +68,7 @@ export const StyledDropdownList: any = styled.div`
     }
 
     ul li {
-        padding: 5px;
+        padding: 0.3rem 0.6rem;
         cursor: pointer;
     }
 
