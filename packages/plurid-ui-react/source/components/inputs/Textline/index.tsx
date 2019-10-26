@@ -8,19 +8,11 @@ import {
     StyledEnterIcon,
 } from './styled';
 
+import {
+    setNativeValue,
+} from '../../../utilities/input';
 
 
-function setNativeValue(element: any, value: any) {
-    const valueSetter = (Object as any).getOwnPropertyDescriptor(element, 'value').set;
-    const prototype = Object.getPrototypeOf(element);
-    const prototypeValueSetter = (Object as any).getOwnPropertyDescriptor(prototype, 'value').set;
-
-    if (valueSetter && valueSetter !== prototypeValueSetter) {
-        prototypeValueSetter.call(element, value);
-    } else {
-      valueSetter.call(element, value);
-    }
-}
 
 interface TextlineProperties {
     text: string;
@@ -133,7 +125,7 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
         ) {
             setNativeValue(inputElement.current, '');
             const _event = new Event('input', {
-                bubbles: true
+                bubbles: true,
             });
             inputElement.current.dispatchEvent(_event);
         }
