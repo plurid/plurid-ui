@@ -150,13 +150,19 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
                 ref={inputElement}
             />
 
-            {enterIcon && text.length > 0 && (
-                <StyledEnterIcon
-                    theme={_theme}
-                >
-                    ➔
-                </StyledEnterIcon>
-            )}
+            {
+                enterIcon
+                && enterAtClick
+                && text.length > 0
+                && (
+                    <StyledEnterIcon
+                        theme={_theme}
+                        onClick={() => enterAtClick()}
+                    >
+                        ➔
+                    </StyledEnterIcon>
+                )
+            }
         </StyledTextline>
     );
 }
