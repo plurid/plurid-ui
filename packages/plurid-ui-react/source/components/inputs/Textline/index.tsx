@@ -30,6 +30,7 @@ interface TextlineProperties {
     width?: string | number;
 
     enterIcon?: boolean;
+    enterAtClick?: () => void;
     escapeClear?: boolean;
 }
 
@@ -54,6 +55,7 @@ interface TextlineProperties {
  * @param width optional - `string | number`
  *
  * @param enterIcon optional - `boolean`
+ * @param enterAtClick optional - `() => void`
  * @param escapeClear optional - `boolean`
  */
 const Textline: React.FC<TextlineProperties> = (properties) => {
@@ -77,6 +79,7 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
         width,
 
         enterIcon,
+        enterAtClick,
         escapeClear,
     } = properties;
 
@@ -103,12 +106,22 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
             atKeyDown(event);
         }
 
-        if (escapeClear && event.key === 'Escape') {
-            if (inputElement.current) {
-                const _event = new Event('input', { bubbles: true });
-                inputElement.current.value = '';
-                inputElement.current.dispatchEvent(_event);
-            }
+        if (
+            enterIcon
+            && enterAtClick
+            && event.key === 'Enter'
+        ) {
+            enterAtClick();
+        }
+
+        if (
+            escapeClear
+            && event.key === 'Escape'
+            && inputElement.current
+        ) {
+            const _event = new Event('change', { bubbles: true });
+            inputElement.current.value = '';
+            inputElement.current.dispatchEvent(_event);
         }
     }
 
