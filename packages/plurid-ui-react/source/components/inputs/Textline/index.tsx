@@ -10,6 +10,18 @@ import {
 
 
 
+function setNativeValue(element: any, value: any) {
+    const valueSetter = (Object as any).getOwnPropertyDescriptor(element, 'value').set;
+    const prototype = Object.getPrototypeOf(element);
+    const prototypeValueSetter = (Object as any).getOwnPropertyDescriptor(prototype, 'value').set;
+
+    if (valueSetter && valueSetter !== prototypeValueSetter) {
+        prototypeValueSetter.call(element, value);
+    } else {
+      valueSetter.call(element, value);
+    }
+}
+
 interface TextlineProperties {
     text: string;
     atChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -119,8 +131,10 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
             && event.key === 'Escape'
             && inputElement.current
         ) {
-            const _event = new Event('change', { bubbles: true });
-            inputElement.current.value = '';
+            setNativeValue(inputElement.current, '');
+            const _event = new Event('input', {
+                bubbles: true
+            });
             inputElement.current.dispatchEvent(_event);
         }
     }
