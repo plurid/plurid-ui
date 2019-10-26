@@ -27,6 +27,7 @@ interface DropdownProps {
     kind?: string;
     dropdownToggled?: boolean;
     setDropdownToggled?: any;
+    hideAtSelect?: boolean;
 
     theme?: Theme;
     level?: number;
@@ -47,6 +48,7 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
         kind,
         dropdownToggled,
         setDropdownToggled,
+        hideAtSelect,
 
         theme,
         level,
@@ -60,8 +62,17 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
         ? 0
         : level;
 
+    const _hideAtSelect = hideAtSelect === undefined
+        ? true
+        : hideAtSelect;
+
     const [showList, setShowList] = useState(false);
     const [selectedBackgroundColor, setSelectedBackgroundColor] = useState(_theme.backgroundColorTertiary);
+
+    const handleSelect = (selected: string | Item) => {
+        kind ? atSelect(selected, kind) : atSelect(selected);
+        _hideAtSelect ? setShowList(false) : null;
+    }
 
     useEffect(() => {
         if (!dropdownToggled) {
@@ -126,10 +137,7 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
                             return (
                                 <li
                                     key={selectableID}
-                                    onClick={() => kind
-                                        ? atSelect(selectable, kind)
-                                        : atSelect(selectable)
-                                    }
+                                    onClick={() => handleSelect(selectable)}
                                     style={{
                                         backgroundColor: isSelected
                                             ? selectedBackgroundColor
