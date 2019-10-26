@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {
+    useRef,
+} from 'react';
 import themes, { Theme } from '@plurid/plurid-themes';
 
 import {
     StyledTextline,
+    StyledEnterIcon,
 } from './styled';
 
 
@@ -25,6 +28,9 @@ interface TextlineProperties {
     center?: boolean;
     round?: boolean;
     width?: string | number;
+
+    enterIcon?: boolean;
+    escapeClear?: boolean;
 }
 
 
@@ -46,6 +52,9 @@ interface TextlineProperties {
  * @param center optional - `boolean`
  * @param round optional - `boolean`
  * @param width optional - `string | number`
+ *
+ * @param enterIcon optional - `boolean`
+ * @param escapeClear optional - `boolean`
  */
 const Textline: React.FC<TextlineProperties> = (properties) => {
     const {
@@ -66,6 +75,9 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
         center,
         round,
         width,
+
+        enterIcon,
+        escapeClear,
     } = properties;
 
     const _type = type === undefined
@@ -84,6 +96,22 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
         ? true
         : round;
 
+    const inputElement = useRef<HTMLInputElement>(null);
+
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (atKeyDown) {
+            atKeyDown(event);
+        }
+
+        if (escapeClear && event.key === 'Escape') {
+            if (inputElement.current) {
+                const _event = new Event('input', { bubbles: true });
+                inputElement.current.value = '';
+                inputElement.current.dispatchEvent(_event);
+            }
+        }
+    }
+
     return (
         <StyledTextline
             theme={_theme}
@@ -98,14 +126,24 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
 
                 value={text}
                 onChange={atChange}
-                onKeyDown={atKeyDown}
+                onKeyDown={handleKeyDown}
 
                 placeholder={placeholder}
                 autoCapitalize={autoCapitalize}
                 autoComplete={autoComplete}
                 autoCorrect={autoCorrect}
                 spellCheck={spellCheck}
+
+                ref={inputElement}
             />
+
+            {enterIcon && text.length > 0 && (
+                <StyledEnterIcon
+                    theme={_theme}
+                >
+                    ➔
+                </StyledEnterIcon>
+            )}
         </StyledTextline>
     );
 }

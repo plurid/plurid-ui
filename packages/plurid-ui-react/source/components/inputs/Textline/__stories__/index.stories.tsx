@@ -40,6 +40,9 @@ storiesOf(
     const center = boolean('Center', false);
     const round = boolean('Round', true);
 
+    const enterIcon = boolean('Enter Icon', false);
+    const escapeClear = boolean('Escape Clear', false);
+
     return (
         <PluridTextline
             text={textValue}
@@ -53,6 +56,10 @@ storiesOf(
             center={center}
             level={level}
             round={round}
+
+            enterIcon={enterIcon}
+            escapeClear={escapeClear}
+
             {...actions}
         />
     );
