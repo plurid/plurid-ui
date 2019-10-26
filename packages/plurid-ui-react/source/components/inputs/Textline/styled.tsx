@@ -75,3 +75,31 @@ export const StyledTextline: any = styled.div`
         }
     }
 `;
+
+
+export const StyledEnterIcon: any = styled.div`
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0.6rem;
+    height: 20px;
+    width: 20px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    user-select: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+
+    color: ${(props: any) => {
+        return props.theme.colorPrimary;
+    }};
+
+    :hover {
+        border: 1px solid ${(props: any) => {
+            return props.theme.colorPrimary;
+        }};
+    }
+`;
