@@ -31,7 +31,7 @@ export const StyledLinkButton: any = styled.button`
         if (props.inline) {
             return 'inherit';
         }
-        return '1rem';
+        return '0.9rem';
     }};
     display: ${(props: any) => {
         if (props.inline) {
