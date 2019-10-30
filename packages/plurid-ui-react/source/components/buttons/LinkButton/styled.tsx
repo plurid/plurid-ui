@@ -48,3 +48,11 @@ export const StyledLinkButton: any = styled.button`
     font-weight: bold;
     background: transparent;
 `;
+
+
+export const StyledLinkButtonLoading: any = styled.div`
+    position: relative;
+    min-height: 1rem;
+    height: 100%;
+    width: 100%;
+`;
