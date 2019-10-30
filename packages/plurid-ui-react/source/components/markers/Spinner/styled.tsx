@@ -10,35 +10,33 @@ export const StyledSpinner = styled.div`
 `;
 
 export const StyledLoader: any = styled.div`
-    position: relative;
-    border-radius: 50%;
-
     width: ${(props: any) => {
         switch (props.size) {
             case 'small':
-                return '0.8rem';
+                return '1rem';
             case 'normal':
-                return '1rem';
+                return '1.8rem';
             case 'large':
-                return '1.2rem';
+                return '2.4rem';
             default:
-                return '1rem';
+                return '1.8rem';
         }
     }};
     height: ${(props: any) => {
         switch (props.size) {
             case 'small':
-                return '0.8rem';
+                return '1rem';
             case 'normal':
-                return '1rem';
+                return '1.8rem';
             case 'large':
-                return '1.2rem';
+                return '2.4rem';
             default:
-                return '1rem';
+                return '1.8rem';
         }
     }};
-    /* width: 35px;
-    height: 35px; */
+
+    position: relative;
+    border-radius: 50%;
 
     border-top: 0.2em solid rgba(255, 255, 255, 0.1);
     border-right: 0.2em solid rgba(255, 255, 255, 0.1);

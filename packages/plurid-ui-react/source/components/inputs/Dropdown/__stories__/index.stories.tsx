@@ -11,22 +11,17 @@ import {
 
 import PluridDropdown from '../';
 
+import {
+    themeLabel,
+    themeOptions,
+    defaultThemeValue,
+} from '../../../../utilities/storybook';
+
 
 
 const actions = {
     atChange: action('atChange'),
 };
-
-const themeLabel = 'Theme';
-const computeThemeOptions = () => {
-    const options: any = {};
-    for (const key of Object.keys(themes)) {
-        options[key] = key;
-    }
-    return options;
-}
-const themeOptions = computeThemeOptions();
-const defaultThemeValue = 'plurid';
 
 storiesOf(
     'PluridDropdown',
