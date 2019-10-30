@@ -14,7 +14,7 @@ import {
 
 interface PureButtonProperties {
     text: string;
-    atClick: () => void;
+    atClick: (event: React.MouseEvent) => void;
 
     theme?: Theme;
     level?: number;
