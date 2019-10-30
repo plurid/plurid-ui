@@ -4,6 +4,10 @@ import styled from 'styled-components';
 
 export const StyledLinkButton: any = styled.button`
     color: ${(props: any) => {
+        if (props.disabled) {
+            return props.theme.colorPrimaryAlpha;
+        }
+
         switch (props.level) {
             case 0:
                 return props.theme.colorPrimary;
@@ -39,14 +43,19 @@ export const StyledLinkButton: any = styled.button`
         }
         return 'grid';
     }};
+    cursor: ${(props: any) => {
+        if (props.disabled) {
+            return 'inherit';
+        }
+        return 'pointer';
+    }};
 
-    border: none;
-    outline: none;
-    user-select: none;
-    cursor: pointer;
-    place-content: center;
     font-weight: bold;
     background: transparent;
+    place-content: center;
+    user-select: none;
+    border: none;
+    outline: none;
 `;
 
 

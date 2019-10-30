@@ -3,25 +3,36 @@ import themes, { Theme } from '@plurid/plurid-themes';
 
 import {
     StyledPureButton,
+    StyledPureButtonDiv,
 } from './styled';
+
+import {
+    PluridSpinner,
+} from '../../../';
 
 
 
 interface PureButtonProperties {
+    text: string;
+    atClick: () => void;
+
     theme?: Theme;
     level?: number;
     size?: 'small' | 'normal' | 'large';
-    text: string;
-    atClick: () => void;
+    disabled?: boolean;
+    loading?: boolean;
 }
 
 const PureButton: React.FC<PureButtonProperties> = (properties) => {
     const {
+        text,
+        atClick,
+
         theme,
         level,
         size,
-        text,
-        atClick,
+        disabled,
+        loading,
     } = properties;
 
     const _theme = theme === undefined
@@ -36,12 +47,29 @@ const PureButton: React.FC<PureButtonProperties> = (properties) => {
         ? 'normal'
         : size;
 
+    if (loading) {
+        return (
+            <StyledPureButtonDiv
+                theme={_theme}
+                level={_level}
+                size={_size}
+                disabled={disabled}
+            >
+                <PluridSpinner
+                    theme={_theme}
+                    size="small"
+                />
+            </StyledPureButtonDiv>
+        );
+    }
+
     return (
         <StyledPureButton
             theme={_theme}
             level={_level}
             size={_size}
-            onClick={atClick}
+            onClick={disabled ? atClick : null}
+            disabled={disabled}
         >
             {text}
         </StyledPureButton>

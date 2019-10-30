@@ -23,6 +23,7 @@ storiesOf(
 .addDecorator(withKnobs)
 .add('with text', () => {
     const inline = boolean('Inline', false);
+    const disabled = boolean('Disabled', false);
     const loading = boolean('Loading', false);
     const level = number('Level', 0);
 
@@ -34,6 +35,7 @@ storiesOf(
             theme={themes.light}
             inline={inline}
             level={level}
+            disabled={disabled}
             loading={loading}
         />
     );

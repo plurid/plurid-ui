@@ -7,6 +7,7 @@ import {
     text,
     number,
     select,
+    boolean,
 } from '@storybook/addon-knobs';
 
 import PureButton from '../';
@@ -32,22 +33,28 @@ storiesOf(
 )
 .addDecorator(withKnobs)
 .add('with text', () => {
-    const level = number('Level', 0);
     const _text = text('Text', 'Pure Button');
+
+    const level = number('Level', 0);
     const size = select(label, options, defaultValue);
     const _size = size === 'small'
         || size === 'normal'
         || size === 'large'
             ? size
             : 'normal';
+    const disabled = boolean('Disabled', false);
+    const loading = boolean('Loading', false);
 
     return (
         <PureButton
-            theme={themes.depict}
             text={_text}
+            {...actions}
+
+            theme={themes.depict}
             level={level}
             size={_size}
-            {...actions}
+            disabled={disabled}
+            loading={loading}
         />
     );
 });

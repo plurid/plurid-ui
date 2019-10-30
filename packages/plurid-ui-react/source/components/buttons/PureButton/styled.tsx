@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+import {
+    fontFamilySansSerif,
+} from '../../../data/constants';
+
 
 
 export const StyledPureButton: any = styled.button`
@@ -24,7 +28,9 @@ export const StyledPureButton: any = styled.button`
         return props.theme.boxShadowUmbraColor;
     }};
 
+    box-sizing: border-box;
     display: block;
+    width: 100%;
     min-width: ${(props: any) => {
         switch (props.size) {
             case 'small':
@@ -85,19 +91,33 @@ export const StyledPureButton: any = styled.button`
                 return '2.4rem';
         }
     }};
+    cursor: ${(props: any) => {
+        if (props.disabled) {
+            return 'inherit';
+        }
+        return 'pointer';
+    }};
+
+    font-family: ${fontFamilySansSerif};
 
     border: none;
     outline: none;
     user-select: none;
-    cursor: pointer;
     display: grid;
     place-content: center;
     line-height: 1.2;
     font-weight: bold;
     transition: box-shadow 200ms linear;
+    position: relative;
+    min-height: 40px;
+    min-width: 160px;
 
     :hover {
         background-color: ${(props: any) => {
+            if (props.disabled) {
+                return '';
+            }
+
             switch (props.level) {
                 case 0:
                     return props.theme.backgroundColorSecondary;
@@ -118,4 +138,11 @@ export const StyledPureButton: any = styled.button`
             return props.theme.boxShadowUmbraColor;
         }};
     }
+`;
+
+
+export const StyledPureButtonDiv: any = styled(StyledPureButton).attrs({
+    as: 'div',
+})`
+    width: 100%;
 `;
