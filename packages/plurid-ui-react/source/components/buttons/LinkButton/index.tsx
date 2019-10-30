@@ -2,7 +2,12 @@ import React from 'react';
 import themes, { Theme } from '@plurid/plurid-themes';
 
 import {
+    PluridSpinner,
+} from '../../../';
+
+import {
     StyledLinkButton,
+    StyledLinkButtonLoading,
 } from './styled';
 
 
@@ -16,6 +21,7 @@ interface LinkButtonProperties {
     theme?: Theme;
     level?: number;
     inline?: boolean;
+    loading?: boolean;
 }
 
 const LinkButton: React.FC<LinkButtonProperties> = (properties) => {
@@ -26,6 +32,7 @@ const LinkButton: React.FC<LinkButtonProperties> = (properties) => {
         theme,
         level,
         inline,
+        loading,
     } = properties;
 
     const _theme = theme === undefined
@@ -35,6 +42,17 @@ const LinkButton: React.FC<LinkButtonProperties> = (properties) => {
     const _level = level === undefined
         ? DEFAULT_LEVEL
         : level;
+
+    if (loading) {
+        return (
+            <StyledLinkButtonLoading>
+                <PluridSpinner
+                    size="small"
+                    theme={_theme}
+                />
+            </StyledLinkButtonLoading>
+        );
+    }
 
     return (
         <StyledLinkButton

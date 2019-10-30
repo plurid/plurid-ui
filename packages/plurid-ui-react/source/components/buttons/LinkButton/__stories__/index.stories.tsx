@@ -23,16 +23,18 @@ storiesOf(
 .addDecorator(withKnobs)
 .add('with text', () => {
     const inline = boolean('Inline', false);
+    const loading = boolean('Loading', false);
     const level = number('Level', 0);
 
     return (
         <LinkButton
+            text="Link Button"
+            {...actions}
+
             theme={themes.light}
             inline={inline}
             level={level}
-
-            text="Link Button"
-            {...actions}
+            loading={loading}
         />
     );
 });
