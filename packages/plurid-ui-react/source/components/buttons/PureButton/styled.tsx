@@ -11,6 +11,10 @@ export const StyledPureButton: any = styled.button`
         return props.theme.colorPrimary;
     }};
     background-color: ${(props: any) => {
+        if (props.isDisabled) {
+            return props.theme.backgroundColorPrimaryAlpha;
+        }
+
         switch (props.level) {
             case 0:
                 return props.theme.backgroundColorPrimary;
@@ -24,8 +28,8 @@ export const StyledPureButton: any = styled.button`
                 return props.theme.backgroundColorPrimary;
         }
     }};
-    box-shadow: 0px 8px 8px 0px ${(props: any) => {
-        return props.theme.boxShadowUmbraColor;
+    box-shadow: ${(props: any) => {
+        return '0px 8px 8px 0px ' + props.theme.boxShadowUmbraColor;
     }};
 
     box-sizing: border-box;
@@ -92,8 +96,8 @@ export const StyledPureButton: any = styled.button`
         }
     }};
     cursor: ${(props: any) => {
-        if (props.disabled) {
-            return 'inherit';
+        if (props.isDisabled) {
+            return 'default';
         }
         return 'pointer';
     }};
@@ -114,8 +118,8 @@ export const StyledPureButton: any = styled.button`
 
     :hover {
         background-color: ${(props: any) => {
-            if (props.disabled) {
-                return '';
+            if (props.isDisabled) {
+                return props.theme.backgroundColorPrimaryAlpha;
             }
 
             switch (props.level) {
@@ -134,8 +138,12 @@ export const StyledPureButton: any = styled.button`
     }
 
     :active {
-        box-shadow: 0px 3px 3px 0px ${(props: any) => {
-            return props.theme.boxShadowUmbraColor;
+        box-shadow: ${(props: any) => {
+            if (props.isDisabled) {
+                return '0px 8px 8px 0px ' + props.theme.boxShadowUmbraColor;
+            }
+
+            return '0px 3px 3px 0px ' + props.theme.boxShadowUmbraColor;
         }};
     }
 `;
