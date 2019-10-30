@@ -21,6 +21,7 @@ interface LinkButtonProperties {
     theme?: Theme;
     level?: number;
     inline?: boolean;
+    disabled?: boolean;
     loading?: boolean;
 }
 
@@ -32,6 +33,7 @@ const LinkButton: React.FC<LinkButtonProperties> = (properties) => {
         theme,
         level,
         inline,
+        disabled,
         loading,
     } = properties;
 
@@ -56,10 +58,11 @@ const LinkButton: React.FC<LinkButtonProperties> = (properties) => {
 
     return (
         <StyledLinkButton
-            onClick={atClick}
+            onClick={disabled ? atClick : null}
             theme={_theme}
             level={_level}
             inline={inline}
+            disabled={disabled}
         >
             {text}
         </StyledLinkButton>
