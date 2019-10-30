@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export const StyledLinkButton: any = styled.button`
     color: ${(props: any) => {
-        if (props.disabled) {
+        if (props.isDisabled) {
             return props.theme.colorPrimaryAlpha;
         }
 
@@ -44,7 +44,7 @@ export const StyledLinkButton: any = styled.button`
         return 'grid';
     }};
     cursor: ${(props: any) => {
-        if (props.disabled) {
+        if (props.isDisabled) {
             return 'inherit';
         }
         return 'pointer';
