@@ -68,8 +68,8 @@ const PureButton: React.FC<PureButtonProperties> = (properties) => {
             theme={_theme}
             level={_level}
             size={_size}
-            onClick={(event: React.MouseEvent) => disabled ? atClick(event) : null}
-            disabled={disabled}
+            onClick={(event: React.MouseEvent) => !disabled ? atClick(event) : null}
+            isDisabled={disabled}
         >
             {text}
         </StyledPureButton>
