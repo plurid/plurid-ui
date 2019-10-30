@@ -12,6 +12,9 @@ import PluridSlider from './components/inputs/Slider';
 import PluridSwitch from './components/inputs/Switch';
 import PluridTextline from './components/inputs/Textline';
 
+// markers
+import PluridSpinner from './components/markers/Spinner';
+
 // typography
 import PluridHeading from './components/typography/Heading';
 import PluridParagraph from './components/typography/Paragraph';
@@ -32,6 +35,9 @@ export {
     PluridSlider,
     PluridSwitch,
     PluridTextline,
+
+    // markers
+    PluridSpinner,
 
     // typography
     PluridHeading,
