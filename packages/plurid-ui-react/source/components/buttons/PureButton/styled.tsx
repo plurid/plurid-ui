@@ -107,7 +107,7 @@ export const StyledPureButton: any = styled.button`
     place-content: center;
     line-height: 1.2;
     font-weight: bold;
-    transition: box-shadow 200ms linear;
+    transition: box-shadow 200ms linear, background-color 200ms linear;
     position: relative;
     min-height: 40px;
     min-width: 160px;
@@ -144,5 +144,25 @@ export const StyledPureButton: any = styled.button`
 export const StyledPureButtonDiv: any = styled(StyledPureButton).attrs({
     as: 'div',
 })`
-    width: 100%;
+    background-color: ${(props: any) => {
+        if (props.disabled) {
+            return '';
+        }
+
+        switch (props.level) {
+            case 0:
+                return props.theme.backgroundColorSecondary;
+            case 1:
+                return props.theme.backgroundColorTertiary;
+            case 2:
+                return props.theme.backgroundColorQuaternary;
+            case 3:
+                return props.theme.backgroundColorPrimary;
+            default:
+                return props.theme.backgroundColorSecondary;
+        }
+    }};
+    box-shadow: 0px 3px 3px 0px ${(props: any) => {
+        return props.theme.boxShadowUmbraColor;
+    }};
 `;
