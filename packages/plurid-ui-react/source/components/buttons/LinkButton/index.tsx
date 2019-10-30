@@ -16,7 +16,7 @@ const DEFAULT_LEVEL = 0;
 
 interface LinkButtonProperties {
     text: string;
-    atClick: () => void;
+    atClick: (event?: React.MouseEvent) => void;
 
     theme?: Theme;
     level?: number;
@@ -58,11 +58,11 @@ const LinkButton: React.FC<LinkButtonProperties> = (properties) => {
 
     return (
         <StyledLinkButton
-            onClick={disabled ? atClick : null}
+            onClick={(event: React.MouseEvent) => !disabled ? atClick(event) : null}
             theme={_theme}
             level={_level}
             inline={inline}
-            disabled={disabled}
+            isDisabled={disabled}
         >
             {text}
         </StyledLinkButton>
