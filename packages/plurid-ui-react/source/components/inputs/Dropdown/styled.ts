@@ -53,6 +53,25 @@ export const StyledDropdownList: any = styled.div`
         }
         return '0px';
     }};
+    height: ${(props: any) => {
+        if (props.heightItems) {
+            return props.heightItems * 2 + 'rem';
+        }
+        return 'initial';
+    }};
+    overflow: ${(props: any) => {
+        if (props.heightItems) {
+            return 'scroll';
+        }
+        return 'initial';
+    }};
+
+    /* Hide Scrollbar */
+    scrollbar-width: none; /* Firefox 64 */
+    -ms-overflow-style: none; /* Internet Explorer 11 */
+    ::-webkit-scrollbar { /** WebKit */
+        display: none;
+    }
 
     position: absolute;
     top: 20px;
@@ -68,8 +87,18 @@ export const StyledDropdownList: any = styled.div`
     }
 
     ul li {
+        box-sizing: border-box;
         padding: 0.3rem 0.6rem;
         cursor: pointer;
+        height: 2rem;
+        display: grid;
+        align-items: center;
+        justify-content: ${(props: any) => {
+            if (props.left) {
+                return 'left';
+            }
+            return 'right';
+        }};
     }
 
     ul li:hover {

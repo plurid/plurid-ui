@@ -34,6 +34,11 @@ interface DropdownProps {
     devisible?: boolean;
     round?: boolean;
     width?: string | number;
+
+    /**
+     * The number of items determining the height;
+     */
+    heightItems?: number;
 }
 
 
@@ -52,6 +57,8 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
 
         theme,
         level,
+
+        heightItems,
     } = props;
 
     const _theme = theme === undefined
@@ -113,6 +120,7 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
                     theme={_theme}
                     left={left}
                     level={_level}
+                    heightItems={heightItems}
                 >
                     <ul>
                         {selectables.map((selectable) => {
