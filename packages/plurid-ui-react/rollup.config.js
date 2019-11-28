@@ -21,6 +21,8 @@ export default {
         },
     ],
     external: [
+        '@plurid/plurid-themes',
+        'react',
         'styled-components',
     ],
     plugins: [

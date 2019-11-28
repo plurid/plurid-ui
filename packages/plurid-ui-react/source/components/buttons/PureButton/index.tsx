@@ -6,9 +6,7 @@ import {
     StyledPureButtonDiv,
 } from './styled';
 
-import {
-    PluridSpinner,
-} from '../../../';
+import PluridSpinner from '../../markers/Spinner';
 
 
 
