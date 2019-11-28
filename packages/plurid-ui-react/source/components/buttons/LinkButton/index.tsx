@@ -2,13 +2,11 @@ import React from 'react';
 import themes, { Theme } from '@plurid/plurid-themes';
 
 import {
-    PluridSpinner,
-} from '../../../';
-
-import {
     StyledLinkButton,
     StyledLinkButtonLoading,
 } from './styled';
+
+import PluridSpinner from '../../markers/Spinner';
 
 
 
