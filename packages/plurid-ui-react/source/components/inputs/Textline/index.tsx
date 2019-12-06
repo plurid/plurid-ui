@@ -25,6 +25,7 @@ interface TextlineProperties {
     autoComplete?: string;
     autoCorrect?: string;
     spellCheck?: boolean;
+    style?: React.CSSProperties;
 
     theme?: Theme;
     level?: number;
@@ -50,6 +51,7 @@ interface TextlineProperties {
  * @param autoComplete optional - `string`
  * @param autoCorrect optional - `string`
  * @param spellCheck optional - `boolean`
+ * @param style optional - `React.CSSProperties`
  *
  * @param theme optional - `Theme`
  * @param level optional - `number`
@@ -74,6 +76,7 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
         autoComplete,
         autoCorrect,
         spellCheck,
+        style,
 
         theme,
         level,
@@ -152,6 +155,7 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
                 autoComplete={autoComplete}
                 autoCorrect={autoCorrect}
                 spellCheck={spellCheck}
+                style={{...style}}
 
                 ref={inputElement}
             />
