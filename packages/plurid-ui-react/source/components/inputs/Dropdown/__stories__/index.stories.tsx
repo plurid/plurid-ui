@@ -20,7 +20,7 @@ import {
 
 
 const actions = {
-    atChange: action('atChange'),
+    atSelect: action('atSelect'),
 };
 
 storiesOf(
