@@ -89,6 +89,7 @@ export const StyledDropdownList: any = styled.div`
     ul li {
         box-sizing: border-box;
         padding: 0.3rem 0.6rem;
+        user-select: none;
         cursor: pointer;
         height: 2rem;
         display: grid;
