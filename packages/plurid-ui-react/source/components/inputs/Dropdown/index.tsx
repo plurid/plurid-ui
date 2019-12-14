@@ -27,6 +27,11 @@ interface DropdownProps {
     kind?: string;
     dropdownToggled?: boolean;
     setDropdownToggled?: any;
+    /**
+     * Hide dropdown after click selection.
+     *
+     * Default `true`.
+     */
     hideAtSelect?: boolean;
 
     theme?: Theme;
