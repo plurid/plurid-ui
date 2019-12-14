@@ -185,9 +185,6 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
                                         backgroundColor: isSelected
                                             ? selectedBackgroundColor
                                             : '',
-                                        cursor: isSelected
-                                            ? 'initial'
-                                            : 'pointer',
                                     }}
                                 >
                                     {selectableValue}
