@@ -1226,10 +1226,10 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@plurid/plurid-themes@^0.1.18":
-  version "0.1.18"
-  resolved "https://registry.yarnpkg.com/@plurid/plurid-themes/-/plurid-themes-0.1.18.tgz#bf809f1a25cd9bfe84289f6323956ba842803173"
-  integrity sha512-Mx1mAvsnEiNK4BYHgPSO/ywxVl4FDquLramd2CILwfuMuUJq10e1VICGw4zT+YEIWJcogfIlAZikVElCEVgrzQ==
+"@plurid/plurid-themes@^0.1.19":
+  version "0.1.19"
+  resolved "https://registry.yarnpkg.com/@plurid/plurid-themes/-/plurid-themes-0.1.19.tgz#bff19878e09b1b31c0cb0394beb01a7c5739fdf9"
+  integrity sha512-mhyLw70mtJivrXevzyW3P4ok3hAH8jLoVkMc9P9ql5I4FQefHQaeGORRfEkzaBAIqb4Bq84MzH/kPPx06IkRig==
 
 "@reach/router@^1.2.1":
   version "1.2.1"
