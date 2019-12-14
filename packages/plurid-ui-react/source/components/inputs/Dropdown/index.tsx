@@ -33,6 +33,12 @@ interface DropdownProps {
      * Default `true`.
      */
     hideAtSelect?: boolean;
+    /**
+     * Run the `atSelect` function when hovering over a dropdown item.
+     *
+     * Default `true`.
+     */
+    selectAtHover?: boolean;
 
     theme?: Theme;
     level?: number;
@@ -59,6 +65,7 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
         dropdownToggled,
         setDropdownToggled,
         hideAtSelect,
+        selectAtHover,
 
         theme,
         level,
@@ -78,12 +85,34 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
         ? true
         : hideAtSelect;
 
+    const _selectAtHover = selectAtHover === undefined
+        ? true
+        : selectAtHover;
+
     const [showList, setShowList] = useState(false);
     const [selectedBackgroundColor, setSelectedBackgroundColor] = useState(_theme.backgroundColorTertiary);
 
-    const handleSelect = (selected: string | Item) => {
-        kind ? atSelect(selected, kind) : atSelect(selected);
+    const select = (
+        selected: string | Item,
+    ) => {
+        kind
+            ? atSelect(selected, kind)
+            : atSelect(selected);
+    }
+
+    const handleSelect = (
+        selected: string | Item,
+    ) => {
+        select(selected);
         _hideAtSelect ? setShowList(false) : null;
+    }
+
+    const handleHover = (
+        selected: string | Item,
+    ) => {
+        if (_selectAtHover) {
+            select(selected);
+        }
     }
 
     useEffect(() => {
@@ -151,6 +180,7 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
                                 <li
                                     key={selectableID}
                                     onClick={() => handleSelect(selectable)}
+                                    onMouseEnter={() => handleHover(selectable)}
                                     style={{
                                         backgroundColor: isSelected
                                             ? selectedBackgroundColor
