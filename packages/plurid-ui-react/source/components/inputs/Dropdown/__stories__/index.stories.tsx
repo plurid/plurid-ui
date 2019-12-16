@@ -54,6 +54,7 @@ storiesOf(
 
     const theme = select(themeLabel, themeOptions, defaultThemeValue);
     const level = number('Level', 0);
+    const width = number('Width', 100);
     const heightItems = number('Height Items', 1);
     // const devisible = boolean('Devisible', false);
     // const round = boolean('Round', true);
@@ -71,6 +72,7 @@ storiesOf(
             // devisible={devisible}
             // round={round}
             heightItems={heightItems}
+            width={width}
             {...actions}
         />
     );

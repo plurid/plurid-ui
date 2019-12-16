@@ -71,6 +71,7 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
         level,
 
         heightItems,
+        width,
     } = props;
 
     const _theme = theme === undefined
@@ -155,6 +156,7 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
                     left={left}
                     level={_level}
                     heightItems={heightItems}
+                    width={width}
                 >
                     <ul>
                         {selectables.map((selectable) => {

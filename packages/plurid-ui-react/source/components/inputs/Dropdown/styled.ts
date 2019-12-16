@@ -72,11 +72,23 @@ export const StyledDropdownList: any = styled.div`
     ::-webkit-scrollbar { /** WebKit */
         display: none;
     }
+    width: ${(props: any) => {
+        if (props.width) {
+            if (typeof props.width === 'number') {
+                return props.width + 'px';
+            }
+            if (typeof props.width === 'string') {
+                return props.width;
+            }
+        }
+        return 'initial';
+    }};
 
     position: absolute;
     top: 20px;
     border-radius: 10px;
     min-width: 60px;
+
     z-index: 9999;
     box-shadow: 0px 3px 5px 1px hsla(327, 94%, 10%, 0.7);
 
