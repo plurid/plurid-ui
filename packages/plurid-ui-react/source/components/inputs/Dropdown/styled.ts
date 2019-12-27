@@ -104,6 +104,7 @@ export const StyledDropdownList: any = styled.div`
         user-select: none;
         cursor: pointer;
         height: 2rem;
+        font-size: 0.8rem;
         display: grid;
         align-items: center;
         justify-content: ${(props: any) => {
