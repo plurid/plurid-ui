@@ -20,6 +20,13 @@ export const StyledDropdown: any = styled.div`
 export const StyledDropdownSelected: any = styled.div`
     cursor: pointer;
     user-select: none;
+    color: ${(props: any) => {
+        if (props.selectedColor) {
+            return props.selectedColor;
+        }
+
+        return props.theme.colorPrimary;
+    }};
 `;
 
 
