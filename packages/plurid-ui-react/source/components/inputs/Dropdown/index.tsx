@@ -39,6 +39,7 @@ interface DropdownProps {
      * Default `true`.
      */
     selectAtHover?: boolean;
+    selectedColor?: string;
 
     theme?: Theme;
     level?: number;
@@ -66,6 +67,7 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
         setDropdownToggled,
         hideAtSelect,
         selectAtHover,
+        selectedColor,
 
         theme,
         level,
@@ -143,6 +145,8 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
                         setDropdownToggled(kind);
                     }
                 }}
+                theme={_theme}
+                selectedColor={selectedColor}
             >
                 {typeof selected === 'string'
                     ? selected
