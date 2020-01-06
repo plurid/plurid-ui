@@ -194,7 +194,7 @@ const Dropdown: React.FC<DropdownProperties> = (properties) => {
                     left={left}
                     level={_level}
                     heightItems={heightItems && filterable && filteredSelectables.length < heightItems
-                        ? filteredSelectables.length
+                        ? filteredSelectables.length + 1
                         : heightItems
                     }
                     width={width}
