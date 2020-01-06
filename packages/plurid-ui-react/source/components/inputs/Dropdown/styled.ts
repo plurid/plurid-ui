@@ -141,3 +141,13 @@ export const StyledDropdownList: any = styled.div`
         border-bottom-left-radius: 10px;
     }
 `;
+
+
+export const StyledFilterable: any = styled.div`
+    input {
+        padding: 0;
+        margin: 0;
+        border-radius: 0;
+        min-height: auto;
+    }
+`;

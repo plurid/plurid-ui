@@ -1,45 +1,65 @@
-// general
+/** general */
 import PluridGlobalStyles from './components/general';
 
-// buttons
+/** buttons */
 import PluridPureButton from './components/buttons/PureButton';
 import PluridLinkButton from './components/buttons/LinkButton';
 
-// inputs
+/** inputs */
 import PluridDropdown from './components/inputs/Dropdown';
 import PluridSelect from './components/inputs/Select';
 import PluridSlider from './components/inputs/Slider';
 import PluridSwitch from './components/inputs/Switch';
 import PluridTextline from './components/inputs/Textline';
 
-// markers
+/** markers */
 import PluridSpinner from './components/markers/Spinner';
 
-// typography
+/** typography */
 import PluridHeading from './components/typography/Heading';
 import PluridParagraph from './components/typography/Paragraph';
 
 
+/** data */
+import {
+    fontFamilySansSerif,
+    fontFamilySerif,
+} from './data/constants';
+
+/** interfaces */
+import {
+    PluridDropdownSelectable,
+} from './data/interfaces';
+
+
 
 export {
-    // general
+    /** general */
     PluridGlobalStyles,
 
-    // buttons
+    /** buttons */
     PluridPureButton,
     PluridLinkButton,
 
-    // inputs
+    /** inputs */
     PluridDropdown,
     PluridSelect,
     PluridSlider,
     PluridSwitch,
     PluridTextline,
 
-    // markers
+    /** markers */
     PluridSpinner,
 
-    // typography
+    /** typography */
     PluridHeading,
     PluridParagraph,
+
+
+    /** data */
+    fontFamilySansSerif,
+    fontFamilySerif,
+
+    /** interfaces */
+    PluridDropdownSelectable,
 }

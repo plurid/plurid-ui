@@ -9,19 +9,21 @@ import {
     StyledDropdown,
     StyledDropdownSelected,
     StyledDropdownList,
+    StyledFilterable,
 } from './styled';
 
+import Textline from '../Textline';
+
+import {
+    PluridDropdownSelectable,
+} from '../../../data/interfaces';
 
 
-interface Item {
-    id: string;
-    value: string;
-}
 
-interface DropdownProps {
-    selectables: (Item | string)[];
-    selected: Item | string;
-    atSelect: (selection: Item | string, kind?: string) => void;
+interface DropdownProperties {
+    selectables: (PluridDropdownSelectable | string)[];
+    selected: PluridDropdownSelectable | string;
+    atSelect: (selection: PluridDropdownSelectable | string, kind?: string) => void;
 
     left?: boolean;
     kind?: string;
@@ -41,6 +43,11 @@ interface DropdownProps {
     selectAtHover?: boolean;
     selectedColor?: string;
 
+    /**
+     * Inserts an input field to filter the selectables.
+     */
+    filterable?: boolean;
+
     theme?: Theme;
     level?: number;
     devisible?: boolean;
@@ -53,9 +60,7 @@ interface DropdownProps {
     heightItems?: number;
 }
 
-
-const Dropdown: React.FC<DropdownProps> = (props) => {
-
+const Dropdown: React.FC<DropdownProperties> = (properties) => {
     const {
         selected,
         selectables,
@@ -68,13 +73,14 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
         hideAtSelect,
         selectAtHover,
         selectedColor,
+        filterable,
 
         theme,
         level,
 
         heightItems,
         width,
-    } = props;
+    } = properties;
 
     const _theme = theme === undefined
         ? themes.plurid
@@ -94,9 +100,11 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
 
     const [showList, setShowList] = useState(false);
     const [selectedBackgroundColor, setSelectedBackgroundColor] = useState(_theme.backgroundColorTertiary);
+    const [filterValue, setFilterValue] = useState('');
+    const [filteredSelectables, setFilteredSelectables] = useState([...selectables]);
 
     const select = (
-        selected: string | Item,
+        selected: string | PluridDropdownSelectable,
     ) => {
         kind
             ? atSelect(selected, kind)
@@ -104,18 +112,44 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
     }
 
     const handleSelect = (
-        selected: string | Item,
+        selected: string | PluridDropdownSelectable,
     ) => {
         select(selected);
         _hideAtSelect ? setShowList(false) : null;
     }
 
     const handleHover = (
-        selected: string | Item,
+        selected: string | PluridDropdownSelectable,
     ) => {
         if (_selectAtHover) {
             select(selected);
         }
+    }
+
+    const handleFiltering = (
+        event: React.ChangeEvent<HTMLInputElement>,
+    ) => {
+        const {
+            value,
+        } = event.target;
+
+        const filteredSelectables = selectables.filter(selectable => {
+            if (typeof selectable === 'string') {
+                if (selectable.toLowerCase().startsWith(value)) {
+                    return true;
+                }
+                return false;
+            }
+
+            if (selectable.value.toLowerCase().startsWith(value)) {
+                return true;
+            }
+
+            return false;
+        });
+
+        setFilterValue(value);
+        setFilteredSelectables(filteredSelectables);
     }
 
     useEffect(() => {
@@ -159,11 +193,27 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
                     theme={_theme}
                     left={left}
                     level={_level}
-                    heightItems={heightItems}
+                    heightItems={heightItems && filterable && filteredSelectables.length < heightItems
+                        ? filteredSelectables.length
+                        : heightItems
+                    }
                     width={width}
                 >
                     <ul>
-                        {selectables.map((selectable) => {
+                        {filterable && (
+                            <li>
+                                <StyledFilterable>
+                                    <Textline
+                                        theme={_theme}
+                                        text={filterValue}
+                                        atChange={handleFiltering}
+                                        devisible={true}
+                                    />
+                                </StyledFilterable>
+                            </li>
+                        )}
+
+                        {filteredSelectables.map((selectable) => {
                             let selectableID = typeof selectable === 'string'
                                 ? selectable
                                 : selectable.id;
