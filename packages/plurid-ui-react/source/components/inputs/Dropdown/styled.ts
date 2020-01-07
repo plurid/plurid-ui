@@ -148,6 +148,12 @@ export const StyledFilterable: any = styled.div`
         padding: 0;
         margin: 0;
         border-radius: 0;
-        min-height: auto;
+        min-height: initial;
+        text-align: ${(props: any) => {
+            if (props.left) {
+                return 'left';
+            }
+            return 'right';
+        }};
     }
 `;
