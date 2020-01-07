@@ -81,7 +81,6 @@ export const StyledEnterIcon: any = styled.div`
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    right: 0.6rem;
     height: 20px;
     width: 20px;
     border-radius: 100px;
@@ -93,6 +92,18 @@ export const StyledEnterIcon: any = styled.div`
     cursor: pointer;
     border: 1px solid transparent;
 
+    right: ${(props: any) => {
+        if (props.left) {
+            return 'auto';
+        }
+        return '0.6rem';
+    }};
+    left: ${(props: any) => {
+        if (props.left) {
+            return '0.6rem';
+        }
+        return 'auto';
+    }};
     color: ${(props: any) => {
         return props.theme.colorPrimary;
     }};

@@ -10,6 +10,7 @@ import PluridTextline from '../';
 
 const actions = {
     atChange: action('atChange'),
+    enterAtClick: action('enterAtClick'),
 };
 
 const themeLabel = 'Theme';
@@ -40,7 +41,7 @@ storiesOf(
     const center = boolean('Center', false);
     const round = boolean('Round', true);
 
-    const enterIcon = boolean('Enter Icon', false);
+    const enterIconLeft = boolean('Enter Icon Left', false);
     const escapeClear = boolean('Escape Clear', false);
 
     return (
@@ -57,7 +58,7 @@ storiesOf(
             level={level}
             round={round}
 
-            enterIcon={enterIcon}
+            enterIconLeft={enterIconLeft}
             escapeClear={escapeClear}
 
             {...actions}
