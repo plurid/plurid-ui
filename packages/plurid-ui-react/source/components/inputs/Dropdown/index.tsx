@@ -135,13 +135,13 @@ const Dropdown: React.FC<DropdownProperties> = (properties) => {
 
         const filteredSelectables = selectables.filter(selectable => {
             if (typeof selectable === 'string') {
-                if (selectable.toLowerCase().startsWith(value)) {
+                if (selectable.toLowerCase().startsWith(value.toLowerCase())) {
                     return true;
                 }
                 return false;
             }
 
-            if (selectable.value.toLowerCase().startsWith(value)) {
+            if (selectable.value.toLowerCase().startsWith(value.toLowerCase())) {
                 return true;
             }
 
