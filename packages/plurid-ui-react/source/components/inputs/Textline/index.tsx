@@ -34,7 +34,7 @@ interface TextlineProperties {
     round?: boolean;
     width?: string | number;
 
-    enterIcon?: boolean;
+    enterIconLeft?: boolean;
     enterAtClick?: () => void;
     escapeClear?: boolean;
 }
@@ -60,7 +60,7 @@ interface TextlineProperties {
  * @param round optional - `boolean`
  * @param width optional - `string | number`
  *
- * @param enterIcon optional - `boolean`
+ * @param enterIconLeft optional - `boolean`
  * @param enterAtClick optional - `() => void`
  * @param escapeClear optional - `boolean`
  */
@@ -85,7 +85,7 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
         round,
         width,
 
-        enterIcon,
+        enterIconLeft,
         enterAtClick,
         escapeClear,
     } = properties;
@@ -114,8 +114,7 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
         }
 
         if (
-            enterIcon
-            && enterAtClick
+            enterAtClick
             && event.key === 'Enter'
         ) {
             enterAtClick();
@@ -161,13 +160,13 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
             />
 
             {
-                enterIcon
-                && enterAtClick
+                enterAtClick
                 && text.length > 0
                 && (
                     <StyledEnterIcon
                         theme={_theme}
                         onClick={() => enterAtClick()}
+                        left={enterIconLeft}
                     >
                         ➔
                     </StyledEnterIcon>
