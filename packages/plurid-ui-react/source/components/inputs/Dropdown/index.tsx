@@ -201,7 +201,11 @@ const Dropdown: React.FC<DropdownProperties> = (properties) => {
                 >
                     <ul>
                         {filterable && (
-                            <li>
+                            <li
+                                style={{
+                                    backgroundColor: selectedBackgroundColor,
+                                }}
+                            >
                                 <StyledFilterable>
                                     <Textline
                                         theme={_theme}
