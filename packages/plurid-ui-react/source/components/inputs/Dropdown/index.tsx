@@ -206,7 +206,9 @@ const Dropdown: React.FC<DropdownProperties> = (properties) => {
                                     backgroundColor: selectedBackgroundColor,
                                 }}
                             >
-                                <StyledFilterable>
+                                <StyledFilterable
+                                    left={left}
+                                >
                                     <Textline
                                         theme={_theme}
                                         text={filterValue}
