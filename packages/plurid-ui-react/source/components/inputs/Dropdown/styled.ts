@@ -145,10 +145,6 @@ export const StyledDropdownList: any = styled.div`
 
 export const StyledFilterable: any = styled.div`
     input {
-        padding: 0;
-        margin: 0;
-        border-radius: 0;
-        min-height: initial;
         text-align: ${(props: any) => {
             if (props.left) {
                 return 'left';
