@@ -11,10 +11,20 @@ export const StyledTextline: any = styled.div`
         box-sizing: border-box;
         border: none;
         outline: none;
-        padding: 0.6rem 1rem;
         font-size: 0.8rem;
-        min-height: 36px;
 
+        padding: ${(props: any) => {
+            if (props.devisible) {
+                return '0';
+            }
+            return '0.6rem 1rem';
+        }};
+        min-height: ${(props: any) => {
+            if (props.devisible) {
+                return 'initial';
+            }
+            return '36px';
+        }};
         background-color: ${(props: any) => {
             if (props.devisible) {
                 return 'transparent';
@@ -44,6 +54,10 @@ export const StyledTextline: any = styled.div`
             return props.theme.boxShadowUmbraColor;
         }};
         border-radius: ${(props: any) => {
+            if (props.devisible) {
+                return '0';
+            }
+
             if (props.round) {
                 return '1000px';
             }

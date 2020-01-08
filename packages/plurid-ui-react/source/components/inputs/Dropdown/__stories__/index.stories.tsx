@@ -56,7 +56,7 @@ storiesOf(
     const level = number('Level', 0);
     const filterable = boolean('Filterable', false);
     const width = number('Width', 100);
-    const heightItems = number('Height Items', 1);
+    const heightItems = number('Height Items', 2);
     // const devisible = boolean('Devisible', false);
     // const round = boolean('Round', true);
 
