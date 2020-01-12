@@ -9,7 +9,11 @@ export const StyledSpinner = styled.div`
     transform: translateX(-50%) translateY(-50%);
 `;
 
+
 export const StyledLoader: any = styled.div`
+    display: inline-block;
+    position: relative;
+
     width: ${(props: any) => {
         switch (props.size) {
             case 'small':
@@ -35,19 +39,79 @@ export const StyledLoader: any = styled.div`
         }
     }};
 
-    position: relative;
-    border-radius: 50%;
+    div {
+        width: ${(props: any) => {
+            switch (props.size) {
+                case 'small':
+                    return '1rem';
+                case 'normal':
+                    return '1.8rem';
+                case 'large':
+                    return '2.4rem';
+                default:
+                    return '1.8rem';
+            }
+        }};
+        height: ${(props: any) => {
+            switch (props.size) {
+                case 'small':
+                    return '1rem';
+                case 'normal':
+                    return '1.8rem';
+                case 'large':
+                    return '2.4rem';
+                default:
+                    return '1.8rem';
+            }
+        }};
+        margin: ${(props: any) => {
+            switch (props.size) {
+                case 'small':
+                    return '0.1rem';
+                case 'normal':
+                    return '0.2rem';
+                case 'large':
+                    return '0.3rem';
+                default:
+                    return '0.2rem';
+            }
+        }};
+        border: ${(props: any) => {
+            switch (props.size) {
+                case 'small':
+                    return '0.1rem solid ' + props.theme.colorPrimary;
+                case 'normal':
+                    return '0.2rem solid ' + props.theme.colorPrimary;
+                case 'large':
+                    return '0.3rem solid ' + props.theme.colorPrimary;
+                default:
+                    return '0.2rem solid ' + props.theme.colorPrimary;
+            }
+        }};
+        border-color: ${(props: any) => {
+            return props.theme.colorPrimary;
+        }} transparent transparent transparent;
 
-    border-top: 0.2em solid rgba(255, 255, 255, 0.1);
-    border-right: 0.2em solid rgba(255, 255, 255, 0.1);
-    border-bottom: 0.2em solid rgba(255, 255, 255, 0.1);
-    border-left: 0.2em solid ${(props: any) => {
-        return props.theme.colorPrimary;
-    }};
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        border-radius: 50%;
+        animation: spinner-rotate 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    }
 
-    animation: rotate 1.2s infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    div:nth-child(1) {
+        animation-delay: -0.45s;
+    }
 
-    @keyframes rotate {
+    div:nth-child(2) {
+        animation-delay: -0.3s;
+    }
+
+    div:nth-child(3) {
+        animation-delay: -0.15s;
+    }
+
+    @keyframes spinner-rotate {
         0% {
             transform: rotate(0deg);
         }

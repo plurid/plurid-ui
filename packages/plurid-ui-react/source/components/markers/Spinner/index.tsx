@@ -33,7 +33,12 @@ const Spinner: React.FC<SpinnerProperties> = (properties) => {
             <StyledLoader
                 theme={_theme}
                 size={_size}
-            />
+            >
+                <div />
+                <div />
+                <div />
+                <div />
+            </StyledLoader>
         </StyledSpinner>
     );
 }
