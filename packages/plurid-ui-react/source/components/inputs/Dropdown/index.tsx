@@ -49,6 +49,7 @@ interface DropdownProperties {
     filterable?: boolean;
 
     style?: React.CSSProperties;
+    className?: string;
 
     theme?: Theme;
     level?: number;
@@ -78,6 +79,7 @@ const Dropdown: React.FC<DropdownProperties> = (properties) => {
         filterable,
 
         style,
+        className,
 
         theme,
         level,
@@ -175,6 +177,7 @@ const Dropdown: React.FC<DropdownProperties> = (properties) => {
             theme={_theme}
             left={left}
             style={{...style}}
+            className={className}
         >
             <StyledDropdownSelected
                 onClick={() => {

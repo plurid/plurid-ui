@@ -12,6 +12,7 @@ export const StyledDropdown: any = styled.div`
         }
         return 'right';
     }};
+    font-size: 0.7rem;
 
     position: relative;
 `;
@@ -27,7 +28,6 @@ export const StyledDropdownSelected: any = styled.div`
 
         return props.theme.colorPrimary;
     }};
-    font-size: 0.8rem;
 `;
 
 
@@ -112,7 +112,6 @@ export const StyledDropdownList: any = styled.div`
         user-select: none;
         cursor: pointer;
         height: 2rem;
-        font-size: 0.8rem;
         display: grid;
         align-items: center;
         justify-content: ${(props: any) => {
