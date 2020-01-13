@@ -18,6 +18,10 @@ export const StyledFormline = styled.div<IStyledFormline>`
     min-height: 2rem;
     padding: 0.3rem 0.7rem;
 
+    color: ${(props: IStyledFormline) => {
+        return props.theme.colorPrimary;
+    }};
+
     @media (max-width: 800px) {
         grid-template-columns: 1fr;
         justify-items: center;
@@ -28,6 +32,7 @@ export const StyledFormline = styled.div<IStyledFormline>`
 
 
 export const StyledFormlineText = styled.div`
+    user-select: none;
 `;
 
 
