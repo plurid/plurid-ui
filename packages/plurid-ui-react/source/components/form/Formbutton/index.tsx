@@ -19,6 +19,7 @@ interface FormbuttonProperties {
 
     theme?: Theme;
     level?: number;
+    iconPosition?: 'left' | 'center' | 'right';
 
     style?: React.CSSProperties;
     className?: string;
@@ -39,6 +40,7 @@ const Formbutton: React.FC<FormbuttonProperties> = (properties) => {
         /** optional */
         theme,
         level,
+        iconPosition,
         style,
         className,
     } = properties;
@@ -51,6 +53,10 @@ const Formbutton: React.FC<FormbuttonProperties> = (properties) => {
         ? 0
         : level;
 
+    const _iconPosition = iconPosition === undefined
+        ? 'center'
+        : iconPosition;
+
     return (
         <StyledFormbutton
             style={{...style}}
@@ -59,7 +65,9 @@ const Formbutton: React.FC<FormbuttonProperties> = (properties) => {
             level={_level}
             onClick={(event) => atClick(event)}
         >
-            <StyledFormbuttonIcon>
+            <StyledFormbuttonIcon
+                position={_iconPosition}
+            >
                 <Icon />
             </StyledFormbuttonIcon>
 
