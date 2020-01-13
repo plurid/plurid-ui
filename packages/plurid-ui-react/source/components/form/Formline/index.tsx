@@ -6,6 +6,8 @@ import themes, {
 
 import {
     StyledFormline,
+    StyledFormlineText,
+    StyledFormlineElement,
 } from './styled';
 
 
@@ -55,11 +57,11 @@ const Formline: React.FC<FormlineProperties> = (properties) => {
             level={_level}
             style={{...style}}
         >
-            <div>
+            <StyledFormlineText>
                 {text}
-            </div>
+            </StyledFormlineText>
 
-            <div>
+            <StyledFormlineElement>
                 {Element
                 ? (
                     <Element />
@@ -68,7 +70,7 @@ const Formline: React.FC<FormlineProperties> = (properties) => {
                         {children}
                     </>
                 )}
-            </div>
+            </StyledFormlineElement>
         </StyledFormline>
     );
 }

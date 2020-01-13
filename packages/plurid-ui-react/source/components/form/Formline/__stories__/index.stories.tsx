@@ -45,12 +45,14 @@ storiesOf(
     // const devisible = boolean('Devisible', false);
 
     return (
-        <PluridFormline
-            text={textValue}
+        <>
+            <PluridFormline
+                text={textValue}
 
-            Element={Element}
-            theme={themes[theme]}
-            level={level}
-        />
+                Element={Element}
+                theme={themes[theme]}
+                level={level}
+            />
+        </>
     );
 });
