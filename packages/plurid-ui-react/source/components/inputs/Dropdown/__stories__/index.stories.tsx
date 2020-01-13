@@ -63,7 +63,7 @@ storiesOf(
     return (
         <PluridDropdown
             selectables={selectablesItems}
-            selected={selectablesItems[0]}
+            selected={selectablesItems[1]}
             atSelect={(selected) => {console.log(selected)}}
 
             left={left}
