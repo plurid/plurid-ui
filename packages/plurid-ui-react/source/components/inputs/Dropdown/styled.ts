@@ -27,6 +27,7 @@ export const StyledDropdownSelected: any = styled.div`
 
         return props.theme.colorPrimary;
     }};
+    font-size: 0.8rem;
 `;
 
 
@@ -147,9 +148,9 @@ export const StyledFilterable: any = styled.div`
     input {
         text-align: ${(props: any) => {
             if (props.left) {
-                return 'left';
+                return 'left !important';
             }
-            return 'right';
+            return 'right !important';
         }};
     }
 `;

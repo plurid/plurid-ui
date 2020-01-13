@@ -48,6 +48,8 @@ interface DropdownProperties {
      */
     filterable?: boolean;
 
+    style?: React.CSSProperties;
+
     theme?: Theme;
     level?: number;
     devisible?: boolean;
@@ -74,6 +76,8 @@ const Dropdown: React.FC<DropdownProperties> = (properties) => {
         selectAtHover,
         selectedColor,
         filterable,
+
+        style,
 
         theme,
         level,
@@ -170,6 +174,7 @@ const Dropdown: React.FC<DropdownProperties> = (properties) => {
         <StyledDropdown
             theme={_theme}
             left={left}
+            style={{...style}}
         >
             <StyledDropdownSelected
                 onClick={() => {
@@ -203,7 +208,7 @@ const Dropdown: React.FC<DropdownProperties> = (properties) => {
                         {filterable && (
                             <li
                                 style={{
-                                    backgroundColor: _theme.backgroundColorDark,
+                                    backgroundColor: _theme.backgroundColorQuaternary,
                                 }}
                             >
                                 <StyledFilterable
