@@ -3,7 +3,7 @@ import themes from '@plurid/plurid-themes';
 import { storiesOf } from '@storybook/react';
 import {
     withKnobs,
-    // boolean,
+    boolean,
     number,
     select,
     text,
@@ -42,6 +42,7 @@ storiesOf(
 
     const theme = select(themeLabel, themeOptions, defaultThemeValue);
     const level = number('Level', 0);
+    const responsive = boolean('Responsive', false);
     // const devisible = boolean('Devisible', false);
 
     return (
@@ -52,6 +53,7 @@ storiesOf(
                 Element={Element}
                 theme={themes[theme]}
                 level={level}
+                responsive={responsive}
             />
         </>
     );
