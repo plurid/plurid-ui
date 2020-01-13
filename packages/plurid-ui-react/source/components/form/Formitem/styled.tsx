@@ -16,6 +16,5 @@ export const StyledFormitem = styled.div<IStyledFormitem>`
     align-items: center;
     min-height: 2rem;
     padding: 0.3rem 0.7rem;
-    cursor: pointer;
     user-select: none;
 `;
