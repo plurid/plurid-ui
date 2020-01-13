@@ -12,6 +12,7 @@ import PluridFormline from './components/form/Formline';
 
 /** inputs */
 import PluridDropdown from './components/inputs/Dropdown';
+import PluridItemsline from './components/inputs/Itemsline';
 import PluridSelect from './components/inputs/Select';
 import PluridSlider from './components/inputs/Slider';
 import PluridSwitch from './components/inputs/Switch';
@@ -53,6 +54,7 @@ export {
 
     /** inputs */
     PluridDropdown,
+    PluridItemsline,
     PluridSelect,
     PluridSlider,
     PluridSwitch,
