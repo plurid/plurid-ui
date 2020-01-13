@@ -17,9 +17,11 @@ interface FormbuttonProperties {
     Icon: React.FC;
     atClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 
-    style?: React.CSSProperties;
     theme?: Theme;
     level?: number;
+
+    style?: React.CSSProperties;
+    className?: string;
 }
 
 /**
@@ -35,9 +37,10 @@ const Formbutton: React.FC<FormbuttonProperties> = (properties) => {
         atClick,
 
         /** optional */
-        style,
         theme,
         level,
+        style,
+        className,
     } = properties;
 
     const _theme = theme === undefined
@@ -50,9 +53,10 @@ const Formbutton: React.FC<FormbuttonProperties> = (properties) => {
 
     return (
         <StyledFormbutton
+            style={{...style}}
+            className={className}
             theme={_theme}
             level={_level}
-            style={{...style}}
             onClick={(event) => atClick(event)}
         >
             <StyledFormbuttonIcon>

@@ -11,9 +11,11 @@ import {
 
 
 interface FormitemProperties {
-    style?: React.CSSProperties;
     theme?: Theme;
     level?: number;
+
+    style?: React.CSSProperties;
+    className?: string;
 }
 
 /**
@@ -24,9 +26,10 @@ interface FormitemProperties {
 const Formitem: React.FC<FormitemProperties> = (properties) => {
     const {
         /** optional */
-        style,
         theme,
         level,
+        style,
+        className,
 
         /** default */
         children,
@@ -42,9 +45,10 @@ const Formitem: React.FC<FormitemProperties> = (properties) => {
 
     return (
         <StyledFormitem
+            style={{...style}}
+            className={className}
             theme={_theme}
             level={_level}
-            style={{...style}}
         >
             {children}
         </StyledFormitem>
