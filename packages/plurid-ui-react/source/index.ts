@@ -5,6 +5,10 @@ import PluridGlobalStyles from './components/general';
 import PluridPureButton from './components/buttons/PureButton';
 import PluridLinkButton from './components/buttons/LinkButton';
 
+/** form */
+import PluridFormbutton from './components/form/Formbutton';
+import PluridFormline from './components/form/Formline';
+
 /** inputs */
 import PluridDropdown from './components/inputs/Dropdown';
 import PluridSelect from './components/inputs/Select';
@@ -40,6 +44,10 @@ export {
     /** buttons */
     PluridPureButton,
     PluridLinkButton,
+
+    /** form */
+    PluridFormbutton,
+    PluridFormline,
 
     /** inputs */
     PluridDropdown,
