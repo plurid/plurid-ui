@@ -16,10 +16,12 @@ interface FormlineProperties {
     text: string;
 
     Element?: React.FC;
-    style?: React.CSSProperties;
     theme?: Theme;
     level?: number;
     responsive?: boolean;
+
+    style?: React.CSSProperties;
+    className?: string;
 }
 
 /**
@@ -36,10 +38,12 @@ const Formline: React.FC<FormlineProperties> = (properties) => {
 
         /** optional */
         Element,
-        style,
         theme,
         level,
         responsive,
+
+        style,
+        className,
 
         /** default */
         children,
@@ -60,6 +64,7 @@ const Formline: React.FC<FormlineProperties> = (properties) => {
     return (
         <StyledFormline
             style={{...style}}
+            className={className}
             theme={_theme}
             level={_level}
             responsive={_responsive}
