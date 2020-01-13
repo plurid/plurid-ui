@@ -6,6 +6,7 @@ import PluridPureButton from './components/buttons/PureButton';
 import PluridLinkButton from './components/buttons/LinkButton';
 
 /** form */
+import PluridFormitem from './components/form/Formitem';
 import PluridFormbutton from './components/form/Formbutton';
 import PluridFormline from './components/form/Formline';
 
@@ -46,6 +47,7 @@ export {
     PluridLinkButton,
 
     /** form */
+    PluridFormitem,
     PluridFormbutton,
     PluridFormline,
 
