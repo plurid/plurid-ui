@@ -208,7 +208,7 @@ const Dropdown: React.FC<DropdownProperties> = (properties) => {
                         {filterable && (
                             <li
                                 style={{
-                                    backgroundColor: _theme.backgroundColorQuaternary,
+                                    backgroundColor: _theme.backgroundColorTertiary,
                                 }}
                             >
                                 <StyledFilterable
