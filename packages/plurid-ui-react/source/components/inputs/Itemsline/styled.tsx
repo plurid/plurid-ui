@@ -9,6 +9,7 @@ import {
 interface IStyledItemsline {
     theme: Theme,
     level: number;
+    left: boolean;
 }
 
 export const StyledItemsline = styled.div<IStyledItemsline>`
@@ -22,8 +23,13 @@ export const StyledItemsline = styled.div<IStyledItemsline>`
         margin-bottom: 0.8rem;
         display: flex;
         flex-wrap: wrap;
-        flex-direction: row-reverse;
         justify-content: flex-start;
+        flex-direction: ${(props: IStyledItemsline) => {
+            if (props.left) {
+                return 'row';
+            }
+            return 'row-reverse';
+        }};
     }
 
     li {

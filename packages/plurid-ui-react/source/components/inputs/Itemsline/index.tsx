@@ -16,6 +16,7 @@ interface ItemslineProperties {
 
     theme?: Theme;
     level?: number;
+    left?: boolean;
 
     style?: React.CSSProperties;
     className?: string;
@@ -35,6 +36,8 @@ const Itemsline: React.FC<ItemslineProperties> = (properties) => {
         /** optional */
         theme,
         level,
+        left,
+
         style,
         className,
     } = properties;
@@ -47,12 +50,17 @@ const Itemsline: React.FC<ItemslineProperties> = (properties) => {
         ? 0
         : level;
 
+    const _left = left === undefined
+        ? false
+        : left;
+
     return (
         <StyledItemsline
             style={{...style}}
             className={className}
             theme={_theme}
             level={_level}
+            left={_left}
         >
             {items.length > 0 && (
                 <ul>

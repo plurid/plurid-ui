@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import {
     withKnobs,
-    // boolean,
+    boolean,
     // number,
     // select,
     // text,
@@ -37,12 +37,15 @@ storiesOf(
 .add('basic', () => {
     // const theme = select(themeLabel, themeOptions, defaultThemeValue);
     // const level = number('Level', 0);
+    const left = boolean('Left', false);
 
     return (
         <>
             <PluridItemsline
                 items={['one', 'two', 'three']}
                 {...actions}
+
+                left={left}
             />
         </>
     );
