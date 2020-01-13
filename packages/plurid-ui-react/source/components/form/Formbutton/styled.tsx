@@ -32,8 +32,15 @@ export const StyledFormbutton = styled.div<IStyledFormbutton>`
 `;
 
 
-export const StyledFormbuttonIcon = styled.div`
-    justify-self: center;
+interface IStyledFormbuttonIcon {
+    theme: Theme,
+    position: 'left' | 'center' | 'right';
+}
+
+export const StyledFormbuttonIcon = styled.div<IStyledFormbuttonIcon>`
+    justify-self: ${(props: IStyledFormbuttonIcon) => {
+        return props.position;
+    }};
 `;
 
 
