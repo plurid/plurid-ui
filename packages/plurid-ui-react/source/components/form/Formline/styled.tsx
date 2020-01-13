@@ -9,6 +9,7 @@ import {
 interface IStyledFormline {
     theme: Theme,
     level: number;
+    responsive: boolean;
 }
 
 export const StyledFormline = styled.div<IStyledFormline>`
@@ -23,10 +24,30 @@ export const StyledFormline = styled.div<IStyledFormline>`
     }};
 
     @media (max-width: 800px) {
-        grid-template-columns: 1fr;
-        justify-items: center;
-        justify-content: center;
-        min-height: 48px;
+        grid-template-columns: ${(props: IStyledFormline) => {
+            if (props.responsive) {
+                return '1fr';
+            }
+            return '1fr 1fr';
+        }};
+        min-height: ${(props: IStyledFormline) => {
+            if (props.responsive) {
+                return '2.4rem';
+            }
+            return '2rem';
+        }};
+        justify-items: ${(props: IStyledFormline) => {
+            if (props.responsive) {
+                return 'center';
+            }
+            return 'auto';
+        }};
+        justify-content: ${(props: IStyledFormline) => {
+            if (props.responsive) {
+                return 'center';
+            }
+            return 'auto';
+        }};
     }
 `;
 
@@ -36,10 +57,20 @@ export const StyledFormlineText = styled.div`
 `;
 
 
-export const StyledFormlineElement = styled.div`
+
+interface IStyledFormlineElement {
+    responsive: boolean;
+}
+
+export const StyledFormlineElement = styled.div<IStyledFormlineElement>`
     justify-self: right;
 
     @media (max-width: 800px) {
-        justify-self: center;
+        justify-self: ${(props: IStyledFormline) => {
+            if (props.responsive) {
+                return 'center';
+            }
+            return 'right';
+        }};
     }
 `;
