@@ -9,6 +9,7 @@ import {
 interface IStyledFormbutton {
     theme: Theme,
     level: number;
+    inactive: boolean;
 }
 
 export const StyledFormbutton = styled.div<IStyledFormbutton>`
@@ -17,15 +18,23 @@ export const StyledFormbutton = styled.div<IStyledFormbutton>`
     align-items: center;
     min-height: 2rem;
     padding: 0.3rem 0.7rem;
-    cursor: pointer;
     user-select: none;
 
+    cursor: ${(props: IStyledFormbutton) => {
+        if (props.inactive) {
+            return 'default';
+        }
+        return 'pointer';
+    }};
     color: ${(props: IStyledFormbutton) => {
         return props.theme.colorPrimary;
     }};
 
     :hover {
         background-color: ${(props: IStyledFormbutton) => {
+            if (props.inactive) {
+                return 'initial';
+            }
             return props.theme.backgroundColorSecondary;
         }};
     }
