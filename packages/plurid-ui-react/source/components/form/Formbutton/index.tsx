@@ -21,7 +21,7 @@ interface FormbuttonProperties {
     level?: number;
     iconPosition?: 'left' | 'center' | 'right';
     /**
-     * Renders the button as is (without hover and cursor effects).
+     * Renders the button as is (without hover, cursor effects, and on click listen).
      */
     inactive?: boolean;
 
@@ -70,7 +70,7 @@ const Formbutton: React.FC<FormbuttonProperties> = (properties) => {
         <StyledFormbutton
             style={{...style}}
             className={className}
-            onClick={(event) => atClick(event)}
+            onClick={(event) => !_inactive ? atClick(event) : null }
             theme={_theme}
             level={_level}
             inactive={_inactive}
