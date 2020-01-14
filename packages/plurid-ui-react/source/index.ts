@@ -25,6 +25,9 @@ import PluridSpinner from './components/markers/Spinner';
 import PluridHeading from './components/typography/Heading';
 import PluridParagraph from './components/typography/Paragraph';
 
+/** varia */
+import PluridScrollableLine from './components/varia/ScrollableLine';
+
 
 /** data */
 import {
@@ -66,6 +69,9 @@ export {
     /** typography */
     PluridHeading,
     PluridParagraph,
+
+    /** varia */
+    PluridScrollableLine,
 
 
     /** data */
