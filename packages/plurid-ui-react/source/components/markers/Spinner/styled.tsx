@@ -1,5 +1,13 @@
 import styled from 'styled-components';
 
+import {
+    Theme,
+} from '@plurid/plurid-themes';
+
+import {
+    Sizes,
+} from '../../../data/interfaces';
+
 
 
 export const StyledSpinner = styled.div`
@@ -10,11 +18,16 @@ export const StyledSpinner = styled.div`
 `;
 
 
-export const StyledLoader: any = styled.div`
+interface IStyledLoader {
+    theme: Theme,
+    size: Sizes,
+}
+
+export const StyledLoader = styled.div<IStyledLoader>`
     display: inline-block;
     position: relative;
 
-    width: ${(props: any) => {
+    width: ${(props: IStyledLoader) => {
         switch (props.size) {
             case 'small':
                 return '1rem';
@@ -26,7 +39,7 @@ export const StyledLoader: any = styled.div`
                 return '1.8rem';
         }
     }};
-    height: ${(props: any) => {
+    height: ${(props: IStyledLoader) => {
         switch (props.size) {
             case 'small':
                 return '1rem';
@@ -40,7 +53,7 @@ export const StyledLoader: any = styled.div`
     }};
 
     div {
-        width: ${(props: any) => {
+        width: ${(props: IStyledLoader) => {
             switch (props.size) {
                 case 'small':
                     return '1rem';
@@ -52,7 +65,7 @@ export const StyledLoader: any = styled.div`
                     return '1.8rem';
             }
         }};
-        height: ${(props: any) => {
+        height: ${(props: IStyledLoader) => {
             switch (props.size) {
                 case 'small':
                     return '1rem';
@@ -64,7 +77,7 @@ export const StyledLoader: any = styled.div`
                     return '1.8rem';
             }
         }};
-        margin: ${(props: any) => {
+        margin: ${(props: IStyledLoader) => {
             switch (props.size) {
                 case 'small':
                     return '0.1rem';
@@ -76,7 +89,7 @@ export const StyledLoader: any = styled.div`
                     return '0.2rem';
             }
         }};
-        border: ${(props: any) => {
+        border: ${(props: IStyledLoader) => {
             switch (props.size) {
                 case 'small':
                     return '0.1rem solid ' + props.theme.colorPrimary;
@@ -88,7 +101,7 @@ export const StyledLoader: any = styled.div`
                     return '0.2rem solid ' + props.theme.colorPrimary;
             }
         }};
-        border-color: ${(props: any) => {
+        border-color: ${(props: IStyledLoader) => {
             return props.theme.colorPrimary;
         }} transparent transparent transparent;
 
