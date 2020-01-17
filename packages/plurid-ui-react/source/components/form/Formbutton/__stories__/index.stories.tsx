@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import {
     withKnobs,
-    // boolean,
+    boolean,
     number,
     select,
     text,
@@ -46,7 +46,8 @@ storiesOf(
 
     const theme = select(themeLabel, themeOptions, defaultThemeValue);
     const level = number('Level', 0);
-    // const devisible = boolean('Devisible', false);
+    const link = text('Link', '');
+    const devisible = boolean('Devisible', false);
 
     return (
         <>
@@ -58,6 +59,8 @@ storiesOf(
 
                 theme={themes[theme]}
                 level={level}
+                link={link}
+                devisible={devisible}
             />
         </>
     );
