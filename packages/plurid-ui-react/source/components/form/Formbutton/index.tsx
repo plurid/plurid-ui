@@ -17,6 +17,7 @@ interface FormbuttonProperties {
     Icon: React.FC;
     atClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 
+    link?: string;
     theme?: Theme;
     devisible?: boolean;
     level?: number;
@@ -43,6 +44,7 @@ const Formbutton: React.FC<FormbuttonProperties> = (properties) => {
         atClick,
 
         /** optional */
+        link,
         theme,
         devisible,
         level,
@@ -71,6 +73,34 @@ const Formbutton: React.FC<FormbuttonProperties> = (properties) => {
     const _inactive = inactive === undefined
         ? false
         : inactive;
+
+
+    if (link) {
+        return (
+            <StyledFormbutton
+                style={{...style}}
+                className={className}
+                onClick={(event: any) => !_inactive ? atClick(event) : null }
+                theme={_theme}
+                level={_level}
+                inactive={_inactive}
+                devisible={_devisible}
+                as={'a'}
+                href={link}
+            >
+                <StyledFormbuttonIcon
+                    position={_iconPosition}
+                >
+                    <Icon />
+                </StyledFormbuttonIcon>
+
+                <StyledFormbuttonText>
+                    {text}
+                </StyledFormbuttonText>
+            </StyledFormbutton>
+        );
+    }
+
 
     return (
         <StyledFormbutton

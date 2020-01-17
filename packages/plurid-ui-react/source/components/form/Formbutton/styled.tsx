@@ -19,6 +19,7 @@ export const StyledFormbutton = styled.div<IStyledFormbutton>`
     align-items: center;
     min-height: 2rem;
     user-select: none;
+    text-decoration: none;
 
     margin: ${(props: IStyledFormbutton) => {
         if (props.devisible) {
@@ -44,7 +45,7 @@ export const StyledFormbutton = styled.div<IStyledFormbutton>`
 
     :hover {
         background-color: ${(props: IStyledFormbutton) => {
-            if (props.inactive) {
+            if (props.inactive || props.devisible) {
                 return 'initial';
             }
             return props.theme.backgroundColorSecondary;
