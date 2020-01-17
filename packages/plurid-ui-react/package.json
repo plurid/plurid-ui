@@ -1,6 +1,6 @@
 {
     "name": "@plurid/plurid-ui-react",
-    "version": "0.1.62",
+    "version": "0.1.63",
     "description": "Plurid UI React Components for Plurid Apps",
     "keywords": [
         "plurid",
@@ -50,18 +50,18 @@
         "styled-components": ">=4"
     },
     "devDependencies": {
-        "@babel/core": "^7.8.0",
-        "@plurid/plurid-themes": "^0.1.24",
-        "@storybook/addon-actions": "^5.3.2",
-        "@storybook/addon-info": "^5.3.2",
-        "@storybook/addon-knobs": "^5.3.2",
-        "@storybook/addon-links": "^5.3.2",
-        "@storybook/addons": "^5.3.2",
-        "@storybook/react": "^5.3.2",
+        "@babel/core": "^7.8.3",
+        "@plurid/plurid-themes": "^0.1.25",
+        "@storybook/addon-actions": "^5.3.6",
+        "@storybook/addon-info": "^5.3.6",
+        "@storybook/addon-knobs": "^5.3.6",
+        "@storybook/addon-links": "^5.3.6",
+        "@storybook/addons": "^5.3.6",
+        "@storybook/react": "^5.3.6",
         "@svgr/rollup": "^5.0.1",
         "@types/enzyme": "^3.10.4",
         "@types/enzyme-adapter-react-16": "^1.0.5",
-        "@types/jest": "^24.0.25",
+        "@types/jest": "^24.9.0",
         "@types/react": "^16.9.17",
         "@types/react-dom": "^16.9.4",
         "@types/styled-components": "^4.4.2",
@@ -80,8 +80,8 @@
         "react-test-renderer": "^16.12.0",
         "rollup": "^1.29.0",
         "rollup-plugin-typescript2": "^0.25.3",
-        "styled-components": "^4.4.1",
+        "styled-components": "^5.0.0",
         "ts-jest": "^24.3.0",
-        "typescript": "^3.7.4"
+        "typescript": "^3.7.5"
     }
 }
