@@ -7,11 +7,15 @@ import {
 
 import themes, { Theme } from '@plurid/plurid-themes';
 
+import {
+    Sizes,
+} from '../../../data/interfaces';
+
 
 
 interface SpinnerProperties {
     theme?: Theme;
-    size?: 'small' | 'normal' | 'large';
+    size?: Sizes;
 }
 
 const Spinner: React.FC<SpinnerProperties> = (properties) => {
