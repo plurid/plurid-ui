@@ -18,6 +18,7 @@ interface FormbuttonProperties {
     atClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 
     link?: string;
+    target?: string;
     theme?: Theme;
     devisible?: boolean;
     level?: number;
@@ -45,6 +46,7 @@ const Formbutton: React.FC<FormbuttonProperties> = (properties) => {
 
         /** optional */
         link,
+        target,
         theme,
         devisible,
         level,
@@ -105,6 +107,7 @@ const Formbutton: React.FC<FormbuttonProperties> = (properties) => {
                 onClick={(event: any) => !_inactive ? atClick(event) : null }
                 as={'a'}
                 href={link}
+                target={target}
                 {...renderProperties}
             >
                 {render()}
