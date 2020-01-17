@@ -10,6 +10,7 @@ interface IStyledFormbutton {
     theme: Theme,
     level: number;
     inactive: boolean;
+    devisible: boolean;
 }
 
 export const StyledFormbutton = styled.div<IStyledFormbutton>`
@@ -17,9 +18,20 @@ export const StyledFormbutton = styled.div<IStyledFormbutton>`
     grid-template-columns: 40px 1fr;
     align-items: center;
     min-height: 2rem;
-    padding: 0.3rem 0.7rem;
     user-select: none;
 
+    margin: ${(props: IStyledFormbutton) => {
+        if (props.devisible) {
+            return '0';
+        }
+        return 'initial';
+    }};
+    padding: ${(props: IStyledFormbutton) => {
+        if (props.devisible) {
+            return '0';
+        }
+        return '0.3rem 0.7rem';
+    }};
     cursor: ${(props: IStyledFormbutton) => {
         if (props.inactive) {
             return 'default';
@@ -50,6 +62,8 @@ export const StyledFormbuttonIcon = styled.div<IStyledFormbuttonIcon>`
     justify-self: ${(props: IStyledFormbuttonIcon) => {
         return props.position;
     }};
+    display: grid;
+    place-content: center;
 `;
 
 

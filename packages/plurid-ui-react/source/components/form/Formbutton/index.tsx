@@ -18,6 +18,7 @@ interface FormbuttonProperties {
     atClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 
     theme?: Theme;
+    devisible?: boolean;
     level?: number;
     iconPosition?: 'left' | 'center' | 'right';
     /**
@@ -43,6 +44,7 @@ const Formbutton: React.FC<FormbuttonProperties> = (properties) => {
 
         /** optional */
         theme,
+        devisible,
         level,
         iconPosition,
         inactive,
@@ -57,6 +59,10 @@ const Formbutton: React.FC<FormbuttonProperties> = (properties) => {
     const _level = level === undefined
         ? 0
         : level;
+
+    const _devisible = devisible === undefined
+        ? false
+        : devisible;
 
     const _iconPosition = iconPosition === undefined
         ? 'center'
@@ -74,6 +80,7 @@ const Formbutton: React.FC<FormbuttonProperties> = (properties) => {
             theme={_theme}
             level={_level}
             inactive={_inactive}
+            devisible={_devisible}
         >
             <StyledFormbuttonIcon
                 position={_iconPosition}
