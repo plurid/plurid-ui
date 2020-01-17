@@ -75,43 +75,8 @@ const Formbutton: React.FC<FormbuttonProperties> = (properties) => {
         : inactive;
 
 
-    if (link) {
-        return (
-            <StyledFormbutton
-                style={{...style}}
-                className={className}
-                onClick={(event: any) => !_inactive ? atClick(event) : null }
-                theme={_theme}
-                level={_level}
-                inactive={_inactive}
-                devisible={_devisible}
-                as={'a'}
-                href={link}
-            >
-                <StyledFormbuttonIcon
-                    position={_iconPosition}
-                >
-                    <Icon />
-                </StyledFormbuttonIcon>
-
-                <StyledFormbuttonText>
-                    {text}
-                </StyledFormbuttonText>
-            </StyledFormbutton>
-        );
-    }
-
-
-    return (
-        <StyledFormbutton
-            style={{...style}}
-            className={className}
-            onClick={(event) => !_inactive ? atClick(event) : null }
-            theme={_theme}
-            level={_level}
-            inactive={_inactive}
-            devisible={_devisible}
-        >
+    const render = () => (
+        <>
             <StyledFormbuttonIcon
                 position={_iconPosition}
             >
@@ -121,6 +86,38 @@ const Formbutton: React.FC<FormbuttonProperties> = (properties) => {
             <StyledFormbuttonText>
                 {text}
             </StyledFormbuttonText>
+        </>
+    );
+
+    const renderProperties = {
+        style: {...style},
+        className: className,
+        theme: _theme,
+        level: _level,
+        inactive: _inactive,
+        devisible: _devisible,
+    };
+
+
+    if (link) {
+        return (
+            <StyledFormbutton
+                onClick={(event: any) => !_inactive ? atClick(event) : null }
+                as={'a'}
+                href={link}
+                {...renderProperties}
+            >
+                {render()}
+            </StyledFormbutton>
+        );
+    }
+
+    return (
+        <StyledFormbutton
+            onClick={(event) => !_inactive ? atClick(event) : null }
+            {...renderProperties}
+        >
+            {render()}
         </StyledFormbutton>
     );
 }
