@@ -19,6 +19,7 @@ import PluridSwitch from './components/inputs/Switch';
 import PluridTextline from './components/inputs/Textline';
 
 /** markers */
+import PluridProgressCircle from './components/markers/ProgressCircle';
 import PluridSpinner from './components/markers/Spinner';
 
 /** typography */
@@ -64,6 +65,7 @@ export {
     PluridTextline,
 
     /** markers */
+    PluridProgressCircle,
     PluridSpinner,
 
     /** typography */
