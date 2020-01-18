@@ -14,9 +14,10 @@ interface IStyledTooltip {
     theme: Theme;
 }
 
-export const StyledTooltip = styled.div<IStyledTooltip>`
+export const StyledTooltip = styled.span<IStyledTooltip>`
     position: relative;
-    display: grid;
+    display: inline-grid;
+    margin: 0 5px;
     place-content: center;
     height: 20px;
     width: 20px;
@@ -35,7 +36,7 @@ export const StyledTooltip = styled.div<IStyledTooltip>`
 `;
 
 
-export const StyledTooltipIcon = styled.div`
+export const StyledTooltipIcon = styled.span`
     user-select: none;
     cursor: pointer;
 `;
