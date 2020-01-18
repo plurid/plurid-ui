@@ -21,6 +21,7 @@ import PluridTextline from './components/inputs/Textline';
 /** markers */
 import PluridProgressCircle from './components/markers/ProgressCircle';
 import PluridSpinner from './components/markers/Spinner';
+import PluridTooltip from './components/markers/Tooltip';
 
 /** typography */
 import PluridHeading from './components/typography/Heading';
@@ -67,6 +68,7 @@ export {
     /** markers */
     PluridProgressCircle,
     PluridSpinner,
+    PluridTooltip,
 
     /** typography */
     PluridHeading,
