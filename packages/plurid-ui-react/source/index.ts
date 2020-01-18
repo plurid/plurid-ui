@@ -6,8 +6,9 @@ import PluridPureButton from './components/buttons/PureButton';
 import PluridLinkButton from './components/buttons/LinkButton';
 
 /** form */
-import PluridFormitem from './components/form/Formitem';
 import PluridFormbutton from './components/form/Formbutton';
+import PluridFormitem from './components/form/Formitem';
+import PluridFormLeftRight from './components/form/FormLeftRight';
 import PluridFormline from './components/form/Formline';
 
 /** inputs */
@@ -54,8 +55,9 @@ export {
     PluridLinkButton,
 
     /** form */
-    PluridFormitem,
     PluridFormbutton,
+    PluridFormitem,
+    PluridFormLeftRight,
     PluridFormline,
 
     /** inputs */
