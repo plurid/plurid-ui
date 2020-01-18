@@ -10,10 +10,10 @@ interface IStyledHR {
     theme: Theme;
 }
 
-export const StyledHR = styled.span<IStyledHR>`
+export const StyledHR = styled.hr<IStyledHR>`
     outline: 0;
     border: 0;
-    margin-top: 1.2rem auto;
+    margin: 0.8rem auto;
     height: 1px;
 
     background-color: ${(props: IStyledHR) => {

@@ -30,11 +30,16 @@ storiesOf(
         <div
             style={{
                 backgroundColor: 'slategray',
+                height: '100px',
             }}
         >
+            aaa
+
             <PluridHR
                 theme={themes[theme]}
             />
+
+            bbb
         </div>
     );
 });
