@@ -47,17 +47,20 @@ storiesOf(
     return (
         <div
             style={{
-                display: 'grid',
-                placeContent: 'center',
+                // display: 'grid',
+                // placeContent: 'center',
             }}
         >
-            <PluridTooltip
+            <p>
+                words words
+                <PluridTooltip
                 icon="?"
                 text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 theme={themes[theme]}
                 size={_size}
                 indicator={indicator}
             />
+            </p>
         </div>
     );
 });
