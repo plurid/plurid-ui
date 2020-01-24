@@ -26,6 +26,7 @@ interface TextlineProperties {
     autoCorrect?: string;
     spellCheck?: boolean;
     style?: React.CSSProperties;
+    className?: string;
 
     theme?: Theme;
     level?: number;
@@ -77,6 +78,7 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
         autoCorrect,
         spellCheck,
         style,
+        className,
 
         theme,
         level,
@@ -141,6 +143,7 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
             center={center}
             round={_round}
             width={width}
+            className={className}
         >
             <input
                 type={_type}
