@@ -3,7 +3,9 @@ import React, {
     useEffect,
 } from 'react';
 
-import themes, { Theme } from '@plurid/plurid-themes';
+import themes, {
+    Theme,
+} from '@plurid/plurid-themes';
 
 import {
     StyledDropdown,
