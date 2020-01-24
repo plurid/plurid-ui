@@ -198,7 +198,10 @@ const Dropdown: React.FC<DropdownProperties> = (
         } else {
             setSelectedBackgroundColor(interactionTheme.backgroundColorTertiary);
         }
-    }, [_level]);
+    }, [
+        _level,
+        interactionTheme,
+    ]);
 
 
     /** Handle Themes */
