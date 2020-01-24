@@ -67,7 +67,10 @@ interface DropdownProperties {
     heightItems?: number;
 }
 
-const Dropdown: React.FC<DropdownProperties> = (properties) => {
+const Dropdown: React.FC<DropdownProperties> = (
+    properties,
+) => {
+    /** properties */
     const {
         selected,
         selectables,
@@ -85,26 +88,26 @@ const Dropdown: React.FC<DropdownProperties> = (properties) => {
         style,
         className,
 
-        theme,
-        generalTheme,
-        interactionTheme,
+        theme: themeProperty,
+        generalTheme: generalThemeProperty,
+        interactionTheme: interactionThemeProperty,
         level,
 
         heightItems,
         width,
     } = properties;
 
-    const _generalTheme = generalTheme === undefined
-        ? theme === undefined
+    const _generalTheme = generalThemeProperty === undefined
+        ? themeProperty === undefined
             ? themes.plurid
-            : theme
-        : generalTheme;
+            : themeProperty
+        : generalThemeProperty;
 
-    const _interactionTheme = interactionTheme === undefined
-        ? theme === undefined
+    const _interactionTheme = interactionThemeProperty === undefined
+        ? themeProperty === undefined
             ? themes.plurid
-            : theme
-        : interactionTheme;
+            : themeProperty
+        : interactionThemeProperty;
 
     const _level = level === undefined
         ? 0
@@ -118,11 +121,18 @@ const Dropdown: React.FC<DropdownProperties> = (properties) => {
         ? true
         : selectAtHover;
 
+
+    /** State */
+    const [generalTheme, setGeneralTheme] = useState(_generalTheme);
+    const [interactionTheme, setInteractionTheme] = useState(_interactionTheme);
+
     const [showList, setShowList] = useState(false);
-    const [selectedBackgroundColor, setSelectedBackgroundColor] = useState(_interactionTheme.backgroundColorTertiary);
+    const [selectedBackgroundColor, setSelectedBackgroundColor] = useState(interactionTheme.backgroundColorTertiary);
     const [filterValue, setFilterValue] = useState('');
     const [filteredSelectables, setFilteredSelectables] = useState([...selectables]);
 
+
+    /** Handlers */
     const select = (
         selected: string | PluridDropdownSelectable,
     ) => {
@@ -172,23 +182,52 @@ const Dropdown: React.FC<DropdownProperties> = (properties) => {
         setFilteredSelectables(filteredSelectables);
     }
 
+
+    /** Handle Dropdown */
     useEffect(() => {
         if (!dropdownToggled) {
             setShowList(false);
         }
     }, [dropdownToggled]);
 
+
+    /** Handle Level */
     useEffect(() => {
         if (_level === 2) {
-            setSelectedBackgroundColor(_interactionTheme.backgroundColorSecondary);
+            setSelectedBackgroundColor(interactionTheme.backgroundColorSecondary);
         } else {
-            setSelectedBackgroundColor(_interactionTheme.backgroundColorTertiary);
+            setSelectedBackgroundColor(interactionTheme.backgroundColorTertiary);
         }
     }, [_level]);
 
+
+    /** Handle Themes */
+    useEffect(() => {
+        const generalTheme = generalThemeProperty === undefined
+            ? themeProperty === undefined
+                ? themes.plurid
+                : themeProperty
+            : generalThemeProperty;
+
+        const interactionTheme = interactionThemeProperty === undefined
+            ? themeProperty === undefined
+                ? themes.plurid
+                : themeProperty
+            : interactionThemeProperty;
+
+        setGeneralTheme(generalTheme);
+        setInteractionTheme(interactionTheme);
+    }, [
+        themeProperty,
+        generalThemeProperty,
+        interactionThemeProperty,
+    ]);
+
+
+    /** render */
     return (
         <StyledDropdown
-            theme={_interactionTheme}
+            theme={interactionTheme}
             left={left}
             style={{...style}}
             className={className}
@@ -201,7 +240,7 @@ const Dropdown: React.FC<DropdownProperties> = (properties) => {
                         setDropdownToggled(kind);
                     }
                 }}
-                theme={_generalTheme}
+                theme={generalTheme}
                 selectedColor={selectedColor}
             >
                 {typeof selected === 'string'
@@ -212,7 +251,7 @@ const Dropdown: React.FC<DropdownProperties> = (properties) => {
 
             {showList && (
                 <StyledDropdownList
-                    theme={_interactionTheme}
+                    theme={interactionTheme}
                     left={left}
                     level={_level}
                     heightItems={heightItems && filterable && filteredSelectables.length < heightItems
@@ -225,15 +264,15 @@ const Dropdown: React.FC<DropdownProperties> = (properties) => {
                         {filterable && (
                             <li
                                 style={{
-                                    backgroundColor: _interactionTheme.backgroundColorTertiary,
-                                    boxShadow: _interactionTheme.boxShadowPenumbraInset,
+                                    backgroundColor: interactionTheme.backgroundColorTertiary,
+                                    boxShadow: interactionTheme.boxShadowPenumbraInset,
                                 }}
                             >
                                 <StyledFilterable
                                     left={left}
                                 >
                                     <Textline
-                                        theme={_interactionTheme}
+                                        theme={interactionTheme}
                                         text={filterValue}
                                         atChange={handleFiltering}
                                         devisible={true}
