@@ -19,11 +19,13 @@ interface FormitemProperties {
 }
 
 /**
- * Renders an icon and a descriptive text.
+ * Renders a form item.
  *
  * @param properties
  */
-const Formitem: React.FC<FormitemProperties> = (properties) => {
+const Formitem: React.FC<FormitemProperties> = (
+    properties,
+) => {
     const {
         /** optional */
         theme,
