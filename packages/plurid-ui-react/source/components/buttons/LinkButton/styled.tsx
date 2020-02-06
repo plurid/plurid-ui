@@ -50,7 +50,12 @@ export const StyledLinkButton: any = styled.button`
         return 'pointer';
     }};
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 2px solid ${(props: any) => {
+        if (props.isActive) {
+            return props.theme.colorPrimary;
+        }
+        return 'transparent';
+    }};
 
     font-weight: bold;
     background: transparent;
