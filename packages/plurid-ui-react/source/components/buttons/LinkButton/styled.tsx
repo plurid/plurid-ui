@@ -50,7 +50,7 @@ export const StyledLinkButton: any = styled.button`
         return 'pointer';
     }};
     border: none;
-    border-bottom: 2px solid ${(props: any) => {
+    border-bottom: 1px solid ${(props: any) => {
         if (props.isActive) {
             return props.theme.colorPrimary;
         }
