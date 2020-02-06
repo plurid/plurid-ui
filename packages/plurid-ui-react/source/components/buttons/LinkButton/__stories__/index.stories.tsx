@@ -25,6 +25,7 @@ storiesOf(
     const inline = boolean('Inline', false);
     const disabled = boolean('Disabled', false);
     const loading = boolean('Loading', false);
+    const active = boolean('Active', false);
     const level = number('Level', 0);
 
     return (
@@ -37,6 +38,7 @@ storiesOf(
             level={level}
             disabled={disabled}
             loading={loading}
+            active={active}
         />
     );
 });
