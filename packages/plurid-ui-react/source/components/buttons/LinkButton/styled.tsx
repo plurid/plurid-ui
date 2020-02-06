@@ -49,12 +49,13 @@ export const StyledLinkButton: any = styled.button`
         }
         return 'pointer';
     }};
+    border: none;
+    border-bottom: 1px solid white;
 
     font-weight: bold;
     background: transparent;
     place-content: center;
     user-select: none;
-    border: none;
     outline: none;
 `;
 

@@ -21,9 +21,13 @@ interface LinkButtonProperties {
     inline?: boolean;
     disabled?: boolean;
     loading?: boolean;
+    active?: boolean;
 }
 
-const LinkButton: React.FC<LinkButtonProperties> = (properties) => {
+const LinkButton: React.FC<LinkButtonProperties> = (
+    properties,
+) => {
+    /** properties */
     const {
         text,
         atClick,
@@ -33,6 +37,7 @@ const LinkButton: React.FC<LinkButtonProperties> = (properties) => {
         inline,
         disabled,
         loading,
+        active,
     } = properties;
 
     const _theme = theme === undefined
@@ -54,6 +59,8 @@ const LinkButton: React.FC<LinkButtonProperties> = (properties) => {
         );
     }
 
+
+    /** render */
     return (
         <StyledLinkButton
             onClick={(event: React.MouseEvent) => !disabled ? atClick(event) : null}
@@ -61,6 +68,7 @@ const LinkButton: React.FC<LinkButtonProperties> = (properties) => {
             level={_level}
             inline={inline}
             isDisabled={disabled}
+            isActive={active}
         >
             {text}
         </StyledLinkButton>
