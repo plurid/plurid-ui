@@ -1,5 +1,7 @@
 import React, {
+    useRef,
     useState,
+    useEffect,
 } from 'react';
 
 import themes, {
@@ -8,22 +10,22 @@ import themes, {
 
 import {
     StyledTooltip,
+    StyledTooltipString,
     StyledTooltipIcon,
     StyledTooltipText,
 } from './styled';
 
-import {
-    Sizes,
-} from '../../../data/interfaces';
-
 
 
 interface TooltipProperties {
-    icon: string | React.FC<any>;
-    text: string | React.FC<any>;
+    tool: string | React.FC<any>;
+    tip: string | React.FC<any>;
 
-    size?: Sizes;
     indicator?: boolean;
+    /**
+     * Render the `tool` as a circle.
+     */
+    icon?: boolean;
 
     theme?: Theme;
     style?: React.CSSProperties;
@@ -33,64 +35,114 @@ interface TooltipProperties {
 const Tooltip: React.FC<TooltipProperties> = (
     properties,
 ) => {
+    /** properties */
     const {
         /** required */
-        icon: Icon,
-        text: Text,
+        tool: Tool,
+        tip: Tip,
 
         /** optional */
-        size,
         indicator: indicatorProperty,
+        icon: iconProperty,
 
-        theme,
+        theme: themeProperty,
         style,
         className,
     } = properties;
 
-    const _theme = theme === undefined
+    const theme = themeProperty === undefined
         ? themes.plurid
-        : theme;
-
-    const _size = size === undefined
-        ? 'normal'
-        : size;
+        : themeProperty;
 
     const indicator = indicatorProperty === undefined
         ? true
         : indicatorProperty;
 
+    const icon = iconProperty === undefined
+        ? true
+        : iconProperty;
+
+
+    /** references */
+    const hoverOutTimeout = useRef<null | number>(null);
+
+
+    /** state */
+    const [mouseOver, setMouseOver] = useState(false);
     const [showTooltipText, setShowTooltipText] = useState(false);
+
+
+    /** effects */
+    useEffect(() => {
+        if (mouseOver) {
+            setShowTooltipText(true);
+        }
+
+        if (!mouseOver) {
+            hoverOutTimeout.current = setTimeout(
+                () => {
+                    setShowTooltipText(false);
+                },
+                500,
+            );
+        }
+
+        return () => {
+            if (hoverOutTimeout.current) {
+                clearTimeout(hoverOutTimeout.current);
+            }
+        }
+    }, [
+        mouseOver,
+    ]);
+
+
+    /** render */
+    const renderTool = (
+        <>
+            {typeof Tool === 'string' ? (
+                <>{Tool}</>
+            ) : (
+                <Tool />
+            )}
+        </>
+    );
 
     return (
         <StyledTooltip
-            onMouseEnter={() => setShowTooltipText(true)}
-            onMouseLeave={() => setShowTooltipText(false)}
-            onMouseMove={() => !showTooltipText ? setShowTooltipText(true) : null}
-            theme={_theme}
+            onMouseEnter={() => setMouseOver(true)}
+            onMouseLeave={() => setMouseOver(false)}
+            onMouseMove={() => !showTooltipText ? setMouseOver(true) : null}
+            theme={theme}
             style={{
                 ...style
             }}
             className={className}
         >
-            <StyledTooltipIcon>
-                {typeof Icon === 'string'
-                ? (
-                    <>{Icon}</>
-                ) : (
-                    <Icon />
-                )}
-            </StyledTooltipIcon>
+            {icon && (
+                <StyledTooltipIcon
+                    theme={theme}
+                >
+                    {renderTool}
+                </StyledTooltipIcon>
+            )}
+
+            {!icon && (
+                <StyledTooltipString>
+                    {renderTool}
+                </StyledTooltipString>
+            )}
 
             {showTooltipText && (
                 <StyledTooltipText
-                    theme={_theme}
+                    theme={theme}
                     indicator={indicator}
                 >
-                    {typeof Text === 'string'
+                    {typeof Tip === 'string'
                     ? (
-                        <>{Text}</>
+                        <>{Tip}</>
                     ) : (
-                        <Text />
+                        <Tip />
                     )}
                 </StyledTooltipText>
             )}
