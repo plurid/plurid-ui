@@ -16,6 +16,17 @@ interface IStyledTooltip {
 
 export const StyledTooltip = styled.span<IStyledTooltip>`
     position: relative;
+`;
+
+
+export const StyledTooltipString = styled.span`
+`;
+
+
+export const StyledTooltipIcon = styled.span`
+    user-select: none;
+    cursor: pointer;
+
     display: inline-grid;
     margin: 0 5px;
     place-content: center;
@@ -33,12 +44,6 @@ export const StyledTooltip = styled.span<IStyledTooltip>`
     background-color: ${(props: IStyledTooltip) => {
         return props.theme.backgroundColorSecondary;
     }};
-`;
-
-
-export const StyledTooltipIcon = styled.span`
-    user-select: none;
-    cursor: pointer;
 `;
 
 

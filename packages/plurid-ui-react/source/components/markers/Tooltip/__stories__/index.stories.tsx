@@ -6,6 +6,7 @@ import {
     withKnobs,
     select,
     boolean,
+    text,
 } from '@storybook/addon-knobs';
 
 import PluridTooltip from '../';
@@ -34,32 +35,26 @@ storiesOf(
 .addDecorator(withKnobs)
 .add('basic', () => {
     const theme = select(themeLabel, themeOptions, defaultThemeValue);
-
-    const size = select(label, options, defaultValue);
-    const _size = size === 'small'
-        || size === 'normal'
-        || size === 'large'
-            ? size
-            : 'normal';
-
     const indicator = boolean('Indicator', true);
+    const icon = boolean('Icon', true);
+    const tool = text('Tool', '?');
+    const tip = text('Tip', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
 
     return (
         <div
             style={{
-                // display: 'grid',
-                // placeContent: 'center',
             }}
         >
             <p>
-                words words
+                words words&nbsp;
+
                 <PluridTooltip
-                icon="?"
-                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-                theme={themes[theme]}
-                size={_size}
-                indicator={indicator}
-            />
+                    tool={tool}
+                    tip={tip}
+                    theme={themes[theme]}
+                    indicator={indicator}
+                    icon={icon}
+                />
             </p>
         </div>
     );
