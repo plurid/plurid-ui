@@ -69,7 +69,7 @@ const Formbutton: React.FC<FormbuttonProperties> = (properties) => {
         : devisible;
 
     const _iconPosition = iconPosition === undefined
-        ? 'center'
+        ? 'left'
         : iconPosition;
 
     const _inactive = inactive === undefined

@@ -12,6 +12,7 @@ import {
 
 import {
     StyledFormObliterate,
+    StyledObliterateContainer,
 } from './styled';
 
 import Formbutton from '../Formbutton';
@@ -104,7 +105,7 @@ const FormObliterate: React.FC<FormObliterateProperties> = (
             )}
 
             {showObliterate && (
-                <div>
+                <StyledObliterateContainer>
                     <div>
                         remove forever?
                     </div>
@@ -120,7 +121,7 @@ const FormObliterate: React.FC<FormObliterateProperties> = (
                         text="Obliterate"
                         atClick={handleObliterate}
                     />
-                </div>
+                </StyledObliterateContainer>
             )}
         </StyledFormObliterate>
     );

@@ -15,23 +15,19 @@ interface IStyledFormbutton {
 
 export const StyledFormbutton = styled.div<IStyledFormbutton>`
     display: grid;
-    grid-template-columns: 40px 1fr;
+    grid-template-columns: 20px 1fr;
+    grid-gap: 0.5rem;
     align-items: center;
     min-height: 2rem;
     user-select: none;
     text-decoration: none;
+    padding: 0.3rem 0.7rem;
 
     margin: ${(props: IStyledFormbutton) => {
         if (props.devisible) {
             return '0';
         }
         return 'initial';
-    }};
-    padding: ${(props: IStyledFormbutton) => {
-        if (props.devisible) {
-            return '0';
-        }
-        return '0.3rem 0.7rem';
     }};
     cursor: ${(props: IStyledFormbutton) => {
         if (props.inactive) {
