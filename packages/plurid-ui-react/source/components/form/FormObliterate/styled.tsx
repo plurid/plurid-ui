@@ -13,5 +13,4 @@ interface IStyledFormObliterate {
 }
 
 export const StyledFormObliterate = styled.div<IStyledFormObliterate>`
-
 `;

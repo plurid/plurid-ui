@@ -16,11 +16,15 @@ import {
 
 import Formbutton from '../Formbutton';
 
+import LinkButton from '../../buttons/LinkButton';
+import PureButton from '../../buttons/PureButton';
+
 
 
 interface FormObliterateProperties {
-    item?: string;
     atObliterate: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+
+    item?: string;
 
     theme?: Theme;
     devisible?: boolean;
@@ -41,13 +45,15 @@ const FormObliterate: React.FC<FormObliterateProperties> = (
     /** properties */
     const {
         /** required */
-        item,
         atObliterate,
 
         /** optional */
+        item,
+
         theme,
         devisible,
         level,
+
         style,
         className,
     } = properties;
@@ -69,6 +75,15 @@ const FormObliterate: React.FC<FormObliterateProperties> = (
     const [showObliterate, setShowObliterate] = useState(false);
 
 
+    /** handlers */
+    const handleObliterate = (
+        event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    ) => {
+        setShowObliterate(false);
+        atObliterate(event);
+    }
+
+
     /** render */
     return (
         <StyledFormObliterate
@@ -81,7 +96,7 @@ const FormObliterate: React.FC<FormObliterateProperties> = (
             {!showObliterate && (
                 <Formbutton
                     theme={_theme}
-                    text="obliterate"
+                    text={item ? `obliterate ${item}` : 'obliterate'}
                     Icon={PluridIconObliterate}
                     atClick={() => setShowObliterate(true)}
                     devisible={true}
@@ -90,7 +105,21 @@ const FormObliterate: React.FC<FormObliterateProperties> = (
 
             {showObliterate && (
                 <div>
+                    <div>
+                        remove forever?
+                    </div>
 
+                    <LinkButton
+                        theme={_theme}
+                        text="cancel"
+                        atClick={() => setShowObliterate(false)}
+                    />
+
+                    <PureButton
+                        theme={_theme}
+                        text="Obliterate"
+                        atClick={handleObliterate}
+                    />
                 </div>
             )}
         </StyledFormObliterate>
