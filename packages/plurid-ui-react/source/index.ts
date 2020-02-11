@@ -10,6 +10,7 @@ import PluridFormbutton from './components/form/Formbutton';
 import PluridFormitem from './components/form/Formitem';
 import PluridFormLeftRight from './components/form/FormLeftRight';
 import PluridFormline from './components/form/Formline';
+import PluridFormObliterate from './components/form/FormObliterate';
 
 /** inputs */
 import PluridDropdown from './components/inputs/Dropdown';
@@ -59,6 +60,7 @@ export {
     PluridFormitem,
     PluridFormLeftRight,
     PluridFormline,
+    PluridFormObliterate,
 
     /** inputs */
     PluridDropdown,
