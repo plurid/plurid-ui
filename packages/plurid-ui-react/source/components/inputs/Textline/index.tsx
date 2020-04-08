@@ -38,6 +38,8 @@ interface TextlineProperties {
     enterIconLeft?: boolean;
     enterAtClick?: () => void;
     escapeClear?: boolean;
+
+    ariaLabel?: string;
 }
 
 
@@ -64,6 +66,8 @@ interface TextlineProperties {
  * @param enterIconLeft optional - `boolean`
  * @param enterAtClick optional - `() => void`
  * @param escapeClear optional - `boolean`
+ *
+ * @param ariaLabel optiona - `boolean`
  */
 const Textline: React.FC<TextlineProperties> = (properties) => {
     const {
@@ -90,6 +94,8 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
         enterIconLeft,
         enterAtClick,
         escapeClear,
+
+        ariaLabel,
     } = properties;
 
     const _type = type === undefined
@@ -157,6 +163,9 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
                 autoComplete={autoComplete}
                 autoCorrect={autoCorrect}
                 spellCheck={spellCheck}
+
+                aria-label={ariaLabel}
+
                 style={{...style}}
 
                 ref={inputElement}
