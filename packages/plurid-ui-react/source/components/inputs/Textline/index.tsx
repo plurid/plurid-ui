@@ -18,6 +18,8 @@ interface TextlineProperties {
     text: string;
     atChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     atKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+    atFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+    atBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
 
     type?: 'text' | 'password';
     placeholder?: string;
@@ -47,6 +49,8 @@ interface TextlineProperties {
  * @param text `string`
  * @param atChange `(event: React.ChangeEvent<HTMLInputElement>) => void`
  * @param atKeyDown `(event: React.KeyboardEvent<HTMLInputElement>) => void`
+ * @param atFocus `(event: React.FocusEvent<HTMLInputElement>) => void`
+ * @param atBlur `(event: React.FocusEvent<HTMLInputElement>) => void`
  *
  * @param type optional - `'text' | 'password'`
  * @param placeholder optional - `string`
@@ -74,6 +78,8 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
         text,
         atChange,
         atKeyDown,
+        atFocus,
+        atBlur,
 
         type,
         placeholder,
@@ -157,6 +163,8 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
                 value={text}
                 onChange={atChange}
                 onKeyDown={handleKeyDown}
+                onFocus={atFocus}
+                onBlur={atBlur}
 
                 placeholder={placeholder}
                 autoCapitalize={autoCapitalize}
