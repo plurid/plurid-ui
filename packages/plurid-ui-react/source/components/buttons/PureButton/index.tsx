@@ -1,5 +1,9 @@
 import React from 'react';
-import themes, { Theme } from '@plurid/plurid-themes';
+
+import {
+    plurid as pluridTheme,
+    Theme,
+} from '@plurid/plurid-themes';
 
 import {
     StyledPureButton,
@@ -19,9 +23,15 @@ interface PureButtonProperties {
     size?: 'small' | 'normal' | 'large';
     disabled?: boolean;
     loading?: boolean;
+
+    style?: React.CSSProperties;
+    className?: string;
 }
 
-const PureButton: React.FC<PureButtonProperties> = (properties) => {
+const PureButton: React.FC<PureButtonProperties> = (
+    properties,
+) => {
+    /** properties */
     const {
         text,
         atClick,
@@ -31,10 +41,13 @@ const PureButton: React.FC<PureButtonProperties> = (properties) => {
         size,
         disabled,
         loading,
+
+        style,
+        className,
     } = properties;
 
     const _theme = theme === undefined
-        ? themes.plurid
+        ? pluridTheme
         : theme;
 
     const _level = level === undefined
@@ -45,6 +58,8 @@ const PureButton: React.FC<PureButtonProperties> = (properties) => {
         ? 'normal'
         : size;
 
+
+    /** render */
     if (loading) {
         return (
             <StyledPureButtonDiv
@@ -52,6 +67,10 @@ const PureButton: React.FC<PureButtonProperties> = (properties) => {
                 level={_level}
                 size={_size}
                 disabled={disabled}
+                style={{
+                    ...style,
+                }}
+                className={className}
             >
                 <PluridSpinner
                     theme={_theme}
@@ -68,6 +87,10 @@ const PureButton: React.FC<PureButtonProperties> = (properties) => {
             size={_size}
             onClick={(event: React.MouseEvent) => !disabled ? atClick(event) : null}
             isDisabled={disabled}
+            style={{
+                ...style,
+            }}
+            className={className}
         >
             {text}
         </StyledPureButton>
