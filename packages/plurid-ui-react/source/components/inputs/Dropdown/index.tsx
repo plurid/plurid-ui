@@ -183,13 +183,13 @@ const Dropdown: React.FC<DropdownProperties> = (
     }
 
 
+    /** effects */
     /** Handle Dropdown */
     useEffect(() => {
         if (!dropdownToggled) {
             setShowList(false);
         }
     }, [dropdownToggled]);
-
 
     /** Handle Level */
     useEffect(() => {
@@ -202,7 +202,6 @@ const Dropdown: React.FC<DropdownProperties> = (
         _level,
         interactionTheme,
     ]);
-
 
     /** Handle Themes */
     useEffect(() => {
@@ -224,6 +223,12 @@ const Dropdown: React.FC<DropdownProperties> = (
         themeProperty,
         generalThemeProperty,
         interactionThemeProperty,
+    ]);
+
+    useEffect(() => {
+        setFilteredSelectables(selectables);
+    }, [
+        selectables,
     ]);
 
 
