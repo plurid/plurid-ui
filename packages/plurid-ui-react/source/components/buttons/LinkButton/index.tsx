@@ -1,5 +1,8 @@
 import React from 'react';
-import themes, { Theme } from '@plurid/plurid-themes';
+
+import themes, {
+    Theme,
+} from '@plurid/plurid-themes';
 
 import {
     StyledLinkButton,
@@ -22,6 +25,9 @@ interface LinkButtonProperties {
     disabled?: boolean;
     loading?: boolean;
     active?: boolean;
+
+    style?: React.CSSProperties;
+    className?: string;
 }
 
 const LinkButton: React.FC<LinkButtonProperties> = (
@@ -38,6 +44,9 @@ const LinkButton: React.FC<LinkButtonProperties> = (
         disabled,
         loading,
         active,
+
+        style,
+        className,
     } = properties;
 
     const _theme = theme === undefined
@@ -69,6 +78,10 @@ const LinkButton: React.FC<LinkButtonProperties> = (
             inline={inline}
             isDisabled={disabled}
             isActive={active}
+            style={{
+                ...style,
+            }}
+            className={className}
         >
             {text}
         </StyledLinkButton>
