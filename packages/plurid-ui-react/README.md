@@ -1,6 +1,13 @@
 <h1 align="center">
-    plurid' ui react components
+    plurid' user interface
 </h1>
+
+
+<h3 align="center">
+    React Components
+</h3>
+
+
 
 <p align="center">
     <a target="_blank" href="https://www.npmjs.com/package/@plurid/plurid-ui-react">
