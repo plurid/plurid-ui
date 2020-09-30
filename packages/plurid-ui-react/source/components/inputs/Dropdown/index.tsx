@@ -22,7 +22,7 @@ import {
 
 
 
-interface DropdownProperties {
+export interface DropdownProperties {
     selectables: (PluridDropdownSelectable | string)[];
     selected: PluridDropdownSelectable | string;
     atSelect: (selection: PluridDropdownSelectable | string, kind?: string) => void;

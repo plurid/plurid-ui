@@ -19,7 +19,7 @@ const DEFAULT_STEP = 1;
 const DEFAULT_LEVEL = 0;
 const DEFAULT_THUMB_SIZE = 'large';
 
-interface SliderProperties {
+export interface SliderProperties {
     value: number;
     atChange: (value: number) => void;
 

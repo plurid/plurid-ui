@@ -10,7 +10,7 @@ import {
 
 
 
-interface HRProperties {
+export interface HRProperties {
     theme?: Theme;
     style?: React.CSSProperties;
     className?: string;

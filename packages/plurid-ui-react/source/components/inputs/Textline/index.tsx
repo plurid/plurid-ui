@@ -14,7 +14,7 @@ import {
 
 
 
-interface TextlineProperties {
+export interface TextlineProperties {
     text: string;
     atChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     atKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;

@@ -10,7 +10,7 @@ import {
 
 
 
-interface FormLeftRightProperties {
+export interface FormLeftRightProperties {
     theme?: Theme;
     style?: React.CSSProperties;
     className?: string;
@@ -40,7 +40,9 @@ const FormLeftRight: React.FC<FormLeftRightProperties> = (
 
     return (
         <StyledFormLeftRight
-            style={{...style}}
+            style={{
+                ...style,
+            }}
             className={className}
             theme={_theme}
         >

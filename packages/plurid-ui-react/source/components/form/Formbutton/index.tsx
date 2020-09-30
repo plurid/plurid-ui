@@ -12,7 +12,7 @@ import {
 
 
 
-interface FormbuttonProperties {
+export interface FormbuttonProperties {
     text: string;
     Icon: React.FC;
     atClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
@@ -117,7 +117,7 @@ const Formbutton: React.FC<FormbuttonProperties> = (properties) => {
 
     return (
         <StyledFormbutton
-            onClick={(event) => !_inactive ? atClick(event) : null }
+            onClick={(event) => !_inactive ? atClick(event as any) : null }
             {...renderProperties}
         >
             {render()}

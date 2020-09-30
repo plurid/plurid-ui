@@ -12,7 +12,7 @@ import {
 
 
 
-interface FormlineProperties {
+export interface FormlineProperties {
     text: string;
 
     Element?: React.FC;
@@ -63,7 +63,9 @@ const Formline: React.FC<FormlineProperties> = (properties) => {
 
     return (
         <StyledFormline
-            style={{...style}}
+            style={{
+                ...style,
+            }}
             className={className}
             theme={_theme}
             level={_level}

@@ -7,7 +7,7 @@ import {
 
 
 
-interface PluridSelectProperties {
+export interface PluridSelectProperties {
     selectables: string[];
     atChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 

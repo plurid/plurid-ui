@@ -10,7 +10,7 @@ import {
 
 
 
-interface ItemslineProperties {
+export interface ItemslineProperties {
     items: string[];
     removeItem: (item: string) => void;
 

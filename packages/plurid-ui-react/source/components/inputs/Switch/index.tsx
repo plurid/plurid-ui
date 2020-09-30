@@ -8,7 +8,7 @@ import {
 
 
 
-interface SwitchProperties {
+export interface SwitchProperties {
     theme?: Theme;
     level?: number;
     round?: boolean;

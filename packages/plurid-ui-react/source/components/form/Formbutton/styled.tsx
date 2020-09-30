@@ -6,7 +6,7 @@ import {
 
 
 
-interface IStyledFormbutton {
+export interface IStyledFormbutton {
     theme: Theme,
     level: number;
     inactive: boolean;
@@ -50,7 +50,7 @@ export const StyledFormbutton = styled.div<IStyledFormbutton>`
 `;
 
 
-interface IStyledFormbuttonIcon {
+export interface IStyledFormbuttonIcon {
     theme: Theme,
     position: 'left' | 'center' | 'right';
 }

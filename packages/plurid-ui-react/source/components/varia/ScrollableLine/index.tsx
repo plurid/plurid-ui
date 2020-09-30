@@ -10,7 +10,7 @@ import {
 
 
 
-interface ScrollableLineProperties {
+export interface ScrollableLineProperties {
     text: string;
 
     theme?: Theme;

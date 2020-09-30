@@ -7,7 +7,7 @@ import {
 
 
 
-interface ParagraphProperties {
+export interface ParagraphProperties {
     theme?: Theme;
     size?: 'small' | 'normal' | 'large';
     fontFamily?: 'sans-serif' | 'serif';

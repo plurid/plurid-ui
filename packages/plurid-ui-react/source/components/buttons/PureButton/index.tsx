@@ -14,7 +14,7 @@ import PluridSpinner from '../../markers/Spinner';
 
 
 
-interface PureButtonProperties {
+export interface PureButtonProperties {
     text: string;
     atClick: (event: React.MouseEvent) => void;
 

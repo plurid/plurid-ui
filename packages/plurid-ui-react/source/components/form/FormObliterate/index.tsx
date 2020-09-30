@@ -22,7 +22,7 @@ import PureButton from '../../buttons/PureButton';
 
 
 
-interface FormObliterateProperties {
+export interface FormObliterateProperties {
     atObliterate: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 
     item?: string;
@@ -91,7 +91,9 @@ const FormObliterate: React.FC<FormObliterateProperties> = (
             theme={_theme}
             level={_level}
             devisible={_devisible}
-            style={style}
+            style={{
+                ...style,
+            }}
             className={className}
         >
             {!showObliterate && (

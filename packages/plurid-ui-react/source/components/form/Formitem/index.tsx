@@ -10,7 +10,7 @@ import {
 
 
 
-interface FormitemProperties {
+export interface FormitemProperties {
     theme?: Theme;
     level?: number;
 
@@ -47,7 +47,9 @@ const Formitem: React.FC<FormitemProperties> = (
 
     return (
         <StyledFormitem
-            style={{...style}}
+            style={{
+                ...style,
+            }}
             className={className}
             theme={_theme}
             level={_level}

@@ -15,7 +15,7 @@ import PluridSpinner from '../../markers/Spinner';
 
 const DEFAULT_LEVEL = 0;
 
-interface LinkButtonProperties {
+export interface LinkButtonProperties {
     text: string;
     atClick: (event?: React.MouseEvent) => void;
 
