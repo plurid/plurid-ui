@@ -1,5 +1,5 @@
 <h1 align="center">
-    plurid' ui
+    plurid' user interface
 </h1>
 
 
@@ -10,6 +10,6 @@
     <img src="https://img.shields.io/npm/v/@plurid/plurid-ui-react.svg?logo=npm&colorB=1380C3&style=for-the-badge" alt="Version">
 </a>
 
-[@plurid/plurid-ui-react][plurid-ui-react] • plurid' ui react components
+[@plurid/plurid-ui-react][plurid-ui-react] • plurid' user interface react components
 
 [plurid-ui-react]: https://github.com/plurid/plurid-ui/tree/master/packages/plurid-ui-react
