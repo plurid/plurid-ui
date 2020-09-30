@@ -1,5 +1,5 @@
 <h1 align="center">
-    plurid' user interface
+    plurid' user interface components
 </h1>
 
 
