@@ -7,17 +7,17 @@
         "ui",
         "components"
     ],
-    "author": "Jan Cavel <caveljan@plurid.com> (https://plurid.com)",
+    "author": "ly3xqhl8g9 <ly3xqhl8g9@plurid.com> (https://plurid.com)",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/plurid/utilities"
+        "url": "https://github.com/plurid/plurid-ui"
     },
     "bugs": {
-        "email": "feedback@plurid.com",
-        "url": "https://github.com/plurid/utilities/issues"
+        "email": "source@plurid.com",
+        "url": "https://github.com/plurid/plurid-ui/issues"
     },
-    "homepage": "https://github.com/plurid/utilities",
+    "homepage": "https://github.com/plurid/plurid-ui",
     "publishConfig": {
         "access": "public"
     },
@@ -40,12 +40,12 @@
         "start": "yarn clean && rollup -c -w",
         "build.development": "yarn clean && rollup -c",
         "build.production": "rollup -c --environment BUILD:production",
-        "build": "yarn clean && yarn lint && yarn spec && yarn build.prod",
+        "build": "yarn clean && yarn lint && yarn spec && yarn build.production",
         "prepublishOnly": "yarn build"
     },
     "peerDependencies": {
-        "@plurid/plurid-icons-react": "*",
-        "@plurid/plurid-themes": "*",
+        "@plurid/plurid-icons-react": ">=0",
+        "@plurid/plurid-themes": ">=0",
         "react": ">=16",
         "react-dom": ">=16",
         "styled-components": ">=4"
