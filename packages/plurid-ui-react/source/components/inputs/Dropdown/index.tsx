@@ -148,13 +148,33 @@ const Dropdown: React.FC<DropdownProperties> = (
 
 
     // #region state
-    const [generalTheme, setGeneralTheme] = useState(_generalTheme);
-    const [interactionTheme, setInteractionTheme] = useState(_interactionTheme);
+    const [
+        generalTheme,
+        setGeneralTheme,
+    ] = useState(_generalTheme);
+    const [
+        interactionTheme,
+        setInteractionTheme,
+    ] = useState(_interactionTheme);
 
-    const [showList, setShowList] = useState(false);
-    const [selectedBackgroundColor, setSelectedBackgroundColor] = useState(interactionTheme.backgroundColorTertiary);
-    const [filterValue, setFilterValue] = useState('');
-    const [filteredSelectables, setFilteredSelectables] = useState([...selectables]);
+    const [
+        showList,
+        setShowList,
+    ] = useState(false);
+    const [
+        selectedBackgroundColor,
+        setSelectedBackgroundColor,
+    ] = useState(interactionTheme.backgroundColorTertiary);
+    const [
+        filterValue,
+        setFilterValue,
+    ] = useState('');
+    const [
+        filteredSelectables,
+        setFilteredSelectables,
+    ] = useState([
+        ...selectables,
+    ]);
 
     const [
         showFilterUpdate,
@@ -271,7 +291,7 @@ const Dropdown: React.FC<DropdownProperties> = (
     // #endregion effects
 
 
-    /** render */
+    // #region render
     return (
         <StyledDropdown
             theme={interactionTheme}
@@ -351,6 +371,11 @@ const Dropdown: React.FC<DropdownProperties> = (
                                         autoCapitalize="false"
                                         autoComplete="false"
                                         autoCorrect="false"
+                                        style={{
+                                            padding: !!filterUpdate && left
+                                                ? '0 1.3rem 0 0'
+                                                : '0 0 0 1.3rem'
+                                        }}
                                     />
                                 </StyledFilterable>
                             </li>
@@ -395,6 +420,7 @@ const Dropdown: React.FC<DropdownProperties> = (
             )}
         </StyledDropdown>
     );
+    // #endregion render
 }
 // #endregion module
 
