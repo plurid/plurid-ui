@@ -111,7 +111,7 @@ export const StyledDropdownList: any = styled.div`
         padding: 0.3rem 0.6rem;
         user-select: none;
         cursor: pointer;
-        height: 2rem;
+        min-height: 2rem;
         display: grid;
         align-items: center;
         justify-content: ${(props: any) => {
