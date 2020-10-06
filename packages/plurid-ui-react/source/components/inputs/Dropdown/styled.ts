@@ -12,7 +12,7 @@ export const StyledDropdown: any = styled.div`
         }
         return 'right';
     }};
-    font-size: 0.7rem;
+    font-size: 1rem;
 
     position: relative;
 `;
@@ -32,6 +32,8 @@ export const StyledDropdownSelected: any = styled.div`
 
 
 export const StyledDropdownList: any = styled.div`
+    font-size: 0.85rem;
+
     background: ${(props: any) => {
         switch (props.level) {
             case 0:
@@ -93,11 +95,11 @@ export const StyledDropdownList: any = styled.div`
     }};
 
     position: absolute;
-    top: 20px;
+    top: 25px;
     border-radius: 10px;
     min-width: 60px;
 
-    z-index: 9999;
+    z-index: 9998;
     box-shadow: 0px 3px 5px 1px hsla(327, 94%, 10%, 0.7);
 
     ul {
@@ -114,6 +116,7 @@ export const StyledDropdownList: any = styled.div`
         min-height: 2rem;
         display: grid;
         align-items: center;
+        word-break: break-all;
         justify-content: ${(props: any) => {
             if (props.left) {
                 return 'left';
@@ -157,8 +160,25 @@ export const StyledFilterable: any = styled.div`
 `;
 
 
-export const StyledFilterUpdate: any = styled.div`
+
+export interface IStyledFilterUpdate {
+    left?: boolean;
+}
+
+export const StyledFilterUpdate: any = styled.div<IStyledFilterUpdate>`
     position: absolute;
-    top: 0.5rem;
-    left: 1rem;
+    z-index: 9999;
+    top: 0;
+    left: ${(props: any) => {
+        if (props.left) {
+            return 'auto';
+        }
+        return '0';
+    }};
+    right: ${(props: any) => {
+        if (props.left) {
+            return '0';
+        }
+        return 'auto';
+    }};
 `;

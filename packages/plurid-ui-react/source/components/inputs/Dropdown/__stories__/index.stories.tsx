@@ -73,6 +73,7 @@ storiesOf(
             // devisible={devisible}
             // round={round}
             filterable={filterable}
+            filterUpdate={() => {}}
             heightItems={heightItems}
             width={width}
             {...actions}

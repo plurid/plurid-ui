@@ -1,32 +1,44 @@
-import React, {
-    useState,
-    useEffect,
-} from 'react';
+// #region imports
+    // #region libraries
+    import React, {
+        useRef,
+        useState,
+        useEffect,
+    } from 'react';
 
-import themes, {
-    Theme,
-} from '@plurid/plurid-themes';
+    import themes, {
+        Theme,
+    } from '@plurid/plurid-themes';
 
-import {
-    PluridIconReset,
-} from '@plurid/plurid-icons-react';
-
-import {
-    StyledDropdown,
-    StyledDropdownSelected,
-    StyledDropdownList,
-    StyledFilterable,
-    StyledFilterUpdate,
-} from './styled';
-
-import Textline from '../Textline';
-
-import {
-    PluridDropdownSelectable,
-} from '../../../data/interfaces';
+    import {
+        PluridIconReset,
+    } from '@plurid/plurid-icons-react';
+    // #endregion libraries
 
 
+    // #region external
+    import Textline from '../Textline';
 
+    import {
+        PluridDropdownSelectable,
+    } from '../../../data/interfaces';
+    // #endregion external
+
+
+    // #region internal
+    import {
+        StyledDropdown,
+        StyledDropdownSelected,
+        StyledDropdownList,
+        StyledFilterable,
+        StyledFilterUpdate,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
+
+
+
+// #region module
 export interface DropdownProperties {
     selectables: (PluridDropdownSelectable | string)[];
     selected: PluridDropdownSelectable | string;
@@ -76,7 +88,7 @@ export interface DropdownProperties {
 const Dropdown: React.FC<DropdownProperties> = (
     properties,
 ) => {
-    /** properties */
+    // #region properties
     const {
         selected,
         selectables,
@@ -127,9 +139,15 @@ const Dropdown: React.FC<DropdownProperties> = (
     const _selectAtHover = selectAtHover === undefined
         ? true
         : selectAtHover;
+    // #endregion properties
 
 
-    /** State */
+    // #region references
+    const isMounted = useRef(true);
+    // #endregion references
+
+
+    // #region state
     const [generalTheme, setGeneralTheme] = useState(_generalTheme);
     const [interactionTheme, setInteractionTheme] = useState(_interactionTheme);
 
@@ -138,8 +156,14 @@ const Dropdown: React.FC<DropdownProperties> = (
     const [filterValue, setFilterValue] = useState('');
     const [filteredSelectables, setFilteredSelectables] = useState([...selectables]);
 
+    const [
+        showFilterUpdate,
+        setShowFilterUpdate,
+    ] = useState(!!filterUpdate);
+    // #endregion state
 
-    /** Handlers */
+
+    // #region handlers
     const select = (
         selected: string | PluridDropdownSelectable,
     ) => {
@@ -188,9 +212,10 @@ const Dropdown: React.FC<DropdownProperties> = (
         setFilterValue(value);
         setFilteredSelectables(filteredSelectables);
     }
+    // #endregion handlersn
 
 
-    /** effects */
+    // #region effects
     /** Handle Dropdown */
     useEffect(() => {
         if (!dropdownToggled) {
@@ -237,6 +262,13 @@ const Dropdown: React.FC<DropdownProperties> = (
     }, [
         selectables,
     ]);
+
+    useEffect(() => {
+        return () => {
+            isMounted.current = false;
+        }
+    }, []);
+    // #endregion effects
 
 
     /** render */
@@ -286,9 +318,27 @@ const Dropdown: React.FC<DropdownProperties> = (
                                 <StyledFilterable
                                     left={left}
                                 >
-                                    {filterUpdate && (
-                                        <StyledFilterUpdate>
-                                            <PluridIconReset />
+                                    {filterUpdate
+                                    && showFilterUpdate
+                                    && (
+                                        <StyledFilterUpdate
+                                            left={left}
+                                        >
+                                            <PluridIconReset
+                                                theme={interactionTheme}
+                                                atClick={() => {
+                                                    setShowFilterUpdate(false);
+                                                    filterUpdate();
+
+                                                    setTimeout(() => {
+                                                        if (!isMounted.current) {
+                                                            return;
+                                                        }
+
+                                                        setShowFilterUpdate(true);
+                                                    }, 5300);
+                                                }}
+                                            />
                                         </StyledFilterUpdate>
                                     )}
 
@@ -346,6 +396,10 @@ const Dropdown: React.FC<DropdownProperties> = (
         </StyledDropdown>
     );
 }
+// #endregion module
 
 
+
+// #region exports
 export default Dropdown;
+// #endregion exports
