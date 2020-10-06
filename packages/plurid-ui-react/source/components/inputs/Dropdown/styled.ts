@@ -144,6 +144,8 @@ export const StyledDropdownList: any = styled.div`
 
 
 export const StyledFilterable: any = styled.div`
+    position: relative;
+
     input {
         text-align: ${(props: any) => {
             if (props.left) {
@@ -152,4 +154,11 @@ export const StyledFilterable: any = styled.div`
             return 'right !important';
         }};
     }
+`;
+
+
+export const StyledFilterUpdate: any = styled.div`
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
 `;

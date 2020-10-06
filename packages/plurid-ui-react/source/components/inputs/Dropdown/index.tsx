@@ -8,10 +8,15 @@ import themes, {
 } from '@plurid/plurid-themes';
 
 import {
+    PluridIconReset,
+} from '@plurid/plurid-icons-react';
+
+import {
     StyledDropdown,
     StyledDropdownSelected,
     StyledDropdownList,
     StyledFilterable,
+    StyledFilterUpdate,
 } from './styled';
 
 import Textline from '../Textline';
@@ -49,6 +54,7 @@ export interface DropdownProperties {
      * Inserts an input field to filter the selectables.
      */
     filterable?: boolean;
+    filterUpdate?: () => void;
 
     style?: React.CSSProperties;
     className?: string;
@@ -84,6 +90,7 @@ const Dropdown: React.FC<DropdownProperties> = (
         selectAtHover,
         selectedColor,
         filterable,
+        filterUpdate,
 
         style,
         className,
@@ -279,11 +286,21 @@ const Dropdown: React.FC<DropdownProperties> = (
                                 <StyledFilterable
                                     left={left}
                                 >
+                                    {filterUpdate && (
+                                        <StyledFilterUpdate>
+                                            <PluridIconReset />
+                                        </StyledFilterUpdate>
+                                    )}
+
                                     <Textline
                                         theme={interactionTheme}
                                         text={filterValue}
                                         atChange={handleFiltering}
                                         devisible={true}
+                                        spellCheck={false}
+                                        autoCapitalize="false"
+                                        autoComplete="false"
+                                        autoCorrect="false"
                                     />
                                 </StyledFilterable>
                             </li>
