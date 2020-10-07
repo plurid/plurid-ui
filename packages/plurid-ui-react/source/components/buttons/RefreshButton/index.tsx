@@ -43,6 +43,8 @@ export interface RefreshButtonProperties {
         // #region values
         theme?: Theme;
         text?: string;
+        disabled?: boolean;
+        loading?: boolean;
         hideAtClick?: boolean;
         hideTime?: number;
         // #endregion values

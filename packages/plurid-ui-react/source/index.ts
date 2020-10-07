@@ -4,6 +4,7 @@ import PluridGlobalStyles from './components/general';
 /** buttons */
 import PluridPureButton from './components/buttons/PureButton';
 import PluridLinkButton from './components/buttons/LinkButton';
+import PluridRefreshButton from './components/buttons/RefreshButton';
 
 /** form */
 import PluridFormbutton from './components/form/Formbutton';
@@ -54,6 +55,7 @@ export {
     /** buttons */
     PluridPureButton,
     PluridLinkButton,
+    PluridRefreshButton,
 
     /** form */
     PluridFormbutton,

@@ -1,0 +1,69 @@
+// #region imports
+    // #region module
+    import React from 'react';
+
+    import themes from '@plurid/plurid-themes';
+
+    import { storiesOf } from '@storybook/react';
+    import { action } from '@storybook/addon-actions';
+    import {
+        withKnobs,
+        text,
+        number,
+        boolean,
+    } from '@storybook/addon-knobs';
+    // #endregion module
+
+
+    // #region external
+    import RefreshButton from '../';
+    // #endregion external
+// #endregion imports
+
+
+
+// #region module
+const actions = {
+    atClick: action('atClick'),
+};
+
+storiesOf(
+    'PluridRefreshButton',
+    module,
+)
+.addDecorator(withKnobs)
+.add('with text', () => {
+    const _text = text('Text', '');
+    const disabled = boolean('Disabled', false);
+    const loading = boolean('Loading', false);
+    const hideAtClick = boolean('Hide At Click', false);
+    const hideTime = number('Hide Time', 0);
+
+    return (
+        <RefreshButton
+            // #region required
+                // #region values
+                // #endregion values
+
+                // #region methods
+                {...actions}
+                // #endregion methods
+            // #endregion required
+
+            // #region optional
+                // #region values
+                theme={themes.plurid}
+                text={_text}
+                disabled={disabled}
+                loading={loading}
+                hideAtClick={hideAtClick}
+                hideTime={hideTime}
+                // #endregion values
+
+                // #region methods
+                // #endregion methods
+            // #endregion optional
+        />
+    );
+});
+// #endregion module
