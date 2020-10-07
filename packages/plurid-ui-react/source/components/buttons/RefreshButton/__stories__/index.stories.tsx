@@ -35,35 +35,40 @@ storiesOf(
 .add('with text', () => {
     const _text = text('Text', '');
     const disabled = boolean('Disabled', false);
-    const loading = boolean('Loading', false);
     const hideAtClick = boolean('Hide At Click', false);
     const hideTime = number('Hide Time', 0);
 
     return (
-        <RefreshButton
-            // #region required
-                // #region values
-                // #endregion values
+        <div
+            style={{
+                background: 'black',
+                height: '1000px',
+            }}
+        >
+            <RefreshButton
+                // #region required
+                    // #region values
+                    // #endregion values
 
-                // #region methods
-                {...actions}
-                // #endregion methods
-            // #endregion required
+                    // #region methods
+                    {...actions}
+                    // #endregion methods
+                // #endregion required
 
-            // #region optional
-                // #region values
-                theme={themes.plurid}
-                text={_text}
-                disabled={disabled}
-                loading={loading}
-                hideAtClick={hideAtClick}
-                hideTime={hideTime}
-                // #endregion values
+                // #region optional
+                    // #region values
+                    theme={themes.plurid}
+                    text={_text}
+                    disabled={disabled}
+                    hideAtClick={hideAtClick}
+                    hideTime={hideTime}
+                    // #endregion values
 
-                // #region methods
-                // #endregion methods
-            // #endregion optional
-        />
+                    // #region methods
+                    // #endregion methods
+                // #endregion optional
+            />
+        </div>
     );
 });
 // #endregion module

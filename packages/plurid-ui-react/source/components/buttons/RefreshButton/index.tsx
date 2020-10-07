@@ -44,7 +44,6 @@ export interface RefreshButtonProperties {
         theme?: Theme;
         text?: string;
         disabled?: boolean;
-        loading?: boolean;
         hideAtClick?: boolean;
         hideTime?: number;
         // #endregion values
@@ -72,6 +71,7 @@ const RefreshButton: React.FC<RefreshButtonProperties> = (
             // #region values
             theme: themeProperty,
             text: textProperty,
+            disabled,
             hideAtClick: hideAtClickProperty,
             hideTime: hideTimeProperty,
             // #endregion values
@@ -84,7 +84,7 @@ const RefreshButton: React.FC<RefreshButtonProperties> = (
     const theme = themeProperty || pluridTheme;
     const text = textProperty || '';
     const hideAtClick = hideAtClickProperty ?? true;
-    const hideTime = hideTimeProperty ?? 1300;
+    const hideTime = hideTimeProperty || 1300;
     // #endregion properties
 
 
@@ -105,6 +105,10 @@ const RefreshButton: React.FC<RefreshButtonProperties> = (
     const atClickHandler = (
         event: React.MouseEvent<HTMLDivElement, MouseEvent>,
     ) => {
+        if (disabled) {
+            return;
+        }
+
         if (hideAtClick) {
             setShowIconReset(false);
         }
@@ -140,9 +144,26 @@ const RefreshButton: React.FC<RefreshButtonProperties> = (
         >
             {showIconReset && (
                 <PluridIconReset
-                    theme={theme}
-                    atClick={atClickHandler}
-                    title={text}
+                    // #region required
+                        // #region values
+                        // #endregion values
+
+                        // #region methods
+                        // #endregion methods
+                    // #endregion required
+
+                    // #region optional
+                        // #region values
+                        theme={theme}
+                        title={text}
+                        inactive={disabled}
+                        opacity={disabled ? 0.5 : 1}
+                        // #endregion values
+
+                        // #region methods
+                        atClick={atClickHandler}
+                        // #endregion methods
+                    // #endregion optional
                 />
             )}
         </StyledRefreshButton>
