@@ -22,6 +22,7 @@ export default {
     ],
     external: [
         '@plurid/plurid-themes',
+        '@plurid/plurid-icons-react',
         'react',
         'styled-components',
     ],
