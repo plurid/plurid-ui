@@ -1,3 +1,4 @@
+// #region imports
 /** general */
 import PluridGlobalStyles from './components/general';
 
@@ -45,9 +46,11 @@ import {
 import {
     PluridDropdownSelectable,
 } from './data/interfaces';
+// #endregion imports
 
 
 
+// #region exports
 export {
     /** general */
     PluridGlobalStyles,
@@ -93,3 +96,4 @@ export {
     /** interfaces */
     PluridDropdownSelectable,
 }
+// #endregion exports

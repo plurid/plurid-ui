@@ -1,12 +1,23 @@
-import React from 'react';
-import themes from '@plurid/plurid-themes';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { withKnobs } from '@storybook/addon-knobs';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import PureButton from '../PureButton';
+    import themes from '@plurid/plurid-themes';
+
+    import { storiesOf } from '@storybook/react';
+    import { action } from '@storybook/addon-actions';
+    import { withKnobs } from '@storybook/addon-knobs';
+    // #endregion libraries
 
 
+    // #region external
+    import PureButton from '../PureButton';
+    // #endregion external
+// #endregion imports
+
+
+
+// #region module
 const actions = {
     atClick: action('atClick'),
 };
@@ -48,3 +59,4 @@ storiesOf(
         </div>
     );
 });
+// #endregion module

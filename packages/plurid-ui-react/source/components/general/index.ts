@@ -1,12 +1,23 @@
-import { createGlobalStyle } from 'styled-components';
+// #region imports
+    // #region libraries
+    import {
+        createGlobalStyle,
+    } from 'styled-components';
 
-import {
-    fontFamilySansSerif,
-} from '../../data/constants';
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
+// #endregion imports
 
 
 
-const GlobalStyles = createGlobalStyle`
+// #region module
+export interface IGlobalStyles {
+    theme: Theme;
+}
+
+const GlobalStyles = createGlobalStyle<IGlobalStyles>`
     *, *::after, *::before {
         box-sizing: border-box;
     }
@@ -17,27 +28,46 @@ const GlobalStyles = createGlobalStyle`
     }
 
     body {
+        font-family: ${
+            ({
+                theme,
+            }: IGlobalStyles) => theme.fontFamilySansSerif
+        };
+
         height: 100%;
         margin: 0;
         padding: 0;
-        font-family: ${fontFamilySansSerif};
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
 
-        color: ${(props: any) => {
-            if (props.dark) {
-                return props.theme.backgroundColorBright;
+        color: ${
+            ({
+                theme,
+            }: IGlobalStyles) => {
+                if (theme.type === 'dark') {
+                    return theme.backgroundColorBright;
+                }
+
+                return theme.colorPrimary;
             }
-            return props.theme.colorPrimary;
-        }};
-        background: ${(props: any) => {
-            if (props.dark) {
-                return props.theme.backgroundColorDark;
+        };
+        background: ${
+            ({
+                theme,
+            }: IGlobalStyles) => {
+                if (theme.type === 'dark') {
+                    return theme.backgroundColorDark;
+                }
+
+                return theme.backgroundColorPrimary;
             }
-            return props.theme.backgroundColorPrimary;
-        }};
+        };
     }
 `;
+// #endregion module
 
 
+
+// #region exports
 export default GlobalStyles;
+// #endregion exports

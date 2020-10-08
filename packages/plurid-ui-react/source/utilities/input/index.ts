@@ -1,7 +1,11 @@
+// #region module
 /**
  * https://github.com/facebook/react/issues/10135#issuecomment-314441175
  */
-export const setNativeValue = (element: any, value: any) => {
+export const setNativeValue = (
+    element: any,
+    value: any,
+) => {
     const valueSetter = (Object as any).getOwnPropertyDescriptor(element, 'value').set;
     const prototype = Object.getPrototypeOf(element);
     const prototypeValueSetter = (Object as any).getOwnPropertyDescriptor(prototype, 'value').set;
@@ -12,3 +16,4 @@ export const setNativeValue = (element: any, value: any) => {
         valueSetter.call(element, value);
     }
 }
+// #endregion module
