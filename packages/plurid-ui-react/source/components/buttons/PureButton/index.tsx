@@ -109,7 +109,7 @@ const PureButton: React.FC<PureButtonProperties> = (
                 theme={theme}
                 level={level}
                 size={size}
-                disabled={disabled}
+                isDisabled={disabled}
             >
                 <PluridSpinner
                     theme={theme}
