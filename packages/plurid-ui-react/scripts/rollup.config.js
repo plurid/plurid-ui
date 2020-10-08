@@ -1,10 +1,13 @@
+// #region imports
 import typescript from 'rollup-plugin-typescript2';
 
 import pkg from '../package.json';
+// #endregion imports
 
 
 
-export default {
+// #region module
+const build = {
     input: 'source/index.ts',
     output: [
         {
@@ -33,4 +36,11 @@ export default {
             clean: true,
         }),
     ],
-}
+};
+// #endregion module
+
+
+
+// #region exports
+export default build;
+// #endregion exports
