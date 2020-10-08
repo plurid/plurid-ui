@@ -36,11 +36,12 @@
         "build.storybook": "build-storybook -c storybook",
         "spec": "jest -c ./configurations/jest.config.js",
         "lint": "eslint -c ./configurations/.eslintrc.js ./source/index.ts",
-        "clean": "rm -rf ./build",
+        "clean": "rm -rf ./distribution",
         "start": "yarn clean && rollup -c ./scripts/rollup.config.js -w",
+        "build.removeTests": "rm -rf `find ./distribution/ -type d -name __tests__`",
         "build.development": "yarn clean && rollup -c ./scripts/rollup.config.js",
         "build.production": "rollup -c ./scripts/rollup.config.js --environment BUILD:production",
-        "build": "yarn clean && yarn lint && yarn spec && yarn build.production",
+        "build": "yarn clean && yarn lint && yarn spec && yarn build.production && build.removeTests",
         "prepublishOnly": "yarn build"
     },
     "peerDependencies": {
