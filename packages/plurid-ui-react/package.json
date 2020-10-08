@@ -41,7 +41,7 @@
         "build.removeTests": "rm -rf `find ./distribution/ -type d -name __tests__`",
         "build.development": "yarn clean && rollup -c ./scripts/rollup.config.js",
         "build.production": "rollup -c ./scripts/rollup.config.js --environment BUILD:production",
-        "build": "yarn clean && yarn lint && yarn spec && yarn build.production && build.removeTests",
+        "build": "yarn clean && yarn lint && yarn spec && yarn build.production && yarn build.removeTests",
         "prepublishOnly": "yarn build"
     },
     "peerDependencies": {
