@@ -1,61 +1,115 @@
-import styled from 'styled-components';
+// #region imports
+    // #region libraries
+    import styled from 'styled-components';
+
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
+// #endregion imports
 
 
 
-export const StyledLinkButton: any = styled.button`
-    color: ${(props: any) => {
-        if (props.isDisabled) {
-            return props.theme.colorPrimaryAlpha;
-        }
+// #region module
+export interface IStyledLinkButton {
+    theme: Theme;
+    level: number;
+    isDisabled?: boolean;
+    inline?: boolean;
+    isActive?: boolean;
+}
 
-        switch (props.level) {
-            case 0:
-                return props.theme.colorPrimary;
-            case 1:
-                return props.theme.colorSecondary;
-            case 2:
-                return props.theme.colorTertiary;
-            default:
-                return props.theme.colorPrimary;
+export const StyledLinkButton: any = styled.button<IStyledLinkButton>`
+    color: ${
+        ({
+            theme,
+            level,
+            isDisabled,
+        }: IStyledLinkButton) => {
+            if (isDisabled) {
+                return theme.backgroundColorPrimaryAlpha;
+            }
+
+            switch (level) {
+                case 0:
+                    return theme.colorPrimary;
+                case 1:
+                    return theme.colorSecondary;
+                case 2:
+                    return theme.colorTertiary;
+                default:
+                    return theme.colorPrimary;
+            }
         }
-    }};
-    margin: ${(props: any) => {
-        if (props.inline) {
-            return '0';
+    };
+    margin: ${
+        ({
+            inline,
+        }: IStyledLinkButton) => {
+            if (inline) {
+                return '0';
+            }
+
+            return '0 1rem';
         }
-        return '0 1rem';
-    }};
-    padding: ${(props: any) => {
-        if (props.inline) {
-            return '0';
+    };
+    padding: ${
+        ({
+            inline,
+        }: IStyledLinkButton) => {
+            if (inline) {
+                return '0';
+            }
+
+            return 'initial';
         }
-        return 'initial';
-    }};
-    font-size: ${(props: any) => {
-        if (props.inline) {
-            return 'inherit';
+    };
+    font-size: ${
+        ({
+            inline,
+        }: IStyledLinkButton) => {
+            if (inline) {
+                return 'inherit';
+            }
+
+            return '0.9rem';
         }
-        return '0.9rem';
-    }};
-    display: ${(props: any) => {
-        if (props.inline) {
-            return 'inline';
+    };
+    display: ${
+        ({
+            inline,
+        }: IStyledLinkButton) => {
+            if (inline) {
+                return 'inline';
+            }
+
+            return 'grid';
         }
-        return 'grid';
-    }};
-    cursor: ${(props: any) => {
-        if (props.isDisabled) {
-            return 'inherit';
+    };
+    cursor: ${
+        ({
+            isDisabled,
+        }: IStyledLinkButton) => {
+            if (isDisabled) {
+                return 'inherit';
+            }
+
+            return 'pointer';
         }
-        return 'pointer';
-    }};
+    };
     border: none;
-    border-bottom: 1px solid ${(props: any) => {
-        if (props.isActive) {
-            return props.theme.colorPrimary;
+    border-bottom: 1px solid ${
+        ({
+            isActive,
+            theme,
+        }: IStyledLinkButton) => {
+            if (isActive) {
+                return theme.colorPrimary;
+            }
+
+            return 'transparent';
         }
-        return 'transparent';
-    }};
+    };
 
     font-weight: bold;
     background: transparent;
@@ -65,9 +119,10 @@ export const StyledLinkButton: any = styled.button`
 `;
 
 
-export const StyledLinkButtonLoading: any = styled.div`
+export const StyledLinkButtonLoading = styled.div`
     position: relative;
     min-height: 1rem;
     height: 100%;
     width: 100%;
 `;
+// #endregion module

@@ -1,92 +1,141 @@
-import React from 'react';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import themes, {
-    Theme,
-} from '@plurid/plurid-themes';
-
-import {
-    StyledLinkButton,
-    StyledLinkButtonLoading,
-} from './styled';
-
-import PluridSpinner from '../../markers/Spinner';
+    import {
+        Theme,
+        plurid as pluridTheme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
 
+    // #region external
+    import PluridSpinner from '../../markers/Spinner';
+    // #endregion external
 
+
+    // #region internal
+    import {
+        StyledLinkButton,
+        StyledLinkButtonLoading,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
+
+
+
+// #region module
 const DEFAULT_LEVEL = 0;
 
 export interface LinkButtonProperties {
-    text: string;
-    atClick: (event?: React.MouseEvent) => void;
+    // #region required
+        // #region values
+        text: string;
+        // #endregion values
 
-    theme?: Theme;
-    level?: number;
-    inline?: boolean;
-    disabled?: boolean;
-    loading?: boolean;
-    active?: boolean;
+        // #region methods
+        atClick: (
+            event: React.MouseEvent,
+        ) => void;
+        // #endregion methods
+    // #endregion required
 
-    style?: React.CSSProperties;
-    className?: string;
+    // #region optional
+        // #region values
+        theme?: Theme;
+        level?: number;
+        inline?: boolean;
+        disabled?: boolean;
+        loading?: boolean;
+        active?: boolean;
+
+        style?: React.CSSProperties;
+        className?: string;
+        // #endregion values
+
+        // #region methods
+        // #endregion methods
+    // #endregion optional
 }
 
 const LinkButton: React.FC<LinkButtonProperties> = (
     properties,
 ) => {
-    /** properties */
+    // #region properties
     const {
-        text,
-        atClick,
+        // #region required
+            // #region values
+            text,
+            // #endregion values
 
-        theme,
-        level,
-        inline,
-        disabled,
-        loading,
-        active,
+            // #region methods
+            atClick,
+            // #endregion methods
+        // #endregion required
 
-        style,
-        className,
+        // #region optional
+            // #region values
+            theme: themeProperty,
+            level: levelProperty,
+            inline,
+            disabled,
+            loading,
+            active,
+
+            style,
+            className,
+            // #endregion values
+
+            // #region methods
+            // #endregion methods
+        // #endregion optional
     } = properties;
 
-    const _theme = theme === undefined
-        ? themes.plurid
-        : theme;
+    const theme = themeProperty || pluridTheme;
+    const level = levelProperty ?? DEFAULT_LEVEL;
+    // #endregion properties
 
-    const _level = level === undefined
-        ? DEFAULT_LEVEL
-        : level;
 
+    // #region render
     if (loading) {
         return (
             <StyledLinkButtonLoading>
                 <PluridSpinner
                     size="small"
-                    theme={_theme}
+                    theme={theme}
                 />
             </StyledLinkButtonLoading>
         );
     }
 
-
-    /** render */
     return (
         <StyledLinkButton
-            onClick={(event: React.MouseEvent) => !disabled ? atClick(event) : null}
-            theme={_theme}
-            level={_level}
-            inline={inline}
-            isDisabled={disabled}
-            isActive={active}
+            onClick={(
+                event: React.MouseEvent,
+            ) => disabled
+                ? null
+                : atClick(event)
+            }
             style={{
                 ...style,
             }}
             className={className}
+
+            theme={theme}
+            level={level}
+            inline={inline}
+            isDisabled={disabled}
+            isActive={active}
         >
             {text}
         </StyledLinkButton>
     );
+    // #endregion render
 }
+// #endregion module
 
 
+
+// #region exports
 export default LinkButton;
+// #endregion exports
