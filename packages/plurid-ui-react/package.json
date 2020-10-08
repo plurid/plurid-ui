@@ -35,7 +35,7 @@
         "storybook": "start-storybook -p 9001 -c storybook",
         "build.storybook": "build-storybook -c storybook",
         "spec": "jest -c ./configurations/jest.config.js",
-        "lint": "eslint ./source/index.ts",
+        "lint": "eslint -c ./configurations/.eslintrc.js ./source/index.ts",
         "clean": "rm -rf ./build",
         "start": "yarn clean && rollup -c ./scripts/rollup.config.js -w",
         "build.development": "yarn clean && rollup -c ./scripts/rollup.config.js",
