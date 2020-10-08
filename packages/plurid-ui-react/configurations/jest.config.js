@@ -1,22 +1,22 @@
 module.exports = {
+    rootDir: '../',
     transform: {
         '.(ts|tsx)': 'ts-jest'
     },
-    testRegex: '(/__specs__/.*|\\.(test|spec))\\.(ts|tsx|js)$',
+    testEnvironment: 'node',
+    testRegex: '(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$',
+    testPathIgnorePatterns: [
+        'data',
+    ],
     moduleFileExtensions: [
         'ts',
         'tsx',
         'js'
     ],
-    testPathIgnorePatterns: [
-        '/node_modules/',
-        '/fixtures/',
-    ],
     collectCoverage: true,
     coveragePathIgnorePatterns: [
         '/node_modules/',
-        '/fixtures/',
-        '/dist/'
+        '/build/'
     ],
     coverageThreshold: {
         global: {
@@ -24,15 +24,14 @@ module.exports = {
             functions: 0,
             lines: 0,
             statements: 0
+            // branches: 90,
+            // functions: 95,
+            // lines: 95,
+            // statements: 95
         }
-        // global: {
-        //     branches: 90,
-        //     functions: 95,
-        //     lines: 95,
-        //     statements: 95
-        // }
     },
     collectCoverageFrom: [
-        'src/*.{js,ts}'
-    ]
+        'source/*.{js,ts}'
+    ],
+    testTimeout: 30000
 }
