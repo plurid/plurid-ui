@@ -1,10 +1,19 @@
-import styled from 'styled-components';
+// #region imports
+    // #region libraries
+    import styled from 'styled-components';
 
-import {
-    fontFamilySansSerif,
-} from '../../../data/constants';
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
+// #endregion imports
 
 
+
+// #region module
+export interface IStyledPureButton {
+    theme: Theme;
+}
 
 export const StyledPureButton: any = styled.button`
     color: ${(props: any) => {
@@ -102,7 +111,11 @@ export const StyledPureButton: any = styled.button`
         return 'pointer';
     }};
 
-    font-family: ${fontFamilySansSerif};
+    font-family: ${
+        ({
+            theme,
+        }: IStyledPureButton) => theme.fontFamilySansSerif
+    };
 
     border: none;
     outline: none;
@@ -174,3 +187,4 @@ export const StyledPureButtonDiv: any = styled(StyledPureButton).attrs({
         return props.theme.boxShadowUmbraColor;
     }};
 `;
+// #endregion module

@@ -1,79 +1,118 @@
-import React from 'react';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import {
-    plurid as pluridTheme,
-    Theme,
-} from '@plurid/plurid-themes';
-
-import {
-    StyledPureButton,
-    StyledPureButtonDiv,
-} from './styled';
-
-import PluridSpinner from '../../markers/Spinner';
+    import {
+        plurid as pluridTheme,
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
 
+    // #region external
+    import {
+        Sizes,
+    } from '../../../data/interfaces';
 
+    import PluridSpinner from '../../markers/Spinner';
+    // #endregion external
+
+
+    // #region internal
+    import {
+        StyledPureButton,
+        StyledPureButtonDiv,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
+
+
+
+// #region module
 export interface PureButtonProperties {
-    text: string;
-    atClick: (event: React.MouseEvent) => void;
+    // #region required
+        // #region values
+        text: string;
+        // #endregion values
 
-    theme?: Theme;
-    level?: number;
-    size?: 'small' | 'normal' | 'large';
-    disabled?: boolean;
-    loading?: boolean;
+        // #region methods
+        atClick: (
+            event: React.MouseEvent,
+        ) => void;
+        // #endregion methods
+    // #endregion required
 
-    style?: React.CSSProperties;
-    className?: string;
+    // #region optional
+        // #region values
+        theme?: Theme;
+        level?: number;
+        size?: Sizes;
+        disabled?: boolean;
+        loading?: boolean;
+
+        style?: React.CSSProperties;
+        className?: string;
+        // #endregion values
+
+        // #region methods
+        // #endregion methods
+    // #endregion optional
 }
 
 const PureButton: React.FC<PureButtonProperties> = (
     properties,
 ) => {
-    /** properties */
+    // #region properties
     const {
-        text,
-        atClick,
+        // #region required
+            // #region values
+            text,
+            // #endregion values
 
-        theme,
-        level,
-        size,
-        disabled,
-        loading,
+            // #region methods
+            atClick,
+            // #endregion methods
+        // #endregion required
 
-        style,
-        className,
+        // #region optional
+            // #region values
+            theme: themeProperty,
+            level: levelProperty,
+            size: sizeProperty,
+            disabled,
+            loading,
+
+            style,
+            className,
+            // #endregion values
+
+            // #region methods
+            // #endregion methods
+        // #endregion optional
     } = properties;
 
-    const _theme = theme === undefined
-        ? pluridTheme
-        : theme;
-
-    const _level = level === undefined
-        ? 0
-        : level;
-
-    const _size = size === undefined
-        ? 'normal'
-        : size;
+    const theme = themeProperty || pluridTheme;
+    const level = levelProperty ?? 0;
+    const size = sizeProperty || 'normal';
+    // #endregion properties
 
 
-    /** render */
+    // #region render
     if (loading) {
         return (
             <StyledPureButtonDiv
-                theme={_theme}
-                level={_level}
-                size={_size}
-                disabled={disabled}
                 style={{
                     ...style,
                 }}
                 className={className}
+
+                theme={theme}
+                level={level}
+                size={size}
+                disabled={disabled}
             >
                 <PluridSpinner
-                    theme={_theme}
+                    theme={theme}
                     size="small"
                 />
             </StyledPureButtonDiv>
@@ -82,20 +121,32 @@ const PureButton: React.FC<PureButtonProperties> = (
 
     return (
         <StyledPureButton
-            theme={_theme}
-            level={_level}
-            size={_size}
-            onClick={(event: React.MouseEvent) => !disabled ? atClick(event) : null}
-            isDisabled={disabled}
+            onClick={(
+                event: React.MouseEvent,
+            ) => disabled
+                ? null
+                : atClick(event)
+            }
+
             style={{
                 ...style,
             }}
             className={className}
+
+            theme={theme}
+            level={level}
+            size={size}
+            isDisabled={disabled}
         >
             {text}
         </StyledPureButton>
     );
+    // #endregion render
 }
+// #endregion module
 
 
+
+// #region exports
 export default PureButton;
+// #endregion exports

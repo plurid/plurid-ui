@@ -20,6 +20,12 @@ export interface IStyledLinkButton {
 }
 
 export const StyledLinkButton: any = styled.button<IStyledLinkButton>`
+    font-family: ${
+        ({
+            theme,
+        }: IStyledLinkButton) => theme.fontFamilySansSerif
+    };
+
     color: ${
         ({
             theme,
