@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {
+    useState,
+} from 'react';
 import themes from '@plurid/plurid-themes';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -9,8 +11,8 @@ import PluridTextline from '../';
 
 
 const actions = {
-    atChange: action('atChange'),
-    enterAtClick: action('enterAtClick'),
+    // atChange: action('atChange'),
+    // enterAtClick: action('enterAtClick'),
 };
 
 const themeLabel = 'Theme';
@@ -30,7 +32,12 @@ storiesOf(
 )
 .addDecorator(withKnobs)
 .add('basic', () => {
-    const textValue = text('Text', '');
+    const [
+        textValue,
+        setTextValue,
+    ] = useState('');
+
+    // const textValue = text('Text', '');
 
     const autoCorrect = text('AutoCorrect', '');
     const spellCheck = boolean('SpellCheck', false);
@@ -47,6 +54,7 @@ storiesOf(
     return (
         <PluridTextline
             text={textValue}
+            atChange={(event: any) => setTextValue(event.target.value)}
 
             placeholder="placeholder"
             autoCorrect={autoCorrect}
@@ -60,6 +68,10 @@ storiesOf(
 
             enterIconLeft={enterIconLeft}
             escapeClear={escapeClear}
+
+            enterAtClick={() => {
+                console.log('enter');
+            }}
 
             {...actions}
         />

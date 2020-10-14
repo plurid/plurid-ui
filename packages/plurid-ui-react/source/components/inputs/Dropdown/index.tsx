@@ -6,7 +6,8 @@
         useEffect,
     } from 'react';
 
-    import themes, {
+    import {
+        plurid,
         Theme,
     } from '@plurid/plurid-themes';
 
@@ -40,49 +41,67 @@
 
 // #region module
 export interface DropdownProperties {
-    selectables: (PluridDropdownSelectable | string)[];
-    selected: PluridDropdownSelectable | string;
-    atSelect: (selection: PluridDropdownSelectable | string, kind?: string) => void;
+    // #region required
+        // #region values
+        selectables: (PluridDropdownSelectable | string)[];
+        selected: PluridDropdownSelectable | string;
+        // #endregion values
 
-    left?: boolean;
-    kind?: string;
-    dropdownToggled?: boolean;
-    setDropdownToggled?: any;
-    /**
-     * Hide dropdown after click selection.
-     *
-     * Default `true`.
-     */
-    hideAtSelect?: boolean;
-    /**
-     * Run the `atSelect` function when hovering over a dropdown item.
-     *
-     * Default `true`.
-     */
-    selectAtHover?: boolean;
-    selectedColor?: string;
+        // #region methods
+        atSelect: (
+            selection: PluridDropdownSelectable | string,
+            kind?: string,
+        ) => void;
+        // #endregion methods
+    // #endregion required
 
-    /**
-     * Inserts an input field to filter the selectables.
-     */
-    filterable?: boolean;
-    filterUpdate?: () => void;
+    // #region optional
+        // #region values
+        left?: boolean;
+        kind?: string;
+        dropdownToggled?: boolean;
 
-    style?: React.CSSProperties;
-    className?: string;
+        /**
+         * Hide dropdown after click selection.
+         *
+         * Default `true`.
+         */
+        hideAtSelect?: boolean;
+        /**
+         * Run the `atSelect` function when hovering over a dropdown item.
+         *
+         * Default `true`.
+         */
+        selectAtHover?: boolean;
+        selectedColor?: string;
 
-    theme?: Theme;
-    generalTheme?: Theme;
-    interactionTheme?: Theme;
-    level?: number;
-    devisible?: boolean;
-    round?: boolean;
-    width?: string | number;
+        /**
+         * Inserts an input field to filter the selectables.
+         */
+        filterable?: boolean;
 
-    /**
-     * The number of items determining the height;
-     */
-    heightItems?: number;
+        style?: React.CSSProperties;
+        className?: string;
+
+        theme?: Theme;
+        generalTheme?: Theme;
+        interactionTheme?: Theme;
+        level?: number;
+        devisible?: boolean;
+        round?: boolean;
+        width?: string | number;
+
+        /**
+         * The number of items determining the height;
+         */
+        heightItems?: number;
+        // #endregion values
+
+        // #region methods
+        setDropdownToggled?: any;
+        filterUpdate?: () => void;
+        // #endregion methods
+    // #endregion optional
 }
 
 const Dropdown: React.FC<DropdownProperties> = (
@@ -90,60 +109,67 @@ const Dropdown: React.FC<DropdownProperties> = (
 ) => {
     // #region properties
     const {
-        selected,
-        selectables,
-        atSelect,
+        // #region required
+            // #region values
+            selected,
+            selectables,
+            // #endregion values
 
-        left,
-        kind,
-        dropdownToggled,
-        setDropdownToggled,
-        hideAtSelect,
-        selectAtHover,
-        selectedColor,
-        filterable,
-        filterUpdate,
+            // #region methods
+            atSelect,
+            // #endregion methods
+        // #endregion required
 
-        style,
-        className,
+        // #region optional
+            // #region values
+            left,
+            kind,
+            dropdownToggled,
+            hideAtSelect,
+            selectAtHover,
+            selectedColor,
+            filterable,
 
-        theme: themeProperty,
-        generalTheme: generalThemeProperty,
-        interactionTheme: interactionThemeProperty,
-        level,
+            style,
+            className,
 
-        heightItems,
-        width,
+            theme: themeProperty,
+            generalTheme: generalThemeProperty,
+            interactionTheme: interactionThemeProperty,
+            level,
+
+            heightItems,
+            width,
+            // #endregion values
+
+            // #region methods
+            setDropdownToggled,
+            filterUpdate,
+            // #endregion methods
+        // #endregion optional
     } = properties;
 
     const _generalTheme = generalThemeProperty === undefined
         ? themeProperty === undefined
-            ? themes.plurid
+            ? plurid
             : themeProperty
         : generalThemeProperty;
 
     const _interactionTheme = interactionThemeProperty === undefined
         ? themeProperty === undefined
-            ? themes.plurid
+            ? plurid
             : themeProperty
         : interactionThemeProperty;
 
-    const _level = level === undefined
-        ? 0
-        : level;
-
-    const _hideAtSelect = hideAtSelect === undefined
-        ? true
-        : hideAtSelect;
-
-    const _selectAtHover = selectAtHover === undefined
-        ? true
-        : selectAtHover;
+    const _level = level ?? 0;
+    const _hideAtSelect = hideAtSelect ?? true;
+    const _selectAtHover = selectAtHover ?? false;
     // #endregion properties
 
 
     // #region references
     const isMounted = useRef(true);
+    const filterInput = useRef<HTMLInputElement | null>(null);
     // #endregion references
 
 
@@ -180,6 +206,11 @@ const Dropdown: React.FC<DropdownProperties> = (
         showFilterUpdate,
         setShowFilterUpdate,
     ] = useState(!!filterUpdate);
+
+    const [
+        arrowIndex,
+        setArrowIndex,
+    ] = useState(-1);
     // #endregion state
 
 
@@ -196,7 +227,10 @@ const Dropdown: React.FC<DropdownProperties> = (
         selected: string | PluridDropdownSelectable,
     ) => {
         select(selected);
-        _hideAtSelect ? setShowList(false) : null;
+
+        if (_hideAtSelect) {
+            setShowList(false);
+        }
     }
 
     const handleHover = (
@@ -214,16 +248,40 @@ const Dropdown: React.FC<DropdownProperties> = (
             value,
         } = event.target;
 
+        const filterValue = value.toLowerCase();
+
         const filteredSelectables = selectables.filter(selectable => {
             if (typeof selectable === 'string') {
-                if (selectable.toLowerCase().startsWith(value.toLowerCase())) {
+                const filterSelectable = selectable.toLowerCase();
+
+                if (selectable.toLowerCase().startsWith(filterValue)) {
                     return true;
                 }
+
+                const split = filterSelectable.split(' ');
+
+                for (const element of split) {
+                    if (element.startsWith(filterValue)) {
+                        return true;
+                    }
+                }
+
                 return false;
             }
 
-            if (selectable.value.toLowerCase().startsWith(value.toLowerCase())) {
+
+            const filterSelectable = selectable.value.toLowerCase();
+
+            if (filterSelectable.startsWith(filterValue)) {
                 return true;
+            }
+
+            const split = filterSelectable.split(' ');
+
+            for (const element of split) {
+                if (element.startsWith(filterValue)) {
+                    return true;
+                }
             }
 
             return false;
@@ -231,8 +289,31 @@ const Dropdown: React.FC<DropdownProperties> = (
 
         setFilterValue(value);
         setFilteredSelectables(filteredSelectables);
+
+        itemsReferences.current = filteredSelectables.reduce((accumulator, _, index) => {
+            (accumulator as any)[index] = React.createRef();
+            return accumulator;
+        }, {});
+    }
+
+    const focusFilterInput = () => {
+        setTimeout(() => {
+            if (filterInput.current) {
+                filterInput.current.focus();
+            }
+        }, 100);
     }
     // #endregion handlersn
+
+
+    // #region references
+    const itemsReferences = useRef<Record<number, any>>(
+        filteredSelectables.reduce((accumulator, _, index) => {
+            (accumulator as Record<number, any>)[index] = React.createRef();
+            return accumulator;
+        }, {}),
+    );
+    // #endregion references
 
 
     // #region effects
@@ -241,7 +322,9 @@ const Dropdown: React.FC<DropdownProperties> = (
         if (!dropdownToggled) {
             setShowList(false);
         }
-    }, [dropdownToggled]);
+    }, [
+        dropdownToggled,
+    ]);
 
     /** Handle Level */
     useEffect(() => {
@@ -259,13 +342,13 @@ const Dropdown: React.FC<DropdownProperties> = (
     useEffect(() => {
         const generalTheme = generalThemeProperty === undefined
             ? themeProperty === undefined
-                ? themes.plurid
+                ? plurid
                 : themeProperty
             : generalThemeProperty;
 
         const interactionTheme = interactionThemeProperty === undefined
             ? themeProperty === undefined
-                ? themes.plurid
+                ? plurid
                 : themeProperty
             : interactionThemeProperty;
 
@@ -277,12 +360,82 @@ const Dropdown: React.FC<DropdownProperties> = (
         interactionThemeProperty,
     ]);
 
+    /**
+     * Handle Arrows.
+     */
     useEffect(() => {
-        setFilteredSelectables(selectables);
+        const scrollTo = (
+            index: number,
+        ) => {
+            console.log(itemsReferences.current[index].current);
+            if (itemsReferences.current[index].current) {
+                itemsReferences.current[index].current.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                });
+            }
+        }
+
+        const handleArrows = (
+            event: KeyboardEvent,
+        ) => {
+            if (event.key === 'ArrowUp') {
+                const newIndex = arrowIndex - 1;
+
+                if (newIndex >= 0) {
+                    setArrowIndex(newIndex);
+                    scrollTo(newIndex);
+                }
+            }
+
+            if (event.key === 'ArrowDown') {
+                const newIndex = arrowIndex + 1;
+
+                if (newIndex < filteredSelectables.length) {
+                    setArrowIndex(newIndex);
+                    scrollTo(newIndex);
+                }
+            }
+
+            if (event.key === 'Enter') {
+                const selected = filteredSelectables[arrowIndex];
+
+                if (selected) {
+                    atSelect(selected);
+                    setArrowIndex(-1);
+
+                    if (_hideAtSelect) {
+                        setShowList(false);
+                    }
+                }
+            }
+        }
+
+        const handleScroll = () => {
+            setArrowIndex(-1);
+        }
+
+        if (showList) {
+            window.addEventListener('keydown', handleArrows);
+            window.addEventListener('wheel', handleScroll);
+        } else {
+            setArrowIndex(-1);
+        }
+
+        return () => {
+            if (showList) {
+                window.removeEventListener('keydown', handleArrows);
+                window.removeEventListener('wheel', handleScroll);
+            }
+        }
     }, [
-        selectables,
+        arrowIndex,
+        showList,
     ]);
 
+    /**
+     * Is mounted.
+     */
     useEffect(() => {
         return () => {
             isMounted.current = false;
@@ -305,6 +458,10 @@ const Dropdown: React.FC<DropdownProperties> = (
 
                     if (setDropdownToggled) {
                         setDropdownToggled(kind);
+                    }
+
+                    if (!showList && filterable) {
+                        focusFilterInput();
                     }
                 }}
                 theme={generalTheme}
@@ -363,6 +520,7 @@ const Dropdown: React.FC<DropdownProperties> = (
                                     )}
 
                                     <Textline
+                                        ref={filterInput}
                                         theme={interactionTheme}
                                         text={filterValue}
                                         atChange={handleFiltering}
@@ -372,16 +530,18 @@ const Dropdown: React.FC<DropdownProperties> = (
                                         autoComplete="false"
                                         autoCorrect="false"
                                         style={{
-                                            padding: !!filterUpdate && left
-                                                ? '0 1.3rem 0 0'
-                                                : '0 0 0 1.3rem'
+                                            padding: !!filterUpdate
+                                                ? left
+                                                    ? '0 1.3rem 0 0'
+                                                    : '0 0 0 1.3rem'
+                                                : '0'
                                         }}
                                     />
                                 </StyledFilterable>
                             </li>
                         )}
 
-                        {filteredSelectables.map((selectable) => {
+                        {filteredSelectables.map((selectable, index) => {
                             let selectableID = typeof selectable === 'string'
                                 ? selectable
                                 : selectable.id;
@@ -400,8 +560,13 @@ const Dropdown: React.FC<DropdownProperties> = (
                                 }
                             }
 
+                            if (arrowIndex === index) {
+                                isSelected = true;
+                            }
+
                             return (
                                 <li
+                                    ref={itemsReferences.current[index]}
                                     key={selectableID}
                                     onClick={() => handleSelect(selectable)}
                                     onMouseEnter={() => handleHover(selectable)}

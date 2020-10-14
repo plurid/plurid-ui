@@ -1,19 +1,39 @@
-import React, {
-    useRef,
-} from 'react';
-import themes, { Theme } from '@plurid/plurid-themes';
+// #region imports
+    // #region libraries
+    import React, {
+        useRef,
+        forwardRef,
+    } from 'react';
 
-import {
-    StyledTextline,
-    StyledEnterIcon,
-} from './styled';
-
-import {
-    setNativeValue,
-} from '../../../utilities/input';
-
+    import {
+        plurid,
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
 
+    // #region external
+    import {
+        setNativeValue,
+    } from '../../../utilities/input';
+
+    import {
+        mergeReferences,
+    } from '../../../utilities/react';
+    // #endregion external
+
+
+    // #region internal
+    import {
+        StyledTextline,
+        StyledEnterIcon,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
+
+
+
+// #region module
 export interface TextlineProperties {
     text: string;
     atChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -21,7 +41,7 @@ export interface TextlineProperties {
     atFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
     atBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
 
-    type?: 'text' | 'password';
+    type?: 'text' | 'password' | 'number';
     placeholder?: string;
     autoCapitalize?: string;
     autoComplete?: string;
@@ -73,7 +93,11 @@ export interface TextlineProperties {
  *
  * @param ariaLabel optiona - `boolean`
  */
-const Textline: React.FC<TextlineProperties> = (properties) => {
+const Textline: React.ForwardRefExoticComponent<any> = forwardRef<HTMLInputElement, TextlineProperties>((
+    properties,
+    reference,
+) => {
+    // #region properties
     const {
         text,
         atChange,
@@ -104,25 +128,26 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
         ariaLabel,
     } = properties;
 
-    const _type = type === undefined
-        ? 'text'
-        : type;
+    const _type = type || 'text';
+    const _theme = theme || plurid;
+    const _level = level ?? 0;
+    const _round = round ?? true;
+    // #endregion properties
 
-    const _theme = theme === undefined
-        ? themes.plurid
-        : theme;
 
-    const _level = level === undefined
-        ? 0
-        : level;
+    // #region references
+    const inputElement = useRef<HTMLInputElement | null>();
+    // #endregion references
 
-    const _round = round === undefined
-        ? true
-        : round;
 
-    const inputElement = useRef<HTMLInputElement>(null);
+    // #region handlers
+    const handleKeyDown = (
+        event: React.KeyboardEvent<HTMLInputElement>,
+    ) => {
+        if (!inputElement.current) {
+            return;
+        }
 
-    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (atKeyDown) {
             atKeyDown(event);
         }
@@ -146,7 +171,10 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
             inputElement.current.dispatchEvent(_event);
         }
     }
+    // #endregion handlers
 
+
+    // #region render
     return (
         <StyledTextline
             theme={_theme}
@@ -174,9 +202,14 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
 
                 aria-label={ariaLabel}
 
-                style={{...style}}
+                style={{
+                    ...style,
+                }}
 
-                ref={inputElement}
+                ref={mergeReferences(
+                    inputElement,
+                    reference,
+                )}
             />
 
             {
@@ -194,7 +227,12 @@ const Textline: React.FC<TextlineProperties> = (properties) => {
             }
         </StyledTextline>
     );
-}
+    // #endregion render
+});
+// #endregion module
 
 
+
+// #region exports
 export default Textline;
+// #endregion exports

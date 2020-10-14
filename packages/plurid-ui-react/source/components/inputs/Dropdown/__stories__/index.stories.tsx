@@ -48,6 +48,14 @@ storiesOf(
             id: '100_YEARS',
             value: '100 Years',
         },
+        {
+            id: '1000_YEARS',
+            value: '1000 Years',
+        },
+        {
+            id: '10000_YEARS',
+            value: '10000 Years',
+        },
     ];
 
     const left = boolean('Left', false);
@@ -61,22 +69,30 @@ storiesOf(
     // const round = boolean('Round', true);
 
     return (
-        <PluridDropdown
-            selectables={selectablesItems}
-            selected={selectablesItems[1]}
-            atSelect={(selected) => {console.log(selected)}}
+        <div
+            style={{
+                backgroundColor: 'black',
+                height: '200px',
+                padding: '2rem',
+            }}
+        >
+            <PluridDropdown
+                selectables={selectablesItems}
+                selected={selectablesItems[1]}
+                atSelect={(selected) => {console.log(selected)}}
 
-            left={left}
+                left={left}
 
-            theme={themes[theme]}
-            level={level}
-            // devisible={devisible}
-            // round={round}
-            filterable={filterable}
-            filterUpdate={() => {}}
-            heightItems={heightItems}
-            width={width}
-            {...actions}
-        />
+                theme={themes[theme]}
+                level={level}
+                // devisible={devisible}
+                // round={round}
+                filterable={filterable}
+                // filterUpdate={() => {}}
+                heightItems={heightItems}
+                width={width}
+                {...actions}
+            />
+        </div>
     );
 });
