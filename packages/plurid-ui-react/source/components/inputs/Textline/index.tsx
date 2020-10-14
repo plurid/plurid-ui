@@ -64,6 +64,7 @@ export interface TextlineProperties {
     ariaLabel?: string;
 }
 
+export type TextlineType = TextlineProperties & React.RefAttributes<any>;
 
 /**
  * @param text `string`
@@ -93,7 +94,7 @@ export interface TextlineProperties {
  *
  * @param ariaLabel optiona - `boolean`
  */
-const Textline: React.ForwardRefExoticComponent<any> = forwardRef<HTMLInputElement, TextlineProperties>((
+const Textline: React.ForwardRefExoticComponent<TextlineType> = forwardRef<HTMLInputElement, TextlineProperties>((
     properties,
     reference,
 ) => {
