@@ -27,6 +27,7 @@ export interface FormbuttonProperties {
      * Renders the button as is (without hover, cursor effects, and on click listen).
      */
     inactive?: boolean;
+    hoverEffect?: boolean;
 
     style?: React.CSSProperties;
     className?: string;
@@ -37,7 +38,9 @@ export interface FormbuttonProperties {
  *
  * @param properties
  */
-const Formbutton: React.FC<FormbuttonProperties> = (properties) => {
+const Formbutton: React.FC<FormbuttonProperties> = (
+    properties,
+) => {
     const {
         /** required */
         text,
@@ -52,6 +55,7 @@ const Formbutton: React.FC<FormbuttonProperties> = (properties) => {
         level,
         iconPosition,
         inactive,
+        hoverEffect: hoverEffectProperty,
         style,
         className,
     } = properties;
@@ -76,6 +80,8 @@ const Formbutton: React.FC<FormbuttonProperties> = (properties) => {
         ? false
         : inactive;
 
+    const hoverEffect = hoverEffectProperty ?? true;
+
 
     const render = () => (
         <>
@@ -98,6 +104,7 @@ const Formbutton: React.FC<FormbuttonProperties> = (properties) => {
         level: _level,
         inactive: _inactive,
         devisible: _devisible,
+        hoverEffect,
     };
 
 

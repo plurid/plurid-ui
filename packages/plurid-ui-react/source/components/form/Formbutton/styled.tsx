@@ -11,6 +11,7 @@ export interface IStyledFormbutton {
     level: number;
     inactive: boolean;
     devisible: boolean;
+    hoverEffect: boolean;
 }
 
 export const StyledFormbutton = styled.div<IStyledFormbutton>`
@@ -41,9 +42,14 @@ export const StyledFormbutton = styled.div<IStyledFormbutton>`
 
     :hover {
         background-color: ${(props: IStyledFormbutton) => {
+            if (!props.hoverEffect) {
+                return 'initial';
+            }
+
             if (props.inactive || props.devisible) {
                 return 'initial';
             }
+
             return props.theme.backgroundColorSecondary;
         }};
     }
