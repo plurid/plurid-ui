@@ -1,6 +1,11 @@
 // #region imports
     // #region libraries
     import React from 'react';
+
+    import {
+        plurid,
+        Theme,
+    } from '@plurid/plurid-themes';
     // #endregion libraries
 
 
@@ -19,8 +24,9 @@
 export interface InputBoxProperties {
     name: string;
     text: string;
-    theme: any;
+    theme: Theme;
     atChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+
     atKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
     style?: React.CSSProperties;
 }

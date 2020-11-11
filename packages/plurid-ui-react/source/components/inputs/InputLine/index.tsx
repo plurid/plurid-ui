@@ -1,6 +1,11 @@
 // #region imports
     // #region libraries
     import React from 'react';
+
+    import {
+        plurid,
+        Theme,
+    } from '@plurid/plurid-themes';
     // #endregion libraries
 
 
@@ -23,10 +28,10 @@
 export interface InputLineProperties {
     name: string;
     text: string;
-    theme: any;
+    theme: Theme;
     atChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    atKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 
+    atKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
     type?: 'text' | 'password' | undefined;
 }
 
@@ -38,8 +43,9 @@ const InputLine: React.FC<InputLineProperties> = (
         text,
         name,
         atChange,
-        atKeyDown,
         theme,
+
+        atKeyDown,
         type,
     } = properties;
     // #endregion properties
