@@ -10,7 +10,9 @@
 
 
     // #region external
-    import PluridTextline from '../Textline';
+    import PluridTextline, {
+        TextlineProperties,
+    } from '../Textline';
     // #endregion external
 
 
@@ -26,13 +28,34 @@
 
 // #region module
 export interface InputLineProperties {
-    name: string;
-    text: string;
-    theme: Theme;
-    atChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    // #region required
+        // #region values
+        name: string;
+        text: string;
+        // #endregion values
 
-    atKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
-    type?: 'text' | 'password' | undefined;
+        // #region methods
+        atChange: (
+            event: React.ChangeEvent<HTMLInputElement>,
+        ) => void;
+        // #endregion methods
+    // #endregion required
+
+    // #region optional
+        // #region values
+        theme?: Theme;
+        type?: 'text' | 'password';
+        textline?: Partial<TextlineProperties>;
+        style?: React.CSSProperties;
+        className?: string;
+        // #endregion values
+
+        // #region methods
+        atKeyDown?: (
+            event: React.KeyboardEvent<HTMLInputElement>,
+        ) => void;
+        // #endregion methods
+    // #endregion optional
 }
 
 const InputLine: React.FC<InputLineProperties> = (
@@ -40,21 +63,48 @@ const InputLine: React.FC<InputLineProperties> = (
 ) => {
     // #region properties
     const {
-        text,
-        name,
-        atChange,
-        theme,
+        // #region required
+            // #region values
+            name,
+            text,
+            // #endregion values
 
-        atKeyDown,
-        type,
+            // #region methods
+            atChange,
+            // #endregion methods
+        // #endregion required
+
+        // #region optional
+            // #region values
+            theme: themeProperty,
+            type,
+            textline,
+            style,
+            className,
+            // #endregion values
+
+            // #region methods
+            atKeyDown,
+            // #endregion methods
+        // #endregion optional
     } = properties;
+
+    const theme = themeProperty || plurid;
     // #endregion properties
 
 
     // #region render
     return (
-        <StyledInputLine>
-            <StyledInputLineText>
+        <StyledInputLine
+            theme={theme}
+            style={{
+                ...style,
+            }}
+            className={className}
+        >
+            <StyledInputLineText
+                theme={theme}
+            >
                 {text !== '' && (
                     <>
                         {name}
@@ -66,14 +116,19 @@ const InputLine: React.FC<InputLineProperties> = (
                 text={text}
                 type={type}
                 placeholder={name}
-                atChange={atChange}
-                atKeyDown={atKeyDown}
+
+                theme={theme}
+                level={2}
+
                 spellCheck={false}
                 autoCapitalize="false"
                 autoComplete="false"
                 autoCorrect="false"
-                theme={theme}
-                level={2}
+
+                atChange={atChange}
+                atKeyDown={atKeyDown}
+
+                {...textline}
             />
         </StyledInputLine>
     );

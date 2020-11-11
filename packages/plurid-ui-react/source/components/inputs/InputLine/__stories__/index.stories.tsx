@@ -1,21 +1,29 @@
-import React, {
-    useState,
-} from 'react';
+// #region imports
+    // #region libraries
+    import React, {
+        useState,
+    } from 'react';
 
-import themes from '@plurid/plurid-themes';
+    import themes from '@plurid/plurid-themes';
 
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import {
-    withKnobs,
-    select,
-    text,
-} from '@storybook/addon-knobs';
-
-import InputLine from '../';
-
+    import { storiesOf } from '@storybook/react';
+    // import { action } from '@storybook/addon-actions';
+    import {
+        withKnobs,
+        select,
+        text,
+    } from '@storybook/addon-knobs';
+    // #endregion libraries
 
 
+    // #region external
+    import InputLine from '../';
+    // #endregion external
+// #endregion imports
+
+
+
+// #region module
 const actions = {
     // atChange: action('atChange'),
 };
@@ -49,14 +57,22 @@ storiesOf(
     const theme = select(themeLabel, themeOptions, defaultThemeValue);
 
     return (
-        <InputLine
-            name={name}
-            text={textValue}
-            atChange={(event: any) => setTextValue(event.target.value)}
+        <div
+            style={{
+                backgroundColor: 'slategray',
+                padding: '2rem',
+            }}
+        >
+            <InputLine
+                name={name}
+                text={textValue}
+                atChange={(event: any) => setTextValue(event.target.value)}
 
-            theme={themes[theme]}
+                theme={themes[theme]}
 
-            {...actions}
-        />
+                {...actions}
+            />
+        </div>
     );
 });
+// #endregion module
