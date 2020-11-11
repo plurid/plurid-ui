@@ -19,6 +19,7 @@ import PluridDropdown from './components/inputs/Dropdown';
 import PluridInputBox from './components/inputs/InputBox';
 import PluridInputDescriptor from './components/inputs/InputDescriptor';
 import PluridInputLine from './components/inputs/InputLine';
+import PluridInputSwitch from './components/inputs/InputSwitch';
 import PluridItemsline from './components/inputs/Itemsline';
 import PluridSelect from './components/inputs/Select';
 import PluridSlider from './components/inputs/Slider';
@@ -36,6 +37,7 @@ import PluridHeading from './components/typography/Heading';
 import PluridParagraph from './components/typography/Paragraph';
 
 /** varia */
+import PluridCopyableLine from './components/varia/CopyableLine';
 import PluridScrollableLine from './components/varia/ScrollableLine';
 
 
@@ -75,6 +77,7 @@ export {
     PluridInputBox,
     PluridInputDescriptor,
     PluridInputLine,
+    PluridInputSwitch,
     PluridItemsline,
     PluridSelect,
     PluridSlider,
@@ -92,6 +95,7 @@ export {
     PluridParagraph,
 
     /** varia */
+    PluridCopyableLine,
     PluridScrollableLine,
 
 
