@@ -13,11 +13,23 @@ export const StyledTextline: any = styled.div`
         outline: none;
         font-size: 0.8rem;
 
+        border-bottom: ${(props: any) => {
+            if (props.error) {
+                return '2px solid #FF0000';
+            }
+            return '2px solid transparent';
+        }};
         padding: ${(props: any) => {
             if (props.devisible) {
                 return '0';
             }
             return '0.6rem 1rem';
+        }};
+        padding-top: ${(props: any) => {
+            if (props.devisible) {
+                return '0';
+            }
+            return '0.7rem';
         }};
         min-height: ${(props: any) => {
             if (props.devisible) {

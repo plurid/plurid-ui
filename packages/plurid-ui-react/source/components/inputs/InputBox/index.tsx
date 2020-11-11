@@ -9,10 +9,14 @@
     // #endregion libraries
 
 
+    // #region external
+    import PluridInputDescriptor from '../InputDescriptor';
+    // #endregion external
+
+
     // #region internal
     import {
         StyledInputBox,
-        StyledInputBoxText,
         StyledTextBox,
     } from './styled';
     // #endregion internal
@@ -22,13 +26,32 @@
 
 // #region module
 export interface InputBoxProperties {
-    name: string;
-    text: string;
-    theme: Theme;
-    atChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    // #region required
+        // #region values
+        name: string;
+        text: string;
+        // #endregion values
 
-    atKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
-    style?: React.CSSProperties;
+        // #region methods
+        atChange: (
+            event: React.ChangeEvent<HTMLInputElement>,
+        ) => void;
+        // #endregion methods
+    // #endregion required
+
+    // #region optional
+        // #region values
+        theme?: Theme;
+        style?: React.CSSProperties;
+        className?: string;
+        // #endregion values
+
+        // #region methods
+        atKeyDown?: (
+            event: React.KeyboardEvent<HTMLInputElement>,
+        ) => void;
+        // #endregion methods
+    // #endregion optional
 }
 
 const InputBox: React.FC<InputBoxProperties> = (
@@ -36,26 +59,48 @@ const InputBox: React.FC<InputBoxProperties> = (
 ) => {
     // #region properties
     const {
-        text,
-        name,
-        atChange,
-        atKeyDown,
-        theme,
-        style,
+        // #region required
+            // #region values
+            text,
+            name,
+            // #endregion values
+
+            // #region methods
+            atChange,
+            // #endregion methods
+        // #endregion required
+
+        // #region optional
+            // #region values
+            theme: themeProperty,
+            style,
+            className,
+            // #endregion values
+
+            // #region methods
+            atKeyDown,
+            // #endregion methods
+        // #endregion optional
     } = properties;
+
+    const theme = themeProperty || plurid;
     // #endregion properties
 
 
     // #region render
     return (
-        <StyledInputBox>
-            <StyledInputBoxText>
-                {text !== '' && (
-                    <>
-                        {name}
-                    </>
-                )}
-            </StyledInputBoxText>
+        <StyledInputBox
+            theme={theme}
+            className={className}
+            style={{
+                ...style,
+            }}
+        >
+            <PluridInputDescriptor
+                name={name}
+                show={text !== ''}
+                theme={theme}
+            />
 
             <StyledTextBox
                 theme={theme}
@@ -69,9 +114,6 @@ const InputBox: React.FC<InputBoxProperties> = (
                     autoCapitalize="false"
                     autoComplete="false"
                     autoCorrect="false"
-                    style={{
-                        ...style,
-                    }}
                 />
             </StyledTextBox>
         </StyledInputBox>

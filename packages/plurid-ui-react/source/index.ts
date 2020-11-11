@@ -16,6 +16,9 @@ import PluridFormObliterate from './components/form/FormObliterate';
 
 /** inputs */
 import PluridDropdown from './components/inputs/Dropdown';
+import PluridInputBox from './components/inputs/InputBox';
+import PluridInputDescriptor from './components/inputs/InputDescriptor';
+import PluridInputLine from './components/inputs/InputLine';
 import PluridItemsline from './components/inputs/Itemsline';
 import PluridSelect from './components/inputs/Select';
 import PluridSlider from './components/inputs/Slider';
@@ -69,6 +72,9 @@ export {
 
     /** inputs */
     PluridDropdown,
+    PluridInputBox,
+    PluridInputDescriptor,
+    PluridInputLine,
     PluridItemsline,
     PluridSelect,
     PluridSlider,

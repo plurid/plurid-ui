@@ -1,8 +1,6 @@
 // #region imports
     // #region libraries
-    import React, {
-        useState,
-    } from 'react';
+    import React from 'react';
 
     import themes from '@plurid/plurid-themes';
 
@@ -11,12 +9,13 @@
     import {
         withKnobs,
         text,
+        boolean,
     } from '@storybook/addon-knobs';
     // #endregion libraries
 
 
     // #region external
-    import InputBox from '../';
+    import InputDescriptor from '..';
 
     import {
         themeSelect,
@@ -26,35 +25,31 @@
 // #endregion imports
 
 
+
 // #region module
 const actions = {
-    // atChange: action('atChange'),
 };
 
 storiesOf(
-    'PluridInputBox',
+    'PluridInputDescriptor',
     module,
 )
 .addDecorator(withKnobs)
 .add('basic', () => {
-    const [
-        textValue,
-        setTextValue,
-    ] = useState('');
-
     const name = text('Name', '');
+    const show = boolean('Show', false);
     const theme = themeSelect();
 
     return (
         <Background>
-            <InputBox
-                name={name}
-                text={textValue}
-                theme={themes[theme]}
-
-                atChange={(event: any) => setTextValue(event.target.value)}
-
-                {...actions}
+            <InputDescriptor
+                // #region required
+                    // #region values
+                    name={name}
+                    show={show}
+                    theme={themes[theme]}
+                    // #endregion values
+                // #endregion required
             />
         </Background>
     );

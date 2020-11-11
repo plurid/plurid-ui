@@ -10,6 +10,8 @@
 
 
     // #region external
+    import PluridInputDescriptor from '../InputDescriptor';
+
     import PluridTextline, {
         TextlineProperties,
     } from '../Textline';
@@ -19,7 +21,6 @@
     // #region internal
     import {
         StyledInputLine,
-        StyledInputLineText,
     } from './styled';
     // #endregion internal
 // #endregion imports
@@ -45,6 +46,7 @@ export interface InputLineProperties {
         // #region values
         theme?: Theme;
         type?: 'text' | 'password';
+        error?: boolean;
         textline?: Partial<TextlineProperties>;
         style?: React.CSSProperties;
         className?: string;
@@ -78,6 +80,7 @@ const InputLine: React.FC<InputLineProperties> = (
             // #region values
             theme: themeProperty,
             type,
+            error,
             textline,
             style,
             className,
@@ -102,15 +105,11 @@ const InputLine: React.FC<InputLineProperties> = (
             }}
             className={className}
         >
-            <StyledInputLineText
+            <PluridInputDescriptor
+                name={name}
+                show={text !== ''}
                 theme={theme}
-            >
-                {text !== '' && (
-                    <>
-                        {name}
-                    </>
-                )}
-            </StyledInputLineText>
+            />
 
             <PluridTextline
                 text={text}
@@ -119,6 +118,7 @@ const InputLine: React.FC<InputLineProperties> = (
 
                 theme={theme}
                 level={2}
+                error={error}
 
                 spellCheck={false}
                 autoCapitalize="false"

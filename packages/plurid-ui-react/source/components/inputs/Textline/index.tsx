@@ -56,6 +56,7 @@ export interface TextlineProperties {
     center?: boolean;
     round?: boolean;
     width?: string | number;
+    error?: boolean;
 
     enterIconLeft?: boolean;
     enterAtClick?: () => void;
@@ -87,6 +88,7 @@ export type TextlineType = TextlineProperties & React.RefAttributes<any>;
  * @param center optional - `boolean`
  * @param round optional - `boolean`
  * @param width optional - `string | number`
+ * @param error optional - `boolean`
  *
  * @param enterIconLeft optional - `boolean`
  * @param enterAtClick optional - `() => void`
@@ -121,6 +123,7 @@ const Textline: React.ForwardRefExoticComponent<TextlineType> = forwardRef<HTMLI
         center,
         round,
         width,
+        error,
 
         enterIconLeft,
         enterAtClick,
@@ -184,6 +187,7 @@ const Textline: React.ForwardRefExoticComponent<TextlineType> = forwardRef<HTMLI
             center={center}
             round={_round}
             width={width}
+            error={error}
             className={className}
         >
             <input

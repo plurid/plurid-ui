@@ -10,14 +10,19 @@
     // import { action } from '@storybook/addon-actions';
     import {
         withKnobs,
-        select,
         text,
+        boolean,
     } from '@storybook/addon-knobs';
     // #endregion libraries
 
 
     // #region external
     import InputLine from '../';
+
+    import {
+        themeSelect,
+        Background,
+    } from '../../../../utilities/storybook';
     // #endregion external
 // #endregion imports
 
@@ -25,19 +30,7 @@
 
 // #region module
 const actions = {
-    // atChange: action('atChange'),
 };
-
-const themeLabel = 'Theme';
-const computeThemeOptions = () => {
-    const options: any = {};
-    for (const key of Object.keys(themes)) {
-        options[key] = key;
-    }
-    return options;
-}
-const themeOptions = computeThemeOptions();
-const defaultThemeValue = 'plurid';
 
 storiesOf(
     'PluridInputLine',
@@ -50,29 +43,36 @@ storiesOf(
         setTextValue,
     ] = useState('');
 
-    // const textValue = text('Text', '');
-
     const name = text('Name', '');
-
-    const theme = select(themeLabel, themeOptions, defaultThemeValue);
+    const theme = themeSelect();
+    const error = boolean('Error', false);
 
     return (
-        <div
-            style={{
-                backgroundColor: 'slategray',
-                padding: '2rem',
-            }}
-        >
+        <Background>
             <InputLine
-                name={name}
-                text={textValue}
-                atChange={(event: any) => setTextValue(event.target.value)}
+                // #region required
+                    // #region values
+                    name={name}
+                    text={textValue}
+                    // #endregion values
 
-                theme={themes[theme]}
+                    // #region methods
+                    atChange={(event: any) => setTextValue(event.target.value)}
+                    // #endregion methods
+                // #endregion required
 
-                {...actions}
+                // #region optional
+                    // #region values
+                    theme={themes[theme]}
+                    error={error}
+                    // #endregion values
+
+                    // #region methods
+                    {...actions}
+                    // #endregion methods
+                // #endregion optional
             />
-        </div>
+        </Background>
     );
 });
 // #endregion module

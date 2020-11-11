@@ -11,26 +11,13 @@
 
 
 // #region module
-export const StyledInputBox = styled.div`
-`;
-
-
-export const StyledInputBoxText = styled.div`
-    text-align: left;
-    font-size: 0.9rem;
-    min-height: 1rem;
-    margin-top: 1.5rem;
-    margin-bottom: 0.6rem;
-    margin-left: 0.9rem;
-`;
-
-
-export interface IStyledTextBox {
+export interface IStyledInputBox {
     theme: Theme;
 }
 
-export const StyledTextBox = styled.div<IStyledTextBox>`
+export const StyledInputBox = styled.div`
     textarea {
+        box-sizing: border-box;
         width: 100%;
         min-height: 5rem;
         resize: vertical;
@@ -40,23 +27,35 @@ export const StyledTextBox = styled.div<IStyledTextBox>`
         font-size: 0.8rem;
         border-radius: 0.9rem;
         line-height: 1.5;
-        font-family: Ubuntu, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
 
+        font-family: ${
+            ({
+                theme,
+            }: IStyledInputBox) => theme.fontFamilySansSerif
+        };
         color: ${
             ({
                 theme,
-            }: IStyledTextBox) => theme.colorPrimary
+            }: IStyledInputBox) => theme.colorPrimary
         };
         background-color: ${
             ({
                 theme,
-            }: IStyledTextBox) => theme.backgroundColorTertiary
+            }: IStyledInputBox) => theme.backgroundColorTertiary
         };
         box-shadow: inset 0px 4px 4px ${
             ({
                 theme,
-            }: IStyledTextBox) => theme.boxShadowUmbraColor
+            }: IStyledInputBox) => theme.boxShadowUmbraColor
         };
     }
+`;
+
+
+export interface IStyledTextBox {
+    theme: Theme;
+}
+
+export const StyledTextBox = styled.div<IStyledTextBox>`
 `;
 // #endregion module
