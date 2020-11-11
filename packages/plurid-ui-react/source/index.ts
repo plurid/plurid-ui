@@ -39,6 +39,7 @@ import PluridParagraph from './components/typography/Paragraph';
 /** varia */
 import PluridCopyableLine from './components/varia/CopyableLine';
 import PluridScrollableLine from './components/varia/ScrollableLine';
+import PluridTextItem from './components/varia/TextItem';
 
 
 /** data */
@@ -97,6 +98,7 @@ export {
     /** varia */
     PluridCopyableLine,
     PluridScrollableLine,
+    PluridTextItem,
 
 
     /** data */
