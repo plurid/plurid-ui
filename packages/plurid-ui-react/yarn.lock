@@ -1400,6 +1400,11 @@
   dependencies:
     mkdirp "^1.0.4"
 
+"@plurid/plurid-functions@^0.1.18":
+  version "0.1.18"
+  resolved "https://registry.yarnpkg.com/@plurid/plurid-functions/-/plurid-functions-0.1.18.tgz#b01a9c6847639fc0b72d29a8c30cac86318b6bf4"
+  integrity sha512-tHWjpdpd11nGGpY4lxUpQyNZVmjNbMfD713L2+BLCV+EFMMDjVsWJEK1uUN4BnmifcOeiW9Ou1iq+Nt/R3HF7A==
+
 "@plurid/plurid-icons-react@^0.1.32":
   version "0.1.32"
   resolved "https://registry.yarnpkg.com/@plurid/plurid-icons-react/-/plurid-icons-react-0.1.32.tgz#dbb36368289cda88535daaeef0a8be83cc6c92c4"

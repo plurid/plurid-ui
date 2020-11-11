@@ -45,6 +45,7 @@
         "prepublishOnly": "yarn build"
     },
     "peerDependencies": {
+        "@plurid/plurid-functions": ">=0",
         "@plurid/plurid-icons-react": ">=0",
         "@plurid/plurid-themes": ">=0",
         "react": ">=16",
@@ -53,6 +54,7 @@
     },
     "devDependencies": {
         "@babel/core": "^7.12.3",
+        "@plurid/plurid-functions": "^0.1.18",
         "@plurid/plurid-icons-react": "^0.1.32",
         "@plurid/plurid-themes": "^0.1.27",
         "@storybook/addon-actions": "^6.0.28",
