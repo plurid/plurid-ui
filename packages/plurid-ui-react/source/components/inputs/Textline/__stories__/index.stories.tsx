@@ -47,6 +47,7 @@ storiesOf(
     const devisible = boolean('Devisible', false);
     const center = boolean('Center', false);
     const round = boolean('Round', true);
+    const error = boolean('Error', false);
 
     const enterIconLeft = boolean('Enter Icon Left', false);
     const escapeClear = boolean('Escape Clear', false);
@@ -65,6 +66,7 @@ storiesOf(
             center={center}
             level={level}
             round={round}
+            error={error}
 
             enterIconLeft={enterIconLeft}
             escapeClear={escapeClear}

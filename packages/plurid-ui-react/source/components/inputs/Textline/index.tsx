@@ -27,6 +27,7 @@
     import {
         StyledTextline,
         StyledEnterIcon,
+        StyledErrorLine,
     } from './styled';
     // #endregion internal
 // #endregion imports
@@ -187,7 +188,6 @@ const Textline: React.ForwardRefExoticComponent<TextlineType> = forwardRef<HTMLI
             center={center}
             round={_round}
             width={width}
-            error={error}
             className={className}
         >
             <input
@@ -216,6 +216,14 @@ const Textline: React.ForwardRefExoticComponent<TextlineType> = forwardRef<HTMLI
                     reference,
                 )}
             />
+
+            {error && (
+                <StyledErrorLine
+                    theme={_theme}
+                    devisible={devisible}
+                    round={_round}
+                />
+            )}
 
             {
                 enterAtClick
