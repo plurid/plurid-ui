@@ -10,7 +10,7 @@
 
 
 <h1 align="center">
-    plurid' user interface state and components
+    plurid' user interface components for `React`
 </h1>
 
 
@@ -21,7 +21,7 @@
     <img src="https://img.shields.io/npm/v/@plurid/plurid-ui-state-react.svg?logo=npm&colorB=1380C3&style=for-the-badge" alt="Version">
 </a>
 
-[@plurid/plurid-ui-state-react][plurid-ui-state-react] • plurid' user interface `React` state
+[@plurid/plurid-ui-state-react][plurid-ui-state-react] • plurid' user interface state for `React`
 
 [plurid-ui-state-react]: https://github.com/plurid/plurid-state/tree/master/packages/plurid-ui-state-react
 
@@ -30,6 +30,6 @@
     <img src="https://img.shields.io/npm/v/@plurid/plurid-ui-components-react.svg?logo=npm&colorB=1380C3&style=for-the-badge" alt="Version">
 </a>
 
-[@plurid/plurid-ui-components-react][plurid-ui-components-react] • plurid' user interface `React` components
+[@plurid/plurid-ui-components-react][plurid-ui-components-react] • plurid' user interface components for `React`
 
 [plurid-ui-components-react]: https://github.com/plurid/plurid-ui/tree/master/packages/plurid-ui-components-react
