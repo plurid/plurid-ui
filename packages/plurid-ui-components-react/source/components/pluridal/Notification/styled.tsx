@@ -1,9 +1,14 @@
-import styled, {
-    keyframes,
-} from 'styled-components';
+// #region imports
+    // #region libraries
+    import styled, {
+        keyframes,
+    } from 'styled-components';
+    // #endregion libraries
+// #endregion imports
 
 
 
+// #region module
 const translateUp = keyframes`
     from {
         transform: translateY(2000px);
@@ -60,3 +65,4 @@ export const StyledNotificationClose = styled.div`
     display: grid;
     place-content: center;
 `;
+// #endregion module

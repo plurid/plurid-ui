@@ -1,53 +1,75 @@
-import React, {
-    useRef,
-    useEffect,
-} from 'react';
+// #region imports
+    // #region libraries
+    import React, {
+        useRef,
+        useEffect,
+    } from 'react';
 
-import {
-    Notification as INotification,
-} from '@plurid/plurid-state-react';
+    import {
+        notifications,
+    } from '@plurid/plurid-ui-state-react';
 
-import {
-    PluridIconDelete,
-} from '@plurid/plurid-icons-react';
+    import {
+        PluridIconDelete,
+    } from '@plurid/plurid-icons-react';
 
-import {
-    Theme,
-} from '@plurid/plurid-themes';
-
-import {
-    StyledNotification,
-    StyledNotificationContent,
-    StyledNotificationClose,
-} from './styled';
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
 
+    // #region external
+    import {
+        createMarkup,
+    } from '#utilities/react';
+    // #endregion external
 
 
-const createMarkup = (text: string) => {
-    return {
-        __html: text,
-    };
+    // #region internal
+    import {
+        StyledNotification,
+        StyledNotificationContent,
+        StyledNotificationClose,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
+
+
+
+// #region module
+export interface NotificationOwnProperties {
+    // #region required
+        // #region values
+        data: notifications.Types.Notification;
+        theme: Theme;
+        // #endregion values
+
+        // #region methods
+        remove: (
+            payload: notifications.Types.RemoveNotificationPayload,
+        ) => void;
+        // #endregion methods
+    // #endregion required
 }
 
-interface NotificationOwnProperties {
-    data: INotification;
-    theme: Theme;
-    remove: (payload: any) => void;
-}
-
-type NotificationProperties = NotificationOwnProperties;
+export type NotificationProperties = NotificationOwnProperties;
 
 const Notification: React.FC<NotificationProperties> = (
     properties,
 ) => {
-    const notificationTimeout = useRef(0);
-
+    // #region properties
     const {
-        /** own */
-        data,
-        theme,
-        remove,
+        // #region required
+            // #region values
+            data,
+            theme,
+            // #endregion values
+
+            // #region methods
+            remove,
+            // #endregion methods
+        // #endregion required
     } = properties;
 
     const {
@@ -56,7 +78,15 @@ const Notification: React.FC<NotificationProperties> = (
         html,
         timeout,
     } = data;
+    // #endregion properties
 
+
+    // #region references
+    const notificationTimeout = useRef(0);
+    // #endregion references
+
+
+    // #region effects
     useEffect(() => {
         if (timeout) {
             notificationTimeout.current = setTimeout(() => {
@@ -74,7 +104,10 @@ const Notification: React.FC<NotificationProperties> = (
         timeout,
         remove,
     ]);
+    // #endregion effects
 
+
+    // #region render
     return (
         <StyledNotification
             theme={theme}
@@ -98,7 +131,12 @@ const Notification: React.FC<NotificationProperties> = (
             </StyledNotificationClose>
         </StyledNotification>
     );
+    // #endregion render
 }
+// #endregion module
 
 
+
+// #region exports
 export default Notification;
+// #endregion exports

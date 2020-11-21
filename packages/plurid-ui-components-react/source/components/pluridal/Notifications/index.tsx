@@ -4,9 +4,8 @@ import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 
 import {
-    Notification as INotification,
     notifications as notificationsStateService,
-} from '@plurid/plurid-state-react';
+} from '@plurid/plurid-ui-state-react';
 
 import {
     Theme,
@@ -27,7 +26,7 @@ export interface NotificationsOwnProperties {
 
 export interface NotificationsStateProperties {
     stateGeneralTheme: Theme;
-    stateNotifications: INotification[];
+    stateNotifications: notificationsStateService.Types.Notification[];
 }
 
 export interface NotificationsDispatchProperties {

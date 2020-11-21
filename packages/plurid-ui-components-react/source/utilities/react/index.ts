@@ -27,6 +27,15 @@ const mergeReferences = (
         }
     };
 };
+
+
+const createMarkup = (
+    text: string,
+) => {
+    return {
+        __html: text,
+    };
+}
 // #endregion module
 
 
@@ -34,5 +43,6 @@ const mergeReferences = (
 // #region exports
 export {
     mergeReferences,
+    createMarkup,
 };
 // #endregion exports
