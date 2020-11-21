@@ -11,14 +11,14 @@
 
 
 // #region module
-const getAll = (
-    state: StateOfAny & Record<'notifications', Types.State>,
-) => state.notifications;
+const getGlobal = (
+    state: StateOfAny & Record<'shortcuts', Types.State>,
+) => state.shortcuts.global;
 
 
 
 const selectors = {
-    getAll,
+    getGlobal,
 };
 // #endregion module
 
