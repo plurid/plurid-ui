@@ -1,7 +1,12 @@
-import styled from 'styled-components';
+// #region imports
+    // #region libraries
+    import styled from 'styled-components';
+    // #endregion libraries
+// #endregion imports
 
 
 
+// #region module
 export const StyledNotifications = styled.div`
     position: absolute;
     bottom: 0;
@@ -13,3 +18,4 @@ export const StyledNotifications = styled.div`
     z-index: 9999;
     pointer-events: none;
 `;
+// #endregion module

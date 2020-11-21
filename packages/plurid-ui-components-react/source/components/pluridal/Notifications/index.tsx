@@ -1,27 +1,51 @@
-import React from 'react';
-import { AnyAction } from 'redux';
-import { connect } from 'react-redux';
-import { ThunkDispatch } from 'redux-thunk';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import {
-    notifications as notificationsStateService,
-} from '@plurid/plurid-ui-state-react';
+    import { AnyAction } from 'redux';
+    import { connect } from 'react-redux';
+    import { ThunkDispatch } from 'redux-thunk';
 
-import {
-    Theme,
-} from '@plurid/plurid-themes';
+    import {
+        StateOfAny,
+        themes as themesStateService,
+        notifications as notificationsStateService,
+    } from '@plurid/plurid-ui-state-react';
 
-import {
-    StyledNotifications,
-} from './styled';
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
-import Notification from '../Notification';
+
+    // #region external
+    import Notification from '../Notification';
+    // #endregion external
 
 
+    // #region internal
+    import {
+        StyledNotifications,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
+
+
+
+// #region module
+export type NotificationsState = StateOfAny & {
+    themes: themesStateService.Types.State;
+    notifications: notificationsStateService.Types.State;
+}
+
+export type NotificationsSelectors = StateOfAny & {
+    themes: typeof themesStateService.selectors;
+    notifications: typeof notificationsStateService.selectors;
+}
 
 export interface NotificationsOwnProperties {
-    selectors: any;
-    context: any;
+    selectors: NotificationsSelectors;
+    context: React.Context<any>;
 }
 
 export interface NotificationsStateProperties {
@@ -40,18 +64,21 @@ export type NotificationsProperties = NotificationsOwnProperties
 const Notifications: React.FC<NotificationsProperties> = (
     properties
 ) => {
-    /** properties */
+    // #region properties
     const {
-        /** state */
+        // #region state
         stateGeneralTheme,
         stateNotifications,
+        // #endregion state
 
-        /** dispatch */
+        // #region dispatch
         dispatchRemoveNotification,
+        // #endregion dispatch
     } = properties;
+    // #endregion properties
 
 
-    /** render */
+    // #region render
     return (
         <StyledNotifications>
             {stateNotifications.map(notification => {
@@ -66,19 +93,20 @@ const Notifications: React.FC<NotificationsProperties> = (
             })}
         </StyledNotifications>
     );
+    // #endregion render
 }
 
 
-const mapStateToProps =(
-    state: any,
-    ownProperties: any,
+const mapStateToProperties =(
+    state: NotificationsState,
+    ownProperties: NotificationsOwnProperties,
 ): NotificationsStateProperties => ({
     stateGeneralTheme: ownProperties.selectors.themes.getGeneralTheme(state),
     stateNotifications: ownProperties.selectors.notifications.getAll(state),
 });
 
 
-const mapDispatchToProps = (
+const mapDispatchToProperties = (
     dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ): NotificationsDispatchProperties => ({
     dispatchRemoveNotification: (
@@ -87,9 +115,13 @@ const mapDispatchToProps = (
         notificationsStateService.actions.removeNotification(payload),
     ),
 });
+// #endregion module
 
 
+
+// #region exports
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+    mapStateToProperties,
+    mapDispatchToProperties
 )(Notifications);
+// #endregion exports
