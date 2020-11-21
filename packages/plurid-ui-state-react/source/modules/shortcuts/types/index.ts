@@ -1,3 +1,4 @@
+// #region module
 export const TOGGLE_GLOBAL_SHORTCUTS = 'TOGGLE_GLOBAL_SHORTCUTS';
 export interface ToggleGlobalShortcutsAction {
     type: typeof TOGGLE_GLOBAL_SHORTCUTS;
@@ -11,4 +12,6 @@ export interface State {
 }
 
 
-export type Actions = ToggleGlobalShortcutsAction;
+export type Actions =
+    | ToggleGlobalShortcutsAction;
+// #endregion module
