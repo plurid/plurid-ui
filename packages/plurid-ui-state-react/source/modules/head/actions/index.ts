@@ -7,6 +7,12 @@
 
 
 // #region module
+/**
+ * Overwrite any property currently set in the `head`,
+ * including `styles` and `scripts`, if any.
+ *
+ * @param payload
+ */
 export const setHead = (
     payload: Types.SetHeadPayload,
 ): Types.SetHeadAction => {
