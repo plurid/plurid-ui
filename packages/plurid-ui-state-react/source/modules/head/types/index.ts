@@ -2,11 +2,13 @@
 export interface Head {
     title: string;
     description: string;
+    canonicalURL: string;
     ogTitle: string;
     ogImage: string;
     ogURL: string;
     ogDescription: string;
-    canonicalURL: string;
+    styles: string[];
+    scripts: string[];
 }
 
 

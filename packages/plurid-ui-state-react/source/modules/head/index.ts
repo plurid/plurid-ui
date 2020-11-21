@@ -10,6 +10,8 @@
     } from './reducer';
 
     import selectors from './selectors';
+
+    import * as Types from './types';
     // #endregion internal
 // #endregion imports
 
@@ -25,5 +27,7 @@ export {
     metareducer,
 
     selectors,
+
+    Types,
 };
 // #endregion exports

@@ -15,6 +15,8 @@ export const initialState: Types.State = {
     ogURL: '',
     ogDescription: '',
     canonicalURL: '',
+    styles: [],
+    scripts: [],
 };
 // #endregion module
 
