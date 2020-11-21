@@ -11,14 +11,18 @@
 
 
 // #region module
-const getGlobal = (
-    state: StateOfAny & Record<'shortcuts', Types.State>,
-) => state.shortcuts.global;
+const getCurrentLink = (
+    state: StateOfAny & Record<'sitting', Types.State>,
+) => state.sitting.currentLink;
+const getTray = (
+    state: StateOfAny & Record<'sitting', Types.State>,
+) => state.sitting.tray;
 
 
 
 const selectors = {
-    getGlobal,
+    getCurrentLink,
+    getTray,
 };
 // #endregion module
 

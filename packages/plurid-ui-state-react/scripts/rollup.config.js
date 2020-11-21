@@ -1,52 +1,41 @@
+// #region imports
 import typescript from 'rollup-plugin-typescript2';
-import commonjs from 'rollup-plugin-commonjs';
-import depsExternal from 'rollup-plugin-peer-deps-external';
-import postcss from 'rollup-plugin-postcss';
-import resolve from 'rollup-plugin-node-resolve';
-import url from 'rollup-plugin-url';
-import replace from '@rollup/plugin-replace';
 
 import pkg from '../package.json';
+// #endregion imports
 
 
 
-const external = [];
-
-export default {
+// #region module
+const build = {
     input: 'source/index.ts',
     output: [
         {
             file: pkg.main,
             format: 'cjs',
             exports: 'named',
-            sourcemap: true,
-            external,
+            sourcemap: false,
         },
         {
             file: pkg.module,
             format: 'es',
             exports: 'named',
-            sourcemap: true,
-            external,
-        }
+            sourcemap: false,
+        },
+    ],
+    external: [
+        '@plurid/plurid-themes',
     ],
     plugins: [
-        replace({
-            'process.env.MODE_ENV': JSON.stringify(process.env.MODE_ENV),
-        }),
-        depsExternal(),
-        postcss({
-            modules: true,
-        }),
-        url(),
-        resolve({
-            modulesOnly: true,
-        }),
         typescript({
-            check: false,
-            rollupCommonJSResolveHack: true,
-            clean: true
+            clean: true,
         }),
-        commonjs(),
     ],
-}
+};
+// #endregion module
+
+
+
+// #region exports
+export default build;
+// #endregion exports
