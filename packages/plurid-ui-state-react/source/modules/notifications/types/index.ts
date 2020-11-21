@@ -1,7 +1,10 @@
-import {
-    Notification,
-} from '#data/interfaces';
-
+// #region module
+export interface Notification {
+    id: string;
+    text: string;
+    html?: boolean;
+    timeout?: number;
+}
 
 
 export const ADD_NOTIFICATION = 'ADD_NOTIFICATION';
@@ -37,3 +40,4 @@ export type State = Notification[];
 export type Actions = AddNotificationAction
     | UpdateNotificationAction
     | RemoveNotificationAction;
+// #endregion module

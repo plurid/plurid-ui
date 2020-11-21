@@ -1,16 +1,19 @@
-import {
-    Notification,
-} from '@plurid/apps.libraries.data.interfaces.global';
+// #region imports
+    // #region external
+    import * as Types from '../types';
+    // #endregion external
+// #endregion imports
 
-import * as Types from './types';
 
 
-
+// #region module
 export const addNotification = (
     state: Types.State,
     action: Types.AddNotificationAction,
 ): Types.State => {
-    const newNotification: Notification = { ...action.payload };
+    const newNotification: Types.Notification = {
+        ...action.payload,
+    };
 
     return [
         ...state,
@@ -23,12 +26,17 @@ export const updateNotification = (
     state: Types.State,
     action: Types.UpdateNotificationAction,
 ): Types.State => {
-    const updatedState = state.map(message => {
-        if (message.id === action.payload.id) {
-            const newNotification: Notification = { ...action.payload };
+    const updatedState = state.map(notification => {
+        if (notification.id === action.payload.id) {
+            const newNotification: Types.Notification = {
+                ...action.payload,
+            };
             return newNotification;
         }
-        return { ...message };
+
+        return {
+            ...notification,
+        };
     });
 
     return updatedState;
@@ -40,8 +48,9 @@ export const removeNotification = (
     action: Types.RemoveNotificationAction,
 ): Types.State => {
     const updatedState = state.filter(
-        message => message.id !== action.payload.id
+        notification => notification.id !== action.payload.id
     );
+
     return [
         ...updatedState,
     ];
@@ -49,8 +58,15 @@ export const removeNotification = (
 
 
 
-export const resolvers = {
+const resolvers = {
     addNotification,
     updateNotification,
     removeNotification,
 };
+// #endregion module
+
+
+
+// #region exports
+export default resolvers;
+// #endregion exports

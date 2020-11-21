@@ -1,8 +1,13 @@
-import * as Types from './types';
+// #region imports
+    // #region external
+    import * as Types from '../types';
+    // #endregion external
+// #endregion imports
 
 
 
-export const addNotification = (
+// #region module
+const addNotification = (
     payload: Types.AddNotificationPayload,
 ): Types.AddNotificationAction => {
     return {
@@ -12,7 +17,7 @@ export const addNotification = (
 }
 
 
-export const updateNotification = (
+const updateNotification = (
     payload: Types.UpdateNotificationPayload,
 ): Types.UpdateNotificationAction => {
     return {
@@ -22,7 +27,7 @@ export const updateNotification = (
 }
 
 
-export const removeNotification = (
+const removeNotification = (
     payload: Types.RemoveNotificationPayload,
 ): Types.RemoveNotificationAction => {
     return {
@@ -32,8 +37,17 @@ export const removeNotification = (
 }
 
 
-export const actions = {
+
+const actions = {
     addNotification,
     updateNotification,
     removeNotification,
 };
+
+// #endregion module
+
+
+
+// #region exports
+export default actions;
+// #endregion exports
