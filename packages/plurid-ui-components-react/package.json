@@ -1,11 +1,12 @@
 {
-    "name": "@plurid/plurid-ui-react",
-    "version": "0.1.95",
+    "name": "@plurid/plurid-ui-components-react",
+    "version": "0.0.0",
     "description": "Plurid UI React Components for Plurid Apps",
     "keywords": [
         "plurid",
         "ui",
-        "components"
+        "components",
+        "react"
     ],
     "author": "ly3xqhl8g9 <ly3xqhl8g9@plurid.com> (https://plurid.com)",
     "license": "SEE LICENSE IN LICENSE",

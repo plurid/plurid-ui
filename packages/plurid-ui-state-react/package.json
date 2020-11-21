@@ -1,11 +1,12 @@
 {
-    "name": "@plurid/plurid-state-react",
+    "name": "@plurid/plurid-ui-state-react",
     "version": "0.0.0",
     "description": "State Service for Plurid' Applications",
     "keywords": [
         "plurid",
         "ui",
-        "state"
+        "state",
+        "react"
     ],
     "author": "ly3xqhl8g9 <ly3xqhl8g9@plurid.com> (https://plurid.com)",
     "license": "SEE LICENSE IN LICENSE",
