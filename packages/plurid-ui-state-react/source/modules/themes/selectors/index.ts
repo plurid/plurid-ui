@@ -12,11 +12,11 @@
 
 // #region module
 const getGeneralTheme = (
-    state: StateOfAny & Record<'theme', Types.State>,
-) => state.theme.general;
+    state: StateOfAny & Record<'themes', Types.State>,
+) => state.themes.general;
 const getInteractionTheme = (
-    state: StateOfAny & Record<'theme', Types.State>,
-) => state.theme.interaction;
+    state: StateOfAny & Record<'themes', Types.State>,
+) => state.themes.interaction;
 
 
 
