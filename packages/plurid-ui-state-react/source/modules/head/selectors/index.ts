@@ -11,7 +11,10 @@
 
 
 // #region module
-const getHeadData = (state: StateOfAny & Record<'head', Types.State>) => state.head;
+const getHeadData = (
+    state: StateOfAny & Record<'head', Types.State>,
+) => state.head;
+
 
 
 const selectors = {
