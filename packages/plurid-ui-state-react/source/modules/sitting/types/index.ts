@@ -1,3 +1,4 @@
+// #region module
 export const SET_SITTING_CURRENT_LINK = 'SET_SITTING_CURRENT_LINK';
 export interface SetSittingCurrentLinkAction {
     type: typeof SET_SITTING_CURRENT_LINK;
@@ -19,5 +20,7 @@ export interface State {
 }
 
 
-export type Actions = SetSittingCurrentLinkAction
+export type Actions =
+    | SetSittingCurrentLinkAction
     | ToggleSittingTrayAction;
+// #endregion module

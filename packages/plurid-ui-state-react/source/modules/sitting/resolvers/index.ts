@@ -1,8 +1,13 @@
-import * as Types from './types';
+// #region imports
+    // #region external
+    import * as Types from '../types';
+    // #endregion external
+// #endregion imports
 
 
 
-export const setSittingCurrentLink = (
+// #region module
+const setSittingCurrentLink = (
     state: Types.State,
     action: Types.SetSittingCurrentLinkAction,
 ): Types.State => {
@@ -15,7 +20,7 @@ export const setSittingCurrentLink = (
 }
 
 
-export const toggleSittingTray = (
+const toggleSittingTray = (
     state: Types.State,
     action: Types.ToggleSittingTrayAction,
 ): Types.State => {
@@ -34,7 +39,14 @@ export const toggleSittingTray = (
 
 
 
-export const resolvers = {
+const resolvers = {
     setSittingCurrentLink,
     toggleSittingTray,
 };
+// #endregion module
+
+
+
+// #region exports
+export default resolvers;
+// #endregion exports
