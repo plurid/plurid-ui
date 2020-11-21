@@ -1,29 +1,29 @@
-import {
-    actions,
-} from './actions';
+// #region imports
+    // #region internal
+    import actions from './actions';
 
-import {
-    initialState,
-} from './initial';
+    import initialState from './initial';
 
-import {
-    reducer,
-    metareducer,
-} from './reducer';
+    import {
+        reducer,
+        metareducer,
+    } from './reducer';
 
-import {
-    resolvers,
-} from './resolvers';
-
-import * as Types from './types';
+    import selectors from './selectors';
+    // #endregion internal
+// #endregion imports
 
 
 
+// #region exports
 export {
     actions,
+
     initialState,
+
     reducer,
     metareducer,
-    resolvers,
-    Types,
-}
+
+    selectors,
+};
+// #endregion exports
