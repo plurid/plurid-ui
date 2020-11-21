@@ -15,6 +15,18 @@
 
 
 
+# About
+
+The package contains state modules for:
+
++ head
++ notifications
++ shortcuts
++ sitting
++ themes
+
+
+
 # Packages
 
 <a target="_blank" href="https://www.npmjs.com/package/@plurid/plurid-ui-state-react">
