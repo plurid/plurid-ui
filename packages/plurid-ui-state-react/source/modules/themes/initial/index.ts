@@ -5,6 +5,7 @@
     } from '@plurid/plurid-themes';
     // #endregion libraries
 
+
     // #region external
     import * as Types from '../types';
     // #endregion external
@@ -13,7 +14,7 @@
 
 
 // #region module
-export const initialState: Types.State = {
+const initialState: Types.State = {
     general: {
         ...plurid,
     },

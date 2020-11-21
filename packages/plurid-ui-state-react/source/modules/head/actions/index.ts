@@ -13,7 +13,7 @@
  *
  * @param payload
  */
-export const setHead = (
+const setHead = (
     payload: Types.SetHeadPayload,
 ): Types.SetHeadAction => {
     return {

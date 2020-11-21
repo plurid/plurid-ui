@@ -7,7 +7,7 @@
 
 
 // #region module
-export const setHead = (
+const setHead = (
     state: Types.State,
     action: Types.SetHeadAction,
 ): Types.State => {

@@ -7,7 +7,7 @@
 
 
 // #region module
-export const initialState: Types.State = {
+const initialState: Types.State = {
     title: '',
     description: '',
     ogTitle: '',

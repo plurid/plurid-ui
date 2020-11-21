@@ -7,7 +7,7 @@
 
 
 // #region module
-export const setTheme = (
+const setTheme = (
     payload: Types.SetThemePayload,
 ): Types.SetThemeAction => {
     return {

@@ -7,7 +7,7 @@
 
 
 // #region module
-export const addNotification = (
+const addNotification = (
     state: Types.State,
     action: Types.AddNotificationAction,
 ): Types.State => {
@@ -22,7 +22,7 @@ export const addNotification = (
 }
 
 
-export const updateNotification = (
+const updateNotification = (
     state: Types.State,
     action: Types.UpdateNotificationAction,
 ): Types.State => {
@@ -43,7 +43,7 @@ export const updateNotification = (
 }
 
 
-export const removeNotification = (
+const removeNotification = (
     state: Types.State,
     action: Types.RemoveNotificationAction,
 ): Types.State => {
