@@ -34,8 +34,9 @@
         "test": "jest -c ./configurations/jest.config.js",
         "lint": "eslint -c ./configurations/.eslintrc.js ./source/index.ts",
         "clean": "rm -rf ./distribution",
+        "build.clean": "rm -rf `find ./distribution/ -type d -name __tests__`",
         "build.production": "rollup -c ./scripts/rollup.config.js --environment BUILD:production",
-        "build": "yarn clean && yarn lint && yarn test && yarn build.production",
+        "build": "yarn clean && yarn lint && yarn test && yarn build.production && yarn build.clean",
         "prepublishOnly": "yarn build"
     },
     "peerDependencies": {
