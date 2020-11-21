@@ -25,10 +25,9 @@
     "main": "distribution/index.js",
     "module": "distribution/index.es.js",
     "types": "distribution/index.d.ts",
-    "jsnext:main": "distribution/index.es.js",
     "engines": {
-        "node": ">=8",
-        "npm": ">=5"
+        "node": ">=12",
+        "npm": ">=6"
     },
     "scripts": {
         "test": "jest -c ./configurations/jest.config.js",
