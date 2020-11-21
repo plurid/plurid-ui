@@ -24,17 +24,19 @@ const build = {
         },
     ],
     external: [
-        '@plurid/plurid-themes',
+        '@plurid/plurid-functions',
         '@plurid/plurid-icons-react',
+        '@plurid/plurid-themes',
+        '@plurid/plurid-ui-state-react',
         'react',
+        'react-dom',
+        'react-redux',
+        'redux',
+        'redux-thunk',
         'styled-components',
     ],
     plugins: [
-        typescript({
-            check: false,
-            rollupCommonJSResolveHack: true,
-            clean: true,
-        }),
+        typescript(),
     ],
 };
 // #endregion module

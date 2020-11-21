@@ -6,6 +6,19 @@
         "lib": ["ES6", "DOM", "DOM.Iterable", "ES2016", "ES2017"],
         "jsx": "react",
 
+        "baseUrl": ".",
+        "paths": {
+            "#data/*": [
+                "./source/data/*"
+            ],
+            "#components/*": [
+                "./source/components/*"
+            ],
+            "#utilities/*": [
+                "./source/utilities/*"
+            ],
+        },
+
         "outDir": "build",
         "typeRoots": [
             "node_modules/@types",
