@@ -43,7 +43,6 @@ const actions = {
     updateNotification,
     removeNotification,
 };
-
 // #endregion module
 
 
