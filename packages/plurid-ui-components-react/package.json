@@ -1,7 +1,7 @@
 {
     "name": "@plurid/plurid-ui-components-react",
     "version": "0.0.0",
-    "description": "Plurid UI React Components for Plurid Apps",
+    "description": "Plurid User Interface Components for React",
     "keywords": [
         "plurid",
         "ui",
