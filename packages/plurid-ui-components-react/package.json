@@ -39,10 +39,10 @@
         "lint": "eslint -c ./configurations/.eslintrc.js ./source/index.ts",
         "clean": "rm -rf ./distribution",
         "start": "yarn clean && rollup -c ./scripts/rollup.config.js -w",
-        "build.removeTests": "rm -rf `find ./distribution/ -type d -name __tests__`",
+        "build.clean": "rm -rf `find ./distribution/ -type d -name __tests__` && rm -rf `find ./distribution/ -type d -name __stories__` && rm -rf ./distribution/utilities/storybook",
         "build.development": "yarn clean && rollup -c ./scripts/rollup.config.js",
         "build.production": "rollup -c ./scripts/rollup.config.js --environment BUILD:production",
-        "build": "yarn clean && yarn lint && yarn test && yarn build.production && yarn build.removeTests",
+        "build": "yarn clean && yarn lint && yarn test && yarn build.production && yarn build.clean",
         "prepublishOnly": "yarn build"
     },
     "peerDependencies": {
