@@ -1,20 +1,20 @@
 // #region imports
-/** general */
+// General.
 import PluridGlobalStyles from './components/global/general';
 
-/** buttons */
+// Buttons.
 import PluridPureButton from './components/global/buttons/PureButton';
 import PluridLinkButton from './components/global/buttons/LinkButton';
 import PluridRefreshButton from './components/global/buttons/RefreshButton';
 
-/** form */
+// Form.
 import PluridFormbutton from './components/global/form/Formbutton';
 import PluridFormitem from './components/global/form/Formitem';
 import PluridFormLeftRight from './components/global/form/FormLeftRight';
 import PluridFormline from './components/global/form/Formline';
 import PluridFormObliterate from './components/global/form/FormObliterate';
 
-/** inputs */
+// Inputs.
 import PluridDropdown from './components/global/inputs/Dropdown';
 import PluridInputBox from './components/global/inputs/InputBox';
 import PluridInputDescriptor from './components/global/inputs/InputDescriptor';
@@ -26,29 +26,29 @@ import PluridSlider from './components/global/inputs/Slider';
 import PluridSwitch from './components/global/inputs/Switch';
 import PluridTextline from './components/global/inputs/Textline';
 
-/** markers */
+// Markers
 import PluridHR from './components/global/markers/HR';
 import PluridProgressCircle from './components/global/markers/ProgressCircle';
 import PluridSpinner from './components/global/markers/Spinner';
 import PluridTooltip from './components/global/markers/Tooltip';
 
-/** typography */
+// Typography
 import PluridHeading from './components/global/typography/Heading';
 import PluridParagraph from './components/global/typography/Paragraph';
 
-/** varia */
+// Varia
 import PluridCopyableLine from './components/global/varia/CopyableLine';
 import PluridScrollableLine from './components/global/varia/ScrollableLine';
 import PluridTextItem from './components/global/varia/TextItem';
 
 
-/** data */
+// Data
 import {
     fontFamilySansSerif,
     fontFamilySerif,
 } from './data/constants';
 
-/** interfaces */
+// Interfaces
 import {
     PluridDropdownSelectable,
 } from './data/interfaces';
@@ -58,22 +58,22 @@ import {
 
 // #region exports
 export {
-    /** general */
+    // General
     PluridGlobalStyles,
 
-    /** buttons */
+    // Buttons
     PluridPureButton,
     PluridLinkButton,
     PluridRefreshButton,
 
-    /** form */
+    // Form
     PluridFormbutton,
     PluridFormitem,
     PluridFormLeftRight,
     PluridFormline,
     PluridFormObliterate,
 
-    /** inputs */
+    // Inputs
     PluridDropdown,
     PluridInputBox,
     PluridInputDescriptor,
@@ -85,27 +85,27 @@ export {
     PluridSwitch,
     PluridTextline,
 
-    /** markers */
+    // Markers
     PluridHR,
     PluridProgressCircle,
     PluridSpinner,
     PluridTooltip,
 
-    /** typography */
+    // Typography
     PluridHeading,
     PluridParagraph,
 
-    /** varia */
+    // Varia
     PluridCopyableLine,
     PluridScrollableLine,
     PluridTextItem,
 
 
-    /** data */
+    // Data
     fontFamilySansSerif,
     fontFamilySerif,
 
-    /** interfaces */
+    // Interfaces
     PluridDropdownSelectable,
 }
 // #endregion exports
