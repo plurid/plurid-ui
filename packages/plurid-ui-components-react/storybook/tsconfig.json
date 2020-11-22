@@ -1,17 +1,6 @@
 {
     "compilerOptions": {
         "baseUrl": "../",
-        "paths": {
-            "#data/*": [
-                "./source/data/*"
-            ],
-            "#components/*": [
-                "./source/components/*"
-            ],
-            "#utilities/*": [
-                "./source/utilities/*"
-            ],
-        },
 
         "allowSyntheticDefaultImports": true,
         "module": "es2015",
@@ -31,7 +20,7 @@
         "types": ["react", "jest"]
     },
     "include": [
-        "source/**/*"
+        "src/**/*"
     ],
     "exclude": [
         "node_modules",
