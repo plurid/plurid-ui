@@ -1,4 +1,5 @@
 // #region imports
+import ttypescript from 'ttypescript'
 import typescript from 'rollup-plugin-typescript2';
 
 import pkg from '../package.json';
@@ -28,6 +29,7 @@ const build = {
     ],
     plugins: [
         typescript({
+            typescript: ttypescript,
             clean: true,
         }),
     ],
