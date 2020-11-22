@@ -54,6 +54,7 @@ export interface NotificationOwnProperties {
 
     // #region optional
         // #region values
+        elements?: Record<string, JSX.Element>;
         style?: React.CSSProperties;
         className?: string;
         // #endregion values
@@ -96,6 +97,7 @@ const Notification: React.FC<NotificationProperties> = (
         id,
         text,
         html,
+        // react,
         timeout,
     } = data;
     // #endregion properties
@@ -128,6 +130,17 @@ const Notification: React.FC<NotificationProperties> = (
 
 
     // #region render
+    const content = html
+        ? (
+            <StyledNotificationContent
+                dangerouslySetInnerHTML={createMarkup(text)}
+            />
+        ) : (
+            <StyledNotificationContent>
+                {text}
+            </StyledNotificationContent>
+        );
+
     return (
         <StyledNotification
             theme={theme}
@@ -136,17 +149,7 @@ const Notification: React.FC<NotificationProperties> = (
             }}
             className={className}
         >
-            {!html
-                ? (
-                    <StyledNotificationContent>
-                        {text}
-                    </StyledNotificationContent>
-                ) : (
-                    <StyledNotificationContent
-                        dangerouslySetInnerHTML={createMarkup(text)}
-                    />
-                )
-            }
+            {content}
 
             <StyledNotificationClose>
                 <PluridIconDelete

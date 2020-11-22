@@ -46,6 +46,7 @@ export type NotificationsSelectors = StateOfAny & {
 export interface NotificationsOwnProperties {
     selectors: NotificationsSelectors;
     context: React.Context<any>;
+    elements?: Record<string, JSX.Element>;
 }
 
 export interface NotificationsStateProperties {
@@ -66,6 +67,15 @@ const Notifications: React.FC<NotificationsProperties> = (
 ) => {
     // #region properties
     const {
+        // #region optional
+            // #region values
+            elements,
+            // #endregion values
+
+            // #region methods
+            // #endregion methods
+        // #endregion optional
+
         // #region state
         stateGeneralTheme,
         stateNotifications,
@@ -84,10 +94,26 @@ const Notifications: React.FC<NotificationsProperties> = (
             {stateNotifications.map(notification => {
                 return (
                     <Notification
-                        key={notification.id}
-                        data={notification}
-                        theme={stateGeneralTheme}
-                        remove={dispatchRemoveNotification}
+                        // #region required
+                            // #region values
+                            key={notification.id}
+                            data={notification}
+                            theme={stateGeneralTheme}
+                            // #endregion values
+
+                            // #region methods
+                            remove={dispatchRemoveNotification}
+                            // #endregion methods
+                        // #endregion required
+
+                        // #region optional
+                            // #region values
+                            elements={elements}
+                            // #endregion values
+
+                            // #region methods
+                            // #endregion methods
+                        // #endregion optional
                     />
                 );
             })}
