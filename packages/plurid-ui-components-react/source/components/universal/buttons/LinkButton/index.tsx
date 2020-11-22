@@ -10,7 +10,7 @@
 
 
     // #region external
-    import PluridSpinner from '#components/global/markers/Spinner';
+    import PluridSpinner from '#components/universal/markers/Spinner';
     // #endregion external
 
 

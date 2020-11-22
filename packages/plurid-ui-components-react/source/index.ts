@@ -1,45 +1,45 @@
 // #region imports
 // General.
-import PluridGlobalStyles from './components/global/general';
+import PluridGlobalStyles from './components/universal/general';
 
 // Buttons.
-import PluridPureButton from './components/global/buttons/PureButton';
-import PluridLinkButton from './components/global/buttons/LinkButton';
-import PluridRefreshButton from './components/global/buttons/RefreshButton';
+import PluridPureButton from './components/universal/buttons/PureButton';
+import PluridLinkButton from './components/universal/buttons/LinkButton';
+import PluridRefreshButton from './components/universal/buttons/RefreshButton';
 
 // Form.
-import PluridFormbutton from './components/global/form/Formbutton';
-import PluridFormitem from './components/global/form/Formitem';
-import PluridFormLeftRight from './components/global/form/FormLeftRight';
-import PluridFormline from './components/global/form/Formline';
-import PluridFormObliterate from './components/global/form/FormObliterate';
+import PluridFormbutton from './components/universal/form/Formbutton';
+import PluridFormitem from './components/universal/form/Formitem';
+import PluridFormLeftRight from './components/universal/form/FormLeftRight';
+import PluridFormline from './components/universal/form/Formline';
+import PluridFormObliterate from './components/universal/form/FormObliterate';
 
 // Inputs.
-import PluridDropdown from './components/global/inputs/Dropdown';
-import PluridInputBox from './components/global/inputs/InputBox';
-import PluridInputDescriptor from './components/global/inputs/InputDescriptor';
-import PluridInputLine from './components/global/inputs/InputLine';
-import PluridInputSwitch from './components/global/inputs/InputSwitch';
-import PluridItemsline from './components/global/inputs/Itemsline';
-import PluridSelect from './components/global/inputs/Select';
-import PluridSlider from './components/global/inputs/Slider';
-import PluridSwitch from './components/global/inputs/Switch';
-import PluridTextline from './components/global/inputs/Textline';
+import PluridDropdown from './components/universal/inputs/Dropdown';
+import PluridInputBox from './components/universal/inputs/InputBox';
+import PluridInputDescriptor from './components/universal/inputs/InputDescriptor';
+import PluridInputLine from './components/universal/inputs/InputLine';
+import PluridInputSwitch from './components/universal/inputs/InputSwitch';
+import PluridItemsline from './components/universal/inputs/Itemsline';
+import PluridSelect from './components/universal/inputs/Select';
+import PluridSlider from './components/universal/inputs/Slider';
+import PluridSwitch from './components/universal/inputs/Switch';
+import PluridTextline from './components/universal/inputs/Textline';
 
 // Markers
-import PluridHR from './components/global/markers/HR';
-import PluridProgressCircle from './components/global/markers/ProgressCircle';
-import PluridSpinner from './components/global/markers/Spinner';
-import PluridTooltip from './components/global/markers/Tooltip';
+import PluridHR from './components/universal/markers/HR';
+import PluridProgressCircle from './components/universal/markers/ProgressCircle';
+import PluridSpinner from './components/universal/markers/Spinner';
+import PluridTooltip from './components/universal/markers/Tooltip';
 
 // Typography
-import PluridHeading from './components/global/typography/Heading';
-import PluridParagraph from './components/global/typography/Paragraph';
+import PluridHeading from './components/universal/typography/Heading';
+import PluridParagraph from './components/universal/typography/Paragraph';
 
 // Varia
-import PluridCopyableLine from './components/global/varia/CopyableLine';
-import PluridScrollableLine from './components/global/varia/ScrollableLine';
-import PluridTextItem from './components/global/varia/TextItem';
+import PluridCopyableLine from './components/universal/varia/CopyableLine';
+import PluridScrollableLine from './components/universal/varia/ScrollableLine';
+import PluridTextItem from './components/universal/varia/TextItem';
 
 
 // Data
