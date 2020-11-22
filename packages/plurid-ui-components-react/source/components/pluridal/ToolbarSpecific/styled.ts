@@ -6,7 +6,7 @@ import {
 
 import {
     HorizontalPositions,
-} from '../../data/enumerations';
+} from '#data/enumerations';
 
 
 
