@@ -10,7 +10,7 @@
 
 
 <h1 align="center">
-    plurid' user interface components for `React`
+    plurid' user interface components for React
 </h1>
 
 
