@@ -1,7 +1,12 @@
-import styled from 'styled-components';
+// #region imports
+    // #region libraries
+    import styled from 'styled-components';
+    // #endregion libraries
+// #endregion imports
 
 
 
+// #region module
 export const StyledStateImage = styled.div`
     padding: 0 7px;
     margin-bottom: 4px;
@@ -63,3 +68,4 @@ export const StyledStateShareImagePasteContainer = styled.div`
         padding: 6px;
     }
 `;
+// #endregion module

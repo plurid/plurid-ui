@@ -1,7 +1,12 @@
-import styled from 'styled-components';
+// #region imports
+    // #region libraries
+    import styled from 'styled-components';
+    // #endregion libraries
+// #endregion imports
 
 
 
+// #region module
 export const StyledStateLink = styled.div`
     padding: 7px;
     padding-bottom: 0px;
@@ -37,3 +42,4 @@ export const StyledStateLinkCopy: any = styled.div`
     cursor: pointer;
     justify-self: center;
 `;
+// #endregion module

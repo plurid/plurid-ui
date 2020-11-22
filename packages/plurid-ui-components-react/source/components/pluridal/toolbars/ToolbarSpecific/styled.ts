@@ -1,15 +1,23 @@
-import styled from 'styled-components';
+// #region imports
+    // #region libraries
+    import styled from 'styled-components';
 
-import {
-    Theme,
-} from '@plurid/plurid-themes';
-
-import {
-    HorizontalPositions,
-} from '#data/enumerations';
-
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
 
+    // #region external
+    import {
+        HorizontalPositions,
+    } from '#data/enumerations';
+    // #endregion external
+// #endregion imports
+
+
+
+// #region module
 export interface IStyledToolbar {
     position: keyof typeof HorizontalPositions;
 }
@@ -66,3 +74,4 @@ export const StyledToolbarButtons = styled.div<IStyledToolbarButtons>`
     z-index: 9999;
     user-select: none;
 `;
+// #endregion module

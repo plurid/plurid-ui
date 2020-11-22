@@ -1,11 +1,16 @@
-import styled from 'styled-components';
+// #region imports
+    // #region libraries
+    import styled from 'styled-components';
 
-import {
-    Theme,
-} from '@plurid/plurid-themes';
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
+// #endregion imports
 
 
 
+// #region module
 export interface IStyledVerticalToolbarButton {
     active: boolean;
     scaleIcon: boolean;
@@ -125,3 +130,4 @@ export const StyledVerticalToolbarButtonText: any = styled.div<IStyledVerticalTo
     display: flex;
     align-items: center;
 `;
+// #endregion module

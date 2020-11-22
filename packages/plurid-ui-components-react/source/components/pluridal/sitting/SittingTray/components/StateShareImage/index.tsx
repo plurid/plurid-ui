@@ -1,27 +1,31 @@
-import React, {
-    useState,
-    // useContext,
-} from 'react';
+// #region imports
+    // #region libraries
+    import React, {
+        useState,
+        // useContext,
+    } from 'react';
 
-// import Context from '../../context';
-
-import {
-    StyledStateShareImage,
-    StyledStateShareImageButtons,
-    StyledStateShareImagePasteContainer,
-    StyledStateShareImageButtonsCopy,
-} from './styled';
-
-import {
-    PluridIconCopyCurrentState,
-    PluridIconCopyStateHistory,
-} from '@plurid/plurid-icons-react';
-
-// import stateShareImageIcon from '../../../../../../../assets/state-share-image.png';
+    import {
+        PluridIconCopyCurrentState,
+        PluridIconCopyStateHistory,
+    } from '@plurid/plurid-icons-react';
+    // #endregion libraries
 
 
+    // #region internal
+    import {
+        StyledStateShareImage,
+        StyledStateShareImageButtons,
+        StyledStateShareImagePasteContainer,
+        StyledStateShareImageButtonsCopy,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
 
-interface StateShareImageProperties {
+
+
+// #region module
+export interface StateShareImageProperties {
 }
 
 const StateShareImage: React.FC<StateShareImageProperties> = (
@@ -29,9 +33,13 @@ const StateShareImage: React.FC<StateShareImageProperties> = (
 ) => {
     // const context: any = useContext(Context);
 
+    // #region state
     const [message, setMessage] = useState('');
     const [showPaste, setShowPaste] = useState(false);
+    // #endregion state
 
+
+    // #region handlers
     const copyCurrentState = () => {
         setMessage('copied state image');
         setTimeout(() => {
@@ -49,7 +57,10 @@ const StateShareImage: React.FC<StateShareImageProperties> = (
     const paste = () => {
         setShowPaste(false);
     }
+    // #endregion handlers
 
+
+    // #region render
     return (
         <StyledStateShareImage>
             {!message && !showPaste && (
@@ -101,7 +112,12 @@ const StateShareImage: React.FC<StateShareImageProperties> = (
             )}
         </StyledStateShareImage>
     );
+    // #endregion render
 }
+// #endregion module
 
 
+
+// #region exports
 export default StateShareImage;
+// #endregion exports

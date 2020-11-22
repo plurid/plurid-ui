@@ -3,6 +3,10 @@
     import styled, {
         keyframes,
     } from 'styled-components';
+
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
     // #endregion libraries
 // #endregion imports
 
@@ -19,7 +23,11 @@ const translateUp = keyframes`
 `;
 
 
-export const StyledNotification = styled.div`
+export interface IStyledNotification {
+    theme: Theme;
+}
+
+export const StyledNotification = styled.div<IStyledNotification>`
     display: grid;
     align-items: center;
     position: relative;
@@ -28,20 +36,20 @@ export const StyledNotification = styled.div`
     margin: 10px 20px;
     border-radius: 10px;
     pointer-events: all;
-    background-color: ${(props: any) => {
+    background-color: ${(props: IStyledNotification) => {
         return props.theme.backgroundColorSecondary;
     }};
-    color: ${(props: any) => {
+    color: ${(props: IStyledNotification) => {
         return props.theme.colorPrimary;
     }};
-    box-shadow: ${(props: any) => {
+    box-shadow: ${(props: IStyledNotification) => {
         return props.theme.boxShadowUmbra;
     }};
     animation: ${translateUp} 750ms ease-in-out forwards;
 
     a {
         text-decoration: none;
-        color: ${(props: any) => {
+        color: ${(props: IStyledNotification) => {
             return props.theme.colorSecondary;
         }};
     }

@@ -1,12 +1,19 @@
-import styled from 'styled-components';
+// #region imports
+    // #region libraries
+    import styled from 'styled-components';
 
-import {
-    Theme,
-} from '@plurid/plurid-themes';
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
-import {
-    VerticalPositions,
-} from '#data/enumerations';
+
+    // #region external
+    import {
+        VerticalPositions,
+    } from '#data/enumerations';
+    // #endregion external
+// #endregion imports
 
 
 

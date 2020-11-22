@@ -1,33 +1,46 @@
-import React, {
-    useState,
-    useEffect,
-} from 'react';
-import { connect } from 'react-redux';
+// #region imports
+    // #region libraries
+    import React, {
+        useState,
+        useEffect,
+    } from 'react';
 
-import {
-    PluridIconCopy,
-} from '@plurid/plurid-icons-react';
+    import { connect } from 'react-redux';
 
-import {
-    clipboard,
-} from '@plurid/plurid-functions';
+    import {
+        PluridIconCopy,
+    } from '@plurid/plurid-icons-react';
 
-import {
-    StyledStateLink,
-    StyledStateLinkContainer,
-    StyledStateLinkText,
-    StyledStateLinkCopy,
-} from './styled';
-
-import {
-    StyledSittingTrayItem,
-    StyledSittingTrayItemHeader,
-    StyledSittingTrayItemBody,
-} from '../../styled';
+    import {
+        clipboard,
+    } from '@plurid/plurid-functions';
+    // #endregion libraries
 
 
+    // #region external
+    import {
+        StyledSittingTrayItem,
+        StyledSittingTrayItemHeader,
+        StyledSittingTrayItemBody,
+    } from '../../styled';
+    // #endregion external
 
-interface StateLinkProperties {
+
+    // #region internal
+    import {
+        StyledStateLink,
+        StyledStateLinkContainer,
+        StyledStateLinkText,
+        StyledStateLinkCopy,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
+
+
+
+
+// #region module
+export interface StateLinkProperties {
     theme: any;
     currentLink: string;
 }
@@ -90,7 +103,7 @@ const StateLink: React.FC<StateLinkProperties> = (
 }
 
 
-const mapStateToProps = (
+const mapStateToProperties = (
     state: any,
     ownProperties: any,
 ) => ({
@@ -99,13 +112,20 @@ const mapStateToProps = (
 });
 
 
-const mapDispatchToProps = (
+const mapDispatchToProperties = (
     dispatch: any,
 ) => ({
 });
 
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
+const ConnectedStateLink = connect(
+    mapStateToProperties,
+    mapDispatchToProperties,
 )(StateLink);
+// #endregion module
+
+
+
+// #region exports
+export default ConnectedStateLink;
+// #endregion exports

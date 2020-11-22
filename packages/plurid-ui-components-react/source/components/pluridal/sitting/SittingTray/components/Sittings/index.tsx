@@ -1,51 +1,68 @@
-import React from 'react';
-import { AnyAction } from 'redux';
-import { connect } from 'react-redux';
-import { ThunkDispatch } from 'redux-thunk';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import {
-    Theme,
-} from '@plurid/plurid-themes';
+    import { AnyAction } from 'redux';
+    import { connect } from 'react-redux';
+    import { ThunkDispatch } from 'redux-thunk';
 
-import {
-    PluridIconSittings,
-} from '@plurid/plurid-icons-react';
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
 
-import {
-    StyledSittings,
-} from './styled';
-
-import {
-    StyledSittingTrayButton,
-    StyledSittingTrayButtonIcon,
-    StyledSittingTrayButtonText,
-} from '../../styled';
+    import {
+        PluridIconSittings,
+    } from '@plurid/plurid-icons-react';
+    // #endregion libraries
 
 
+    // #region external
+    import {
+        StyledSittingTrayButton,
+        StyledSittingTrayButtonIcon,
+        StyledSittingTrayButtonText,
+    } from '../../styled';
+    // #endregion external
 
-interface SittingsOwnProperties {
+
+    // #region internal
+    import {
+        StyledSittings,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
+
+
+
+// #region module
+export interface SittingsOwnProperties {
     selectors: any;
 }
 
-interface SittingsStateProperties {
+export interface SittingsStateProperties {
     stateInteractionTheme: Theme;
 }
 
-interface SittingsDispatchProperties {
+export interface SittingsDispatchProperties {
 }
 
-type SittingsProperties = SittingsOwnProperties
+export type SittingsProperties = SittingsOwnProperties
     & SittingsStateProperties
     & SittingsDispatchProperties;
 
 const Sittings: React.FC<SittingsProperties> = (
     properties,
 ) => {
+    // #region properties
     const {
-        /** state */
+        // #region state
         stateInteractionTheme,
+        // #endregion state
     } = properties;
+    // #endregion properties
 
+
+    // #region render
     return (
         <StyledSittings
             theme={stateInteractionTheme}
@@ -63,10 +80,11 @@ const Sittings: React.FC<SittingsProperties> = (
             </StyledSittingTrayButton>
         </StyledSittings>
     );
+    // #endregion render
 }
 
 
-const mapStateToProps = (
+const mapStateToProperties = (
     state: any,
     ownProperties: any,
 ): SittingsStateProperties => ({
@@ -74,13 +92,20 @@ const mapStateToProps = (
 });
 
 
-const mapDispatchToProps = (
+const mapDispatchToProperties = (
     dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ): SittingsDispatchProperties => ({
 });
 
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
+const ConnectedSittings = connect(
+    mapStateToProperties,
+    mapDispatchToProperties,
 )(Sittings);
+// #endregion module
+
+
+
+// #region exports
+export default ConnectedSittings;
+// #endregion exports

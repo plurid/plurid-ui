@@ -51,6 +51,16 @@ export interface NotificationOwnProperties {
         ) => void;
         // #endregion methods
     // #endregion required
+
+    // #region optional
+        // #region values
+        style?: React.CSSProperties;
+        className?: string;
+        // #endregion values
+
+        // #region methods
+        // #endregion methods
+    // #endregion optional
 }
 
 export type NotificationProperties = NotificationOwnProperties;
@@ -70,6 +80,16 @@ const Notification: React.FC<NotificationProperties> = (
             remove,
             // #endregion methods
         // #endregion required
+
+        // #region optional
+            // #region values
+            style,
+            className,
+            // #endregion values
+
+            // #region methods
+            // #endregion methods
+        // #endregion optional
     } = properties;
 
     const {
@@ -111,6 +131,10 @@ const Notification: React.FC<NotificationProperties> = (
     return (
         <StyledNotification
             theme={theme}
+            style={{
+                ...style,
+            }}
+            className={className}
         >
             {!html
                 ? (

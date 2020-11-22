@@ -62,7 +62,7 @@ export type NotificationsProperties = NotificationsOwnProperties
     & NotificationsDispatchProperties;
 
 const Notifications: React.FC<NotificationsProperties> = (
-    properties
+    properties,
 ) => {
     // #region properties
     const {
@@ -115,13 +115,16 @@ const mapDispatchToProperties = (
         notificationsStateService.actions.removeNotification(payload),
     ),
 });
+
+
+const ConnectedNotifications = connect(
+    mapStateToProperties,
+    mapDispatchToProperties,
+)(Notifications);
 // #endregion module
 
 
 
 // #region exports
-export default connect(
-    mapStateToProperties,
-    mapDispatchToProperties
-)(Notifications);
+export default ConnectedNotifications;
 // #endregion exports

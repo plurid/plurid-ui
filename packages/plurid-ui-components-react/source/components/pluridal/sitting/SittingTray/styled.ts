@@ -1,7 +1,12 @@
-import styled from 'styled-components';
+// #region imports
+    // #region libraries
+    import styled from 'styled-components';
+    // #endregion libraries
+// #endregion imports
 
 
 
+// #region module
 export const StyledSittingTray: any = styled.div`
     background-color: ${(props: any) => {
         return props.theme.backgroundColorSecondary;
@@ -94,3 +99,4 @@ export const StyledSittingTrayButtonText: any = styled.div`
     display: flex;
     align-items: center;
 `;
+// #endregion module

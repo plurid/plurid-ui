@@ -1,45 +1,49 @@
-import React, {
-    useState,
-    // useContext,
-} from 'react';
-import { connect } from 'react-redux';
+// #region imports
+    // #region libraries
+    import React, {
+        useState,
+        // useContext,
+    } from 'react';
 
-// import Context, {
-//     InitialContext,
-// } from '../../../../../../../services/utilities/context';
+    import { connect } from 'react-redux';
 
-// import { GENERAL_VIEW } from '../../../../../../../data/constants/views';
-
-import {
-    StyledStateLine,
-    StyledSliderStateButton,
-    StyledSliderStateSliderContainer,
-    // StyledSliderStateSittings,
-    StyledStateLineButtons,
-    StyledStateLineButton,
-    StyledStateLineContainer,
-} from './styled';
-
-import {
-    StyledSittingTrayItem,
-    StyledSittingTrayItemHeader,
-    StyledSittingTrayItemBody,
-} from '../../styled';
-
-// import Slider from '../../../../../../Slider';
-
-import {
-    PluridIconNewStateline,
-    PluridIconPlay,
-    PluridIconBranch
-} from '@plurid/plurid-icons-react';
-
-// import actions from '../../../../../../../services/state/actions';
-// import selectors from '../../../../../../../services/state/selectors';
+    import {
+        PluridIconNewStateline,
+        PluridIconPlay,
+        PluridIconBranch
+    } from '@plurid/plurid-icons-react';
+    // #endregion libraries
 
 
+    // #region external
+    // import Slider from '../../../../../../Slider';
 
-interface StateLineProperties {
+    import {
+        StyledSittingTrayItem,
+        StyledSittingTrayItemHeader,
+        StyledSittingTrayItemBody,
+    } from '../../styled';
+    // #endregion external
+
+
+    // #region internal
+    import {
+        StyledStateLine,
+        StyledSliderStateButton,
+        StyledSliderStateSliderContainer,
+        // StyledSliderStateSittings,
+        StyledStateLineButtons,
+        StyledStateLineButton,
+        StyledStateLineContainer,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
+
+
+
+
+// #region module
+export interface StateLineProperties {
     theme: any;
 }
 
@@ -52,7 +56,11 @@ const StateLine: React.FC<StateLineProperties> = (
     //     theme,
     // } = properties;
 
+
+    // #region state
     const [stateIndex, setStateIndex] = useState(0);
+    // #endregion state
+
 
     // const {
         // setView,
@@ -69,7 +77,11 @@ const StateLine: React.FC<StateLineProperties> = (
     //     setStateIndex(parseInt(value));
     // }
 
-    const handleStateIndex = (type: string) => {
+
+    // #region handlers
+    const handleStateIndex = (
+        type: string,
+    ) => {
         switch (type) {
             case 'DECREASE':
                 if (stateIndex - 1 >= 0) {
@@ -89,7 +101,10 @@ const StateLine: React.FC<StateLineProperties> = (
                 break;
         }
     }
+    // #endregion handlers
 
+
+    // #region render
     return (
         <StyledStateLine>
             <StyledSittingTrayItem>
@@ -166,10 +181,11 @@ const StateLine: React.FC<StateLineProperties> = (
             </StyledSittingTrayItem>
         </StyledStateLine>
     );
+    // #endregion render
 }
 
 
-const mapStateToProps = (
+const mapStateToProperties = (
     state: any,
     ownProperties: any,
 ) => ({
@@ -177,13 +193,20 @@ const mapStateToProps = (
 });
 
 
-const mapDispatchToProps = (
+const mapDispatchToProperties = (
     dispatch: any,
 ) => ({
 });
 
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
+const ConnectedStateLine = connect(
+    mapStateToProperties,
+    mapDispatchToProperties,
 )(StateLine);
+// #endregion module
+
+
+
+// #region exports
+export default ConnectedStateLine;
+// #endregion exports

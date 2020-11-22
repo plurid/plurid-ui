@@ -1,33 +1,44 @@
-import React, {
-    useState,
-    useEffect,
-} from 'react';
+// #region imports
+    // #region libraries
+    import React, {
+        useState,
+        useEffect,
+    } from 'react';
 
-import { AnyAction } from 'redux';
-import { connect } from 'react-redux';
-import { ThunkDispatch } from 'redux-thunk';
+    import { AnyAction } from 'redux';
+    import { connect } from 'react-redux';
+    import { ThunkDispatch } from 'redux-thunk';
 
-import {
-    Theme,
-} from '@plurid/plurid-themes';
-
-import {
-    StyledToolbar,
-    StyledToolbarButtons,
-} from './styled';
-
-import VerticalToolbarButton from '../VerticalToolbarButton';
-
-import {
-    ToolbarButton,
-} from '#data/interfaces';
-
-import {
-    HorizontalPositions,
-} from '#data/enumerations';
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
 
+    // #region external
+    import VerticalToolbarButton from '../VerticalToolbarButton';
 
+    import {
+        ToolbarButton,
+    } from '#data/interfaces';
+
+    import {
+        HorizontalPositions,
+    } from '#data/enumerations';
+    // #endregion external
+
+
+    // #region internal
+    import {
+        StyledToolbar,
+        StyledToolbarButtons,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
+
+
+
+// #region module
 export interface ToolbarSpecificOwnProperties {
     buttons: ToolbarButton[],
     handleClick: (
@@ -55,7 +66,7 @@ export type ToolbarSpecificProperties = ToolbarSpecificOwnProperties
 const ToolbarSpecific: React.FC<ToolbarSpecificProperties> = (
     properties,
 ) => {
-    /** properties */
+    // #region properties
     const {
         /** own */
         buttons,
@@ -65,12 +76,11 @@ const ToolbarSpecific: React.FC<ToolbarSpecificProperties> = (
 
         children,
 
-        /** state */
+        // #region state
         stateToolbars,
         stateIdentonym,
         stateInteractionTheme,
-
-        /** dispatch */
+        // #endregion state
     } = properties;
 
     const {
@@ -83,14 +93,16 @@ const ToolbarSpecific: React.FC<ToolbarSpecificProperties> = (
     const toolbarPosition = position
         ? position
         : HorizontalPositions.right;
+    // #endregion properties
 
 
-    /** state */
+    // #region state
     const [showToolbar, setShowToolbar] = useState(alwaysShow);
     const [mouseIn, setMouseIn] = useState(false);
+    // #endregion state
 
 
-    /** handlers */
+    // #region handlers
     const handleMouseMove = (
         event: any,
     ) => {
@@ -103,9 +115,10 @@ const ToolbarSpecific: React.FC<ToolbarSpecificProperties> = (
         // if (event.shiftKey) {
         // }
     }
+    // #endregion handlers
 
 
-    /** effects */
+    // #region effects
     useEffect(() => {
         if (alwaysShow) {
             setShowToolbar(true);
@@ -122,9 +135,10 @@ const ToolbarSpecific: React.FC<ToolbarSpecificProperties> = (
         mouseIn,
         alwaysShow,
     ]);
+    // #endregion effects
 
 
-    /** render */
+    // #region render
     return (
         <StyledToolbar
             onMouseMove={() => handleMouseMove}
@@ -186,6 +200,7 @@ const ToolbarSpecific: React.FC<ToolbarSpecificProperties> = (
             </StyledToolbarButtons>
         </StyledToolbar>
     );
+    // #endregion render
 }
 
 
@@ -205,7 +220,14 @@ const mapDispatchToProperties = (
 });
 
 
-export default connect(
+const ConnectedToolbarSpecific = connect(
     mapStateToProperties,
     mapDispatchToProperties,
 )(ToolbarSpecific);
+// #endregion module
+
+
+
+// #region exports
+export default ConnectedToolbarSpecific;
+// #endregion exports

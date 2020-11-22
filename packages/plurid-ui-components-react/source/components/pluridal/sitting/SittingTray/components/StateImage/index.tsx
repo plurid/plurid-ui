@@ -1,57 +1,74 @@
-import React, {
-    useState,
-} from 'react';
-import { AnyAction } from 'redux';
-import { connect } from 'react-redux';
-import { ThunkDispatch } from 'redux-thunk';
+// #region imports
+    // #region libraries
+    import React, {
+        useState,
+    } from 'react';
 
-import {
-    Theme,
-} from '@plurid/plurid-themes';
+    import { AnyAction } from 'redux';
+    import { connect } from 'react-redux';
+    import { ThunkDispatch } from 'redux-thunk';
 
-import {
-    PluridIconStateShareImage,
-    PluridIconCopyCurrentState,
-    PluridIconCopyStateHistory,
-} from '@plurid/plurid-icons-react';
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
 
-import {
-    StyledStateImage,
-    StyledStateShareImage,
-    StyledStateShareImageButtons,
-    StyledStateShareImagePasteContainer,
-    StyledStateShareImageButtonsCopy,
-} from './styled';
-
-import {
-    StyledSittingTrayItem,
-    StyledSittingTrayItemHeader,
-    StyledSittingTrayItemBody,
-} from '../../styled';
+    import {
+        PluridIconStateShareImage,
+        PluridIconCopyCurrentState,
+        PluridIconCopyStateHistory,
+    } from '@plurid/plurid-icons-react';
+    // #endregion libraries
 
 
+    // #region external
+    import {
+        StyledSittingTrayItem,
+        StyledSittingTrayItemHeader,
+        StyledSittingTrayItemBody,
+    } from '../../styled';
+    // #endregion external
 
-interface StateImageOwnProperties {
+
+    // #region internal
+    import {
+        StyledStateImage,
+        StyledStateShareImage,
+        StyledStateShareImageButtons,
+        StyledStateShareImagePasteContainer,
+        StyledStateShareImageButtonsCopy,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
+
+
+
+
+// #region module
+export interface StateImageOwnProperties {
     selectors: any;
 }
 
-interface StateImageStateProperties {
+export interface StateImageStateProperties {
     stateInteractionTheme: Theme;
 }
 
-interface StateImageDispatchProperties {
+export interface StateImageDispatchProperties {
 }
 
-type StateImageProperties = StateImageOwnProperties
+export type StateImageProperties = StateImageOwnProperties
     & StateImageStateProperties
     & StateImageDispatchProperties;
 
 const StateImage: React.FC<StateImageProperties> = (
     properties,
 ) => {
+    // #region state
     const [message, setMessage] = useState('');
     const [showPaste, setShowPaste] = useState(false);
+    // #endregion state
 
+
+    // #region handlers
     const copyCurrentState = () => {
         setMessage('copied state image');
         setTimeout(() => {
@@ -69,7 +86,10 @@ const StateImage: React.FC<StateImageProperties> = (
     const paste = () => {
         setShowPaste(false);
     }
+    // #endregion handlers
 
+
+    // #region render
     return (
         <StyledStateImage>
             <StyledSittingTrayItem>
@@ -143,10 +163,11 @@ const StateImage: React.FC<StateImageProperties> = (
             </StyledSittingTrayItem>
         </StyledStateImage>
     );
+    // #endregion render
 }
 
 
-const mapStateToProps = (
+const mapStateToProperties = (
     state: any,
     ownProperties: any,
 ) => ({
@@ -154,13 +175,20 @@ const mapStateToProps = (
 });
 
 
-const mapDispatchToProps = (
+const mapDispatchToProperties = (
     dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) => ({
 });
 
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
+const ConnectedStateImage = connect(
+    mapStateToProperties,
+    mapDispatchToProperties,
 )(StateImage);
+// #endregion module
+
+
+
+// #region exports
+export default ConnectedStateImage;
+// #endregion exports

@@ -1,7 +1,12 @@
-import styled from 'styled-components';
+// #region imports
+    // #region libraries
+    import styled from 'styled-components';
+    // #endregion libraries
+// #endregion imports
 
 
 
+// #region module
 export const StyledStateLine = styled.div`
     padding: 0 7px;
     margin-bottom: 4px;
@@ -56,3 +61,4 @@ export const StyledStateLineContainer = styled.div`
     align-items: center;
     justify-content: space-between;
 `;
+// #endregion module

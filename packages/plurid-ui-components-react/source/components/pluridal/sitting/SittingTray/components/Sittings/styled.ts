@@ -1,7 +1,12 @@
-import styled from 'styled-components';
+// #region imports
+    // #region libraries
+    import styled from 'styled-components';
+    // #endregion libraries
+// #endregion imports
 
 
 
+// #region module
 export const StyledSittings: any = styled.div`
     padding: 7px;
 
@@ -23,3 +28,4 @@ export const StyledSittings: any = styled.div`
         }};
     }
 `;
+// #endregion module

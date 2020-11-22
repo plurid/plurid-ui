@@ -1,36 +1,44 @@
-import React from 'react';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import { AnyAction } from 'redux';
-import { connect } from 'react-redux';
-import { ThunkDispatch } from 'redux-thunk';
+    import { AnyAction } from 'redux';
+    import { connect } from 'react-redux';
+    import { ThunkDispatch } from 'redux-thunk';
 
-import {
-    sitting,
-} from '@plurid/plurid-ui-state-react';
+    import {
+        sitting,
+    } from '@plurid/plurid-ui-state-react';
 
-import {
-    Theme,
-} from '@plurid/plurid-themes';
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
 
-import {
-    PluridIconSpeak,
-    PluridIconStateShareImage,
-} from '@plurid/plurid-icons-react';
-
-import ToolbarSpecific from '../ToolbarSpecific';
-import VerticalToolbarButton from '../VerticalToolbarButton';
-import SittingTray from '#components/pluridal/sitting/SittingTray';
-
-import {
-    ToolbarButton,
-} from '#data/interfaces';
-
-import {
-    HorizontalPositions,
-} from '#data/enumerations';
+    import {
+        PluridIconSpeak,
+        PluridIconStateShareImage,
+    } from '@plurid/plurid-icons-react';
+    // #endregion libraries
 
 
+    // #region external
+    import ToolbarSpecific from '../ToolbarSpecific';
+    import VerticalToolbarButton from '../VerticalToolbarButton';
+    import SittingTray from '#components/pluridal/sitting/SittingTray';
 
+    import {
+        ToolbarButton,
+    } from '#data/interfaces';
+
+    import {
+        HorizontalPositions,
+    } from '#data/enumerations';
+    // #endregion external
+// #endregion imports
+
+
+
+// #region module
 export interface ToolbarGeneralOwnProperties {
     buttons: ToolbarButton[],
     handleClick: (type: any) => void;
@@ -130,7 +138,7 @@ const ToolbarGeneral: React.FC<ToolbarGeneralProperties> = (
 }
 
 
-const mapStateToProps = (
+const mapStateToProperties = (
     state: any,
     ownProperties: any,
 ): ToolbarGeneralStateProperties => ({
@@ -141,7 +149,7 @@ const mapStateToProps = (
 });
 
 
-const mapDispatchToProps = (
+const mapDispatchToProperties = (
     dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ): ToolbarGeneralDispatchProperties => ({
     dispatchToggleSittingTray: () => dispatch(
@@ -150,7 +158,14 @@ const mapDispatchToProps = (
 });
 
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
+const ConnectedToolbarGeneral = connect(
+    mapStateToProperties,
+    mapDispatchToProperties,
 )(ToolbarGeneral);
+// #endregion module
+
+
+
+// #region exports
+export default ConnectedToolbarGeneral;
+// #endregion exports

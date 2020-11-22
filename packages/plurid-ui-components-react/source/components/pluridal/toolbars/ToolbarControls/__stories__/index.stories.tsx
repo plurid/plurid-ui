@@ -1,33 +1,41 @@
-import React from 'react';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import themes from '@plurid/plurid-themes';
+    import themes from '@plurid/plurid-themes';
 
-import {
-    PluridIconAdd,
-    PluridIconCommand,
-} from '@plurid/plurid-icons-react';
+    import {
+        PluridIconAdd,
+        PluridIconCommand,
+    } from '@plurid/plurid-icons-react';
 
-import { storiesOf } from '@storybook/react';
-// import { action } from '@storybook/addon-actions';
-import {
-    withKnobs,
-    // boolean,
-    // number,
-    select,
-} from '@storybook/addon-knobs';
-
-import ToolbarControls from '../';
-
-import {
-    themeLabel,
-    themeOptions,
-    defaultThemeValue,
-} from '#utilities/storybook';
-
-import HorizontalToolbarButton from '../../HorizontalToolbarButton';
+    import { storiesOf } from '@storybook/react';
+    // import { action } from '@storybook/addon-actions';
+    import {
+        withKnobs,
+        // boolean,
+        // number,
+        select,
+    } from '@storybook/addon-knobs';
+    // #endregion libraries
 
 
+    // #region external
+    import ToolbarControls from '../';
 
+    import HorizontalToolbarButton from '../../HorizontalToolbarButton';
+
+    import {
+        themeLabel,
+        themeOptions,
+        defaultThemeValue,
+    } from '#utilities/storybook';
+    // #endregion external
+// #endregion imports
+
+
+
+// #region module
 // const actions = {
 // };
 
@@ -71,3 +79,4 @@ storiesOf(
         </>
     );
 });
+// #endregion module

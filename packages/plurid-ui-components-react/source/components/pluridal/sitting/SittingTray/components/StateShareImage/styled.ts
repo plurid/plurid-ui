@@ -1,7 +1,12 @@
-import styled from 'styled-components';
+// #region imports
+    // #region libraries
+    import styled from 'styled-components';
+    // #endregion libraries
+// #endregion imports
 
 
 
+// #region module
 export const StyledStateShareImage = styled.div`
     display: grid;
     grid-template-columns: 1fr;
@@ -48,3 +53,4 @@ export const StyledStateShareImagePasteContainer = styled.div`
         padding: 6px;
     }
 `;
+// #endregion module

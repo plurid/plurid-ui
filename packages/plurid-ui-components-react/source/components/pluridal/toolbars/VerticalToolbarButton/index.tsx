@@ -1,18 +1,26 @@
-import React, {
-    useState,
-} from 'react';
+// #region imports
+    // #region libraries
+    import React, {
+        useState,
+    } from 'react';
 
-import {
-    Theme,
-} from '@plurid/plurid-themes';
-
-import {
-    StyledVerticalToolbarButton,
-    StyledVerticalToolbarButtonText,
-} from './styled';
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
 
+    // #region internal
+    import {
+        StyledVerticalToolbarButton,
+        StyledVerticalToolbarButtonText,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
 
+
+
+// #region module
 export interface VerticalToolbarButtonOwnProperties {
     atClick: (event: React.MouseEvent) => void;
     icon: React.FC;
@@ -29,7 +37,7 @@ export interface VerticalToolbarButtonOwnProperties {
 const VerticalToolbarButton: React.FC<VerticalToolbarButtonOwnProperties> = (
     properties,
 ) => {
-    /** properties */
+    // #region properties
     const {
         atClick,
         icon: Icon,
@@ -42,13 +50,15 @@ const VerticalToolbarButton: React.FC<VerticalToolbarButtonOwnProperties> = (
         last,
         theme,
     } = properties;
+    // #endregion properties
 
 
-    /** state */
+    // #region state
     const [mouseOver, setMouseOver] = useState(false);
+    // #endregion state
 
 
-    /** render */
+    // #region render
     return (
         <StyledVerticalToolbarButton
             onMouseEnter={() => setMouseOver(true)}
@@ -73,7 +83,12 @@ const VerticalToolbarButton: React.FC<VerticalToolbarButtonOwnProperties> = (
             )}
         </StyledVerticalToolbarButton>
     );
+    // #endregion render
 }
+// #endregion module
 
 
+
+// #region exports
 export default VerticalToolbarButton;
+// #endregion exports
