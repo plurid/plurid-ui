@@ -10,7 +10,7 @@
 
 
 <h1 align="center">
-    plurid' user interface state for `React`
+    plurid' user interface state for React
 </h1>
 
 

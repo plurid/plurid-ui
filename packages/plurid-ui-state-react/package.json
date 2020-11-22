@@ -19,6 +19,9 @@
         "url": "https://github.com/plurid/plurid-ui/issues"
     },
     "homepage": "https://github.com/plurid/plurid-ui",
+    "publishConfig": {
+        "access": "public"
+    },
     "files": [
         "distribution/"
     ],
