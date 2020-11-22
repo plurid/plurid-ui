@@ -3,6 +3,7 @@ export interface Notification {
     id: string;
     text: string;
     html?: boolean;
+    react?: boolean;
     timeout?: number;
 }
 
