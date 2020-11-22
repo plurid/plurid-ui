@@ -1407,10 +1407,10 @@
   resolved "https://registry.yarnpkg.com/@plurid/plurid-themes/-/plurid-themes-0.1.27.tgz#426cf8bb9dada8c2ac43e7978d1d2894eba62bd0"
   integrity sha512-5SZ6sTDxfRmhfp4CWSndWI0NWQNAevx/XHsyAmElCBX8TOl2qMzH1jkT63TZL5NuclzVzQkJYVughbGhSbsqrQ==
 
-"@plurid/plurid-ui-state-react@^0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@plurid/plurid-ui-state-react/-/plurid-ui-state-react-0.0.0.tgz#888cb4496dfa30e249caaffbeb6ea6855945f330"
-  integrity sha512-aoGOFFuRdyk5Z5khShePEy40JMfza3tOzjGne9jRXiogXT+XzWBz7H02QnlHQOu6AHY24dEckMrDmMb5O4U1Bw==
+"@plurid/plurid-ui-state-react@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@plurid/plurid-ui-state-react/-/plurid-ui-state-react-0.0.1.tgz#8f3ceeeb0dc1d2aa56b9ca699e4f9817402f47c6"
+  integrity sha512-rG4rV4+QG7XNCA57rkQjJq3ff0Q36xFQj6K6LWsDsKL64dclQaJm0yfvgyIyc7PYJcFhNVj9Zd4Tgs5Gk/tWig==
 
 "@pmmmwh/react-refresh-webpack-plugin@^0.4.2":
   version "0.4.3"
