@@ -1,5 +1,5 @@
 // #region imports
-import ttypescript from 'ttypescript'
+import ttypescript from 'ttypescript';
 import typescript from 'rollup-plugin-typescript2';
 
 import pkg from '../package.json';
