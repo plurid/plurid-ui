@@ -1,4 +1,5 @@
 // #region imports
+import ttypescript from 'ttypescript';
 import typescript from 'rollup-plugin-typescript2';
 
 import pkg from '../package.json';
@@ -36,7 +37,9 @@ const build = {
         'styled-components',
     ],
     plugins: [
-        typescript(),
+        typescript({
+            typescript: ttypescript,
+        }),
     ],
 };
 // #endregion module
