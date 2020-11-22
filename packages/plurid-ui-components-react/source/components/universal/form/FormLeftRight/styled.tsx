@@ -6,7 +6,7 @@ import {
 
 
 
-interface IStyledFormLeftRight {
+export interface IStyledFormLeftRight {
     theme: Theme,
 }
 

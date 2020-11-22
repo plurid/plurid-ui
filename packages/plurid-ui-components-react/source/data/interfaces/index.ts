@@ -1,5 +1,5 @@
 // #region module
-export interface PluridDropdownSelectable {
+export interface PluridUIDropdownSelectable {
     id: string;
     value: string;
 }

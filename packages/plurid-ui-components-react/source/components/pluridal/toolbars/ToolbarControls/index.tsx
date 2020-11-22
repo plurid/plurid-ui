@@ -16,7 +16,7 @@ import {
 
 
 
-interface ToolbarControlsOwnProperties {
+export interface ToolbarControlsOwnProperties {
     position?: keyof typeof VerticalPositions;
 
     theme?: Theme;
@@ -24,7 +24,7 @@ interface ToolbarControlsOwnProperties {
     className?: string;
 }
 
-type ToolbarControlsProperties = ToolbarControlsOwnProperties;
+export type ToolbarControlsProperties = ToolbarControlsOwnProperties;
 
 const ToolbarControls: React.FC<ToolbarControlsProperties> = (
     properties,

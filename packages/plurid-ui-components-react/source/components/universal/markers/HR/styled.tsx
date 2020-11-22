@@ -6,7 +6,7 @@ import {
 
 
 
-interface IStyledHR {
+export interface IStyledHR {
     theme: Theme;
 }
 

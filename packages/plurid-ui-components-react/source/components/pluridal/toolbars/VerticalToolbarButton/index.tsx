@@ -13,7 +13,7 @@ import {
 
 
 
-interface VerticalToolbarButtonOwnProperties {
+export interface VerticalToolbarButtonOwnProperties {
     atClick: (event: React.MouseEvent) => void;
     icon: React.FC;
     active: boolean;

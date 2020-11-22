@@ -1,19 +1,19 @@
 // #region imports
     // #region internal
-    import GlobalStyles from './GlobalStyles';
+    import SittingTray from './SittingTray';
     // #endregion internal
 // #endregion imports
 
 
 
 // #region module
-const general = {
-    GlobalStyles,
+const sitting = {
+    SittingTray,
 };
 // #endregion module
 
 
 
 // #region exports
-export default general;
+export default sitting;
 // #endregion exports

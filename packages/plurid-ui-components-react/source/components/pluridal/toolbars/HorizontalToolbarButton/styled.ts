@@ -11,7 +11,7 @@
     // #region external
     import {
         fontFamilySansSerif,
-    } from '../../../data/constants';
+    } from '#data/constants';
     // #endregion external
 // #endregion imports
 

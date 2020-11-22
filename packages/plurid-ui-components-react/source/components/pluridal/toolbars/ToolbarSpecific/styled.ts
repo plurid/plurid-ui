@@ -10,7 +10,7 @@ import {
 
 
 
-interface IStyledToolbar {
+export interface IStyledToolbar {
     position: keyof typeof HorizontalPositions;
 }
 
@@ -36,7 +36,7 @@ export const StyledToolbar = styled.div<IStyledToolbar>`
 `;
 
 
-interface IStyledToolbarButtons {
+export interface IStyledToolbarButtons {
     theme: Theme;
 }
 

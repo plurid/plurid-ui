@@ -17,7 +17,7 @@ import {
 
 
 
-interface TooltipProperties {
+export interface TooltipProperties {
     tool: string | React.FC<any>;
     tip: string | React.FC<any>;
 

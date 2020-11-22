@@ -19,19 +19,19 @@ import Sittings from './components/Sittings';
 
 
 
-interface SittingTrayOwnProperties {
+export interface SittingTrayOwnProperties {
     selectors: any;
     context: any;
 }
 
-interface SittingTrayStateProperties {
+export interface SittingTrayStateProperties {
     stateInteractionTheme: Theme;
 }
 
-interface SittingTrayDispatchProperties {
+export interface SittingTrayDispatchProperties {
 }
 
-type SittingTrayProperties = SittingTrayOwnProperties
+export type SittingTrayProperties = SittingTrayOwnProperties
     & SittingTrayStateProperties
     & SittingTrayDispatchProperties;
 

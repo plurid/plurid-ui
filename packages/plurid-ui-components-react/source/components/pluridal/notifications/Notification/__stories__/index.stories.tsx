@@ -20,7 +20,7 @@
 
 
     // #region external
-    import Notification from '../';
+    import Notification from '..';
 
     import {
         themeLabel,

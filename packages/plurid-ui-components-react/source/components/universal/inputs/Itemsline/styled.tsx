@@ -6,7 +6,7 @@ import {
 
 
 
-interface IStyledItemsline {
+export interface IStyledItemsline {
     theme: Theme,
     level: number;
     left: boolean;

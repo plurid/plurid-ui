@@ -10,7 +10,7 @@ import {
 
 
 
-interface IStyledFormObliterate {
+export interface IStyledFormObliterate {
     theme: Theme,
     level: number;
     devisible: boolean;

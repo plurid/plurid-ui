@@ -17,7 +17,7 @@ import {
 
 
 
-interface ProgressCircleProperties {
+export interface ProgressCircleProperties {
     progress: number;
 
     size?: Sizes;

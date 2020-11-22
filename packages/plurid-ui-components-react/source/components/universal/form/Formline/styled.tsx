@@ -6,7 +6,7 @@ import {
 
 
 
-interface IStyledFormline {
+export interface IStyledFormline {
     theme: Theme,
     level: number;
     responsive: boolean;
@@ -58,7 +58,7 @@ export const StyledFormlineText = styled.div`
 
 
 
-interface IStyledFormlineElement {
+export interface IStyledFormlineElement {
     responsive: boolean;
 }
 

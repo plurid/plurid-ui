@@ -19,7 +19,7 @@
 
     // #region external
     import {
-        PluridDropdownSelectable,
+        PluridUIDropdownSelectable,
     } from '#data/interfaces';
 
     import Textline from '../Textline';
@@ -43,13 +43,13 @@
 export interface DropdownProperties {
     // #region required
         // #region values
-        selectables: (PluridDropdownSelectable | string)[];
-        selected: PluridDropdownSelectable | string;
+        selectables: (PluridUIDropdownSelectable | string)[];
+        selected: PluridUIDropdownSelectable | string;
         // #endregion values
 
         // #region methods
         atSelect: (
-            selection: PluridDropdownSelectable | string,
+            selection: PluridUIDropdownSelectable | string,
             kind?: string,
         ) => void;
         // #endregion methods
@@ -216,7 +216,7 @@ const Dropdown: React.FC<DropdownProperties> = (
 
     // #region handlers
     const select = (
-        selected: string | PluridDropdownSelectable,
+        selected: string | PluridUIDropdownSelectable,
     ) => {
         kind
             ? atSelect(selected, kind)
@@ -224,7 +224,7 @@ const Dropdown: React.FC<DropdownProperties> = (
     }
 
     const handleSelect = (
-        selected: string | PluridDropdownSelectable,
+        selected: string | PluridUIDropdownSelectable,
     ) => {
         select(selected);
 
@@ -234,7 +234,7 @@ const Dropdown: React.FC<DropdownProperties> = (
     }
 
     const handleHover = (
-        selected: string | PluridDropdownSelectable,
+        selected: string | PluridUIDropdownSelectable,
     ) => {
         if (_selectAtHover) {
             select(selected);

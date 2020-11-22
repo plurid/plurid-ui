@@ -13,7 +13,7 @@ import {
 
 
 
-interface SpinnerProperties {
+export interface SpinnerProperties {
     theme?: Theme;
     size?: Sizes;
 }

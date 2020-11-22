@@ -1,19 +1,21 @@
 // #region imports
     // #region internal
-    import GlobalStyles from './GlobalStyles';
+    import Heading from './Heading';
+    import Paragraph from './Paragraph';
     // #endregion internal
 // #endregion imports
 
 
 
 // #region module
-const general = {
-    GlobalStyles,
+const typography = {
+    Heading,
+    Paragraph,
 };
 // #endregion module
 
 
 
 // #region exports
-export default general;
+export default typography;
 // #endregion exports

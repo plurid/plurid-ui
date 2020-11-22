@@ -6,7 +6,7 @@ import {
 
 
 
-interface IStyledProgressCircle {
+export interface IStyledProgressCircle {
     size: Sizes;
 }
 

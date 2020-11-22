@@ -10,7 +10,7 @@ import {
 
 
 
-interface IStyledTooltip {
+export interface IStyledTooltip {
     theme: Theme;
 }
 
@@ -47,7 +47,7 @@ export const StyledTooltipIcon = styled.span`
 `;
 
 
-interface IStyledTooltipText {
+export interface IStyledTooltipText {
     theme: Theme;
     indicator: boolean;
 }

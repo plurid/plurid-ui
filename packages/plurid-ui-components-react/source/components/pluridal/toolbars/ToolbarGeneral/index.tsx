@@ -19,7 +19,7 @@ import {
 
 import ToolbarSpecific from '../ToolbarSpecific';
 import VerticalToolbarButton from '../VerticalToolbarButton';
-import SittingTray from '../SittingTray';
+import SittingTray from '#components/pluridal/sitting/SittingTray';
 
 import {
     ToolbarButton,
@@ -31,7 +31,7 @@ import {
 
 
 
-interface ToolbarGeneralOwnProperties {
+export interface ToolbarGeneralOwnProperties {
     buttons: ToolbarButton[],
     handleClick: (type: any) => void;
     speakButton?: boolean;
@@ -39,18 +39,18 @@ interface ToolbarGeneralOwnProperties {
     context: any;
 }
 
-interface ToolbarGeneralStateProperties {
+export interface ToolbarGeneralStateProperties {
     stateView: string;
     stateToolbars: any;
     stateSittingTray: boolean;
     stateInteractionTheme: Theme;
 }
 
-interface ToolbarGeneralDispatchProperties {
+export interface ToolbarGeneralDispatchProperties {
     dispatchToggleSittingTray: typeof sitting.actions.toggleSittingTray;
 }
 
-type ToolbarGeneralProperties = ToolbarGeneralOwnProperties
+export type ToolbarGeneralProperties = ToolbarGeneralOwnProperties
     & ToolbarGeneralStateProperties
     & ToolbarGeneralDispatchProperties;
 

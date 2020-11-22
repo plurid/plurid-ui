@@ -6,7 +6,7 @@ import {
 
 
 
-interface IStyledVerticalToolbarButton {
+export interface IStyledVerticalToolbarButton {
     active: boolean;
     scaleIcon: boolean;
     first: boolean;
@@ -88,7 +88,7 @@ export const StyledVerticalToolbarButton: any = styled.div<IStyledVerticalToolba
 
 
 
-interface IStyledVerticalToolbarButtonText {
+export interface IStyledVerticalToolbarButtonText {
     textLeft: boolean;
 }
 

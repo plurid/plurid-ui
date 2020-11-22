@@ -18,7 +18,7 @@ export const StyledSpinner = styled.div`
 `;
 
 
-interface IStyledLoader {
+export interface IStyledLoader {
     theme: Theme,
     size: Sizes,
 }

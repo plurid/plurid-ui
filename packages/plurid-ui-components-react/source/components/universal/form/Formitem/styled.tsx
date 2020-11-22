@@ -6,7 +6,7 @@ import {
 
 
 
-interface IStyledFormitem {
+export interface IStyledFormitem {
     theme: Theme,
     level: number;
 }

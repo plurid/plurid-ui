@@ -6,7 +6,7 @@ import {
 
 
 
-interface IStyledScrollableLine {
+export interface IStyledScrollableLine {
     theme: Theme,
     level: number;
 }
