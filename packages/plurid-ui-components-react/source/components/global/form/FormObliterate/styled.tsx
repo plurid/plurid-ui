@@ -6,7 +6,7 @@ import {
 
 import {
     fontFamilySansSerif,
-} from '../../../data/constants';
+} from '#data/constants';
 
 
 

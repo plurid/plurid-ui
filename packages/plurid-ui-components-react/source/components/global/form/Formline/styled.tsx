@@ -66,7 +66,7 @@ export const StyledFormlineElement = styled.div<IStyledFormlineElement>`
     justify-self: right;
 
     @media (max-width: 800px) {
-        justify-self: ${(props: IStyledFormline) => {
+        justify-self: ${(props: IStyledFormlineElement) => {
             if (props.responsive) {
                 return 'center';
             }

@@ -1,16 +1,25 @@
-import styled from 'styled-components';
+// #region imports
+    // #region libraries
+    import styled from 'styled-components';
 
-import {
-    Theme,
-} from '@plurid/plurid-themes';
-
-import {
-    fontFamilySansSerif,
-} from '../../../data/constants';
-
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
 
-interface IStyledHorizontalToolbarButton {
+    // #region external
+    import {
+        fontFamilySansSerif,
+    } from '../../../data/constants';
+    // #endregion external
+// #endregion imports
+
+
+
+
+// #region module
+export interface IStyledHorizontalToolbarButton {
     active?: boolean;
     scaleIcon?: boolean;
     theme: Theme;
@@ -71,17 +80,23 @@ export const StyledHorizontalToolbarButton = styled.div<IStyledHorizontalToolbar
 `;
 
 
-interface IStyledHorizontalToolbarButtonIcon {
+export interface IStyledHorizontalToolbarButtonIcon {
     text: string;
 }
 
 export const StyledHorizontalToolbarButtonIcon = styled.div<IStyledHorizontalToolbarButtonIcon>`
     display: flex;
     align-items: center;
-    margin-right: ${({ text, }: IStyledHorizontalToolbarButtonIcon) => {
-        if (text === '') {
-            return '0';
+    margin-right: ${
+        ({
+            text,
+        }: IStyledHorizontalToolbarButtonIcon) => {
+            if (text === '') {
+                return '0';
+            }
+
+            return '0.5rem';
         }
-        return '0.5rem';
-    }};
+    };
 `;
+// #endregion module

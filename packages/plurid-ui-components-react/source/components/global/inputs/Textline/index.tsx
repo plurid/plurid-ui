@@ -15,11 +15,11 @@
     // #region external
     import {
         setNativeValue,
-    } from '../../../../utilities/input';
+    } from '#utilities/input';
 
     import {
         mergeReferences,
-    } from '../../../../utilities/react';
+    } from '#utilities/react';
     // #endregion external
 
 

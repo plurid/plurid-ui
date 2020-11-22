@@ -15,7 +15,7 @@ import {
     themeLabel,
     themeOptions,
     defaultThemeValue,
-} from '../../../../utilities/storybook';
+} from '#utilities/storybook';
 
 
 

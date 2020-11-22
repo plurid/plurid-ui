@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import {
     fontFamilySansSerif,
-} from '../../../../data/constants';
+} from '#data/constants';
 
 
 

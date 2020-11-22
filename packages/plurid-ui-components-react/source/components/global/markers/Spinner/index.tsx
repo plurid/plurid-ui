@@ -9,7 +9,7 @@ import themes, { Theme } from '@plurid/plurid-themes';
 
 import {
     Sizes,
-} from '../../../data/interfaces';
+} from '#data/interfaces';
 
 
 

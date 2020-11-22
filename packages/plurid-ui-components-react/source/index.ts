@@ -107,5 +107,5 @@ export {
 
     // Interfaces
     PluridDropdownSelectable,
-}
+};
 // #endregion exports

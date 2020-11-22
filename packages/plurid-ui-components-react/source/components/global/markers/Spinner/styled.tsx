@@ -6,7 +6,7 @@ import {
 
 import {
     Sizes,
-} from '../../../data/interfaces';
+} from '#data/interfaces';
 
 
 

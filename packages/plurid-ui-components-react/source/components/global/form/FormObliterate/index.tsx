@@ -121,7 +121,7 @@ const FormObliterate: React.FC<FormObliterateProperties> = (
                     <PureButton
                         theme={_theme}
                         text="Obliterate"
-                        atClick={handleObliterate}
+                        atClick={(event) => handleObliterate(event as any)}
                     />
                 </StyledObliterateContainer>
             )}

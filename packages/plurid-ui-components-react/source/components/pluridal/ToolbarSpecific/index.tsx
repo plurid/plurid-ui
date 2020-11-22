@@ -20,11 +20,11 @@ import VerticalToolbarButton from '../VerticalToolbarButton';
 
 import {
     ToolbarButton,
-} from '../../data/interfaces';
+} from '#data/interfaces';
 
 import {
     HorizontalPositions,
-} from '../../data/enumerations';
+} from '#data/enumerations';
 
 
 

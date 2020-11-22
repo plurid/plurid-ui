@@ -19,7 +19,7 @@
     // #region external
     import {
         Sizes,
-    } from '../../../../data/interfaces';
+    } from '#data/interfaces';
 
     import PureButton from '../';
     // #endregion external

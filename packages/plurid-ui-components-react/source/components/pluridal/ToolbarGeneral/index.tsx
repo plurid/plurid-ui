@@ -6,7 +6,7 @@ import { ThunkDispatch } from 'redux-thunk';
 
 import {
     sitting,
-} from '@plurid/plurid-state-react';
+} from '@plurid/plurid-ui-state-react';
 
 import {
     Theme,
@@ -23,11 +23,11 @@ import SittingTray from '../SittingTray';
 
 import {
     ToolbarButton,
-} from '../../data/interfaces';
+} from '#data/interfaces';
 
 import {
     HorizontalPositions,
-} from '../../data/enumerations';
+} from '#data/enumerations';
 
 
 

@@ -18,11 +18,11 @@
 
 
     // #region external
-    import Textline from '../Textline';
-
     import {
         PluridDropdownSelectable,
-    } from '../../../../data/interfaces';
+    } from '#data/interfaces';
+
+    import Textline from '../Textline';
     // #endregion external
 
 

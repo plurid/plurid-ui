@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import {
     Sizes,
-} from '../../../data/interfaces';
+} from '#data/interfaces';
 
 
 
