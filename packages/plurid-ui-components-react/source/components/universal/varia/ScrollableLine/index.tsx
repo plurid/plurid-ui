@@ -1,23 +1,44 @@
-import React from 'react';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import themes, {
-    Theme,
-} from '@plurid/plurid-themes';
+    import {
+        plurid as pluridTheme,
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
-import {
-    StyledScrollableLine,
-} from './styled';
+    // #region internal
+    import {
+        StyledScrollableLine,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
 
 
 
+// #region module
 export interface ScrollableLineProperties {
-    text: string;
+    // #region required
+        // #region values
+        text: string;
+        // #endregion values
 
-    theme?: Theme;
-    level?: number;
+        // #region methods
+        // #endregion methods
+    // #endregion required
 
-    style?: React.CSSProperties;
-    className?: string;
+    // #region optional
+        // #region values
+        theme?: Theme;
+        level?: number;
+        style?: React.CSSProperties;
+        className?: string;
+        // #endregion values
+
+        // #region methods
+        // #endregion methods
+    // #endregion optional
 }
 
 /**
@@ -29,38 +50,53 @@ export interface ScrollableLineProperties {
 const ScrollableLine: React.FC<ScrollableLineProperties> = (
     properties,
 ) => {
+    // #region properties
     const {
-        /** required */
-        text,
+        // #region required
+            // #region values
+            text,
+            // #endregion values
 
-        /** optional */
-        theme,
-        level,
+            // #region methods
+            // #endregion methods
+        // #endregion required
 
-        style,
-        className,
+        // #region optional
+            // #region values
+            theme: themeProperty,
+            level: levelProperty,
+
+            style,
+            className,
+            // #endregion values
+
+            // #region methods
+            // #endregion methods
+        // #endregion optional
     } = properties;
 
-    const _theme = theme === undefined
-        ? themes.plurid
-        : theme;
-
-    const _level = level === undefined
-        ? 0
-        : level;
+    const theme = themeProperty || pluridTheme;
+    const level = levelProperty ?? 0;
+    // #endregion properties
 
 
     return (
         <StyledScrollableLine
-            style={{...style}}
+            theme={theme}
+            level={level}
+            style={{
+                ...style,
+            }}
             className={className}
-            theme={_theme}
-            level={_level}
         >
             {text}
         </StyledScrollableLine>
     );
 }
+// #endregion module
 
 
+
+// #region exports
 export default ScrollableLine;
+// #endregion exports

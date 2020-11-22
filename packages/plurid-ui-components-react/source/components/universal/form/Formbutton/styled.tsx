@@ -1,11 +1,16 @@
-import styled from 'styled-components';
+// #region imports
+    // #region libraries
+    import styled from 'styled-components';
 
-import {
-    Theme,
-} from '@plurid/plurid-themes';
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
+// #endregion imports
 
 
 
+// #region module
 export interface IStyledFormbutton {
     theme: Theme,
     level: number;
@@ -72,3 +77,4 @@ export const StyledFormbuttonIcon = styled.div<IStyledFormbuttonIcon>`
 
 export const StyledFormbuttonText = styled.div`
 `;
+// #endregion module

@@ -1,13 +1,25 @@
-import React from 'react';
-import themes, { Theme } from '@plurid/plurid-themes';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import {
-    StyledSwitch,
-    StyledSwitchSlider,
-} from './styled';
+    import {
+        plurid as pluridTheme,
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
+
+
+    // #region internal
+    import {
+        StyledSwitch,
+        StyledSwitchSlider,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
 
 
 
+// #region module
 export interface SwitchProperties {
     theme?: Theme;
     level?: number;
@@ -17,7 +29,10 @@ export interface SwitchProperties {
     atChange: () => void;
 }
 
-const Switch: React.FC<SwitchProperties> = (properties) => {
+const Switch: React.FC<SwitchProperties> = (
+    properties,
+) => {
+    // #region properties
     const {
         theme,
         level,
@@ -27,9 +42,7 @@ const Switch: React.FC<SwitchProperties> = (properties) => {
         atChange,
     } = properties;
 
-    const _theme = theme === undefined
-        ? themes.plurid
-        : theme;
+    const _theme = theme || pluridTheme;
 
     const _level = level === undefined
         ? 0
@@ -38,7 +51,10 @@ const Switch: React.FC<SwitchProperties> = (properties) => {
     const _round = round === undefined
         ? true
         : round;
+    // #endregion properties
 
+
+    // #region render
     return (
         <StyledSwitch
             theme={_theme}
@@ -57,7 +73,12 @@ const Switch: React.FC<SwitchProperties> = (properties) => {
             />
         </StyledSwitch>
     );
+    // #endregion render
 }
+// #endregion module
 
 
+
+// #region exports
 export default Switch;
+// #endregion exports

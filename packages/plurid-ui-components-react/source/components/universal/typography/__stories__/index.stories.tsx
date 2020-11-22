@@ -1,19 +1,29 @@
-import React from 'react';
-import themes from '@plurid/plurid-themes';
-import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import Heading from '../Heading';
-import Paragraph from '../Paragraph';
+    import themes from '@plurid/plurid-themes';
+
+    import { storiesOf } from '@storybook/react';
+    import { withKnobs } from '@storybook/addon-knobs';
+    // #endregion libraries
+
+
+    // #region external
+    import Heading from '../Heading';
+    import Paragraph from '../Paragraph';
+    // #endregion external
+// #endregion imports
 
 
 
+// #region module
 storiesOf(
-    'Typography',
+    'typography',
     module,
 )
 .addDecorator(withKnobs)
-.add('basic', () => {
+.add('Heading and Paragraph', () => {
     return (
         <div>
             <Heading
@@ -46,3 +56,4 @@ storiesOf(
         </div>
     );
 });
+// #endregion module

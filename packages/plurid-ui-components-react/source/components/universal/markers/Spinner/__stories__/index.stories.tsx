@@ -1,22 +1,33 @@
-import React from 'react';
-import themes from '@plurid/plurid-themes';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import { storiesOf } from '@storybook/react';
-import {
-    withKnobs,
-    select,
-} from '@storybook/addon-knobs';
+    import themes from '@plurid/plurid-themes';
 
-import PluridSpinner from '../';
-
-import {
-    themeLabel,
-    themeOptions,
-    defaultThemeValue,
-} from '#utilities/storybook';
+    import {
+        storiesOf,
+    } from '@storybook/react';
+    import {
+        withKnobs,
+        select,
+    } from '@storybook/addon-knobs';
+    // #endregion libraries
 
 
+    // #region external
+    import {
+        themeLabel,
+        themeOptions,
+        defaultThemeValue,
+    } from '#utilities/storybook';
 
+    import PluridUISpinner from '../';
+    // #endregion external
+// #endregion imports
+
+
+
+// #region module
 const label = 'Size';
 const options = {
     small: 'small',
@@ -27,11 +38,11 @@ const options = {
 const defaultValue = 'normal';
 
 storiesOf(
-    'PluridSpinner',
+    'markers',
     module,
 )
 .addDecorator(withKnobs)
-.add('basic', () => {
+.add('PluridUISpinner', () => {
     const theme = select(themeLabel, themeOptions, defaultThemeValue);
 
     const size = select(label, options, defaultValue);
@@ -42,9 +53,20 @@ storiesOf(
             : 'normal';
 
     return (
-        <PluridSpinner
-            theme={themes[theme]}
-            size={_size}
-        />
+        <div
+            style={{
+                backgroundColor: 'slategray',
+                height: '200px',
+                position: 'relative',
+                display: 'grid',
+                placeContent: 'center',
+            }}
+        >
+            <PluridUISpinner
+                theme={themes[theme]}
+                size={_size}
+            />
+        </div>
     );
 });
+// #endregion module

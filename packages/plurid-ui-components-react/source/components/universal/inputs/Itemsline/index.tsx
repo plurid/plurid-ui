@@ -1,15 +1,23 @@
-import React from 'react';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import themes, {
-    Theme,
-} from '@plurid/plurid-themes';
-
-import {
-    StyledItemsline,
-} from './styled';
-
+    import themes, {
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
 
+    // #region internal
+    import {
+        StyledItemsline,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
+
+
+
+// #region module
 export interface ItemslineProperties {
     items: string[];
     removeItem: (item: string) => void;
@@ -79,6 +87,10 @@ const Itemsline: React.FC<ItemslineProperties> = (properties) => {
         </StyledItemsline>
     );
 }
+// #endregion module
 
 
+
+// #region exports
 export default Itemsline;
+// #endregion exports

@@ -1,22 +1,31 @@
-import React, {
-    useRef,
-    useState,
-    useEffect,
-} from 'react';
+// #region imports
+    // #region libraries
+    import React, {
+        useRef,
+        useState,
+        useEffect,
+    } from 'react';
 
-import themes, {
-    Theme,
-} from '@plurid/plurid-themes';
-
-import {
-    StyledTooltip,
-    StyledTooltipString,
-    StyledTooltipIcon,
-    StyledTooltipText,
-} from './styled';
+    import {
+        plurid as pluridTheme,
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
 
+    // #region internal
+    import {
+        StyledTooltip,
+        StyledTooltipString,
+        StyledTooltipIcon,
+        StyledTooltipText,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
 
+
+
+// #region module
 export interface TooltipProperties {
     tool: string | React.FC<any>;
     tip: string | React.FC<any>;
@@ -35,7 +44,7 @@ export interface TooltipProperties {
 const Tooltip: React.FC<TooltipProperties> = (
     properties,
 ) => {
-    /** properties */
+    // #region properties
     const {
         /** required */
         tool: Tool,
@@ -50,29 +59,24 @@ const Tooltip: React.FC<TooltipProperties> = (
         className,
     } = properties;
 
-    const theme = themeProperty === undefined
-        ? themes.plurid
-        : themeProperty;
-
-    const indicator = indicatorProperty === undefined
-        ? true
-        : indicatorProperty;
-
-    const icon = iconProperty === undefined
-        ? true
-        : iconProperty;
+    const theme = themeProperty || pluridTheme;
+    const indicator = indicatorProperty ?? true;
+    const icon = iconProperty ?? true;
+    // #endregion properties
 
 
-    /** references */
+    // #region references
     const hoverOutTimeout = useRef<null | number>(null);
+    // #endregion references
 
 
-    /** state */
+    // #region state
     const [mouseOver, setMouseOver] = useState(false);
     const [showTooltipText, setShowTooltipText] = useState(false);
+    // #endregion state
 
 
-    /** effects */
+    // #region effects
     useEffect(() => {
         if (mouseOver) {
             setShowTooltipText(true);
@@ -95,9 +99,10 @@ const Tooltip: React.FC<TooltipProperties> = (
     }, [
         mouseOver,
     ]);
+    // #endregion effects
 
 
-    /** render */
+    // #region render
     const renderTool = (
         <>
             {typeof Tool === 'string' ? (
@@ -115,7 +120,7 @@ const Tooltip: React.FC<TooltipProperties> = (
             onMouseMove={() => !showTooltipText ? setMouseOver(true) : null}
             theme={theme}
             style={{
-                ...style
+                ...style,
             }}
             className={className}
         >
@@ -148,7 +153,12 @@ const Tooltip: React.FC<TooltipProperties> = (
             )}
         </StyledTooltip>
     );
+    // #endregion render
 }
+// #endregion module
 
 
+
+// #region exports
 export default Tooltip;
+// #endregion exports

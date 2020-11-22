@@ -16,7 +16,7 @@
 
 
     // #region external
-    import InputBox from '..';
+    import PluridUIInputBox from '..';
 
     import {
         themeSelect,
@@ -32,11 +32,11 @@ const actions = {
 };
 
 storiesOf(
-    'PluridInputBox',
+    'inputs',
     module,
 )
 .addDecorator(withKnobs)
-.add('basic', () => {
+.add('PluridUIInputBox', () => {
     const [
         textValue,
         setTextValue,
@@ -47,7 +47,7 @@ storiesOf(
 
     return (
         <Background>
-            <InputBox
+            <PluridUIInputBox
                 name={name}
                 text={textValue}
                 theme={themes[theme]}

@@ -1,15 +1,37 @@
-import styled from 'styled-components';
+// #region imports
+    // #region libraries
+    import styled from 'styled-components';
 
-import {
-    fontFamilySansSerif,
-    fontFamilySerif,
-} from '../../../../data/constants';
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
+
+
+    // #region external
+    import {
+        fontFamilySansSerif,
+        fontFamilySerif,
+    } from '#data/constants';
+
+    import {
+        Sizes,
+    } from '#data/interfaces';
+    // #endregion external
+// #endregion imports
 
 
 
-export const StyledParagraph: any = styled.p`
+// #region module
+export interface IStyledParagraph {
+    theme: Theme;
+    size: Sizes;
+    fontFamily: 'sans-serif' | 'serif';
+}
+
+export const StyledParagraph: any = styled.p<IStyledParagraph>`
     color: ${props => props.theme.colorPrimary};
-    font-family: ${(props: any) => {
+    font-family: ${(props: IStyledParagraph) => {
         switch (props.fontFamily) {
             case 'sans-serif':
                 return fontFamilySansSerif;
@@ -19,7 +41,7 @@ export const StyledParagraph: any = styled.p`
                 return props.fontFamily;
         }
     }};
-    font-size: ${(props: any) => {
+    font-size: ${(props: IStyledParagraph) => {
         switch (props.size) {
             case 'small':
                 return '0.8rem';
@@ -31,6 +53,8 @@ export const StyledParagraph: any = styled.p`
                 return '1rem';
         }
     }};
+
     margin: 1.2rem 0;
     line-height: 1.4;
 `;
+// #endregion module

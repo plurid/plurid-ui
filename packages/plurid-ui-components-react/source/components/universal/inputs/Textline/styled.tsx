@@ -1,7 +1,16 @@
-import styled from 'styled-components';
+// #region imports
+    // #region libraries
+    import styled from 'styled-components';
+
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
+// #endregion imports
 
 
 
+// #region module
 export const StyledTextline: any = styled.div`
     position: relative;
     display: inline-block;
@@ -188,3 +197,4 @@ export const StyledErrorLine: any = styled.div`
         return props.theme.boxShadowUmbraColor;
     }};
 `;
+// #endregion module

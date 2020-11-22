@@ -5,19 +5,19 @@ import {
     withKnobs,
 } from '@storybook/addon-knobs';
 
-import PluridFormLeftRight from '../';
+import PluridUIFormLeftRight from '../';
 
 
 
 storiesOf(
-    'PluridFormLeftRight',
+    'forms',
     module,
 )
 .addDecorator(withKnobs)
-.add('basic', () => {
+.add('PluridUIFormLeftRight', () => {
     return (
         <>
-            <PluridFormLeftRight>
+            <PluridUIFormLeftRight>
                 <div>
                     aaaa
                 </div>
@@ -25,7 +25,7 @@ storiesOf(
                 <div>
                     bbbb
                 </div>
-            </PluridFormLeftRight>
+            </PluridUIFormLeftRight>
         </>
     );
 });

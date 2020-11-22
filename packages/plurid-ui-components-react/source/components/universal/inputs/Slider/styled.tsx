@@ -1,11 +1,23 @@
-import styled from 'styled-components';
+// #region imports
+    // #region libraries
+    import styled from 'styled-components';
 
-import {
-    fontFamilySansSerif,
-} from '../../../../data/constants';
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
+
+
+    // #region external
+    import {
+        fontFamilySansSerif,
+    } from '../../../../data/constants';
+    // #endregion external
+// #endregion imports
 
 
 
+// #region module
 export const StyledSlider: any = styled.div`
     display: grid;
     align-items: center;
@@ -212,3 +224,4 @@ export const StyledSliderInputContainer: any = styled.div`
         background: ${(props: any) => props.theme.colorPrimary };
     }
 `;
+// #endregion module

@@ -1,34 +1,44 @@
-import React from 'react';
-import themes from '@plurid/plurid-themes';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import {
-    withKnobs,
-    select,
-    boolean,
-    number,
-} from '@storybook/addon-knobs';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import PluridDropdown from '../';
+    import themes from '@plurid/plurid-themes';
 
-import {
-    themeLabel,
-    themeOptions,
-    defaultThemeValue,
-} from '#utilities/storybook';
+    import { storiesOf } from '@storybook/react';
+    import { action } from '@storybook/addon-actions';
+    import {
+        withKnobs,
+        select,
+        boolean,
+        number,
+    } from '@storybook/addon-knobs';
+    // #endregion libraries
 
 
+    // #region external
+    import {
+        themeLabel,
+        themeOptions,
+        defaultThemeValue,
+    } from '#utilities/storybook';
 
+    import PluridUIDropdown from '../';
+    // #endregion external
+// #endregion imports
+
+
+
+// #region module
 const actions = {
     // atSelect: action('atSelect'),
 };
 
 storiesOf(
-    'PluridDropdown',
+    'inputs',
     module,
 )
 .addDecorator(withKnobs)
-.add('basic', () => {
+.add('PluridUIDropdown', () => {
     const selectables = [
         'One',
         'Two',
@@ -76,7 +86,7 @@ storiesOf(
                 padding: '2rem',
             }}
         >
-            <PluridDropdown
+            <PluridUIDropdown
                 selectables={selectablesItems}
                 selected={selectablesItems[1]}
                 atSelect={(selected) => {console.log(selected)}}
@@ -96,3 +106,4 @@ storiesOf(
         </div>
     );
 });
+// #endregion module

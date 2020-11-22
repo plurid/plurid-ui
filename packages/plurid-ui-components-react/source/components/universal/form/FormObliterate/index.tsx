@@ -1,27 +1,39 @@
-import React, {
-    useState,
-} from 'react';
+// #region imports
+    // #region libraries
+    import React, {
+        useState,
+    } from 'react';
 
-import themes, {
-    Theme,
-} from '@plurid/plurid-themes';
+    import {
+        plurid as pluridTheme,
+        Theme,
+    } from '@plurid/plurid-themes';
 
-import {
-    PluridIconObliterate,
-} from '@plurid/plurid-icons-react';
-
-import {
-    StyledFormObliterate,
-    StyledObliterateContainer,
-} from './styled';
-
-import Formbutton from '../Formbutton';
-
-import LinkButton from '../../buttons/LinkButton';
-import PureButton from '../../buttons/PureButton';
+    import {
+        PluridIconObliterate,
+    } from '@plurid/plurid-icons-react';
+    // #endregion libraries
 
 
+    // #region external
+    import Formbutton from '../Formbutton';
 
+    import LinkButton from '../../buttons/LinkButton';
+    import PureButton from '../../buttons/PureButton';
+    // #endregion external
+
+
+    // #region internal
+    import {
+        StyledFormObliterate,
+        StyledObliterateContainer,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
+
+
+
+// #region module
 export interface FormObliterateProperties {
     atObliterate: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 
@@ -43,6 +55,7 @@ export interface FormObliterateProperties {
 const FormObliterate: React.FC<FormObliterateProperties> = (
     properties,
 ) => {
+    // #region properties
     /** properties */
     const {
         /** required */
@@ -59,33 +72,28 @@ const FormObliterate: React.FC<FormObliterateProperties> = (
         className,
     } = properties;
 
-    const _theme = theme === undefined
-        ? themes.plurid
-        : theme;
-
-    const _level = level === undefined
-        ? 0
-        : level;
-
-    const _devisible = devisible === undefined
-        ? false
-        : devisible;
+    const _theme = theme || pluridTheme;
+    const _level = level ?? 0;
+    const _devisible = devisible ?? false;
+    // #endregion properties
 
 
-    /** state */
+    // #region state
     const [showObliterate, setShowObliterate] = useState(false);
+    // #endregion state
 
 
-    /** handlers */
+    // #region handlers
     const handleObliterate = (
         event: React.MouseEvent<HTMLDivElement, MouseEvent>,
     ) => {
         setShowObliterate(false);
         atObliterate(event);
     }
+    // #endregion handlers
 
 
-    /** render */
+    // #region render
     return (
         <StyledFormObliterate
             theme={_theme}
@@ -127,7 +135,12 @@ const FormObliterate: React.FC<FormObliterateProperties> = (
             )}
         </StyledFormObliterate>
     );
+    // #endregion render
 }
+// #endregion module
 
 
+
+// #region exports
 export default FormObliterate;
+// #endregion exports

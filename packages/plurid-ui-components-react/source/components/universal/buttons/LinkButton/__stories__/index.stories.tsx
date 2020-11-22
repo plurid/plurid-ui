@@ -15,7 +15,7 @@
 
 
     // #region external
-    import LinkButton from '../';
+    import PluridUILinkButton from '../';
     // #endregion external
 // #endregion imports
 
@@ -27,11 +27,11 @@ const actions = {
 };
 
 storiesOf(
-    'PluridLinkButton',
+    'buttons',
     module,
 )
 .addDecorator(withKnobs)
-.add('with text', () => {
+.add('PluridUILinkButton', () => {
     const level = number('Level', 0);
     const inline = boolean('Inline', false);
     const disabled = boolean('Disabled', false);
@@ -39,7 +39,7 @@ storiesOf(
     const active = boolean('Active', false);
 
     return (
-        <LinkButton
+        <PluridUILinkButton
             {...actions}
 
             text="Link Button"

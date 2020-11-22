@@ -1,45 +1,39 @@
-import React from 'react';
-// import themes from '@plurid/plurid-themes';
-import { storiesOf } from '@storybook/react';
-// import { action } from '@storybook/addon-actions';
-import {
-    withKnobs,
-    // boolean,
-    // number,
-    // select,
-    text,
-} from '@storybook/addon-knobs';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import PluridScrollableLine from '../';
-
+    import {
+        storiesOf,
+    } from '@storybook/react';
+    import {
+        withKnobs,
+        text,
+    } from '@storybook/addon-knobs';
+    // #endregion libraries
 
 
-// const themeLabel = 'Theme';
-// const computeThemeOptions = () => {
-//     const options: any = {};
-//     for (const key of Object.keys(themes)) {
-//         options[key] = key;
-//     }
-//     return options;
-// }
-// const themeOptions = computeThemeOptions();
-// const defaultThemeValue = 'plurid';
+    // #region external
+    import PluridUIScrollableLine from '../';
+    // #endregion external
+// #endregion imports
 
+
+
+// #region module
 storiesOf(
-    'PluridScrollableLine',
+    'varia',
     module,
 )
 .addDecorator(withKnobs)
-.add('basic', () => {
-    // const theme = select(themeLabel, themeOptions, defaultThemeValue);
-    // const level = number('Level', 0);
+.add('PluridUIScrollableLine', () => {
     const textValue = text('Text', '');
 
     return (
         <>
-            <PluridScrollableLine
+            <PluridUIScrollableLine
                 text={textValue}
             />
         </>
     );
 });
+// #endregion module

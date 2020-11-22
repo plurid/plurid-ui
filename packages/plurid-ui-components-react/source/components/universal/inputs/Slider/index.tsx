@@ -1,17 +1,29 @@
-import React, {
-    useState,
-} from 'react';
-import themes, { Theme } from '@plurid/plurid-themes';
+// #region imports
+    // #region libraries
+    import React, {
+        useState,
+    } from 'react';
 
-import {
-    StyledSlider,
-    StyledNamedValue,
-    StyledSliderInputContainer,
-    StyledSliderValue,
-} from './styled';
+    import {
+        plurid as pluridTheme,
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
+
+
+    // #region internal
+    import {
+        StyledSlider,
+        StyledNamedValue,
+        StyledSliderInputContainer,
+        StyledSliderValue,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
 
 
 
+// #region module
 const DEFAULT_VALUE = 0;
 const DEFAULT_MIN = 0;
 const DEFAULT_MAX = 100;
@@ -36,7 +48,10 @@ export interface SliderProperties {
     namedValueAbove?: boolean;
 }
 
-const Slider: React.FC<SliderProperties> = (properties) => {
+const Slider: React.FC<SliderProperties> = (
+    properties,
+) => {
+    // #region properties
     const {
         value,
         atChange,
@@ -56,9 +71,7 @@ const Slider: React.FC<SliderProperties> = (properties) => {
 
     const [mouseOver, setMouseOver] = useState(false);
 
-    const _theme = theme === undefined
-        ? themes.plurid
-        : theme;
+    const _theme = theme || pluridTheme;
 
     const _level = level === undefined
         ? DEFAULT_LEVEL
@@ -71,7 +84,10 @@ const Slider: React.FC<SliderProperties> = (properties) => {
     const _step = step === undefined
         ? DEFAULT_STEP
         : step;
+    // #endregion properties
 
+
+    // #region handlers
     const handleDoubleClick = () => {
         atChange(defaultValue || DEFAULT_VALUE);
     }
@@ -79,7 +95,10 @@ const Slider: React.FC<SliderProperties> = (properties) => {
     const handleSliderInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         atChange(parseFloat(event.target.value));
     }
+    // #endregion handlers
 
+
+    // #region render
     return (
         <StyledSlider
             theme={_theme}
@@ -122,7 +141,12 @@ const Slider: React.FC<SliderProperties> = (properties) => {
             </StyledSliderInputContainer>
         </StyledSlider>
     );
+    // #endregion render
 }
+// #endregion module
 
 
+
+// #region exports
 export default Slider;
+// #endregion exports

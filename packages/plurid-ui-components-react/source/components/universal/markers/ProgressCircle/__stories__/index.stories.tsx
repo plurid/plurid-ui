@@ -1,24 +1,34 @@
-import React from 'react';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import themes from '@plurid/plurid-themes';
+    import themes from '@plurid/plurid-themes';
 
-import { storiesOf } from '@storybook/react';
-import {
-    withKnobs,
-    select,
-    number,
-} from '@storybook/addon-knobs';
-
-import PluridProgressCircle from '../';
-
-import {
-    themeLabel,
-    themeOptions,
-    defaultThemeValue,
-} from '#utilities/storybook';
+    import {
+        storiesOf,
+    } from '@storybook/react';
+    import {
+        withKnobs,
+        select,
+        number,
+    } from '@storybook/addon-knobs';
+    // #endregion libraries
 
 
+    // #region external
+    import {
+        themeLabel,
+        themeOptions,
+        defaultThemeValue,
+    } from '#utilities/storybook';
 
+    import PluridUIProgressCircle from '../';
+    // #endregion external
+// #endregion imports
+
+
+
+// #region module
 const label = 'Size';
 const options = {
     small: 'small',
@@ -29,11 +39,11 @@ const options = {
 const defaultValue = 'normal';
 
 storiesOf(
-    'PluridProgressCircle',
+    'markers',
     module,
 )
 .addDecorator(withKnobs)
-.add('basic', () => {
+.add('PluridUIProgressCircle', () => {
     const theme = select(themeLabel, themeOptions, defaultThemeValue);
 
     const size = select(label, options, defaultValue);
@@ -43,13 +53,24 @@ storiesOf(
             ? size
             : 'normal';
 
-    const progress = number('Progress', 0);
+    const progress = number('Progress', 30);
 
     return (
-        <PluridProgressCircle
-            progress={progress}
-            theme={themes[theme]}
-            size={_size}
-        />
+        <div
+            style={{
+                backgroundColor: 'slategray',
+                height: '200px',
+                position: 'relative',
+                display: 'grid',
+                placeContent: 'center',
+            }}
+        >
+            <PluridUIProgressCircle
+                progress={progress}
+                theme={themes[theme]}
+                size={_size}
+            />
+        </div>
     );
 });
+// #endregion module

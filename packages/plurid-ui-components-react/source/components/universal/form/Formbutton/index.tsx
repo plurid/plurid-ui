@@ -1,17 +1,26 @@
-import React from 'react';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import themes, {
-    Theme,
-} from '@plurid/plurid-themes';
-
-import {
-    StyledFormbutton,
-    StyledFormbuttonIcon,
-    StyledFormbuttonText,
-} from './styled';
+    import {
+        plurid as pluridTheme,
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
 
+    // #region internal
+    import {
+        StyledFormbutton,
+        StyledFormbuttonIcon,
+        StyledFormbuttonText,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
 
+
+
+// #region module
 export interface FormbuttonProperties {
     text: string;
     Icon: React.FC;
@@ -41,6 +50,7 @@ export interface FormbuttonProperties {
 const Formbutton: React.FC<FormbuttonProperties> = (
     properties,
 ) => {
+    // #region properties
     const {
         /** required */
         text,
@@ -60,29 +70,16 @@ const Formbutton: React.FC<FormbuttonProperties> = (
         className,
     } = properties;
 
-    const _theme = theme === undefined
-        ? themes.plurid
-        : theme;
-
-    const _level = level === undefined
-        ? 0
-        : level;
-
-    const _devisible = devisible === undefined
-        ? false
-        : devisible;
-
-    const _iconPosition = iconPosition === undefined
-        ? 'left'
-        : iconPosition;
-
-    const _inactive = inactive === undefined
-        ? false
-        : inactive;
-
+    const _theme = theme || pluridTheme
+    const _level = level ?? 0;
+    const _devisible = devisible ?? false;
+    const _iconPosition = iconPosition || 'left';
+    const _inactive = inactive ?? false
     const hoverEffect = hoverEffectProperty ?? true;
+    // #endregion properties
 
 
+    // #region render
     const render = () => (
         <>
             <StyledFormbuttonIcon
@@ -130,7 +127,12 @@ const Formbutton: React.FC<FormbuttonProperties> = (
             {render()}
         </StyledFormbutton>
     );
+    // #endregion render
 }
+// #endregion module
 
 
+
+// #region exports
 export default Formbutton;
+// #endregion exports

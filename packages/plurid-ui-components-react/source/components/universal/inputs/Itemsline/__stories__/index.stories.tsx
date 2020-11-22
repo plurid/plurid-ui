@@ -1,19 +1,29 @@
-import React from 'react';
-// import themes from '@plurid/plurid-themes';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import {
-    withKnobs,
-    boolean,
-    // number,
-    // select,
-    // text,
-} from '@storybook/addon-knobs';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import PluridItemsline from '../';
+    // import themes from '@plurid/plurid-themes';
+
+    import { storiesOf } from '@storybook/react';
+    import { action } from '@storybook/addon-actions';
+    import {
+        withKnobs,
+        boolean,
+        // number,
+        // select,
+        // text,
+    } from '@storybook/addon-knobs';
+    // #endregion libraries
+
+
+    // #region external
+    import PluridUIItemsline from '../';
+    // #endregion external
+// #endregion imports
 
 
 
+// #region module
 const actions = {
     removeItem: action('removeItem'),
 };
@@ -30,18 +40,18 @@ const actions = {
 // const defaultThemeValue = 'plurid';
 
 storiesOf(
-    'PluridItemsline',
+    'inputs',
     module,
 )
 .addDecorator(withKnobs)
-.add('basic', () => {
+.add('PluridUIItemsline', () => {
     // const theme = select(themeLabel, themeOptions, defaultThemeValue);
     // const level = number('Level', 0);
     const left = boolean('Left', false);
 
     return (
         <>
-            <PluridItemsline
+            <PluridUIItemsline
                 items={['one', 'two', 'three']}
                 {...actions}
 
@@ -50,3 +60,4 @@ storiesOf(
         </>
     );
 });
+// #endregion module

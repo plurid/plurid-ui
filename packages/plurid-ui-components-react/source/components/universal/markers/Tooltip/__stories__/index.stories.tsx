@@ -1,24 +1,35 @@
-import React from 'react';
-import themes from '@plurid/plurid-themes';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import { storiesOf } from '@storybook/react';
-import {
-    withKnobs,
-    select,
-    boolean,
-    text,
-} from '@storybook/addon-knobs';
+    import themes from '@plurid/plurid-themes';
 
-import PluridTooltip from '../';
-
-import {
-    themeLabel,
-    themeOptions,
-    defaultThemeValue,
-} from '#utilities/storybook';
+    import {
+        storiesOf,
+    } from '@storybook/react';
+    import {
+        withKnobs,
+        select,
+        boolean,
+        text,
+    } from '@storybook/addon-knobs';
+    // #endregion libraries
 
 
+    // #region external
+    import {
+        themeLabel,
+        themeOptions,
+        defaultThemeValue,
+    } from '#utilities/storybook';
 
+    import PluridUITooltip from '../';
+    // #endregion external
+// #endregion imports
+
+
+
+// #region module
 const label = 'Size';
 const options = {
     small: 'small',
@@ -29,11 +40,11 @@ const options = {
 const defaultValue = 'normal';
 
 storiesOf(
-    'PluridTooltip',
+    'markers',
     module,
 )
 .addDecorator(withKnobs)
-.add('basic', () => {
+.add('PluridUITooltip', () => {
     const theme = select(themeLabel, themeOptions, defaultThemeValue);
     const indicator = boolean('Indicator', true);
     const icon = boolean('Icon', true);
@@ -48,7 +59,7 @@ storiesOf(
             <p>
                 words words&nbsp;
 
-                <PluridTooltip
+                <PluridUITooltip
                     tool={tool}
                     tip={tip}
                     theme={themes[theme]}
@@ -59,3 +70,4 @@ storiesOf(
         </div>
     );
 });
+// #endregion module

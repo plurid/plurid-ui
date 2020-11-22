@@ -1,15 +1,25 @@
-import React, {
-    useState,
-} from 'react';
-import themes from '@plurid/plurid-themes';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { withKnobs, boolean, number, select, text } from '@storybook/addon-knobs';
+// #region imports
+    // #region libraries
+    import React, {
+        useState,
+    } from 'react';
 
-import PluridTextline from '../';
+    import themes from '@plurid/plurid-themes';
+
+    import { storiesOf } from '@storybook/react';
+    import { action } from '@storybook/addon-actions';
+    import { withKnobs, boolean, number, select, text } from '@storybook/addon-knobs';
+    // #endregion libraries
+
+
+    // #region external
+    import PluridUITextline from '../';
+    // #endregion external
+// #endregion imports
 
 
 
+// #region module
 const actions = {
     // atChange: action('atChange'),
     // enterAtClick: action('enterAtClick'),
@@ -27,11 +37,11 @@ const themeOptions = computeThemeOptions();
 const defaultThemeValue = 'plurid';
 
 storiesOf(
-    'PluridTextline',
+    'inputs',
     module,
 )
 .addDecorator(withKnobs)
-.add('basic', () => {
+.add('PluridUITextline', () => {
     const [
         textValue,
         setTextValue,
@@ -53,7 +63,7 @@ storiesOf(
     const escapeClear = boolean('Escape Clear', false);
 
     return (
-        <PluridTextline
+        <PluridUITextline
             text={textValue}
             atChange={(event: any) => setTextValue(event.target.value)}
 
@@ -79,3 +89,4 @@ storiesOf(
         />
     );
 });
+// #endregion module

@@ -1,48 +1,94 @@
-import React from 'react';
-import themes, { Theme } from '@plurid/plurid-themes';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import {
-    StyledParagraph,
-} from './styled';
+    import {
+        plurid as pluridTheme,
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
+
+
+    // #region internal
+    import {
+        StyledParagraph,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
 
 
 
+// #region module
 export interface ParagraphProperties {
-    theme?: Theme;
-    size?: 'small' | 'normal' | 'large';
-    fontFamily?: 'sans-serif' | 'serif';
+    // #region optional
+        // #region values
+        theme?: Theme;
+        size?: 'small' | 'normal' | 'large';
+        fontFamily?: 'sans-serif' | 'serif';
+        style?: React.CSSProperties;
+        className?: string;
+        // #endregion values
+
+        // #region methods
+        // #endregion methods
+    // #endregion optional
 }
 
-const Paragraph: React.FC<React.PropsWithChildren<ParagraphProperties>> = (properties) => {
+const Paragraph: React.FC<React.PropsWithChildren<ParagraphProperties>> = (
+    properties,
+) => {
+    // #region properties
     const {
-        theme,
-        size,
-        fontFamily,
-        children,
+        // #region required
+            // #region values
+            children,
+            // #endregion values
+
+            // #region methods
+            // #endregion methods
+        // #endregion required
+
+        // #region optional
+            // #region values
+            theme: themeProperty,
+            size: sizeProperty,
+            fontFamily: fontFamilyProperty,
+
+            style,
+            className,
+            // #endregion values
+
+            // #region methods
+            // #endregion methods
+        // #endregion optional
     } = properties;
 
-    const _theme = theme === undefined
-        ? themes.plurid
-        : theme;
+    const theme = themeProperty || pluridTheme;
+    const size = sizeProperty  || 'normal';
+    const fontFamily = fontFamilyProperty || 'sans-serif';
+    // #endregion properties
 
-    const _size = size === undefined
-        ? 'normal'
-        : size;
 
-    const _fontFamily = fontFamily === undefined
-        ? 'sans-serif'
-        : fontFamily;
-
+    // #region render
     return (
         <StyledParagraph
-            theme={_theme}
-            size={_size}
-            fontFamily={_fontFamily}
+            theme={theme}
+            size={size}
+            fontFamily={fontFamily}
+            style={{
+                ...style,
+            }}
+            className={className}
         >
             {children}
         </StyledParagraph>
     );
+    // #endregion render
 }
+// #endregion module
 
 
+
+// #region exports
 export default Paragraph;
+// #endregion exports

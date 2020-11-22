@@ -1,22 +1,34 @@
-import React, {
-    useState,
-    useEffect,
-} from 'react';
+// #region imports
+    // #region libraries
+    import React, {
+        useState,
+        useEffect,
+    } from 'react';
 
-import themes, {
-    Theme,
-} from '@plurid/plurid-themes';
-
-import {
-    StyledProgressCircle,
-} from './styled';
-
-import {
-    Sizes,
-} from '#data/interfaces';
+    import {
+        plurid as pluridTheme,
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
 
+    // #region external
+    import {
+        Sizes,
+    } from '#data/interfaces';
+    // #endregion external
 
+
+    // #region internal
+    import {
+        StyledProgressCircle,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
+
+
+
+// #region module
 export interface ProgressCircleProperties {
     progress: number;
 
@@ -31,6 +43,7 @@ export interface ProgressCircleProperties {
 const ProgressCircle: React.FC<ProgressCircleProperties> = (
     properties,
 ) => {
+    // #region properties
     const {
         progress,
 
@@ -42,26 +55,33 @@ const ProgressCircle: React.FC<ProgressCircleProperties> = (
         className,
     } = properties;
 
-    const [theme, setTheme] = useState(
-        themeProperty === undefined
-            ? themes.plurid
-            : themeProperty
-    );
-
-    const [size, setSize] = useState(
-        sizeProperty === undefined
-            ? 'normal'
-            : sizeProperty
-    );
+    const progressValue = progress < 0
+        ? 0
+        : progress > 100
+            ? 100
+            : progress;
 
     const _radius = radius || 20;
     const _stroke = stroke || 3;
 
     const normalizedRadius = _radius - _stroke * 2;
     const circumference = normalizedRadius * 2 * Math.PI;
-    const strokeDashoffset = circumference - progress / 100 * circumference;
+    const strokeDashoffset = circumference - progressValue / 100 * circumference;
+    // #endregion properties
 
 
+    // #region state
+    const [theme, setTheme] = useState(
+        themeProperty || pluridTheme,
+    );
+
+    const [size, setSize] = useState(
+        sizeProperty || 'normal',
+    );
+    // #endregion state
+
+
+    // #region effects
     /** Handle Theme */
     useEffect(() => {
         if (themeProperty) {
@@ -79,8 +99,10 @@ const ProgressCircle: React.FC<ProgressCircleProperties> = (
     }, [
         sizeProperty,
     ]);
+    // #endregion effects
 
 
+    // #region render
     return (
         <StyledProgressCircle
             size={size}
@@ -115,7 +137,12 @@ const ProgressCircle: React.FC<ProgressCircleProperties> = (
             </svg>
         </StyledProgressCircle>
     );
+    // #endregion render
 }
+// #endregion module
 
 
+
+// #region exports
 export default ProgressCircle;
+// #endregion exports

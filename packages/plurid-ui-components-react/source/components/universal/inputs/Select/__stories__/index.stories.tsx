@@ -1,15 +1,25 @@
-import React from 'react';
-import themes from '@plurid/plurid-themes';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import {
-    withKnobs,
-    boolean,
-    number,
-    select,
-} from '@storybook/addon-knobs';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import PluridSelect from '../';
+    import themes from '@plurid/plurid-themes';
+
+    import { storiesOf } from '@storybook/react';
+    import { action } from '@storybook/addon-actions';
+    import {
+        withKnobs,
+        boolean,
+        number,
+        select,
+    } from '@storybook/addon-knobs';
+    // #endregion libraries
+
+
+    // #region external
+    import PluridUISelect from '../';
+    // #endregion external
+// #endregion imports
+
 
 
 
@@ -29,11 +39,11 @@ const themeOptions = computeThemeOptions();
 const defaultThemeValue = 'plurid';
 
 storiesOf(
-    'PluridSelect',
+    'inputs',
     module,
 )
 .addDecorator(withKnobs)
-.add('basic', () => {
+.add('PluridUISelect', () => {
     const selectables = [
         'One',
         'Two',
@@ -46,7 +56,7 @@ storiesOf(
     const round = boolean('Round', true);
 
     return (
-        <PluridSelect
+        <PluridUISelect
             selectables={selectables}
 
             theme={themes[theme]}

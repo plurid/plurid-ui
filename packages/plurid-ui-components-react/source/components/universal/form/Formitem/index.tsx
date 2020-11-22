@@ -1,15 +1,24 @@
-import React from 'react';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import themes, {
-    Theme,
-} from '@plurid/plurid-themes';
-
-import {
-    StyledFormitem,
-} from './styled';
+    import {
+        plurid as pluridTheme,
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
 
+    // #region internal
+    import {
+        StyledFormitem,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
 
+
+
+// #region module
 export interface FormitemProperties {
     theme?: Theme;
     level?: number;
@@ -26,6 +35,7 @@ export interface FormitemProperties {
 const Formitem: React.FC<FormitemProperties> = (
     properties,
 ) => {
+    // #region properties
     const {
         /** optional */
         theme,
@@ -37,14 +47,12 @@ const Formitem: React.FC<FormitemProperties> = (
         children,
     } = properties;
 
-    const _theme = theme === undefined
-        ? themes.plurid
-        : theme;
+    const _theme = theme || pluridTheme;
+    const _level = level ?? 0;
+    // #endregion properties
 
-    const _level = level === undefined
-        ? 0
-        : level;
 
+    // #region render
     return (
         <StyledFormitem
             style={{
@@ -57,7 +65,12 @@ const Formitem: React.FC<FormitemProperties> = (
             {children}
         </StyledFormitem>
     );
+    // #endregion render
 }
+// #endregion module
 
 
+
+// #region exports
 export default Formitem;
+// #endregion exports

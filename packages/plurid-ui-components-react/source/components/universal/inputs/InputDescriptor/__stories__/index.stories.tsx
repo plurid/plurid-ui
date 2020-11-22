@@ -15,7 +15,7 @@
 
 
     // #region external
-    import InputDescriptor from '..';
+    import PluridUIInputDescriptor from '..';
 
     import {
         themeSelect,
@@ -31,18 +31,18 @@ const actions = {
 };
 
 storiesOf(
-    'PluridInputDescriptor',
+    'inputs',
     module,
 )
 .addDecorator(withKnobs)
-.add('basic', () => {
+.add('PluridUIInputDescriptor', () => {
     const name = text('Name', '');
     const show = boolean('Show', false);
     const theme = themeSelect();
 
     return (
         <Background>
-            <InputDescriptor
+            <PluridUIInputDescriptor
                 // #region required
                     // #region values
                     name={name}

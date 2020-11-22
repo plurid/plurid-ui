@@ -1,15 +1,23 @@
-import styled from 'styled-components';
+// #region imports
+    // #region libraries
+    import styled from 'styled-components';
 
-import {
-    fontFamilySansSerif,
-} from '#data/constants'
-
-import {
-    Theme,
-} from '@plurid/plurid-themes';
-
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
 
+    // #region external
+    import {
+        fontFamilySansSerif,
+    } from '#data/constants';
+    // #endregion external
+// #endregion imports
+
+
+
+// #region module
 export interface IStyledTooltip {
     theme: Theme;
 }
@@ -103,3 +111,4 @@ export const StyledTooltipText = styled.div<IStyledTooltipText>`
         }};
     }
 `;
+// #endregion module

@@ -1,12 +1,24 @@
-import React from 'react';
-import themes, { Theme } from '@plurid/plurid-themes';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import {
-    StyledSelect,
-} from './styled';
+    import {
+        plurid as pluridTheme,
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
+
+
+    // #region internal
+    import {
+        StyledSelect,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
 
 
 
+// #region module
 export interface PluridSelectProperties {
     selectables: string[];
     atChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -18,7 +30,6 @@ export interface PluridSelectProperties {
     width?: string | number;
 }
 
-
 /**
  * @param selectables `string[]`
  * @param atChange `(event: React.ChangeEvent<HTMLInputElement>) => void`
@@ -29,7 +40,10 @@ export interface PluridSelectProperties {
  * @param round optional - `boolean`
  * @param width optional - `string | number`
  */
-const PluridSelect: React.FC<PluridSelectProperties> = (properties) => {
+const PluridSelect: React.FC<PluridSelectProperties> = (
+    properties,
+) => {
+    // #region properties
     const {
         selectables,
         atChange,
@@ -41,18 +55,13 @@ const PluridSelect: React.FC<PluridSelectProperties> = (properties) => {
         width,
     } = properties;
 
-    const _theme = theme === undefined
-        ? themes.plurid
-        : theme;
+    const _theme = theme || pluridTheme;
+    const _level = level ?? 0;
+    const _round = round ?? true;
+    // #endregion properties
 
-    const _level = level === undefined
-        ? 0
-        : level;
 
-    const _round = round === undefined
-        ? true
-        : round;
-
+    // #region render
     return (
         <StyledSelect
             theme={_theme}
@@ -75,7 +84,12 @@ const PluridSelect: React.FC<PluridSelectProperties> = (properties) => {
             </select>
         </StyledSelect>
     );
+    // #endregion render
 }
+// #endregion module
 
 
+
+// #region exports
 export default PluridSelect;
+// #endregion exports

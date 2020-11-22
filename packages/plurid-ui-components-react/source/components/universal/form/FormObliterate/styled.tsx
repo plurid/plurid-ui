@@ -1,15 +1,23 @@
-import styled from 'styled-components';
+// #region imports
+    // #region libraries
+    import styled from 'styled-components';
 
-import {
-    Theme,
-} from '@plurid/plurid-themes';
-
-import {
-    fontFamilySansSerif,
-} from '#data/constants';
-
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
 
+    // #region external
+    import {
+        fontFamilySansSerif,
+    } from '#data/constants';
+    // #endregion external
+// #endregion imports
+
+
+
+// #region module
 export interface IStyledFormObliterate {
     theme: Theme,
     level: number;
@@ -35,3 +43,4 @@ export const StyledObliterateContainer = styled.div`
     max-width: 200px;
     margin: 1rem auto;
 `;
+// #endregion module

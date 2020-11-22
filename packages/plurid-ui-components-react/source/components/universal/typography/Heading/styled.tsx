@@ -1,11 +1,23 @@
-import styled from 'styled-components';
+// #region imports
+    // #region libraries
+    import styled from 'styled-components';
 
-import {
-    fontFamilySansSerif,
-} from '#data/constants';
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
+
+
+    // #region external
+    import {
+        fontFamilySansSerif,
+    } from '#data/constants';
+    // #endregion external
+// #endregion imports
 
 
 
+// #region module
 export const StyledHeading1: any = styled.h1`
     color: ${props => props.theme.colorPrimary};
     font-family: ${fontFamilySansSerif};
@@ -52,3 +64,4 @@ export const StyledHeading6: any = styled.h5`
     font-size: 1.2rem;
     margin: 1rem 0;
 `;
+// #endregion module

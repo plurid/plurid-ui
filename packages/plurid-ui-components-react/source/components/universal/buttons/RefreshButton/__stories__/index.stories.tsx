@@ -16,7 +16,7 @@
 
 
     // #region external
-    import RefreshButton from '..';
+    import PluridUIRefreshButton from '..';
     // #endregion external
 // #endregion imports
 
@@ -28,11 +28,11 @@ const actions = {
 };
 
 storiesOf(
-    'PluridRefreshButton',
+    'buttons',
     module,
 )
 .addDecorator(withKnobs)
-.add('with text', () => {
+.add('PluridUIRefreshButton', () => {
     const _text = text('Text', '');
     const disabled = boolean('Disabled', false);
     const hideAtClick = boolean('Hide At Click', false);
@@ -45,7 +45,7 @@ storiesOf(
                 height: '1000px',
             }}
         >
-            <RefreshButton
+            <PluridUIRefreshButton
                 // #region required
                     // #region values
                     // #endregion values

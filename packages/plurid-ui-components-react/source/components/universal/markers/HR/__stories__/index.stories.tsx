@@ -1,29 +1,36 @@
-import React from 'react';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import themes from '@plurid/plurid-themes';
+    import themes from '@plurid/plurid-themes';
 
-import { storiesOf } from '@storybook/react';
-import {
-    withKnobs,
-    select,
-} from '@storybook/addon-knobs';
+    import { storiesOf } from '@storybook/react';
+    import {
+        withKnobs,
+        select,
+    } from '@storybook/addon-knobs';
+    // #endregion libraries
 
-import PluridHR from '../';
 
-import {
-    themeLabel,
-    themeOptions,
-    defaultThemeValue,
-} from '#utilities/storybook';
+    // #region external
+    import {
+        themeLabel,
+        themeOptions,
+        defaultThemeValue,
+    } from '#utilities/storybook';
+
+    import PluridUIHR from '../';
+    // #endregion external
+// #endregion imports
 
 
 
 storiesOf(
-    'PluridHR',
+    'markers',
     module,
 )
 .addDecorator(withKnobs)
-.add('basic', () => {
+.add('PluridUIHR', () => {
     const theme = select(themeLabel, themeOptions, defaultThemeValue);
 
     return (
@@ -35,7 +42,7 @@ storiesOf(
         >
             aaa
 
-            <PluridHR
+            <PluridUIHR
                 theme={themes[theme]}
             />
 

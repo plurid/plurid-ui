@@ -1,15 +1,24 @@
-import React from 'react';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import themes, {
-    Theme,
-} from '@plurid/plurid-themes';
-
-import {
-    StyledHR,
-} from './styled';
+    import {
+        plurid as pluridTheme,
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
 
+    // #region internal
+    import {
+        StyledHR,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
 
+
+
+// #region module
 export interface HRProperties {
     theme?: Theme;
     style?: React.CSSProperties;
@@ -19,6 +28,7 @@ export interface HRProperties {
 const HR: React.FC<HRProperties> = (
     properties,
 ) => {
+    // #region properties
     const {
         /** optional */
         theme,
@@ -26,10 +36,11 @@ const HR: React.FC<HRProperties> = (
         className,
     } = properties;
 
-    const _theme = theme === undefined
-        ? themes.plurid
-        : theme;
+    const _theme = theme || pluridTheme;
+    // #endregion properties
 
+
+    // #region render
     return (
         <StyledHR
             theme={_theme}
@@ -39,7 +50,12 @@ const HR: React.FC<HRProperties> = (
             className={className}
         />
     );
+    // #endregion render
 }
+// #endregion module
 
 
+
+// #region exports
 export default HR;
+// #endregion exports

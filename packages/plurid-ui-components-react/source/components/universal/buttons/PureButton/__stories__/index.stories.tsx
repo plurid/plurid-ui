@@ -21,7 +21,7 @@
         Sizes,
     } from '#data/interfaces';
 
-    import PureButton from '../';
+    import PluridUIPureButton from '../';
     // #endregion external
 // #endregion imports
 
@@ -42,11 +42,11 @@ const options = {
 const defaultValue = 'normal';
 
 storiesOf(
-    'PluridPureButton',
+    'buttons',
     module,
 )
 .addDecorator(withKnobs)
-.add('with text', () => {
+.add('PluridUIPureButton', () => {
     const _text = text('Text', 'Pure Button');
 
     const level = number('Level', 0);
@@ -60,7 +60,7 @@ storiesOf(
     const loading = boolean('Loading', false);
 
     return (
-        <PureButton
+        <PluridUIPureButton
             {...actions}
 
             text={_text}

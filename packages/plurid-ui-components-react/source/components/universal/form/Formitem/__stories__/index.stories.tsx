@@ -1,19 +1,27 @@
-import React from 'react';
-// import themes from '@plurid/plurid-themes';
-import { storiesOf } from '@storybook/react';
-// import { action } from '@storybook/addon-actions';
-import {
-    withKnobs,
-    // boolean,
-    // number,
-    // select,
-    // text,
-} from '@storybook/addon-knobs';
+// #region imports
+    // #region libraries
+    import React from 'react';
+    // import themes from '@plurid/plurid-themes';
+    import { storiesOf } from '@storybook/react';
+    // import { action } from '@storybook/addon-actions';
+    import {
+        withKnobs,
+        // boolean,
+        // number,
+        // select,
+        // text,
+    } from '@storybook/addon-knobs';
+    // #endregion libraries
 
-import PluridFormitem from '../';
+
+    // #region external
+    import PluridUIFormitem from '../';
+    // #endregion external
+// #endregion imports
 
 
 
+// #region module
 // const actions = {
 //     atClick: action('atClick'),
 // };
@@ -30,18 +38,19 @@ import PluridFormitem from '../';
 // const defaultThemeValue = 'plurid';
 
 storiesOf(
-    'PluridFormitem',
+    'forms',
     module,
 )
 .addDecorator(withKnobs)
-.add('basic', () => {
+.add('PluridUIFormitem', () => {
     // const theme = select(themeLabel, themeOptions, defaultThemeValue);
     // const level = number('Level', 0);
 
     return (
         <>
-            <PluridFormitem>
-            </PluridFormitem>
+            <PluridUIFormitem>
+            </PluridUIFormitem>
         </>
     );
 });
+// #endregion module

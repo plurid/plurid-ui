@@ -1,21 +1,29 @@
-import React from 'react';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import themes from '@plurid/plurid-themes';
+    import themes from '@plurid/plurid-themes';
 
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import {
-    withKnobs,
-    boolean,
-    number,
-    select,
-    text,
-} from '@storybook/addon-knobs';
-
-import PluridFormObliterate from '../';
-
+    import { storiesOf } from '@storybook/react';
+    import { action } from '@storybook/addon-actions';
+    import {
+        withKnobs,
+        boolean,
+        number,
+        select,
+        text,
+    } from '@storybook/addon-knobs';
+    // #endregion libraries
 
 
+    // #region external
+    import PluridUIFormObliterate from '../';
+    // #endregion external
+// #endregion imports
+
+
+
+// #region module
 const actions = {
     atObliterate: action('atObliterate'),
 };
@@ -32,11 +40,11 @@ const themeOptions = computeThemeOptions();
 const defaultThemeValue = 'plurid';
 
 storiesOf(
-    'PluridFormObliterate',
+    'forms',
     module,
 )
 .addDecorator(withKnobs)
-.add('basic', () => {
+.add('PluridUIFormObliterate', () => {
     const item = text('Item', 'formname');
 
     const theme = select(themeLabel, themeOptions, defaultThemeValue);
@@ -45,7 +53,7 @@ storiesOf(
 
     return (
         <>
-            <PluridFormObliterate
+            <PluridUIFormObliterate
                 item={item}
 
                 {...actions}
@@ -57,3 +65,4 @@ storiesOf(
         </>
     );
 });
+// #endregion module

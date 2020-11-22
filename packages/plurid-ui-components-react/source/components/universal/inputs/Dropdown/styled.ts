@@ -1,7 +1,16 @@
-import styled from 'styled-components';
+// #region imports
+    // #region libraries
+    import styled from 'styled-components';
+
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
+// #endregion imports
 
 
 
+// #region module
 export const StyledDropdown: any = styled.div`
     color: ${(props: any) => {
         return props.theme.colorPrimary;
@@ -182,3 +191,4 @@ export const StyledFilterUpdate: any = styled.div<IStyledFilterUpdate>`
         return 'auto';
     }};
 `;
+// #endregion module

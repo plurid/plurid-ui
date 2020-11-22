@@ -22,13 +22,12 @@ const actions = {
     atClick: action('atClick'),
 };
 
-
 storiesOf(
-    'Buttons',
+    'buttons',
     module,
 )
 .addDecorator(withKnobs)
-.add('basic', () => {
+.add('Multiple', () => {
     return (
         <div
             style={{

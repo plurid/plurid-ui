@@ -1,18 +1,28 @@
-import React from 'react';
-import themes from '@plurid/plurid-themes';
-import { storiesOf } from '@storybook/react';
-import {
-    withKnobs,
-    boolean,
-    number,
-    select,
-    text,
-} from '@storybook/addon-knobs';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import PluridFormline from '../';
+    import themes from '@plurid/plurid-themes';
+
+    import { storiesOf } from '@storybook/react';
+    import {
+        withKnobs,
+        boolean,
+        number,
+        select,
+        text,
+    } from '@storybook/addon-knobs';
+    // #endregion libraries
+
+
+    // #region external
+    import PluridUIFormline from '../';
+    // #endregion external
+// #endregion imports
 
 
 
+// #region module
 const themeLabel = 'Theme';
 const computeThemeOptions = () => {
     const options: any = {};
@@ -25,11 +35,11 @@ const themeOptions = computeThemeOptions();
 const defaultThemeValue = 'plurid';
 
 storiesOf(
-    'PluridFormline',
+    'forms',
     module,
 )
 .addDecorator(withKnobs)
-.add('basic', () => {
+.add('PluridUIFormline', () => {
     const textValue = text('Text', 'formname');
 
     const Element = () => {
@@ -47,7 +57,7 @@ storiesOf(
 
     return (
         <>
-            <PluridFormline
+            <PluridUIFormline
                 text={textValue}
 
                 Element={Element}
@@ -58,3 +68,4 @@ storiesOf(
         </>
     );
 });
+// #endregion module

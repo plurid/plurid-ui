@@ -1,44 +1,39 @@
-import React from 'react';
-import themes from '@plurid/plurid-themes';
-import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import Heading from '../';
+    import themes from '@plurid/plurid-themes';
+
+    import {
+        storiesOf,
+    } from '@storybook/react';
+    import {
+        withKnobs,
+    } from '@storybook/addon-knobs';
+    // #endregion libraries
+
+
+    // #region external
+    import PluridUIHeading from '../';
+    // #endregion external
+// #endregion imports
 
 
 
+// #region module
 storiesOf(
-    'PluridHeading',
+    'typography',
     module,
 )
 .addDecorator(withKnobs)
-.add('h1', () => {
+.add('PluridUIHeading', () => {
     return (
-        <Heading
+        <PluridUIHeading
             theme={themes.light}
             type="h1"
         >
             Heading 1
-        </Heading>
+        </PluridUIHeading>
     );
 })
-.add('h2', () => {
-    return (
-        <Heading
-            theme={themes.light}
-            type="h2"
-        >
-            Heading 2
-        </Heading>
-    );
-})
-.add('h3', () => {
-    return (
-        <Heading
-            theme={themes.light}
-            type="h3"
-        >
-            Heading 3
-        </Heading>
-    );
-});
+// #endregion module

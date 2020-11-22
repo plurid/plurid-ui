@@ -1,17 +1,28 @@
-import React from 'react';
-import themes from '@plurid/plurid-themes';
-import { storiesOf } from '@storybook/react';
-import {
-    withKnobs,
-    boolean,
-    number,
-    select,
-    text,
-} from '@storybook/addon-knobs';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import Slider from '../';
+    import themes from '@plurid/plurid-themes';
+
+    import { storiesOf } from '@storybook/react';
+    import {
+        withKnobs,
+        boolean,
+        number,
+        select,
+        text,
+    } from '@storybook/addon-knobs';
+    // #endregion libraries
 
 
+    // #region external
+    import PluridUISlider from '../';
+    // #endregion external
+// #endregion imports
+
+
+
+// #region module
 const label = 'Size';
 const options = {
     small: 'small',
@@ -22,11 +33,11 @@ const options = {
 const defaultValue = 'normal';
 
 storiesOf(
-    'PluridSlider',
+    'inputs',
     module,
 )
 .addDecorator(withKnobs)
-.add('basic', () => {
+.add('PluridUISlider simple', () => {
     const value = number('Value', 50);
 
     const name = text('Name', '');
@@ -42,7 +53,7 @@ storiesOf(
     const namedValueAbove = boolean('Show Named Value Above', false);
 
     return (
-        <Slider
+        <PluridUISlider
             value={value}
             atChange={() => {}}
 
@@ -59,7 +70,7 @@ storiesOf(
         />
     );
 })
-.add('floating point', () => {
+.add('PluridUISlider floating point', () => {
     const value = number('Value', 50);
 
     const name = text('Name', '');
@@ -75,7 +86,7 @@ storiesOf(
     const namedValueAbove = boolean('Show Named Value Above', false);
 
     return (
-        <Slider
+        <PluridUISlider
             value={value}
             atChange={() => {}}
 
@@ -93,3 +104,4 @@ storiesOf(
         />
     );
 });
+// #endregion module

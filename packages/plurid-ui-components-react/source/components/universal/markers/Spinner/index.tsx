@@ -1,37 +1,49 @@
-import React from 'react';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import {
-    StyledSpinner,
-    StyledLoader
-} from './styled';
+    import {
+        StyledSpinner,
+        StyledLoader
+    } from './styled';
 
-import themes, { Theme } from '@plurid/plurid-themes';
+    import {
+        plurid as pluridTheme,
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
-import {
-    Sizes,
-} from '#data/interfaces';
+
+    // #region external
+    import {
+        Sizes,
+    } from '#data/interfaces';
+    // #endregion external
+// #endregion imports
 
 
 
+// #region module
 export interface SpinnerProperties {
     theme?: Theme;
     size?: Sizes;
 }
 
-const Spinner: React.FC<SpinnerProperties> = (properties) => {
+const Spinner: React.FC<SpinnerProperties> = (
+    properties,
+) => {
+    // #region properties
     const {
         theme,
         size,
     } = properties;
 
-    const _theme = theme === undefined
-        ? themes.plurid
-        : theme;
+    const _theme = theme || pluridTheme;
+    const _size = size || 'normal';
+    // #endregion properties
 
-    const _size = size === undefined
-        ? 'normal'
-        : size;
 
+    // #region render
     return (
         <StyledSpinner>
             <StyledLoader
@@ -45,7 +57,12 @@ const Spinner: React.FC<SpinnerProperties> = (properties) => {
             </StyledLoader>
         </StyledSpinner>
     );
+    // #endregion render
 }
+// #endregion module
 
 
+
+// #region exports
 export default Spinner;
+// #endregion exports

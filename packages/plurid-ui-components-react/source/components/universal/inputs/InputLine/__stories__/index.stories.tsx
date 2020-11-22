@@ -17,7 +17,7 @@
 
 
     // #region external
-    import InputLine from '../';
+    import PluridUIInputLine from '../';
 
     import {
         themeSelect,
@@ -33,11 +33,11 @@ const actions = {
 };
 
 storiesOf(
-    'PluridInputLine',
+    'inputs',
     module,
 )
 .addDecorator(withKnobs)
-.add('basic', () => {
+.add('PluridUIInputLine', () => {
     const [
         textValue,
         setTextValue,
@@ -49,7 +49,7 @@ storiesOf(
 
     return (
         <Background>
-            <InputLine
+            <PluridUIInputLine
                 // #region required
                     // #region values
                     name={name}

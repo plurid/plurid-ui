@@ -1,17 +1,26 @@
-import React from 'react';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import themes, {
-    Theme,
-} from '@plurid/plurid-themes';
-
-import {
-    StyledFormline,
-    StyledFormlineText,
-    StyledFormlineElement,
-} from './styled';
+    import {
+        plurid as pluridTheme,
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
 
+    // #region internal
+    import {
+        StyledFormline,
+        StyledFormlineText,
+        StyledFormlineElement,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
 
+
+
+// #region module
 export interface FormlineProperties {
     text: string;
 
@@ -31,7 +40,10 @@ export interface FormlineProperties {
  *
  * @param properties
  */
-const Formline: React.FC<FormlineProperties> = (properties) => {
+const Formline: React.FC<FormlineProperties> = (
+    properties,
+) => {
+    // #region properties
     const {
         /** required */
         text,
@@ -49,9 +61,7 @@ const Formline: React.FC<FormlineProperties> = (properties) => {
         children,
     } = properties;
 
-    const _theme = theme === undefined
-        ? themes.plurid
-        : theme;
+    const _theme = theme || pluridTheme;
 
     const _level = level === undefined
         ? 0
@@ -60,7 +70,10 @@ const Formline: React.FC<FormlineProperties> = (properties) => {
     const _responsive = responsive === undefined
         ? false
         : responsive;
+    // #endregion properties
 
+
+    // #region render
     return (
         <StyledFormline
             style={{
@@ -89,7 +102,12 @@ const Formline: React.FC<FormlineProperties> = (properties) => {
             </StyledFormlineElement>
         </StyledFormline>
     );
+    // #endregion render
 }
+// #endregion module
 
 
+
+// #region exports
 export default Formline;
+// #endregion exports

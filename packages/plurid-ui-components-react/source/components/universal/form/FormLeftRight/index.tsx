@@ -1,15 +1,24 @@
-import React from 'react';
+// #region imports
+    // #region libraries
+    import React from 'react';
 
-import themes, {
-    Theme,
-} from '@plurid/plurid-themes';
-
-import {
-    StyledFormLeftRight,
-} from './styled';
+    import {
+        plurid as pluridTheme,
+        Theme,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
 
+    // #region internal
+    import {
+        StyledFormLeftRight,
+    } from './styled';
+    // #endregion internal
+// #endregion imports
 
+
+
+// #region module
 export interface FormLeftRightProperties {
     theme?: Theme;
     style?: React.CSSProperties;
@@ -24,6 +33,7 @@ export interface FormLeftRightProperties {
 const FormLeftRight: React.FC<FormLeftRightProperties> = (
     properties,
 ) => {
+    // #region properties
     const {
         /** optional */
         theme,
@@ -34,10 +44,11 @@ const FormLeftRight: React.FC<FormLeftRightProperties> = (
         children,
     } = properties;
 
-    const _theme = theme === undefined
-        ? themes.plurid
-        : theme;
+    const _theme = theme || pluridTheme;
+    // #endregion properties
 
+
+    // #region render
     return (
         <StyledFormLeftRight
             style={{
@@ -49,7 +60,12 @@ const FormLeftRight: React.FC<FormLeftRightProperties> = (
             {children}
         </StyledFormLeftRight>
     );
+    // #endregion render
 }
+// #endregion module
 
 
+
+// #region exports
 export default FormLeftRight;
+// #endregion exports
