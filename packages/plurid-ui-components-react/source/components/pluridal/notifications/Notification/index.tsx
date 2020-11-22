@@ -84,6 +84,7 @@ const Notification: React.FC<NotificationProperties> = (
 
         // #region optional
             // #region values
+            elements,
             style,
             className,
             // #endregion values
@@ -97,7 +98,7 @@ const Notification: React.FC<NotificationProperties> = (
         id,
         text,
         html,
-        // react,
+        react,
         timeout,
     } = data;
     // #endregion properties
@@ -135,11 +136,16 @@ const Notification: React.FC<NotificationProperties> = (
             <StyledNotificationContent
                 dangerouslySetInnerHTML={createMarkup(text)}
             />
-        ) : (
-            <StyledNotificationContent>
-                {text}
-            </StyledNotificationContent>
-        );
+        ) : react && elements && elements[text]
+            ? (
+                <StyledNotificationContent>
+                    {elements[text]}
+                </StyledNotificationContent>
+            ) : (
+                <StyledNotificationContent>
+                    {text}
+                </StyledNotificationContent>
+            );
 
     return (
         <StyledNotification
