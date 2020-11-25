@@ -28,7 +28,8 @@
 
 // #region module
 export interface CopyableLineProperties {
-    data: string,
+    data: string;
+    viewData?: string;
 }
 
 const CopyableLine: React.FC<CopyableLineProperties> = (
@@ -37,6 +38,7 @@ const CopyableLine: React.FC<CopyableLineProperties> = (
     // #region properties
     const {
         data,
+        viewData,
     } = properties;
     // #endregion properties
 
@@ -64,7 +66,7 @@ const CopyableLine: React.FC<CopyableLineProperties> = (
             if (!showData) {
                 setShowData(true);
             }
-        }, 2000);
+        }, 2_000);
     }, [
         showData,
     ]);
@@ -90,7 +92,7 @@ const CopyableLine: React.FC<CopyableLineProperties> = (
             <StyledData>
                 {showData ? (
                     <>
-                        {data}
+                        {viewData || data}
                     </>
                 ) : (
                     <>
