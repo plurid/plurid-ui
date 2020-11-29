@@ -46,10 +46,10 @@
         "prepublishOnly": "yarn build"
     },
     "peerDependencies": {
-        "@plurid/plurid-functions": ">=0",
-        "@plurid/plurid-icons-react": ">=0",
-        "@plurid/plurid-themes": ">=0",
-        "@plurid/plurid-ui-state-react": ">=0",
+        "@plurid/plurid-functions": "*",
+        "@plurid/plurid-icons-react": "*",
+        "@plurid/plurid-themes": "*",
+        "@plurid/plurid-ui-state-react": "*",
         "react": ">=17",
         "react-dom": ">=17",
         "react-redux": ">=7.2",

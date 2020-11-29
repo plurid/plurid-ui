@@ -42,7 +42,7 @@
         "prepublishOnly": "yarn build"
     },
     "peerDependencies": {
-        "@plurid/plurid-themes": ">=0"
+        "@plurid/plurid-themes": "*"
     },
     "devDependencies": {
         "@plurid/plurid-themes": "^0.0.0-0",
