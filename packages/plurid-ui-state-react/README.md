@@ -15,7 +15,13 @@
 
 
 
-# About
++ [About](#about)
++ [Packages](#packages)
++ [Codeophon](#codeophon)
+
+
+
+## About
 
 The package contains state modules for:
 
@@ -27,7 +33,7 @@ The package contains state modules for:
 
 
 
-# Packages
+## Packages
 
 <a target="_blank" href="https://www.npmjs.com/package/@plurid/plurid-ui-state-react">
     <img src="https://img.shields.io/npm/v/@plurid/plurid-ui-state-react.svg?logo=npm&colorB=1380C3&style=for-the-badge" alt="Version">
@@ -45,3 +51,10 @@ The package contains state modules for:
 [@plurid/plurid-ui-components-react][plurid-ui-components-react] • plurid' user interface components for `React`
 
 [plurid-ui-components-react]: https://github.com/plurid/plurid-ui/tree/master/packages/plurid-ui-components-react
+
+
+
+## [Codeophon](https://github.com/ly3xqhl8g9/codeophon)
+
++ licensing: [delicense](https://github.com/ly3xqhl8g9/delicense)
++ versioning: [αver](https://github.com/ly3xqhl8g9/alpha-versioning)
