@@ -4,10 +4,6 @@
         fonts,
     } from './data/constants';
 
-    import {
-        PluridUIDropdownSelectable,
-    } from './data/interfaces';
-
     import universal from '#components/universal';
     import pluridal from '#components/pluridal';
     // #endregion internal
@@ -16,6 +12,9 @@
 
 
 // #region exports
+export * from './data/interfaces';
+
+
 export {
     // Components
     universal,
@@ -23,8 +22,5 @@ export {
 
     // Data
     fonts,
-
-    // Interfaces
-    PluridUIDropdownSelectable,
 };
 // #endregion exports
