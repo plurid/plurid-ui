@@ -29,6 +29,8 @@ export interface HeadingProperties {
         // #region values
         theme?: Theme;
         type?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+        style?: React.CSSProperties;
+        className?: string;
         // #endregion values
 
         // #region methods
@@ -54,6 +56,8 @@ const Heading: React.FC<React.PropsWithChildren<HeadingProperties>> = (
             // #region values
             theme: themeProperty,
             type: typeProperty,
+            style,
+            className,
             // #endregion values
 
             // #region methods
@@ -67,11 +71,17 @@ const Heading: React.FC<React.PropsWithChildren<HeadingProperties>> = (
 
 
     // #region render
+    const renderProperties = {
+        theme,
+        style,
+        className,
+    };
+
     switch (type) {
         case 'h1':
             return (
                 <StyledHeading1
-                    theme={theme}
+                    {...renderProperties}
                 >
                     {children}
                 </StyledHeading1>
@@ -79,7 +89,7 @@ const Heading: React.FC<React.PropsWithChildren<HeadingProperties>> = (
         case 'h2':
             return (
                 <StyledHeading2
-                    theme={theme}
+                    {...renderProperties}
                 >
                     {children}
                 </StyledHeading2>
@@ -87,7 +97,7 @@ const Heading: React.FC<React.PropsWithChildren<HeadingProperties>> = (
         case 'h3':
             return (
                 <StyledHeading3
-                    theme={theme}
+                    {...renderProperties}
                 >
                     {children}
                 </StyledHeading3>
@@ -95,7 +105,7 @@ const Heading: React.FC<React.PropsWithChildren<HeadingProperties>> = (
         case 'h4':
             return (
                 <StyledHeading4
-                    theme={theme}
+                    {...renderProperties}
                 >
                     {children}
                 </StyledHeading4>
@@ -103,7 +113,7 @@ const Heading: React.FC<React.PropsWithChildren<HeadingProperties>> = (
         case 'h5':
             return (
                 <StyledHeading5
-                    theme={theme}
+                    {...renderProperties}
                 >
                     {children}
                 </StyledHeading5>
@@ -111,7 +121,7 @@ const Heading: React.FC<React.PropsWithChildren<HeadingProperties>> = (
         case 'h6':
             return (
                 <StyledHeading6
-                    theme={theme}
+                    {...renderProperties}
                 >
                     {children}
                 </StyledHeading6>
@@ -119,7 +129,7 @@ const Heading: React.FC<React.PropsWithChildren<HeadingProperties>> = (
         default:
             return (
                 <StyledHeading1
-                    theme={theme}
+                    {...renderProperties}
                 >
                     {children}
                 </StyledHeading1>
