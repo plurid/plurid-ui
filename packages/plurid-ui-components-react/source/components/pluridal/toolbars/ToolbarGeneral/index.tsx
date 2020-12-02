@@ -144,7 +144,7 @@ const mapStateToProperties = (
 ): ToolbarGeneralStateProperties => ({
     stateView: ownProperties.selectors.views.getGeneralView(state),
     stateToolbars: ownProperties.selectors.product.getProductUI(state).toolbars,
-    stateSittingTray: ownProperties.selectors.sitting.getSittingTray(state),
+    stateSittingTray: ownProperties.selectors.sitting.getTray(state),
     stateInteractionTheme: ownProperties.selectors.themes.getInteractionTheme(state),
 });
 
