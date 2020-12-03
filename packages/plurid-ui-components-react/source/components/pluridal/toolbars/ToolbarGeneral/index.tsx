@@ -40,11 +40,27 @@
 
 // #region module
 export interface ToolbarGeneralOwnProperties {
-    buttons: ToolbarButton[],
-    handleClick: (type: any) => void;
-    speakButton?: boolean;
-    selectors: any;
-    context: any;
+    // #region required
+        // #region values
+        buttons: ToolbarButton[],
+        selectors: any;
+        context: any;
+        // #endregion values
+
+        // #region methods
+        handleClick: (type: any) => void;
+        // #endregion methods
+    // #endregion required
+
+    // #region optional
+        // #region values
+        speakButton?: boolean;
+        sittingButton?: boolean;
+        // #endregion values
+
+        // #region methods
+        // #endregion methods
+    // #endregion optional
 }
 
 export interface ToolbarGeneralStateProperties {
@@ -62,26 +78,46 @@ export type ToolbarGeneralProperties = ToolbarGeneralOwnProperties
     & ToolbarGeneralStateProperties
     & ToolbarGeneralDispatchProperties;
 
+
 const ToolbarGeneral: React.FC<ToolbarGeneralProperties> = (
     properties,
 ) => {
-    /** properties */
+    // #region properties
     const {
-        /** own */
-        buttons,
-        handleClick,
-        speakButton,
-        selectors,
-        context,
+        // #region required
+            // #region values
+            buttons,
+            selectors,
+            context,
+            // #endregion values
 
-        /** state */
+            // #region methods
+            handleClick,
+            // #endregion methods
+        // #endregion required
+
+        // #region optional
+            // #region values
+            speakButton,
+            sittingButton: sittingButtonProperty,
+            // #endregion values
+
+            // #region methods
+            // #endregion methods
+        // #endregion optional
+
+
+        // #region state
         stateView,
         stateSittingTray,
         stateToolbars,
         stateInteractionTheme,
+        // #endregion state
 
-        /** dispatch */
+
+        // #region dispatch
         dispatchToggleSittingTray,
+        // #endregion dispatch
     } = properties;
 
     const {
@@ -91,8 +127,11 @@ const ToolbarGeneral: React.FC<ToolbarGeneralProperties> = (
 
     const iconTextLeft = false;
 
+    const sittingButton = sittingButtonProperty ?? true;
+    // #endregion properties
 
-    /** render */
+
+    // #region render
     return (
         <ToolbarSpecific
             buttons={buttons}
@@ -115,26 +154,31 @@ const ToolbarGeneral: React.FC<ToolbarGeneralProperties> = (
                 />
             )}
 
-            <VerticalToolbarButton
-                atClick={() => dispatchToggleSittingTray()}
-                icon={PluridIconStateShareImage}
-                active={stateSittingTray}
-                text="sitting"
-                textLeft={iconTextLeft}
-                showText={showNames}
-                scaleIcon={scaleIcons}
-                theme={stateInteractionTheme}
-                last={true}
-            />
+            {sittingButton && (
+                <>
+                    <VerticalToolbarButton
+                        atClick={() => dispatchToggleSittingTray()}
+                        icon={PluridIconStateShareImage}
+                        active={stateSittingTray}
+                        text="sitting"
+                        textLeft={iconTextLeft}
+                        showText={showNames}
+                        scaleIcon={scaleIcons}
+                        theme={stateInteractionTheme}
+                        last={true}
+                    />
 
-            {stateSittingTray && (
-                <SittingTray
-                    selectors={selectors}
-                    context={context}
-                />
+                    {stateSittingTray && (
+                        <SittingTray
+                            selectors={selectors}
+                            context={context}
+                        />
+                    )}
+                </>
             )}
         </ToolbarSpecific>
     );
+    // #endregion render
 }
 
 
@@ -142,10 +186,10 @@ const mapStateToProperties = (
     state: any,
     ownProperties: any,
 ): ToolbarGeneralStateProperties => ({
-    stateView: ownProperties.selectors.views.getGeneralView(state),
-    stateToolbars: ownProperties.selectors.product.getProductUI(state).toolbars,
-    stateSittingTray: ownProperties.selectors.sitting.getTray(state),
-    stateInteractionTheme: ownProperties.selectors.themes.getInteractionTheme(state),
+    stateView: ownProperties.selectors.views?.getGeneralView(state),
+    stateToolbars: ownProperties.selectors.product?.getProductUI(state)?.toolbars,
+    stateSittingTray: ownProperties.selectors.sitting?.getTray(state),
+    stateInteractionTheme: ownProperties.selectors.themes?.getInteractionTheme(state),
 });
 
 
