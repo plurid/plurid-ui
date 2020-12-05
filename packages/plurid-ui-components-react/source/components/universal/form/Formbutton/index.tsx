@@ -6,6 +6,10 @@
         plurid as pluridTheme,
         Theme,
     } from '@plurid/plurid-themes';
+
+    import {
+        PluridIconProperties,
+    } from '@plurid/plurid-icons-react';
     // #endregion libraries
 
 
@@ -23,7 +27,7 @@
 // #region module
 export interface FormbuttonProperties {
     text: string;
-    Icon: React.FC;
+    Icon: React.FC<PluridIconProperties>;
     atClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 
     link?: string;
@@ -85,7 +89,9 @@ const Formbutton: React.FC<FormbuttonProperties> = (
             <StyledFormbuttonIcon
                 position={_iconPosition}
             >
-                <Icon />
+                <Icon
+                    theme={_theme}
+                />
             </StyledFormbuttonIcon>
 
             <StyledFormbuttonText>
