@@ -441,6 +441,19 @@ const Dropdown: React.FC<DropdownProperties> = (
             isMounted.current = false;
         }
     }, []);
+
+    /**
+     * Selectables update.
+     */
+    useEffect(() => {
+        setFilteredSelectables(
+            [
+                ...selectables,
+            ],
+        );
+    }, [
+        selectables.length,
+    ]);
     // #endregion effects
 
 
