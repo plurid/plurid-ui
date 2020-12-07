@@ -39,7 +39,9 @@ const updateNotification = (
         };
     });
 
-    return updatedState;
+    return [
+        ...updatedState,
+    ];
 }
 
 

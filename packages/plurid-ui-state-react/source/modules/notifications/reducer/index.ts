@@ -23,9 +23,9 @@ const reducer = (
         case Types.REMOVE_NOTIFICATION:
             return resolvers.removeNotification(state, action);
         default:
-            return {
+            return [
                 ...state,
-            };
+            ];
     }
 }
 // #endregion module
