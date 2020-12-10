@@ -10,10 +10,12 @@
 
 
 <h1 align="center">
-    plurid' user interface components for React
+    plurid' user interface state and components
 </h1>
 
 
+
+### Contents
 
 + [Packages](#packages)
 + [Codeophon](#codeophon)

@@ -1,8 +1,13 @@
 // #region imports
-import ttypescript from 'ttypescript';
-import typescript from 'rollup-plugin-typescript2';
+    // #region libraries
+    import ttypescript from 'ttypescript';
+    import typescript from 'rollup-plugin-typescript2';
+    // #endregion libraries
 
-import pkg from '../package.json';
+
+    // #region internal
+    import pkg from '../package.json';
+    // #endregion internal
 // #endregion imports
 
 
@@ -10,22 +15,22 @@ import pkg from '../package.json';
 // #region module
 const build = {
     input: 'source/index.ts',
+    external: [
+        '@plurid/plurid-themes',
+    ],
     output: [
         {
             file: pkg.main,
             format: 'cjs',
             exports: 'named',
-            sourcemap: false,
+            sourcemap: true,
         },
         {
             file: pkg.module,
             format: 'es',
             exports: 'named',
-            sourcemap: false,
+            sourcemap: true,
         },
-    ],
-    external: [
-        '@plurid/plurid-themes',
     ],
     plugins: [
         typescript({
