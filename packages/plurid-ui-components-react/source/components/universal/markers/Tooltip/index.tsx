@@ -66,7 +66,7 @@ const Tooltip: React.FC<TooltipProperties> = (
 
 
     // #region references
-    const hoverOutTimeout = useRef<null | number>(null);
+    const hoverOutTimeout = useRef<NodeJS.Timeout | null>(null);
     // #endregion references
 
 

@@ -21,11 +21,14 @@
 
 // #region module
 export interface SwitchProperties {
+    checked: boolean;
+
     theme?: Theme;
     level?: number;
     round?: boolean;
     exclusive?: boolean;
-    checked: boolean;
+    accent?: string;
+
     atChange: () => void;
 }
 
@@ -34,11 +37,14 @@ const Switch: React.FC<SwitchProperties> = (
 ) => {
     // #region properties
     const {
+        checked,
+
         theme,
         level,
         round,
         exclusive,
-        checked,
+        accent,
+
         atChange,
     } = properties;
 
@@ -64,12 +70,14 @@ const Switch: React.FC<SwitchProperties> = (
                 checked={checked}
                 onChange={() => atChange()}
             />
+
             <StyledSwitchSlider
                 theme={_theme}
                 level={_level}
                 round={_round}
                 exclusive={exclusive}
                 checked={checked}
+                accent={accent}
             />
         </StyledSwitch>
     );

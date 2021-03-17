@@ -35,6 +35,10 @@ export const StyledSwitchSlider: any = styled.span`
     box-shadow: inset 0 2px 3px black;
 
     background-color: ${(props: any) => {
+        if (props.accent) {
+            return props.accent;
+        }
+
         if (props.exclusive && !props.checked) {
             switch (props.level) {
                 case 0:
