@@ -10,7 +10,6 @@
 // #region exports
 export * from './data/interfaces';
 
-
 export {
     universal,
     pluridal,
