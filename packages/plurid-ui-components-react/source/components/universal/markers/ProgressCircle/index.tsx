@@ -1,9 +1,6 @@
 // #region imports
     // #region libraries
-    import React, {
-        useState,
-        useEffect,
-    } from 'react';
+    import React from 'react';
 
     import {
         plurid as pluridTheme,
@@ -30,14 +27,28 @@
 
 // #region module
 export interface ProgressCircleProperties {
-    progress: number;
+    // #region required
+        // #region values
+        progress: number;
+        // #endregion values
 
-    size?: Sizes;
-    radius?: number;
-    stroke?: number;
-    theme?: Theme;
-    style?: React.CSSProperties;
-    className?: string;
+        // #region methods
+        // #endregion methods
+    // #endregion required
+
+    // #region optional
+        // #region values
+        size?: Sizes;
+        radius?: number;
+        stroke?: number;
+        theme?: Theme;
+        style?: React.CSSProperties;
+        className?: string;
+        // #endregion values
+
+        // #region methods
+        // #endregion methods
+    // #endregion optional
 }
 
 const ProgressCircle: React.FC<ProgressCircleProperties> = (
@@ -45,14 +56,28 @@ const ProgressCircle: React.FC<ProgressCircleProperties> = (
 ) => {
     // #region properties
     const {
-        progress,
+        // #region required
+            // #region values
+            progress,
+            // #endregion values
 
-        size: sizeProperty,
-        radius,
-        stroke,
-        theme: themeProperty,
-        style,
-        className,
+            // #region methods
+            // #endregion methods
+        // #endregion required
+
+        // #region optional
+            // #region values
+            size,
+            radius,
+            stroke,
+            theme,
+            style,
+            className,
+            // #endregion values
+
+            // #region methods
+            // #endregion methods
+        // #endregion optional
     } = properties;
 
     const progressValue = progress < 0
@@ -61,78 +86,49 @@ const ProgressCircle: React.FC<ProgressCircleProperties> = (
             ? 100
             : progress;
 
-    const _radius = radius || 20;
-    const _stroke = stroke || 3;
+    const radiusValue = radius || 20;
+    const strokeValue = stroke || 3;
 
-    const normalizedRadius = _radius - _stroke * 2;
+    const normalizedRadius = radiusValue - strokeValue * 2;
     const circumference = normalizedRadius * 2 * Math.PI;
     const strokeDashoffset = circumference - progressValue / 100 * circumference;
+
+    const themeValue = theme || pluridTheme;
+    const sizeValue = size || 'normal';
     // #endregion properties
-
-
-    // #region state
-    const [theme, setTheme] = useState(
-        themeProperty || pluridTheme,
-    );
-
-    const [size, setSize] = useState(
-        sizeProperty || 'normal',
-    );
-    // #endregion state
-
-
-    // #region effects
-    /** Handle Theme */
-    useEffect(() => {
-        if (themeProperty) {
-            setTheme(themeProperty);
-        }
-    }, [
-        themeProperty,
-    ]);
-
-    /** Handle Size */
-    useEffect(() => {
-        if (sizeProperty) {
-            setSize(sizeProperty);
-        }
-    }, [
-        sizeProperty,
-    ]);
-    // #endregion effects
 
 
     // #region render
     return (
         <StyledProgressCircle
-            size={size}
-            theme={theme}
+            size={sizeValue}
+            theme={themeValue}
             style={{
                 ...style,
             }}
             className={className}
         >
             <svg
-                height={_radius * 2}
-                width={_radius * 2}
+                height={radiusValue * 2}
+                width={radiusValue * 2}
             >
                  <circle
-                    stroke={theme.backgroundColorPrimaryAlpha}
+                    stroke={themeValue.backgroundColorPrimaryAlpha}
                     fill="transparent"
-                    strokeWidth={_stroke}
+                    strokeWidth={strokeValue}
                     r={normalizedRadius}
-                    cx={_radius}
-                    cy={_radius}
+                    cx={radiusValue}
+                    cy={radiusValue}
                 />
                 <circle
-                    stroke={theme.colorPrimary}
+                    stroke={themeValue.colorPrimary}
                     fill="transparent"
-                    strokeWidth={_stroke}
+                    strokeWidth={strokeValue}
                     strokeDasharray={circumference + ' ' + circumference}
                     style={{strokeDashoffset}}
                     r={normalizedRadius}
-                    cx={_radius}
-                    cy={_radius}
+                    cx={radiusValue}
+                    cy={radiusValue}
                 />
             </svg>
         </StyledProgressCircle>
