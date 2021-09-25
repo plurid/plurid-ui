@@ -40,9 +40,11 @@ export interface SittingTrayStateProperties {
 export interface SittingTrayDispatchProperties {
 }
 
-export type SittingTrayProperties = SittingTrayOwnProperties
+export type SittingTrayProperties =
+    & SittingTrayOwnProperties
     & SittingTrayStateProperties
     & SittingTrayDispatchProperties;
+
 
 const SittingTray: React.FC<SittingTrayProperties> = (
     properties,

@@ -22,7 +22,7 @@
     import {
         themeSelect,
         Background,
-    } from '#utilities/storybook';
+    } from '~utilities/storybook';
     // #endregion external
 // #endregion imports
 

@@ -9,17 +9,17 @@
         plurid,
         Theme,
     } from '@plurid/plurid-themes';
+
+    import {
+        mergeReferences,
+    } from '@plurid/plurid-functions-react';
     // #endregion libraries
 
 
     // #region external
     import {
         setNativeValue,
-    } from '#utilities/input';
-
-    import {
-        mergeReferences,
-    } from '#utilities/react';
+    } from '~utilities/input';
     // #endregion external
 
 

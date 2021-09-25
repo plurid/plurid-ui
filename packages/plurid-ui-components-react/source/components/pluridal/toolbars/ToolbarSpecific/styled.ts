@@ -11,7 +11,7 @@
     // #region external
     import {
         HorizontalPositions,
-    } from '#data/enumerations';
+    } from '~data/enumerations';
     // #endregion external
 // #endregion imports
 

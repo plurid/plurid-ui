@@ -22,17 +22,17 @@
 
 
     // #region external
-    import ToolbarSpecific from '../ToolbarSpecific';
-    import VerticalToolbarButton from '../VerticalToolbarButton';
-    import SittingTray from '#components/pluridal/sitting/SittingTray';
-
     import {
         ToolbarButton,
-    } from '#data/interfaces';
+    } from '~data/interfaces';
 
     import {
         HorizontalPositions,
-    } from '#data/enumerations';
+    } from '~data/enumerations';
+
+    import ToolbarSpecific from '../ToolbarSpecific';
+    import VerticalToolbarButton from '../VerticalToolbarButton';
+    import SittingTray from '~components/pluridal/sitting/SittingTray';
     // #endregion external
 // #endregion imports
 

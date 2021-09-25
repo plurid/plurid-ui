@@ -46,9 +46,11 @@ export interface SittingsStateProperties {
 export interface SittingsDispatchProperties {
 }
 
-export type SittingsProperties = SittingsOwnProperties
+export type SittingsProperties =
+    & SittingsOwnProperties
     & SittingsStateProperties
     & SittingsDispatchProperties;
+
 
 const Sittings: React.FC<SittingsProperties> = (
     properties,

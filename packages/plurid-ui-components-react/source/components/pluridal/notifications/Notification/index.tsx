@@ -6,6 +6,10 @@
     } from 'react';
 
     import {
+        Theme,
+    } from '@plurid/plurid-themes';
+
+    import {
         notifications,
     } from '@plurid/plurid-ui-state-react';
 
@@ -14,16 +18,9 @@
     } from '@plurid/plurid-icons-react';
 
     import {
-        Theme,
-    } from '@plurid/plurid-themes';
-    // #endregion libraries
-
-
-    // #region external
-    import {
         createMarkup,
-    } from '#utilities/react';
-    // #endregion external
+    } from '@plurid/plurid-functions-react';
+    // #endregion libraries
 
 
     // #region internal

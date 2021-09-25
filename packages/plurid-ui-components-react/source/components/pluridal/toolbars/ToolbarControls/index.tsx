@@ -12,7 +12,7 @@
     // #region external
     import {
         VerticalPositions,
-    } from '#data/enumerations';
+    } from '~data/enumerations';
     // #endregion external
 
 

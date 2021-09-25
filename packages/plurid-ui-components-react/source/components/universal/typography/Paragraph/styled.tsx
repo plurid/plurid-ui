@@ -10,13 +10,8 @@
 
     // #region external
     import {
-        fontFamilySansSerif,
-        fontFamilySerif,
-    } from '#data/constants';
-
-    import {
         Sizes,
-    } from '#data/interfaces';
+    } from '~data/interfaces';
     // #endregion external
 // #endregion imports
 
@@ -34,9 +29,9 @@ export const StyledParagraph: any = styled.p<IStyledParagraph>`
     font-family: ${(props: IStyledParagraph) => {
         switch (props.fontFamily) {
             case 'sans-serif':
-                return fontFamilySansSerif;
+                return props.theme.fontFamilySansSerif;
             case 'serif':
-                return fontFamilySerif;
+                return props.theme.fontFamilySerif;
             default:
                 return props.fontFamily;
         }

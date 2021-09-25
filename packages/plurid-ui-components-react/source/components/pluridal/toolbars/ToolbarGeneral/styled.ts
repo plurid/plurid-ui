@@ -6,6 +6,7 @@
 
 
 
+// #region module
 export const StyledToolbar = styled.div`
     position: absolute;
     top: 0;
@@ -41,3 +42,4 @@ export const StyledToolbarButtons: any = styled.div`
     z-index: 9999;
     user-select: none;
 `;
+// #endregion module

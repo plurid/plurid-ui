@@ -58,9 +58,11 @@ export interface NotificationsDispatchProperties {
     dispatchRemoveNotification: typeof notificationsStateService.actions.removeNotification;
 }
 
-export type NotificationsProperties = NotificationsOwnProperties
+export type NotificationsProperties =
+    & NotificationsOwnProperties
     & NotificationsStateProperties
     & NotificationsDispatchProperties;
+
 
 const Notifications: React.FC<NotificationsProperties> = (
     properties,

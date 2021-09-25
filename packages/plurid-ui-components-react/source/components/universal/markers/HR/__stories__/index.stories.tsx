@@ -17,7 +17,7 @@
         themeLabel,
         themeOptions,
         defaultThemeValue,
-    } from '#utilities/storybook';
+    } from '~utilities/storybook';
 
     import PluridUIHR from '../';
     // #endregion external

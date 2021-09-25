@@ -6,15 +6,7 @@
         Theme,
     } from '@plurid/plurid-themes';
     // #endregion libraries
-
-
-    // #region external
-    import {
-        fontFamilySansSerif,
-    } from '#data/constants';
-    // #endregion external
 // #endregion imports
-
 
 
 
@@ -51,7 +43,11 @@ export const StyledHorizontalToolbarButton = styled.div<IStyledHorizontalToolbar
             return props.theme.colorPrimary;
         }
     };
-    font-family: ${fontFamilySansSerif};
+    font-family:  ${
+        (props: IStyledHorizontalToolbarButton) => {
+            return props.theme.fontFamilySansSerif;
+        }
+    };
 
     :hover {
         background: ${(props: IStyledHorizontalToolbarButton) => {

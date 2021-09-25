@@ -12,9 +12,9 @@
     // #region external
     import {
         Sizes,
-    } from '#data/interfaces';
+    } from '~data/interfaces';
 
-    import PluridSpinner from '#components/universal/markers/Spinner';
+    import PluridSpinner from '~components/universal/markers/Spinner';
     // #endregion external
 
 

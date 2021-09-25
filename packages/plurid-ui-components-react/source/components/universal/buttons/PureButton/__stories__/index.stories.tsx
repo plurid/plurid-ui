@@ -19,7 +19,7 @@
     // #region external
     import {
         Sizes,
-    } from '#data/interfaces';
+    } from '~data/interfaces';
 
     import PluridUIPureButton from '../';
     // #endregion external

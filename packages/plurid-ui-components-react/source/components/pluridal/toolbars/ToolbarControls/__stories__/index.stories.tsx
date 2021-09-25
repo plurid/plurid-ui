@@ -29,7 +29,7 @@
         themeLabel,
         themeOptions,
         defaultThemeValue,
-    } from '#utilities/storybook';
+    } from '~utilities/storybook';
     // #endregion external
 // #endregion imports
 

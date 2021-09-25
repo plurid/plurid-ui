@@ -19,7 +19,7 @@
         themeLabel,
         themeOptions,
         defaultThemeValue,
-    } from '#utilities/storybook';
+    } from '~utilities/storybook';
 
     import PluridUISpinner from '../';
     // #endregion external

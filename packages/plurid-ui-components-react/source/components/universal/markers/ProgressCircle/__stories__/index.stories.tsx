@@ -20,7 +20,7 @@
         themeLabel,
         themeOptions,
         defaultThemeValue,
-    } from '#utilities/storybook';
+    } from '~utilities/storybook';
 
     import PluridUIProgressCircle from '../';
     // #endregion external

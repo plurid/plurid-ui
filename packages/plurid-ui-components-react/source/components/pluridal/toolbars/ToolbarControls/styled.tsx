@@ -11,13 +11,14 @@
     // #region external
     import {
         VerticalPositions,
-    } from '#data/enumerations';
+    } from '~data/enumerations';
     // #endregion external
 // #endregion imports
 
 
 
-interface IStyledToolbarControls {
+// #region module
+export interface IStyledToolbarControls {
     position: keyof typeof VerticalPositions;
     theme: Theme;
 }
@@ -74,3 +75,4 @@ export const StyledToolbarControlsButtons = styled.div<IStyledToolbarControlsBut
     opacity: 1;
     height: 100%;
 `;
+// #endregion module

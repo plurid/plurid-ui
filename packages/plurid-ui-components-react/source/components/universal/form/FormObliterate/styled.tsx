@@ -6,13 +6,6 @@
         Theme,
     } from '@plurid/plurid-themes';
     // #endregion libraries
-
-
-    // #region external
-    import {
-        fontFamilySansSerif,
-    } from '#data/constants';
-    // #endregion external
 // #endregion imports
 
 
@@ -28,7 +21,9 @@ export const StyledFormObliterate = styled.div<IStyledFormObliterate>`
     color: ${(properties: IStyledFormObliterate) => {
         return properties.theme.colorPrimary;
     }};
-    font-family: ${fontFamilySansSerif};
+    font-family: ${(properties: IStyledFormObliterate) => {
+        return properties.theme.fontFamilySansSerif;
+    }};
     font-size: 0.8rem;
     user-select: none;
 `;

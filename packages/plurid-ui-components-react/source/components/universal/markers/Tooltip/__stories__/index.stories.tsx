@@ -21,7 +21,7 @@
         themeLabel,
         themeOptions,
         defaultThemeValue,
-    } from '#utilities/storybook';
+    } from '~utilities/storybook';
 
     import PluridUITooltip from '../';
     // #endregion external

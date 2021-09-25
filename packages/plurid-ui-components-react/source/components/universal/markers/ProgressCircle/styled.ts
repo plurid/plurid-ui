@@ -1,18 +1,19 @@
 // #region imports
     // #region libraries
     import styled from 'styled-components';
-
-    import {
-        Theme,
-    } from '@plurid/plurid-themes';
     // #endregion libraries
+
+
+    // #region external
+    import {
+        Sizes,
+    } from '~data/interfaces';
+    // #endregion external
 // #endregion imports
-import {
-    Sizes,
-} from '#data/interfaces';
 
 
 
+// #region module
 export interface IStyledProgressCircle {
     size: Sizes;
 }
@@ -28,3 +29,4 @@ export const StyledProgressCircle = styled.div<IStyledProgressCircle>`
         transform: translateX(-50%) translateY(-50%);
     }
 `;
+// #endregion module

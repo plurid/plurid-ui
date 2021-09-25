@@ -20,7 +20,7 @@
     // #region external
     import {
         PluridUIDropdownSelectable,
-    } from '#data/interfaces';
+    } from '~data/interfaces';
 
     import Textline from '../Textline';
     // #endregion external

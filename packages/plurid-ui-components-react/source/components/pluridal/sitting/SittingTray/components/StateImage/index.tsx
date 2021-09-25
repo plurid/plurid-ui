@@ -55,9 +55,11 @@ export interface StateImageStateProperties {
 export interface StateImageDispatchProperties {
 }
 
-export type StateImageProperties = StateImageOwnProperties
+export type StateImageProperties =
+    & StateImageOwnProperties
     & StateImageStateProperties
     & StateImageDispatchProperties;
+
 
 const StateImage: React.FC<StateImageProperties> = (
     properties,
