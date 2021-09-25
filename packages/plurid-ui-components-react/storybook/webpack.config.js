@@ -28,9 +28,9 @@ module.exports = ({config}) => {
 
     config.resolve.alias = {
         ...config.resolve.alias,
-        "#data": path.resolve(__dirname, "../source/data"),
-        "#components": path.resolve(__dirname, "../source/components"),
-        "#utilities": path.resolve(__dirname, "../source/utilities"),
+        "~data": path.resolve(__dirname, "../source/data"),
+        "~components": path.resolve(__dirname, "../source/components"),
+        "~utilities": path.resolve(__dirname, "../source/utilities"),
     };
 
     return config;
