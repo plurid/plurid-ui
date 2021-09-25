@@ -21,8 +21,10 @@ export const StyledHR = styled.hr<IStyledHR>`
     margin: 0.8rem auto;
     height: 1px;
 
-    background-color: ${(props: IStyledHR) => {
-        return props.theme.colorPrimary;
-    }};
+    background-color: ${
+        ({
+            theme,
+        }: IStyledHR) => theme.colorPrimary
+    };
 `;
 // #endregion module

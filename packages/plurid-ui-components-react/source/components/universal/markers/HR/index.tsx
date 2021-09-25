@@ -20,9 +20,13 @@
 
 // #region module
 export interface HRProperties {
-    theme?: Theme;
-    style?: React.CSSProperties;
-    className?: string;
+    // #region optional
+        // #region values
+        theme?: Theme;
+        style?: React.CSSProperties;
+        className?: string;
+        // #endregion values
+    // #endregion optional
 }
 
 const HR: React.FC<HRProperties> = (
@@ -30,22 +34,25 @@ const HR: React.FC<HRProperties> = (
 ) => {
     // #region properties
     const {
-        /** optional */
-        theme,
-        style,
-        className,
+        // #region optional
+            // #region values
+            theme,
+            style,
+            className,
+            // #endregion values
+        // #endregion optional
     } = properties;
 
-    const _theme = theme || pluridTheme;
+    const themeValue = theme || pluridTheme;
     // #endregion properties
 
 
     // #region render
     return (
         <StyledHR
-            theme={_theme}
+            theme={themeValue}
             style={{
-                ...style
+                ...style,
             }}
             className={className}
         />
