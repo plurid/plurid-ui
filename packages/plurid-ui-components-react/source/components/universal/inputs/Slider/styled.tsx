@@ -6,13 +6,6 @@
         Theme,
     } from '@plurid/plurid-themes';
     // #endregion libraries
-
-
-    // #region external
-    import {
-        fontFamilySansSerif,
-    } from '../../../../data/constants';
-    // #endregion external
 // #endregion imports
 
 
@@ -21,7 +14,7 @@
 export const StyledSlider: any = styled.div`
     display: grid;
     align-items: center;
-    font-family: ${fontFamilySansSerif};
+    font-family: ${(props: any) => props.theme.fontFamilySansSerif };
     grid-template-columns: 1fr;
     grid-template-rows: auto;
 
