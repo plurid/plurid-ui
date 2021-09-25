@@ -65,7 +65,7 @@
         "@plurid/plurid-functions-react": "^0.0.0-4",
         "@plurid/plurid-icons-react": "^0.0.0-1",
         "@plurid/plurid-themes": "^0.0.0-0",
-        "@plurid/plurid-ui-state-react": "^0.0.0-0",
+        "@plurid/plurid-ui-state-react": "^0.0.0-1",
         "@storybook/addon-actions": "^6.3.8",
         "@storybook/addon-info": "^5.3.21",
         "@storybook/addon-knobs": "^6.3.1",
