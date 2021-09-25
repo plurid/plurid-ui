@@ -17,6 +17,7 @@ const build = {
     input: 'source/index.ts',
     external: [
         '@plurid/plurid-functions',
+        '@plurid/plurid-functions-react',
         '@plurid/plurid-icons-react',
         '@plurid/plurid-themes',
         '@plurid/plurid-ui-state-react',
