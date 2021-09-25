@@ -25,8 +25,18 @@
 
 // #region module
 export interface SpinnerProperties {
-    theme?: Theme;
-    size?: Sizes;
+    // #region optional
+        // #region values
+        theme?: Theme;
+        size?: Sizes;
+        style?: React.CSSProperties;
+        className?: string;
+        // #endregion values
+
+        // #region methods
+        // #endregion methods
+    // #endregion optional
+
 }
 
 const Spinner: React.FC<SpinnerProperties> = (
@@ -34,21 +44,36 @@ const Spinner: React.FC<SpinnerProperties> = (
 ) => {
     // #region properties
     const {
-        theme,
-        size,
+        // #region optional
+            // #region values
+            theme,
+            size,
+            style,
+            className,
+            // #endregion values
+
+            // #region methods
+            // #endregion methods
+        // #endregion optional
+
     } = properties;
 
-    const _theme = theme || pluridTheme;
-    const _size = size || 'normal';
+    const themeValue = theme || pluridTheme;
+    const sizeValue = size || 'normal';
     // #endregion properties
 
 
     // #region render
     return (
-        <StyledSpinner>
+        <StyledSpinner
+            style={{
+                ...style,
+            }}
+            className={className}
+        >
             <StyledLoader
-                theme={_theme}
-                size={_size}
+                theme={themeValue}
+                size={sizeValue}
             >
                 <div />
                 <div />

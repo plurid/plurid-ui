@@ -6,13 +6,18 @@
         Theme,
     } from '@plurid/plurid-themes';
     // #endregion libraries
+
+
+    // #region external
+    import {
+        Sizes,
+    } from '#data/interfaces';
+    // #endregion external
 // #endregion imports
-import {
-    Sizes,
-} from '#data/interfaces';
 
 
 
+// #region module
 export const StyledSpinner = styled.div`
     position: absolute;
     top: 50%;
@@ -136,3 +141,4 @@ export const StyledLoader = styled.div<IStyledLoader>`
         }
     }
 `;
+// #endregion module
