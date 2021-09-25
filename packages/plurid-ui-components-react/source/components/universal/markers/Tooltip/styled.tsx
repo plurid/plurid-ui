@@ -6,13 +6,6 @@
         Theme,
     } from '@plurid/plurid-themes';
     // #endregion libraries
-
-
-    // #region external
-    import {
-        fontFamilySansSerif,
-    } from '#data/constants';
-    // #endregion external
 // #endregion imports
 
 
@@ -45,7 +38,9 @@ export const StyledTooltipIcon = styled.span`
     line-height: 1.4;
     text-align: left;
 
-    font-family: ${fontFamilySansSerif};
+    font-family: ${(props: IStyledTooltip) => {
+        return props.theme.fontFamilySansSerif;
+    }};
     color: ${(props: IStyledTooltip) => {
         return props.theme.colorPrimary;
     }};
