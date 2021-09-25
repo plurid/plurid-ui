@@ -80,6 +80,7 @@ const ScrollableLine: React.FC<ScrollableLineProperties> = (
     // #endregion properties
 
 
+    // #region render
     return (
         <StyledScrollableLine
             theme={theme}
@@ -92,6 +93,7 @@ const ScrollableLine: React.FC<ScrollableLineProperties> = (
             {text}
         </StyledScrollableLine>
     );
+    // #endregion render
 }
 // #endregion module
 

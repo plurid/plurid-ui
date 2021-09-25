@@ -69,6 +69,7 @@ const NewPageLink: React.FC<NewPageLinkProperties> = (
     // #endregion properties
 
 
+    // #region render
     return (
         <StyledNewPageLink
             href={link}
@@ -83,6 +84,7 @@ const NewPageLink: React.FC<NewPageLinkProperties> = (
             {text}
         </StyledNewPageLink>
     );
+    // #endregion render
 }
 // #endregion module
 

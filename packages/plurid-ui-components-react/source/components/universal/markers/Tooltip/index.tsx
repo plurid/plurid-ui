@@ -66,6 +66,7 @@ const Tooltip: React.FC<TooltipProperties> = (
 
 
     // #region references
+    const mounted = useRef(false);
     const hoverOutTimeout = useRef<NodeJS.Timeout | null>(null);
     // #endregion references
 
@@ -78,6 +79,18 @@ const Tooltip: React.FC<TooltipProperties> = (
 
     // #region effects
     useEffect(() => {
+        mounted.current = true;
+
+        return () => {
+            mounted.current = false;
+        }
+    }, []);
+
+    useEffect(() => {
+        if (!mounted.current) {
+            return;
+        }
+
         if (mouseOver) {
             setShowTooltipText(true);
         }
@@ -85,6 +98,10 @@ const Tooltip: React.FC<TooltipProperties> = (
         if (!mouseOver) {
             hoverOutTimeout.current = setTimeout(
                 () => {
+                    if (!mounted.current) {
+                        return;
+                    }
+
                     setShowTooltipText(false);
                 },
                 500,
