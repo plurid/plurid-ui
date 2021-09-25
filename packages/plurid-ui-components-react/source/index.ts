@@ -12,7 +12,6 @@ export * from './data/interfaces';
 
 
 export {
-    // Components
     universal,
     pluridal,
 };
