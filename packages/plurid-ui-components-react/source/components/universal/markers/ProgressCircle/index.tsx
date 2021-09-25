@@ -104,7 +104,6 @@ const ProgressCircle: React.FC<ProgressCircleProperties> = (
     return (
         <StyledProgressCircle
             size={sizeValue}
-            theme={themeValue}
             style={{
                 ...style,
             }}
