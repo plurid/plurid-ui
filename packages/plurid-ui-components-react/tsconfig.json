@@ -8,13 +8,13 @@
 
         "baseUrl": ".",
         "paths": {
-            "#data/*": [
+            "~data/*": [
                 "./source/data/*"
             ],
-            "#components/*": [
+            "~components/*": [
                 "./source/components/*"
             ],
-            "#utilities/*": [
+            "~utilities/*": [
                 "./source/utilities/*"
             ],
         },
