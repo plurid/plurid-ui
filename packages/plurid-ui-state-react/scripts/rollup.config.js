@@ -2,6 +2,7 @@
     // #region libraries
     import ttypescript from 'ttypescript';
     import typescript from 'rollup-plugin-typescript2';
+    import { terser } from 'rollup-plugin-terser';
     // #endregion libraries
 
 
@@ -36,6 +37,14 @@ const build = {
         typescript({
             typescript: ttypescript,
             clean: true,
+        }),
+        terser({
+            mangle: false,
+            compress: false,
+            format: {
+                beautify: true,
+                comments: false,
+            },
         }),
     ],
 };
