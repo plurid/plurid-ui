@@ -1,14 +1,14 @@
 // #region imports
     // #region libraries
-    import React, {
-        useRef,
-        useState,
-        useEffect,
-    } from 'react';
+    import React from 'react';
 
     import {
         clipboard,
     } from '@plurid/plurid-functions';
+
+    import {
+        useFalseAfterTimedTrue,
+    } from '@plurid/plurid-functions-react';
 
     import {
         PluridIconCopy,
@@ -28,8 +28,34 @@
 
 // #region module
 export interface CopyableLineProperties {
-    data: string;
-    viewData?: string;
+    // #region required
+        // #region values
+        /**
+         * Data to be copied.
+         */
+        data: string;
+        // #endregion values
+
+        // #region methods
+        // #endregion methods
+    // #endregion required
+
+    // #region optional
+        // #region values
+        /**
+         * Data to be shown.
+         */
+        viewData?: string;
+        copyMessage?: string;
+        copyMessageTime?: number;
+
+        style?: React.CSSProperties;
+        className?: string;
+        // #endregion values
+
+        // #region methods
+        // #endregion methods
+    // #endregion optional
 }
 
 const CopyableLine: React.FC<CopyableLineProperties> = (
@@ -37,66 +63,68 @@ const CopyableLine: React.FC<CopyableLineProperties> = (
 ) => {
     // #region properties
     const {
-        data,
-        viewData,
+        // #region required
+            // #region values
+            data,
+            // #endregion values
+
+            // #region methods
+            // #endregion methods
+        // #endregion required
+
+        // #region optional
+            // #region values
+            viewData,
+            copyMessage,
+            copyMessageTime,
+
+            style,
+            className,
+            // #endregion values
+
+            // #region methods
+            // #endregion methods
+        // #endregion optional
     } = properties;
+
+    const viewDataText = viewData || data;
+    const copyMessageText = copyMessage ?? 'copied';
+    const copyMessageTimeValue = copyMessageTime || 2_000;
     // #endregion properties
-
-
-    // #region references
-    const mounted = useRef(true);
-    // #endregion references
 
 
     // #region state
     const [
-        showData,
-        setShowData,
-    ] = useState(true);
+        showCopyMessage,
+        setShowCopyMessage,
+    ] = useFalseAfterTimedTrue(copyMessageTimeValue);
     // #endregion state
-
-
-    // #region effects
-    useEffect(() => {
-        setTimeout(() => {
-            if (!mounted.current) {
-                return;
-            }
-
-            if (!showData) {
-                setShowData(true);
-            }
-        }, 2_000);
-    }, [
-        showData,
-    ]);
-
-    useEffect(() => {
-        return () => {
-            mounted.current = false;
-        }
-    }, []);
-    // #endregion effects
 
 
     // #region render
     return (
-        <StyledCopyableLine>
+        <StyledCopyableLine
+            style={{
+                ...style,
+            }}
+            className={className}
+        >
             <PluridIconCopy
                 atClick={() => {
                     clipboard.copy(data);
-                    setShowData(false);
+
+                    setShowCopyMessage(true);
                 }}
             />
 
             <StyledData>
-                {showData ? (
+                {showCopyMessage ? (
                     <>
-                        {viewData || data}
+                        {copyMessageText}
                     </>
                 ) : (
                     <>
-                        copied
+                        {viewDataText}
                     </>
                 )}
             </StyledData>
