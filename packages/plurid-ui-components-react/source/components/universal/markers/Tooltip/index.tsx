@@ -10,6 +10,10 @@
         plurid as pluridTheme,
         Theme,
     } from '@plurid/plurid-themes';
+
+    import {
+        useMounted,
+    } from '@plurid/plurid-functions-react';
     // #endregion libraries
 
 
@@ -66,7 +70,7 @@ const Tooltip: React.FC<TooltipProperties> = (
 
 
     // #region references
-    const mounted = useRef(false);
+    const mounted = useMounted();
     const hoverOutTimeout = useRef<NodeJS.Timeout | null>(null);
     // #endregion references
 
@@ -79,15 +83,7 @@ const Tooltip: React.FC<TooltipProperties> = (
 
     // #region effects
     useEffect(() => {
-        mounted.current = true;
-
-        return () => {
-            mounted.current = false;
-        }
-    }, []);
-
-    useEffect(() => {
-        if (!mounted.current) {
+        if (!mounted) {
             return;
         }
 
@@ -98,7 +94,7 @@ const Tooltip: React.FC<TooltipProperties> = (
         if (!mouseOver) {
             hoverOutTimeout.current = setTimeout(
                 () => {
-                    if (!mounted.current) {
+                    if (!mounted) {
                         return;
                     }
 
