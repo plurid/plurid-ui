@@ -88,6 +88,7 @@ const ProgressCircle: React.FC<ProgressCircleProperties> = (
         progress, 0, 100,
     );
     const radiusValue = radius || 20;
+    const diameter = radiusValue * 2;
     const strokeValue = stroke || 3;
 
     const normalizedRadius = radiusValue - strokeValue * 2;
@@ -110,8 +111,8 @@ const ProgressCircle: React.FC<ProgressCircleProperties> = (
             className={className}
         >
             <svg
-                height={radiusValue * 2}
-                width={radiusValue * 2}
+                height={diameter}
+                width={diameter}
             >
                  <circle
                     stroke={themeValue.backgroundColorPrimaryAlpha}
