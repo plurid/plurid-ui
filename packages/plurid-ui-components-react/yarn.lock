@@ -1532,10 +1532,10 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@plurid/plurid-functions-react@^0.0.0-3":
-  version "0.0.0-3"
-  resolved "https://registry.yarnpkg.com/@plurid/plurid-functions-react/-/plurid-functions-react-0.0.0-3.tgz#7ccdfa0221384e177e8a6d432d2405b459498cd3"
-  integrity sha512-o8y07+xCOh9I3Nkn4fHnB948Ell9GmGj9Cej5WZY+9h6xje5l6uNvcr1dKK2Ir4iwdSULTAIgTqP+kc8u+txcw==
+"@plurid/plurid-functions-react@^0.0.0-4":
+  version "0.0.0-4"
+  resolved "https://registry.yarnpkg.com/@plurid/plurid-functions-react/-/plurid-functions-react-0.0.0-4.tgz#c48835b3486308b3761304d586dfe4bc61f571bd"
+  integrity sha512-rmKhSO75x1Q1/CLXe/IU7scQsppKqPM6rkCxTA6dkDfXb1T/eU946hXdlVfKApEJGVkMM2GIPNr9q/b/p+amUw==
 
 "@plurid/plurid-functions@^0.0.0-9":
   version "0.0.0-9"
