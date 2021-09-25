@@ -6,6 +6,10 @@
         plurid as pluridTheme,
         Theme,
     } from '@plurid/plurid-themes';
+
+    import {
+        mathematics,
+    } from '@plurid/plurid-functions';
     // #endregion libraries
 
 
@@ -80,12 +84,9 @@ const ProgressCircle: React.FC<ProgressCircleProperties> = (
         // #endregion optional
     } = properties;
 
-    const progressValue = progress < 0
-        ? 0
-        : progress > 100
-            ? 100
-            : progress;
-
+    const progressValue = mathematics.numbers.normalizeBetween(
+        progress, 0, 100,
+    );
     const radiusValue = radius || 20;
     const strokeValue = stroke || 3;
 
