@@ -1,11 +1,6 @@
 // #region imports
     // #region libraries
     import React from 'react';
-
-    import {
-        plurid as pluridTheme,
-        Theme,
-    } from '@plurid/plurid-themes';
     // #endregion libraries
 
     // #region internal
@@ -30,8 +25,6 @@ export interface ScrollableLineProperties {
 
     // #region optional
         // #region values
-        theme?: Theme;
-        level?: number;
         style?: React.CSSProperties;
         className?: string;
         // #endregion values
@@ -63,9 +56,6 @@ const ScrollableLine: React.FC<ScrollableLineProperties> = (
 
         // #region optional
             // #region values
-            theme: themeProperty,
-            level: levelProperty,
-
             style,
             className,
             // #endregion values
@@ -74,17 +64,12 @@ const ScrollableLine: React.FC<ScrollableLineProperties> = (
             // #endregion methods
         // #endregion optional
     } = properties;
-
-    const theme = themeProperty || pluridTheme;
-    const level = levelProperty ?? 0;
     // #endregion properties
 
 
     // #region render
     return (
         <StyledScrollableLine
-            theme={theme}
-            level={level}
             style={{
                 ...style,
             }}
