@@ -15,6 +15,22 @@ const addNotification = (
         ...action.payload,
     };
 
+    const existingNotification = state.find(
+        notification => notification.id === newNotification.id,
+    );
+
+    if (existingNotification) {
+        const newState = state.map(notification => {
+            if (notification.id === newNotification.id) {
+                return newNotification;
+            }
+
+            return notification;
+        });
+
+        return newState;
+    }
+
     return [
         ...state,
         newNotification,
