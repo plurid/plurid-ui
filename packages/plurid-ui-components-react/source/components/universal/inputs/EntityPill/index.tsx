@@ -4,6 +4,7 @@
 
     import {
         Theme,
+        plurid as pluridTheme,
     } from '@plurid/plurid-themes';
 
     import {
@@ -25,7 +26,6 @@
 export interface EntityPillProperties {
     // #region required
         // #region values
-        theme: Theme;
         id: string;
         // #endregion values
 
@@ -39,6 +39,8 @@ export interface EntityPillProperties {
     // #region optional
         // #region values
         text?: string;
+        theme?: Theme;
+        style?: React.CSSProperties;
         // #endregion values
 
         // #region methods
@@ -53,7 +55,6 @@ const EntityPill: React.FC<EntityPillProperties> = (
     const {
         // #region required
             // #region values
-            theme,
             id,
             // #endregion values
 
@@ -65,6 +66,8 @@ const EntityPill: React.FC<EntityPillProperties> = (
         // #region optional
             // #region values
             text,
+            theme,
+            style,
             // #endregion values
 
             // #region methods
@@ -79,7 +82,10 @@ const EntityPill: React.FC<EntityPillProperties> = (
     // #region render
     return (
         <StyledEntityPill
-            theme={theme}
+            theme={theme || pluridTheme}
+            style={{
+                ...style,
+            }}
         >
             <div
                 style={{

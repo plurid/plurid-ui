@@ -5,6 +5,13 @@ export interface PluridUIDropdownSelectable {
 }
 
 
+export interface PluridUIEntityPillData {
+    id: string;
+    text?: string;
+}
+
+
+
 export type Small = 'small';
 export type Normal = 'normal';
 export type Large = 'large';

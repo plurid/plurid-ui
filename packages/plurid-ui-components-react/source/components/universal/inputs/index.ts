@@ -1,6 +1,8 @@
 // #region imports
     // #region internal
     import Dropdown from './Dropdown';
+    import EntityPill from './EntityPill';
+    import EntityPillGroup from './EntityPillGroup';
     import InputBox from './InputBox';
     import InputDescriptor from './InputDescriptor';
     import InputLine from './InputLine';
@@ -18,6 +20,8 @@
 // #region module
 const inputs = {
     Dropdown,
+    EntityPill,
+    EntityPillGroup,
     InputBox,
     InputDescriptor,
     InputLine,

@@ -1,7 +1,6 @@
 // #region imports
     // #region internal
     import CopyableLine from './CopyableLine';
-    import EntityPill from './EntityPill';
     import NewPageLink from './NewPageLink';
     import ScrollableLine from './ScrollableLine';
     import TextItem from './TextItem';
@@ -13,7 +12,6 @@
 // #region module
 const varia = {
     CopyableLine,
-    EntityPill,
     NewPageLink,
     ScrollableLine,
     TextItem,
