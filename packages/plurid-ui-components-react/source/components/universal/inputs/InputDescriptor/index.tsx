@@ -3,6 +3,7 @@
     import React from 'react';
 
     import {
+        plurid,
         Theme,
     } from '@plurid/plurid-themes';
     // #endregion libraries
@@ -23,9 +24,22 @@ export interface InputDescriptorProperties {
         // #region values
         name: string;
         show: boolean;
-        theme: Theme;
         // #endregion values
+
+        // #region methods
+        // #endregion methods
     // #endregion required
+
+    // #region optional
+        // #region values
+        theme?: Theme;
+        style?: React.CSSProperties;
+        className?: string;
+        // #endregion values
+
+        // #region methods
+        // #endregion methods
+    // #endregion optional
 }
 
 const InputDescriptor: React.FC<InputDescriptorProperties> = (
@@ -37,10 +51,25 @@ const InputDescriptor: React.FC<InputDescriptorProperties> = (
             // #region values
             name,
             show,
-            theme,
             // #endregion values
+
+            // #region methods
+            // #endregion methods
         // #endregion required
+
+        // #region optional
+            // #region values
+            theme: themeProperty,
+            style,
+            className,
+            // #endregion values
+
+            // #region methods
+            // #endregion methods
+        // #endregion optional
     } = properties;
+
+    const theme = themeProperty || plurid;
     // #endregion properties
 
 
@@ -48,6 +77,10 @@ const InputDescriptor: React.FC<InputDescriptorProperties> = (
     return (
         <StyledInputDescriptor
             theme={theme}
+            className={className}
+            style={{
+                ...style,
+            }}
         >
             {show && (
                 <>
