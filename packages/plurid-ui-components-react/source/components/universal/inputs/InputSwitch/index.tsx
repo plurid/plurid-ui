@@ -1,6 +1,11 @@
 // #region imports
     // #region libraries
     import React from 'react';
+
+    import {
+        plurid,
+        Theme,
+    } from '@plurid/plurid-themes';
     // #endregion libraries
 
 
@@ -21,12 +26,28 @@
 
 // #region module
 export interface InputSwitchProperties {
-    name: string;
-    checked: boolean;
-    theme: any;
-    atChange: () => void;
+    // #region required
+        // #region values
+        name: string;
+        checked: boolean;
+        // #endregion values
 
-    compact?: boolean;
+        // #region methods
+        atChange: () => void;
+        // #endregion methods
+    // #endregion required
+
+    // #region optional
+        // #region values
+        theme?: Theme;
+        compact?: boolean;
+        style?: React.CSSProperties;
+        className?: string;
+        // #endregion values
+
+        // #region methods
+        // #endregion methods
+    // #endregion optional
 }
 
 const InputSwitch: React.FC<InputSwitchProperties> = (
@@ -34,13 +55,31 @@ const InputSwitch: React.FC<InputSwitchProperties> = (
 ) => {
     // #region properties
     const {
-        name,
-        checked,
-        atChange,
-        theme,
+        // #region required
+            // #region values
+            name,
+            checked,
+            // #endregion values
 
-        compact,
+            // #region methods
+            atChange,
+            // #endregion methods
+        // #endregion required
+
+        // #region optional
+            // #region values
+            theme: themeProperty,
+            compact,
+            style,
+            className,
+            // #endregion values
+
+            // #region methods
+            // #endregion methods
+        // #endregion optional
     } = properties;
+
+    const theme = themeProperty || plurid;
     // #endregion properties
 
 
@@ -48,6 +87,10 @@ const InputSwitch: React.FC<InputSwitchProperties> = (
     return (
         <StyledInputSwitch
             compact={compact}
+            style={{
+                ...style,
+            }}
+            className={className}
         >
             <PluridFormLeftRight>
                 <div
