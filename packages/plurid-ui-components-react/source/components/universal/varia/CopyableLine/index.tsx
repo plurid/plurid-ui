@@ -3,6 +3,10 @@
     import React from 'react';
 
     import {
+        Theme,
+    } from '@plurid/plurid-themes';
+
+    import {
         clipboard,
     } from '@plurid/plurid-functions';
 
@@ -45,6 +49,7 @@ export interface CopyableLineProperties {
         /**
          * Data to be shown.
          */
+        theme?: Theme;
         viewData?: string;
         copyMessage?: string;
         copyMessageTime?: number;
@@ -74,6 +79,7 @@ const CopyableLine: React.FC<CopyableLineProperties> = (
 
         // #region optional
             // #region values
+            theme,
             viewData,
             copyMessage,
             copyMessageTime,
@@ -115,6 +121,7 @@ const CopyableLine: React.FC<CopyableLineProperties> = (
 
                     setShowCopyMessage(true);
                 }}
+                theme={theme}
             />
 
             <StyledData>
