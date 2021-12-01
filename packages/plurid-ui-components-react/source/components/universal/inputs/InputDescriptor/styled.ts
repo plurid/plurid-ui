@@ -18,6 +18,7 @@ export interface IStyledInputDescriptor {
 export const StyledInputDescriptor = styled.div<IStyledInputDescriptor>`
     text-align: left;
     font-size: 0.9rem;
+    line-height: 1;
     min-height: 1.1rem;
     margin-top: 1.3rem;
     margin-bottom: 0.4rem;
