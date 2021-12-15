@@ -25,6 +25,23 @@ export const StyledSwitch: any = styled.label`
 `;
 
 
+const levelBackgroundColor = (
+    props: any,
+) => {
+    switch (props.level) {
+        case 0:
+            return props.theme.backgroundColorPrimary;
+        case 1:
+            return props.theme.backgroundColorSecondary;
+        case 2:
+            return props.theme.backgroundColorTertiary;
+        case 3:
+            return props.theme.backgroundColorQuaternary;
+        default:
+            return props.theme.backgroundColorPrimary;
+    }
+}
+
 const backgroundColor = (
     props: any,
 ) => {
@@ -46,18 +63,8 @@ const backgroundColor = (
                 return props.theme.backgroundColorPrimaryAlpha;
         }
     }
-    switch (props.level) {
-        case 0:
-            return props.theme.backgroundColorPrimary;
-        case 1:
-            return props.theme.backgroundColorSecondary;
-        case 2:
-            return props.theme.backgroundColorTertiary;
-        case 3:
-            return props.theme.backgroundColorQuaternary;
-        default:
-            return props.theme.backgroundColorPrimary;
-    }
+
+    return levelBackgroundColor(props);
 }
 
 
@@ -115,21 +122,11 @@ export const StyledSwitchIcon: any = styled.div`
     top: 0;
     display: flex;
     align-items: center;
+    transition: .4s;
 
     svg {
         fill: ${(props: any) => {
-            switch (props.level) {
-                case 0:
-                    return props.theme.backgroundColorPrimary;
-                case 1:
-                    return props.theme.backgroundColorSecondary;
-                case 2:
-                    return props.theme.backgroundColorTertiary;
-                case 3:
-                    return props.theme.backgroundColorQuaternary;
-                default:
-                    return props.theme.backgroundColorPrimary;
-            }
+            return levelBackgroundColor(props);
         }};
     }
 `;
