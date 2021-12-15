@@ -10,6 +10,7 @@
 
 
 
+// #region module
 export const StyledSwitch: any = styled.label`
     position: relative;
     display: inline-block;
@@ -24,6 +25,42 @@ export const StyledSwitch: any = styled.label`
 `;
 
 
+const backgroundColor = (
+    props: any,
+) => {
+    if (props.accent) {
+        return props.accent;
+    }
+
+    if (props.exclusive && !props.checked) {
+        switch (props.level) {
+            case 0:
+                return props.theme.backgroundColorPrimaryAlpha;
+            case 1:
+                return props.theme.backgroundColorSecondaryAlpha;
+            case 2:
+                return props.theme.backgroundColorTertiaryAlpha;
+            case 3:
+                return props.theme.backgroundColorQuaternaryAlpha;
+            default:
+                return props.theme.backgroundColorPrimaryAlpha;
+        }
+    }
+    switch (props.level) {
+        case 0:
+            return props.theme.backgroundColorPrimary;
+        case 1:
+            return props.theme.backgroundColorSecondary;
+        case 2:
+            return props.theme.backgroundColorTertiary;
+        case 3:
+            return props.theme.backgroundColorQuaternary;
+        default:
+            return props.theme.backgroundColorPrimary;
+    }
+}
+
+
 export const StyledSwitchSlider: any = styled.span`
     position: absolute;
     cursor: pointer;
@@ -35,36 +72,7 @@ export const StyledSwitchSlider: any = styled.span`
     box-shadow: inset 0 2px 3px black;
 
     background-color: ${(props: any) => {
-        if (props.accent) {
-            return props.accent;
-        }
-
-        if (props.exclusive && !props.checked) {
-            switch (props.level) {
-                case 0:
-                    return props.theme.backgroundColorPrimaryAlpha;
-                case 1:
-                    return props.theme.backgroundColorSecondaryAlpha;
-                case 2:
-                    return props.theme.backgroundColorTertiaryAlpha;
-                case 3:
-                    return props.theme.backgroundColorQuaternaryAlpha;
-                default:
-                    return props.theme.backgroundColorPrimaryAlpha;
-            }
-        }
-        switch (props.level) {
-            case 0:
-                return props.theme.backgroundColorPrimary;
-            case 1:
-                return props.theme.backgroundColorSecondary;
-            case 2:
-                return props.theme.backgroundColorTertiary;
-            case 3:
-                return props.theme.backgroundColorQuaternary;
-            default:
-                return props.theme.backgroundColorPrimary;
-        }
+        return backgroundColor(props);
     }};
     border-radius: ${(props: any) => {
         if (props.round) {
@@ -99,3 +107,19 @@ export const StyledSwitchSlider: any = styled.span`
         }};
     }
 `;
+
+
+export const StyledSwitchIcon: any = styled.div`
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+
+    svg {
+        fill: ${(props: any) => {
+            return backgroundColor(props);
+        }};
+    }
+`;
+// #endregion module

@@ -13,6 +13,7 @@
     import {
         StyledSwitch,
         StyledSwitchSlider,
+        StyledSwitchIcon,
     } from './styled';
     // #endregion internal
 // #endregion imports
@@ -28,6 +29,7 @@ export interface SwitchProperties {
     round?: boolean;
     exclusive?: boolean;
     accent?: string;
+    Icon?: React.FC<any>;
 
     atChange: () => void;
 }
@@ -44,6 +46,7 @@ const Switch: React.FC<SwitchProperties> = (
         round,
         exclusive,
         accent,
+        Icon,
 
         atChange,
     } = properties;
@@ -57,6 +60,14 @@ const Switch: React.FC<SwitchProperties> = (
     const _round = round === undefined
         ? true
         : round;
+
+    const commonProperties = {
+        theme: _theme,
+        level: _level,
+        exclusive,
+        checked,
+        accent,
+    };
     // #endregion properties
 
 
@@ -72,13 +83,20 @@ const Switch: React.FC<SwitchProperties> = (
             />
 
             <StyledSwitchSlider
-                theme={_theme}
-                level={_level}
                 round={_round}
-                exclusive={exclusive}
-                checked={checked}
-                accent={accent}
+                {...commonProperties}
             />
+
+            {Icon && (
+                <StyledSwitchIcon
+                    {...commonProperties}
+                    style={{
+                        left: checked ? '-8px' : '8px',
+                    }}
+                >
+                    <Icon />
+                </StyledSwitchIcon>
+            )}
         </StyledSwitch>
     );
     // #endregion render
