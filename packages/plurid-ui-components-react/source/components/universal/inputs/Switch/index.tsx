@@ -91,7 +91,7 @@ const Switch: React.FC<SwitchProperties> = (
                 <StyledSwitchIcon
                     {...commonProperties}
                     style={{
-                        left: checked ? '-8px' : '8px',
+                        left: checked ? '35px' : '9px',
                     }}
                 >
                     <Icon />

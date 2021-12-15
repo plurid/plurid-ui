@@ -118,7 +118,18 @@ export const StyledSwitchIcon: any = styled.div`
 
     svg {
         fill: ${(props: any) => {
-            return backgroundColor(props);
+            switch (props.level) {
+                case 0:
+                    return props.theme.backgroundColorPrimary;
+                case 1:
+                    return props.theme.backgroundColorSecondary;
+                case 2:
+                    return props.theme.backgroundColorTertiary;
+                case 3:
+                    return props.theme.backgroundColorQuaternary;
+                default:
+                    return props.theme.backgroundColorPrimary;
+            }
         }};
     }
 `;
