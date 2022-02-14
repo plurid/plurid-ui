@@ -60,6 +60,7 @@ export interface TextlineProperties {
     error?: boolean;
 
     enterIconLeft?: boolean;
+    enterEmpty?: boolean;
     enterAtClick?: () => void;
     escapeClear?: boolean;
 
@@ -92,6 +93,7 @@ export type TextlineType = TextlineProperties & React.RefAttributes<any>;
  * @param error optional - `boolean`
  *
  * @param enterIconLeft optional - `boolean`
+ * @param enterEmpty optional - `boolean`
  * @param enterAtClick optional - `() => void`
  * @param escapeClear optional - `boolean`
  *
@@ -127,6 +129,7 @@ const Textline: React.ForwardRefExoticComponent<TextlineType> = forwardRef<HTMLI
         error,
 
         enterIconLeft,
+        enterEmpty,
         enterAtClick,
         escapeClear,
 
@@ -180,6 +183,8 @@ const Textline: React.ForwardRefExoticComponent<TextlineType> = forwardRef<HTMLI
 
 
     // #region render
+    const showEnterIcon = enterAtClick && (text.length > 0 || enterEmpty);
+
     return (
         <StyledTextline
             theme={_theme}
@@ -226,8 +231,7 @@ const Textline: React.ForwardRefExoticComponent<TextlineType> = forwardRef<HTMLI
             )}
 
             {
-                enterAtClick
-                && text.length > 0
+                showEnterIcon
                 && (
                     <StyledEnterIcon
                         theme={_theme}
