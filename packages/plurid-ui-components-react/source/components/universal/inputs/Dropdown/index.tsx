@@ -367,7 +367,6 @@ const Dropdown: React.FC<DropdownProperties> = (
         const scrollTo = (
             index: number,
         ) => {
-            console.log(itemsReferences.current[index].current);
             if (itemsReferences.current[index].current) {
                 itemsReferences.current[index].current.scrollIntoView({
                     behavior: 'smooth',
@@ -495,6 +494,7 @@ const Dropdown: React.FC<DropdownProperties> = (
                         ? filteredSelectables.length + 1
                         : heightItems
                     }
+                    heightBeyond={filteredSelectables.length > (heightItems || 0)}
                     width={width}
                 >
                     <ul>

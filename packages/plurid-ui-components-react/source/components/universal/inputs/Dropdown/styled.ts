@@ -74,7 +74,11 @@ export const StyledDropdownList: any = styled.div`
     }};
     height: ${(props: any) => {
         if (props.heightItems) {
-            return props.heightItems * 2 + 'rem';
+            const value = props.heightItems * 2 + 'rem';
+            if (props.heightBeyond) {
+                return `calc(${value} + 1rem)`;
+            }
+            return value;
         }
         return 'initial';
     }};
