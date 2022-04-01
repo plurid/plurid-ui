@@ -1,51 +1,51 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@babel/core': ^7.16.5
-  '@plurid/plurid-functions': ^0.0.0-17
+  '@babel/core': ^7.17.8
+  '@plurid/plurid-functions': ^0.0.0-21
   '@plurid/plurid-functions-react': ^0.0.0-4
   '@plurid/plurid-icons-react': ^0.0.0-3
-  '@plurid/plurid-themes': ^0.0.0-1
+  '@plurid/plurid-themes': ^0.0.0-2
   '@plurid/plurid-ui-state-react': ^0.0.0-2
-  '@storybook/addon-actions': ^6.4.9
+  '@storybook/addon-actions': ^6.4.20
   '@storybook/addon-info': ^5.3.21
   '@storybook/addon-knobs': ^6.3.1
-  '@storybook/addon-links': ^6.4.9
-  '@storybook/addons': ^6.4.9
-  '@storybook/react': ^6.4.9
-  '@svgr/rollup': ^6.1.2
-  '@types/enzyme': ^3.10.10
+  '@storybook/addon-links': ^6.4.20
+  '@storybook/addons': ^6.4.20
+  '@storybook/react': ^6.4.20
+  '@svgr/rollup': ^6.2.1
+  '@types/enzyme': ^3.10.11
   '@types/enzyme-adapter-react-16': ^1.0.6
-  '@types/jest': ^27.0.3
+  '@types/jest': ^27.4.1
   '@types/node': ^17.0.23
-  '@types/react': ^17.0.37
-  '@types/react-dom': ^17.0.11
-  '@types/react-redux': ^7.1.20
-  '@types/styled-components': ^5.1.18
-  '@typescript-eslint/eslint-plugin': ^5.7.0
-  '@typescript-eslint/parser': ^5.7.0
+  '@types/react': ^17.0.43
+  '@types/react-dom': ^17.0.14
+  '@types/react-redux': ^7.1.23
+  '@types/styled-components': ^5.1.24
+  '@typescript-eslint/eslint-plugin': ^5.17.0
+  '@typescript-eslint/parser': ^5.17.0
   '@zerollup/ts-transform-paths': ^1.7.18
   awesome-typescript-loader: ^5.2.1
-  babel-loader: ^8.2.3
+  babel-loader: ^8.2.4
   enzyme: ^3.11.0
   enzyme-adapter-react-16: ^1.15.6
-  eslint: ^8.4.1
-  jest: ^27.4.5
-  react: ^17.0.2
+  eslint: ^8.12.0
+  jest: ^27.5.1
+  react: '==17.0.2'
   react-docgen-typescript-loader: ^3.7.2
   react-docgen-typescript-webpack-plugin: ^1.1.0
-  react-dom: ^17.0.2
-  react-redux: ^7.2.6
-  react-test-renderer: ^17.0.2
+  react-dom: '==17.0.2'
+  react-redux: ^7.2.8
+  react-test-renderer: '==17.0.2'
   redux: ^4.1.2
   redux-thunk: ^2.4.1
-  rollup: ^2.61.1
+  rollup: ^2.70.1
   rollup-plugin-terser: ^7.0.2
-  rollup-plugin-typescript2: ^0.31.1
-  styled-components: ^5.3.3
-  ts-jest: ^27.1.1
+  rollup-plugin-typescript2: ^0.31.2
+  styled-components: ^5.3.5
+  ts-jest: ^27.1.4
   ttypescript: ^1.5.13
-  typescript: ^4.5.4
+  typescript: ^4.6.3
 
 devDependencies:
   '@babel/core': 7.17.8
@@ -602,7 +602,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.12.9
-      '@babel/helper-plugin-utils': 7.10.4
+      '@babel/helper-plugin-utils': 7.16.7
       '@babel/plugin-syntax-object-rest-spread': 7.8.3_@babel+core@7.12.9
       '@babel/plugin-transform-parameters': 7.16.7_@babel+core@7.12.9
     dev: true
