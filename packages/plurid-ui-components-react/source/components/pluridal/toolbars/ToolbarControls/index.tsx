@@ -35,6 +35,7 @@ export interface ToolbarControlsOwnProperties {
         theme?: Theme;
         style?: React.CSSProperties;
         className?: string;
+        children?: React.ReactNode;
         // #endregion values
 
         // #region methods

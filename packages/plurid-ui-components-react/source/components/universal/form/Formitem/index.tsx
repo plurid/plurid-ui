@@ -25,6 +25,7 @@ export interface FormitemProperties {
 
     style?: React.CSSProperties;
     className?: string;
+    children?: React.ReactNode;
 }
 
 /**

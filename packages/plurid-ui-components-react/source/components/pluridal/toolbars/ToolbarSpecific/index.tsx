@@ -48,6 +48,8 @@ export interface ToolbarSpecificOwnProperties {
     activeType: any;
     selectors: any;
     position?: keyof typeof HorizontalPositions;
+
+    children?: React.ReactNode;
 }
 
 export interface ToolbarSpecificStateProperties {

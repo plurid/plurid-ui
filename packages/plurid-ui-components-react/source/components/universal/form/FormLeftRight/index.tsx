@@ -23,6 +23,7 @@ export interface FormLeftRightProperties {
     theme?: Theme;
     style?: React.CSSProperties;
     className?: string;
+    children?: React.ReactNode;
 }
 
 /**

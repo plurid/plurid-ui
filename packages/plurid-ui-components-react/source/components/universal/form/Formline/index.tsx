@@ -31,6 +31,7 @@ export interface FormlineProperties {
 
     style?: React.CSSProperties;
     className?: string;
+    children?: React.ReactNode;
 }
 
 /**
