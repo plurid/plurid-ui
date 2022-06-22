@@ -37,7 +37,7 @@
 // #region module
 export interface TextlineProperties {
     text: string;
-    atChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    atChange: (event: React.ChangeEvent<HTMLInputElement>, value: string) => void;
     atKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
     atFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
     atBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
@@ -71,12 +71,12 @@ export type TextlineType = TextlineProperties & React.RefAttributes<any>;
 
 /**
  * @param text `string`
- * @param atChange `(event: React.ChangeEvent<HTMLInputElement>) => void`
+ * @param atChange `(event: React.ChangeEvent<HTMLInputElement>, value: string) => void`
  * @param atKeyDown `(event: React.KeyboardEvent<HTMLInputElement>) => void`
  * @param atFocus `(event: React.FocusEvent<HTMLInputElement>) => void`
  * @param atBlur `(event: React.FocusEvent<HTMLInputElement>) => void`
  *
- * @param type optional - `'text' | 'password'`
+ * @param type optional - `'text' | 'password' | 'number'`
  * @param placeholder optional - `string`
  * @param autoCapitalize optional - `string`
  * @param autoComplete optional - `string`
@@ -199,7 +199,9 @@ const Textline: React.ForwardRefExoticComponent<TextlineType> = forwardRef<HTMLI
                 type={_type}
 
                 value={text}
-                onChange={atChange}
+                onChange={(event) => {
+                    atChange(event, event.target.value);
+                }}
                 onKeyDown={handleKeyDown}
                 onFocus={atFocus}
                 onBlur={atBlur}
