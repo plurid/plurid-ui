@@ -60,6 +60,7 @@ export const StyledDropdownList: any = styled.div`
     color: ${(props: any) => {
         return props.theme.colorPrimary;
     }};
+    position: absolute;
     left: ${(props: any) => {
         if (props.left) {
             return '0px';
@@ -71,6 +72,13 @@ export const StyledDropdownList: any = styled.div`
             return 'auto';
         }
         return '0px';
+    }};
+    top: ${(props: any) => {
+        if (props.listTop) {
+            return props.listTop;
+        }
+
+        return '25px';
     }};
     height: ${(props: any) => {
         if (props.heightItems) {
@@ -107,8 +115,6 @@ export const StyledDropdownList: any = styled.div`
         return 'initial';
     }};
 
-    position: absolute;
-    top: 25px;
     border-radius: 10px;
     min-width: 60px;
 

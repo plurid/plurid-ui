@@ -59,6 +59,7 @@ export interface DropdownProperties {
         // #region values
         left?: boolean;
         kind?: string;
+        listTop?: string;
         dropdownToggled?: boolean;
 
         /**
@@ -124,6 +125,7 @@ const Dropdown: React.FC<DropdownProperties> = (
             // #region values
             left,
             kind,
+            listTop,
             dropdownToggled,
             hideAtSelect,
             selectAtHover,
@@ -489,6 +491,7 @@ const Dropdown: React.FC<DropdownProperties> = (
                 <StyledDropdownList
                     theme={interactionTheme}
                     left={left}
+                    listTop={listTop}
                     level={_level}
                     heightItems={heightItems && filterable && filteredSelectables.length < heightItems
                         ? filteredSelectables.length + 1
