@@ -48,6 +48,15 @@ export const StyledInputBox = styled.div`
                 theme,
             }: IStyledInputBox) => theme.boxShadowUmbraColor
         };
+
+
+        ::placeholder {
+            color: ${
+                ({
+                    theme,
+                }: IStyledInputBox) => theme.colorSecondary
+            };
+        }
     }
 `;
 
