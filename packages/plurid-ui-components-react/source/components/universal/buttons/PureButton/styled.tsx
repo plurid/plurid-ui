@@ -175,31 +175,33 @@ export const StyledPureButton: any = styled.button<IStyledPureButton>`
     min-height: 40px;
     min-width: 160px;
 
-    :hover {
-        background-color: ${
-            ({
-                theme,
-                level,
-                isDisabled,
-            }: IStyledPureButton) => {
-                if (isDisabled) {
-                    return theme.backgroundColorPrimaryAlpha;
-                }
+    @media (hover: hover) {
+        :hover {
+            background-color: ${
+                ({
+                    theme,
+                    level,
+                    isDisabled,
+                }: IStyledPureButton) => {
+                    if (isDisabled) {
+                        return theme.backgroundColorPrimaryAlpha;
+                    }
 
-                switch (level) {
-                    case 0:
-                        return theme.backgroundColorSecondary;
-                    case 1:
-                        return theme.backgroundColorTertiary;
-                    case 2:
-                        return theme.backgroundColorQuaternary;
-                    case 3:
-                        return theme.backgroundColorPrimary;
-                    default:
-                        return theme.backgroundColorSecondary;
+                    switch (level) {
+                        case 0:
+                            return theme.backgroundColorSecondary;
+                        case 1:
+                            return theme.backgroundColorTertiary;
+                        case 2:
+                            return theme.backgroundColorQuaternary;
+                        case 3:
+                            return theme.backgroundColorPrimary;
+                        default:
+                            return theme.backgroundColorSecondary;
+                    }
                 }
-            }
-        };
+            };
+        }
     }
 
     :active {

@@ -60,19 +60,21 @@ export const StyledVerticalToolbarButton: any = styled.div<IStyledVerticalToolba
         return 'transparent';
     }};
 
-    :hover {
-        background: ${(props: IStyledVerticalToolbarButton) => {
-            return props.theme.backgroundColorTertiary;
-        }};
-    }
+    @media (hover: hover) {
+        :hover {
+            background: ${(props: IStyledVerticalToolbarButton) => {
+                return props.theme.backgroundColorTertiary;
+            }};
+        }
 
-    :hover svg {
-        transform: ${(props: IStyledVerticalToolbarButton) => {
-            if (props.scaleIcon) {
-                return 'scale(1.2)';
-            }
-            return '';
-        }};
+        :hover svg {
+            transform: ${(props: IStyledVerticalToolbarButton) => {
+                if (props.scaleIcon) {
+                    return 'scale(1.2)';
+                }
+                return '';
+            }};
+        }
     }
 
     svg {

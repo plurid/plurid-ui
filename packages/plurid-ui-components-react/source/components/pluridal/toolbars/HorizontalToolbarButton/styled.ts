@@ -49,19 +49,21 @@ export const StyledHorizontalToolbarButton = styled.div<IStyledHorizontalToolbar
         }
     };
 
-    :hover {
-        background: ${(props: IStyledHorizontalToolbarButton) => {
-            return props.theme.backgroundColorTertiary;
-        }};
-    }
+    @media (hover: hover) {
+        :hover {
+            background: ${(props: IStyledHorizontalToolbarButton) => {
+                return props.theme.backgroundColorTertiary;
+            }};
+        }
 
-    :hover svg {
-        transform: ${(props: IStyledHorizontalToolbarButton) => {
-            if (props.scaleIcon) {
-                return 'scale(1.2)';
-            }
-            return '';
-        }};
+        :hover svg {
+            transform: ${(props: IStyledHorizontalToolbarButton) => {
+                if (props.scaleIcon) {
+                    return 'scale(1.2)';
+                }
+                return '';
+            }};
+        }
     }
 
     svg {
