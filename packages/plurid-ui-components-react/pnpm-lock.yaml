@@ -6,7 +6,7 @@ specifiers:
   '@plurid/plurid-functions-react': ^0.0.0-5
   '@plurid/plurid-icons-react': ^0.0.0-5
   '@plurid/plurid-themes': ^0.0.0-2
-  '@plurid/plurid-ui-state-react': ^0.0.0-3
+  '@plurid/plurid-ui-state-react': ^0.0.0-4
   '@storybook/addon-actions': ^6.5.9
   '@storybook/addon-info': ^5.3.21
   '@storybook/addon-knobs': ^6.3.1
@@ -53,7 +53,7 @@ devDependencies:
   '@plurid/plurid-functions-react': 0.0.0-5_react@17.0.2
   '@plurid/plurid-icons-react': 0.0.0-5_pljcsaoa22cmfgztndja7lnie4
   '@plurid/plurid-themes': 0.0.0-2
-  '@plurid/plurid-ui-state-react': 0.0.0-3_mxmwhuu22ojdd45featjegrj4i
+  '@plurid/plurid-ui-state-react': 0.0.0-4_mxmwhuu22ojdd45featjegrj4i
   '@storybook/addon-actions': 6.5.9_sfoxds7t5ydpegc3knd667wn6m
   '@storybook/addon-info': 5.3.21_t5v3cxvqsx6yex4vj2fsx4vwru
   '@storybook/addon-knobs': 6.4.0_hd4g24dumjkfdfbphnmjfe62fm
@@ -3093,8 +3093,8 @@ packages:
     engines: {node: '>=12', npm: '>=6'}
     dev: true
 
-  /@plurid/plurid-ui-state-react/0.0.0-3_mxmwhuu22ojdd45featjegrj4i:
-    resolution: {integrity: sha512-qLvrTeYZRZzLZQDkCsjST26hPi+n6u+W7AHRMT6t1jd9o4lPb6oAJDlUabKUTnUdcJri6g4t3J/xQ7pFTkrkkg==}
+  /@plurid/plurid-ui-state-react/0.0.0-4_mxmwhuu22ojdd45featjegrj4i:
+    resolution: {integrity: sha512-2O94GkOYH9uGhysOnID5NjUZRszS9puJp7vKT69cFGHpXPBi5eA5zniodO8x9Eeba1sFpbRCgy2AnRsD0+hDuw==}
     engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
       '@plurid/plurid-themes': '*'
