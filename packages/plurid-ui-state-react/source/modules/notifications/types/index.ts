@@ -5,6 +5,7 @@ export interface Notification {
     html?: boolean;
     react?: boolean;
     timeout?: number;
+    wordBreak?: boolean;
 }
 
 
