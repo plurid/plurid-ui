@@ -97,7 +97,10 @@ const Notification: React.FC<NotificationProperties> = (
         html,
         react,
         timeout,
+        wordBreak,
     } = data;
+
+    const resolvedWordBreak = wordBreak === false ? 'normal' : 'break-all';
     // #endregion properties
 
 
@@ -128,21 +131,40 @@ const Notification: React.FC<NotificationProperties> = (
 
 
     // #region render
-    const content = html
-        ? (
-            <StyledNotificationContent
-                dangerouslySetInnerHTML={createMarkup(text)}
-            />
-        ) : react && elements && elements[text]
-            ? (
-                <StyledNotificationContent>
+    const resolveRender = () => {
+        const contentProperties = {
+            wordBreak: resolvedWordBreak,
+        };
+
+        if (html) {
+            return (
+                <StyledNotificationContent
+                    dangerouslySetInnerHTML={createMarkup(text)}
+                    {...contentProperties}
+                />
+            );
+        }
+
+        if (react && elements && elements[text]) {
+            return (
+                <StyledNotificationContent
+                    {...contentProperties}
+                >
                     {elements[text]}
                 </StyledNotificationContent>
-            ) : (
-                <StyledNotificationContent>
-                    {text}
-                </StyledNotificationContent>
             );
+        }
+
+        return (
+            <StyledNotificationContent
+                {...contentProperties}
+            >
+                {text}
+            </StyledNotificationContent>
+        );
+    }
+
+    const content = resolveRender();
 
     return (
         <StyledNotification

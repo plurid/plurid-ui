@@ -56,10 +56,19 @@ export const StyledNotification = styled.div<IStyledNotification>`
 `;
 
 
-export const StyledNotificationContent = styled.div`
+
+export interface IStyledNotificationContent {
+    wordBreak: string;
+}
+
+export const StyledNotificationContent = styled.div<IStyledNotificationContent>`
     font-size: 0.9rem;
     padding: 32px 16px;
-    word-break: break-all;
+    word-break: ${
+        ({
+            wordBreak,
+        }) => wordBreak
+    };
 `;
 
 
