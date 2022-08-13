@@ -8,6 +8,7 @@
 
     import {
         DispatchAction,
+        DispatchActionWithoutPayload,
         sitting,
     } from '@plurid/plurid-ui-state-react';
 
@@ -197,8 +198,8 @@ const mapStateToProperties = (
 const mapDispatchToProperties = (
     dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ): ToolbarGeneralDispatchProperties => ({
-    dispatchToggleSittingTray: (payload) => dispatch(
-        sitting.actions.toggleSittingTray(payload),
+    dispatchToggleSittingTray: () => dispatch(
+        sitting.actions.toggleSittingTray(),
     ),
 });
 

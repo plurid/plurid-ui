@@ -140,9 +140,7 @@ const mapStateToProperties =(
 const mapDispatchToProperties = (
     dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ): NotificationsDispatchProperties => ({
-    dispatchRemoveNotification: (
-        payload,
-    ) => dispatch(
+    dispatchRemoveNotification: (payload) => dispatch(
         notificationsStateService.actions.removeNotification(payload),
     ),
 });

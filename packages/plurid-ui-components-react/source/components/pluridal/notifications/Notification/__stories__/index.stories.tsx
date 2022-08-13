@@ -2,13 +2,6 @@
     // #region libraries
     import React from 'react';
 
-    import {
-        Notification as INotification,
-        notifications,
-    } from '@plurid/plurid-ui-state-react';
-
-    import themes from '@plurid/plurid-themes';
-
     import { storiesOf } from '@storybook/react';
     import { action } from '@storybook/addon-actions';
     import {
@@ -17,6 +10,13 @@
         // number,
         select,
     } from '@storybook/addon-knobs';
+
+
+    import themes from '@plurid/plurid-themes';
+
+    import {
+        Notification as INotification,
+    } from '@plurid/plurid-ui-state-react';
     // #endregion libraries
 
 
@@ -56,7 +56,9 @@ storiesOf(
             <Notification
                 theme={themes[theme]}
                 data={data}
-                {...actions}
+                {...actions as {
+                    remove: any,
+                }}
             />
         </>
     );
