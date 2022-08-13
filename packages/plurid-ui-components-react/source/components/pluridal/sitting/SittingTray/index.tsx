@@ -2,9 +2,12 @@
     // #region libraries
     import React from 'react';
 
-    import { AnyAction } from 'redux';
+    import {
+        AnyAction,
+        ThunkDispatch,
+    } from '@reduxjs/toolkit';
     import { connect } from 'react-redux';
-    import { ThunkDispatch } from 'redux-thunk';
+
 
     import {
         Theme,
@@ -30,7 +33,7 @@
 // #region module
 export interface SittingTrayOwnProperties {
     selectors: any;
-    context: any;
+    context: React.Context<any>;
 }
 
 export interface SittingTrayStateProperties {
@@ -51,9 +54,10 @@ const SittingTray: React.FC<SittingTrayProperties> = (
 ) => {
     // #region properties
     const {
-        /** own */
+        // #region own
         selectors,
         context,
+        // #endregion own
 
         // #region state
         stateInteractionTheme,

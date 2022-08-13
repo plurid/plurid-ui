@@ -48,7 +48,7 @@ export interface ToolbarGeneralOwnProperties {
         // #region values
         buttons: ToolbarButton[],
         selectors: any;
-        context: any;
+        context: React.Context<any>;
         // #endregion values
 
         // #region methods

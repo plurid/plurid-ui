@@ -5,7 +5,12 @@
         useEffect,
     } from 'react';
 
+    import {
+        AnyAction,
+        ThunkDispatch,
+    } from '@reduxjs/toolkit';
     import { connect } from 'react-redux';
+
 
     import {
         PluridIconCopy,
@@ -43,6 +48,7 @@
 export interface StateLinkProperties {
     theme: any;
     currentLink: string;
+    context: React.Context<any>;
 }
 
 const StateLink: React.FC<StateLinkProperties> = (
@@ -113,7 +119,7 @@ const mapStateToProperties = (
 
 
 const mapDispatchToProperties = (
-    dispatch: any,
+    dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) => ({
 });
 

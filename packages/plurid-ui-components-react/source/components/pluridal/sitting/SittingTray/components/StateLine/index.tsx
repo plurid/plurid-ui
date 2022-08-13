@@ -5,7 +5,12 @@
         // useContext,
     } from 'react';
 
+    import {
+        AnyAction,
+        ThunkDispatch,
+    } from '@reduxjs/toolkit';
     import { connect } from 'react-redux';
+
 
     import {
         PluridIconNewStateline,
@@ -45,6 +50,7 @@
 // #region module
 export interface StateLineProperties {
     theme: any;
+    context: React.Context<any>;
 }
 
 const StateLine: React.FC<StateLineProperties> = (
@@ -194,7 +200,7 @@ const mapStateToProperties = (
 
 
 const mapDispatchToProperties = (
-    dispatch: any,
+    dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) => ({
 });
 

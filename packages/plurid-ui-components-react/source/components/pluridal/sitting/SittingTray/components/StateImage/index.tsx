@@ -4,9 +4,12 @@
         useState,
     } from 'react';
 
-    import { AnyAction } from 'redux';
+    import {
+        AnyAction,
+        ThunkDispatch,
+    } from '@reduxjs/toolkit';
     import { connect } from 'react-redux';
-    import { ThunkDispatch } from 'redux-thunk';
+
 
     import {
         Theme,
@@ -46,6 +49,7 @@
 // #region module
 export interface StateImageOwnProperties {
     selectors: any;
+    context: React.Context<any>;
 }
 
 export interface StateImageStateProperties {
