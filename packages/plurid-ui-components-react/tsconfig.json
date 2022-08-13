@@ -57,6 +57,7 @@
         "source/**/*"
     ],
     "exclude": [
+        "unsource",
         "node_modules",
         "build",
         "distribution",
