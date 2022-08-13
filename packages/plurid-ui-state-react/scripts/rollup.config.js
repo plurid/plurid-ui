@@ -18,6 +18,8 @@ const build = {
     input: 'source/index.ts',
     external: [
         '@plurid/plurid-themes',
+        '@reduxjs/toolkit',
+        'immer',
     ],
     output: [
         {
