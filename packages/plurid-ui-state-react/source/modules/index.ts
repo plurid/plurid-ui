@@ -1,4 +1,9 @@
 // #region imports
+    // #region libraries
+    import 'immer';
+    // #endregion libraries
+
+
     // #region internal
     import * as head from './head';
     import * as notifications from './notifications';

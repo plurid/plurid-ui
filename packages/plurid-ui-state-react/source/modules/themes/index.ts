@@ -1,33 +1,103 @@
 // #region imports
-    // #region internal
-    import actions from './actions';
+    // #region libraries
+    import {
+        createSlice,
+        PayloadAction,
+    } from '@reduxjs/toolkit';
 
-    import initialState from './initial';
 
     import {
-        reducer,
-        metareducer,
-    } from './reducer';
+        Theme,
+        plurid,
+    } from '@plurid/plurid-themes';
+    // #endregion libraries
 
-    import selectors from './selectors';
 
-    import * as Types from './types';
-    // #endregion internal
+    // #region external
+    import {
+        StateWithSlice,
+    } from '~data/interfaces';
+    // #endregion external
 // #endregion imports
 
 
 
-// #region exports
-export {
-    actions,
+// #region module
+export interface ThemesState {
+    general: Theme;
+    interaction: Theme;
+}
 
-    initialState,
 
-    reducer,
-    metareducer,
-
-    selectors,
-
-    Types,
+const initialState: ThemesState = {
+    general: {
+        ...plurid,
+    },
+    interaction: {
+        ...plurid,
+    },
 };
+
+
+export interface SetThemePayload {
+    type: 'general' | 'interaction';
+    theme: Theme;
+}
+
+
+export const factory = (
+    state: ThemesState = initialState,
+) => createSlice({
+    name: 'themes',
+    initialState: state,
+    reducers: {
+        setTheme: (
+            state,
+            action: PayloadAction<SetThemePayload>,
+        ) => {
+            const {
+                type,
+                theme,
+            } = action.payload;
+
+            state[type] = theme;
+        },
+        setGeneralTheme: (
+            state,
+            action: PayloadAction<Theme>,
+        ) => {
+            state.general = action.payload;
+        },
+        setInteractionTheme: (
+            state,
+            action: PayloadAction<Theme>,
+        ) => {
+            state.interaction = action.payload;
+        },
+    },
+});
+
+export const slice = factory();
+// #endregion module
+
+
+
+// #region exports
+export const actions = slice.actions;
+
+
+const getGeneralTheme = (
+    state: StateWithSlice<'themes', ThemesState>,
+) => state.themes.general;
+const getInteractionTheme = (
+    state: StateWithSlice<'themes', ThemesState>,
+) => state.themes.interaction;
+
+export const selectors = {
+    getGeneralTheme,
+    getInteractionTheme,
+};
+
+
+export const reducer = slice.reducer;
 // #endregion exports
