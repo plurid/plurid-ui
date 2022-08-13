@@ -22,12 +22,12 @@ const build = {
         '@plurid/plurid-icons-react',
         '@plurid/plurid-themes',
         '@plurid/plurid-ui-state-react',
+        '@reduxjs/toolkit',
         'react',
         'react-dom',
         'react-redux',
-        'redux',
-        'redux-thunk',
         'styled-components',
+        'immer',
     ],
     output: [
         {
