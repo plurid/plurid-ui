@@ -7,9 +7,11 @@
     import { ThunkDispatch } from 'redux-thunk';
 
     import {
+        DispatchAction,
         StateOfAny,
         themes as themesStateService,
         notifications as notificationsStateService,
+        Notification as INotification,
     } from '@plurid/plurid-ui-state-react';
 
     import {
@@ -34,14 +36,15 @@
 
 // #region module
 export type NotificationsState = StateOfAny & {
-    themes: themesStateService.Types.State;
-    notifications: notificationsStateService.Types.State;
+    themes: themesStateService.ThemesState;
+    notifications: notificationsStateService.NotificationsState;
 }
 
 export type NotificationsSelectors = StateOfAny & {
     themes: typeof themesStateService.selectors;
     notifications: typeof notificationsStateService.selectors;
 }
+
 
 export interface NotificationsOwnProperties {
     selectors: NotificationsSelectors;
@@ -51,11 +54,11 @@ export interface NotificationsOwnProperties {
 
 export interface NotificationsStateProperties {
     stateGeneralTheme: Theme;
-    stateNotifications: notificationsStateService.Types.Notification[];
+    stateNotifications: INotification[];
 }
 
 export interface NotificationsDispatchProperties {
-    dispatchRemoveNotification: typeof notificationsStateService.actions.removeNotification;
+    dispatchRemoveNotification: DispatchAction<typeof notificationsStateService.actions.removeNotification>;
 }
 
 export type NotificationsProperties =

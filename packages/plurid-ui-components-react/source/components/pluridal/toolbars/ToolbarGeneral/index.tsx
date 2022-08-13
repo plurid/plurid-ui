@@ -7,6 +7,7 @@
     import { ThunkDispatch } from 'redux-thunk';
 
     import {
+        DispatchAction,
         sitting,
     } from '@plurid/plurid-ui-state-react';
 
@@ -71,7 +72,7 @@ export interface ToolbarGeneralStateProperties {
 }
 
 export interface ToolbarGeneralDispatchProperties {
-    dispatchToggleSittingTray: typeof sitting.actions.toggleSittingTray;
+    dispatchToggleSittingTray: DispatchAction<typeof sitting.actions.toggleSittingTray>;
 }
 
 export type ToolbarGeneralProperties = ToolbarGeneralOwnProperties
@@ -196,8 +197,8 @@ const mapStateToProperties = (
 const mapDispatchToProperties = (
     dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ): ToolbarGeneralDispatchProperties => ({
-    dispatchToggleSittingTray: () => dispatch(
-        sitting.actions.toggleSittingTray(),
+    dispatchToggleSittingTray: (payload) => dispatch(
+        sitting.actions.toggleSittingTray(payload),
     ),
 });
 

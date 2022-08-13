@@ -3,6 +3,7 @@
     import React from 'react';
 
     import {
+        Notification as INotification,
         notifications,
     } from '@plurid/plurid-ui-state-react';
 
@@ -44,7 +45,7 @@ storiesOf(
 .addDecorator(withKnobs)
 .add('basic', () => {
     const theme = select(themeLabel, themeOptions, defaultThemeValue);
-    const data: notifications.Types.Notification = {
+    const data: INotification = {
         id: 'one',
         text: 'Notification',
         // timeout: 1500,

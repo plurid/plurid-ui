@@ -10,6 +10,8 @@
     } from '@plurid/plurid-themes';
 
     import {
+        DispatchAction,
+        Notification,
         notifications,
     } from '@plurid/plurid-ui-state-react';
 
@@ -38,14 +40,12 @@
 export interface NotificationOwnProperties {
     // #region required
         // #region values
-        data: notifications.Types.Notification;
+        data: Notification;
         theme: Theme;
         // #endregion values
 
         // #region methods
-        remove: (
-            payload: notifications.Types.RemoveNotificationPayload,
-        ) => void;
+        remove: DispatchAction<typeof notifications.actions.removeNotification>;
         // #endregion methods
     // #endregion required
 
@@ -113,7 +113,7 @@ const Notification: React.FC<NotificationProperties> = (
     useEffect(() => {
         if (timeout) {
             notificationTimeout.current = setTimeout(() => {
-                remove({id});
+                remove(id);
             }, timeout);
         }
 
@@ -178,7 +178,7 @@ const Notification: React.FC<NotificationProperties> = (
 
             <StyledNotificationClose>
                 <PluridIconDelete
-                    atClick={() => remove({id})}
+                    atClick={() => remove(id)}
                 />
             </StyledNotificationClose>
         </StyledNotification>
