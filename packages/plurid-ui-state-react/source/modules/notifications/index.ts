@@ -23,11 +23,13 @@ export type NotificationsState = Notification[];
 
 const initialState: NotificationsState = [];
 
+const name = 'notifications' as const;
+
 
 export const factory = (
     state: NotificationsState = initialState,
 ) => createSlice({
-    name: 'notifications',
+    name,
     initialState: state,
     reducers: {
         addNotification: (
@@ -97,7 +99,7 @@ export const actions = slice.actions;
 
 
 const getAll = (
-    state: StateWithSlice<'notifications', NotificationsState>,
+    state: StateWithSlice<typeof name, NotificationsState>,
 ) => state.notifications;
 
 export const selectors = {

@@ -28,11 +28,13 @@ const initialState: SittingState = {
     tray: false,
 };
 
+const name = 'sitting' as const;
+
 
 export const factory = (
     state: SittingState = initialState,
 ) => createSlice({
-    name: 'sitting',
+    name,
     initialState: state,
     reducers: {
         setSittingCurrentLink: (
@@ -48,7 +50,7 @@ export const factory = (
         },
         toggleSittingTray: (
             state,
-            action: PayloadAction<boolean> | PayloadAction<void>,
+            action: PayloadAction<boolean | void>,
         ) => {
             state.tray = typeof action.payload === 'boolean'
                 ? action.payload
@@ -67,10 +69,10 @@ export const actions = slice.actions;
 
 
 const getCurrentLink = (
-    state: StateWithSlice<'sitting', SittingState>,
+    state: StateWithSlice<typeof name, SittingState>,
 ) => state.sitting.currentLink;
 const getTray = (
-    state: StateWithSlice<'sitting', SittingState>,
+    state: StateWithSlice<typeof name, SittingState>,
 ) => state.sitting.tray;
 
 export const selectors = {

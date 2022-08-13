@@ -26,11 +26,13 @@ const initialState: ShortcutsState = {
     global: true,
 };
 
+const name = 'shortcuts' as const;
+
 
 export const factory = (
     state: ShortcutsState = initialState,
 ) => createSlice({
-    name: 'shortcuts',
+    name,
     initialState: state,
     reducers: {
         toggleGlobalShortcuts: (
@@ -54,7 +56,7 @@ export const actions = slice.actions;
 
 
 const getGlobal = (
-    state: StateWithSlice<'shortcuts', ShortcutsState>,
+    state: StateWithSlice<typeof name, ShortcutsState>,
 ) => state.shortcuts.global;
 
 export const selectors = {

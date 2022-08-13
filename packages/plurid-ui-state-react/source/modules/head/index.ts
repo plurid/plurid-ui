@@ -42,11 +42,13 @@ const initialState: HeadState = {
     scripts: [],
 };
 
+const name = 'head' as const;
+
 
 export const factory = (
     state: HeadState = initialState,
 ) => createSlice({
-    name: 'head',
+    name,
     initialState: state,
     reducers: {
         setHead: (
@@ -71,7 +73,7 @@ export const actions = slice.actions;
 
 
 export const getHead = (
-    state: StateWithSlice<'head', HeadState>,
+    state: StateWithSlice<typeof name, HeadState>,
 ): HeadState => state.head;
 
 export const selectors = {

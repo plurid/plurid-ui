@@ -38,6 +38,8 @@ const initialState: ThemesState = {
     },
 };
 
+const name = 'themes' as const;
+
 
 export interface SetThemePayload {
     type: 'general' | 'interaction';
@@ -48,7 +50,7 @@ export interface SetThemePayload {
 export const factory = (
     state: ThemesState = initialState,
 ) => createSlice({
-    name: 'themes',
+    name,
     initialState: state,
     reducers: {
         setTheme: (
@@ -87,10 +89,10 @@ export const actions = slice.actions;
 
 
 const getGeneralTheme = (
-    state: StateWithSlice<'themes', ThemesState>,
+    state: StateWithSlice<typeof name, ThemesState>,
 ) => state.themes.general;
 const getInteractionTheme = (
-    state: StateWithSlice<'themes', ThemesState>,
+    state: StateWithSlice<typeof name, ThemesState>,
 ) => state.themes.interaction;
 
 export const selectors = {

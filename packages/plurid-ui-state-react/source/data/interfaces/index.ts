@@ -22,8 +22,12 @@ export type StateWithSlice<
 
 
 export type DispatchAction<A> = A extends ActionCreatorWithPayload<infer P, infer T>
-    ? (payload: P) => ReturnType<ActionCreatorWithPayload<P, T>>
-    : void;
+    ? P extends void
+        ? () => ReturnType<ActionCreatorWithoutPayload<T>>
+        : (payload: P) => ReturnType<ActionCreatorWithPayload<P, T>>
+    : A extends ActionCreatorWithoutPayload<infer T>
+        ? () => ReturnType<ActionCreatorWithoutPayload<T>>
+        : void;
 
 export type DispatchActionWithoutPayload<A> = A extends ActionCreatorWithoutPayload<infer T>
     ? () => ReturnType<ActionCreatorWithoutPayload<T>>
