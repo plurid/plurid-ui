@@ -48,13 +48,17 @@ export const factory = (
                 currentLink,
             };
         },
+        setSittingTray: (
+            state,
+            action: PayloadAction<boolean>,
+        ) => {
+            state.tray = action.payload;
+        },
         toggleSittingTray: (
             state,
-            action: PayloadAction<boolean | void>,
+            _action: PayloadAction<void>,
         ) => {
-            state.tray = typeof action.payload === 'boolean'
-                ? action.payload
-                : !state.tray;
+            state.tray = !state.tray;
         }
     },
 });

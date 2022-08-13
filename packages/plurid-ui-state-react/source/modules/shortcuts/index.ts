@@ -35,13 +35,17 @@ export const factory = (
     name,
     initialState: state,
     reducers: {
+        setGlobalShortcuts: (
+            state,
+            action: PayloadAction<boolean>,
+        ) => {
+            state.global = action.payload;
+        },
         toggleGlobalShortcuts: (
             state,
-            action: PayloadAction<boolean> | PayloadAction<void>,
+            _action: PayloadAction<void>,
         ) => {
-            state.global = typeof action.payload === 'boolean'
-                ? action.payload
-                : !state.global;
+            state.global = !state.global;
         },
     },
 });
