@@ -2,19 +2,21 @@
     // #region libraries
     import React from 'react';
 
-    import { AnyAction } from 'redux';
-    import { connect } from 'react-redux';
-    import { ThunkDispatch } from 'redux-thunk';
-
     import {
-        DispatchAction,
-        DispatchActionWithoutPayload,
-        sitting,
-    } from '@plurid/plurid-ui-state-react';
+        AnyAction,
+        ThunkDispatch,
+    } from '@reduxjs/toolkit';
+    import { connect } from 'react-redux';
+
 
     import {
         Theme,
     } from '@plurid/plurid-themes';
+
+    import {
+        DispatchAction,
+        sitting,
+    } from '@plurid/plurid-ui-state-react';
 
     import {
         PluridIconSpeak,

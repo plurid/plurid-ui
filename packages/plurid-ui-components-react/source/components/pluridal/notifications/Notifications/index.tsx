@@ -2,9 +2,16 @@
     // #region libraries
     import React from 'react';
 
-    import { AnyAction } from 'redux';
+    import {
+        AnyAction,
+        ThunkDispatch,
+    } from '@reduxjs/toolkit';
     import { connect } from 'react-redux';
-    import { ThunkDispatch } from 'redux-thunk';
+
+
+    import {
+        Theme,
+    } from '@plurid/plurid-themes';
 
     import {
         DispatchAction,
@@ -13,10 +20,6 @@
         notifications as notificationsStateService,
         Notification as INotification,
     } from '@plurid/plurid-ui-state-react';
-
-    import {
-        Theme,
-    } from '@plurid/plurid-themes';
     // #endregion libraries
 
 
