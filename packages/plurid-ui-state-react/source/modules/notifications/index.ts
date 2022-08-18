@@ -33,27 +33,32 @@ export const factory = (
     name,
     initialState: state,
     reducers: {
-        addNotification: (
+        new: (
             state,
-            action: PayloadAction<AddNotificationPayload>,
+            action: PayloadAction<string>,
         ) => {
-            const generatedID = Math.random() + '';
-            const id = typeof action.payload === 'string'
-                ? generatedID
-                : action.payload.id || generatedID;
-
-            const text = typeof action.payload === 'string'
-                ? action.payload
-                : action.payload.text;
-
-            const rest = typeof action.payload === 'string'
-                ? {}
-                : {...action.payload};
+            const id = Math.random() + '';
+            const text = action.payload;
 
             const newNotification: Notification = {
                 id,
                 text,
-                ...rest,
+            };
+
+            state = [
+                ...state,
+                newNotification,
+            ];
+        },
+        add: (
+            state,
+            action: PayloadAction<AddNotificationPayload>,
+        ) => {
+            const id = action.payload.id || Math.random() + '';
+
+            const newNotification: Notification = {
+                ...action.payload,
+                id,
             };
 
             const existingNotification = state.find(
@@ -77,7 +82,7 @@ export const factory = (
                 newNotification,
             ];
         },
-        updateNotification: (
+        update: (
             state,
             action: PayloadAction<Notification>,
         ) => {
@@ -94,7 +99,7 @@ export const factory = (
                 };
             });
         },
-        removeNotification: (
+        remove: (
             state,
             action: PayloadAction<string>,
         ) => {

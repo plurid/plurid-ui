@@ -27,7 +27,7 @@ export type DispatchAction<A> = A extends ActionCreatorWithPayload<infer P, infe
         : (payload: P) => ReturnType<ActionCreatorWithPayload<P, T>>
     : A extends ActionCreatorWithoutPayload<infer T>
         ? () => ReturnType<ActionCreatorWithoutPayload<T>>
-        : void;
+        : void
 
 export type DispatchActionWithoutPayload<A> = A extends ActionCreatorWithoutPayload<infer T>
     ? () => ReturnType<ActionCreatorWithoutPayload<T>>
@@ -44,9 +44,8 @@ export interface Notification {
     wordBreak?: boolean;
 }
 
-export type AddNotificationPayload = string | (
-    Partial<Notification> & {
-        text: string;
-    }
-)
+
+export type AddNotificationPayload = Partial<Notification> & {
+    text: string;
+}
 // #endregion module
