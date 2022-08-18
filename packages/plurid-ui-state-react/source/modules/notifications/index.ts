@@ -10,6 +10,7 @@
     // #region external
     import {
         Notification,
+        AddNotificationPayload,
         StateWithSlice,
     } from '~data/interfaces';
     // #endregion external
@@ -34,10 +35,25 @@ export const factory = (
     reducers: {
         addNotification: (
             state,
-            action: PayloadAction<Notification>,
+            action: PayloadAction<AddNotificationPayload>,
         ) => {
+            const generatedID = Math.random() + '';
+            const id = typeof action.payload === 'string'
+                ? generatedID
+                : action.payload.id || generatedID;
+
+            const text = typeof action.payload === 'string'
+                ? action.payload
+                : action.payload.text;
+
+            const rest = typeof action.payload === 'string'
+                ? {}
+                : {...action.payload};
+
             const newNotification: Notification = {
-                ...action.payload,
+                id,
+                text,
+                ...rest,
             };
 
             const existingNotification = state.find(

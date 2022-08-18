@@ -43,4 +43,10 @@ export interface Notification {
     timeout?: number;
     wordBreak?: boolean;
 }
+
+export type AddNotificationPayload = string | (
+    Partial<Notification> & {
+        text: string;
+    }
+)
 // #endregion module
