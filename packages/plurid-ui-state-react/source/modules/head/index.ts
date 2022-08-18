@@ -30,7 +30,7 @@ export interface HeadState {
 }
 
 
-const initialState: HeadState = {
+export const initialState: HeadState = {
     title: '',
     description: '',
     ogTitle: '',
@@ -42,7 +42,7 @@ const initialState: HeadState = {
     scripts: [],
 };
 
-const name = 'head' as const;
+export const name = 'head' as const;
 
 
 export const factory = (

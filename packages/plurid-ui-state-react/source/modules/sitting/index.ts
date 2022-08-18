@@ -23,12 +23,12 @@ export interface SittingState {
 }
 
 
-const initialState: SittingState = {
+export const initialState: SittingState = {
     currentLink: '',
     tray: false,
 };
 
-const name = 'sitting' as const;
+export const name = 'sitting' as const;
 
 
 export const factory = (

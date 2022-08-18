@@ -29,7 +29,7 @@ export interface ThemesState {
 }
 
 
-const initialState: ThemesState = {
+export const initialState: ThemesState = {
     general: {
         ...plurid,
     },
@@ -38,7 +38,7 @@ const initialState: ThemesState = {
     },
 };
 
-const name = 'themes' as const;
+export const name = 'themes' as const;
 
 
 export interface SetThemePayload {

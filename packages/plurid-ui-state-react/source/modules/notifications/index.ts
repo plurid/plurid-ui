@@ -22,9 +22,9 @@
 export type NotificationsState = Notification[];
 
 
-const initialState: NotificationsState = [];
+export const initialState: NotificationsState = [];
 
-const name = 'notifications' as const;
+export const name = 'notifications' as const;
 
 
 export const factory = (

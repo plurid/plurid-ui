@@ -22,11 +22,11 @@ export interface ShortcutsState {
 }
 
 
-const initialState: ShortcutsState = {
+export const initialState: ShortcutsState = {
     global: true,
 };
 
-const name = 'shortcuts' as const;
+export const name = 'shortcuts' as const;
 
 
 export const factory = (
