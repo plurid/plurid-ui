@@ -30,6 +30,11 @@ export type HeadSelectors = StateOfAny & {
 export interface HeadDefaults {
     robots?: string;
     viewport?: string;
+    faviconIcon?: string;
+    favicon16?: string;
+    favicon32?: string;
+    manifest?: string;
+    themeColor?: string;
     apiDomain?: string;
     canonicalURL?: string;
     ogImageWidth?: string;
@@ -75,6 +80,11 @@ const Head: React.FC<HeadProperties> = (
 
     const robots = defaults?.robots || 'index,follow';
     const viewport = defaults?.viewport || 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, shrink-to-fit=no';
+    const faviconIcon = defaults?.faviconIcon ?? '/favicon.ico';
+    const favicon16 = defaults?.favicon16 ?? '/favicon-32x32.png';
+    const favicon32 = defaults?.favicon32 ?? '/favicon-16x16.png';
+    const manifest = defaults?.manifest ?? '/site.webmanifest';
+    const themeColor = defaults?.themeColor || '';
 
     const titleValue = stateHead.title || defaults?.title || '';
     const descriptionValue = stateHead.description || defaults?.description || '';
@@ -114,11 +124,11 @@ const Head: React.FC<HeadProperties> = (
                 </>
             )}
 
-            <link rel="icon" href="/favicon.ico" sizes="64x64" />
-            <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-            <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-            <link rel="manifest" href="/site.webmanifest" />
-            <meta name="theme-color" content="#494f5a" />
+            {faviconIcon && (<link rel="icon" sizes="64x64" href={faviconIcon} />)}
+            {favicon32 && (<link rel="icon" type="image/png" sizes="32x32" href={favicon32} />)}
+            {favicon16 && (<link rel="icon" type="image/png" sizes="16x16" href={favicon16} />)}
+            {manifest && (<link rel="manifest" href={manifest} />)}
+            {themeColor && (<meta name="theme-color" content={themeColor} />)}
 
             {canonicalURL && (<link rel="canonical" href={canonicalURL} />)}
 
