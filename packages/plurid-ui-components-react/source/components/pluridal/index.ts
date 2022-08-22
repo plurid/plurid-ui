@@ -1,5 +1,6 @@
 // #region imports
     // #region internal
+    import head from './head';
     import notifications from './notifications';
     import sitting from './sitting';
     import toolbars from './toolbars';
@@ -10,6 +11,7 @@
 
 // #region module
 const pluridal = {
+    head,
     notifications,
     sitting,
     toolbars,
