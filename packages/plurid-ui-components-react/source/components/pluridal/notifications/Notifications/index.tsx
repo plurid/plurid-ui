@@ -61,7 +61,7 @@ export interface NotificationsStateProperties {
 }
 
 export interface NotificationsDispatchProperties {
-    dispatchRemoveNotification: DispatchAction<typeof notificationsStateService.actions.removeNotification>;
+    dispatchRemoveNotification: DispatchAction<typeof notificationsStateService.actions.remove>;
 }
 
 export type NotificationsProperties =
@@ -144,7 +144,7 @@ const mapDispatchToProperties = (
     dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ): NotificationsDispatchProperties => ({
     dispatchRemoveNotification: (payload) => dispatch(
-        notificationsStateService.actions.removeNotification(payload),
+        notificationsStateService.actions.remove(payload),
     ),
 });
 

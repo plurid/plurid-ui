@@ -45,7 +45,7 @@ export interface NotificationOwnProperties {
         // #endregion values
 
         // #region methods
-        remove: DispatchAction<typeof notifications.actions.removeNotification>;
+        remove: DispatchAction<typeof notifications.actions.remove>;
         // #endregion methods
     // #endregion required
 
