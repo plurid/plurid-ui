@@ -37,12 +37,12 @@
         "test": "jest -c ./configurations/jest.config.js",
         "lint": "eslint -c ./configurations/.eslintrc.js ./source/index.ts",
         "clean": "rm -rf ./distribution",
-        "start": "yarn clean && rollup -c ./scripts/rollup.config.js -w",
+        "start": "pnpm clean && rollup -c ./scripts/rollup.config.js -w",
         "build.clean": "rm -rf `find ./distribution/ -type d -name __tests__` && rm -rf `find ./distribution/ -type d -name __stories__` && rm -rf ./distribution/utilities/storybook",
-        "build.development": "yarn clean && rollup -c ./scripts/rollup.config.js",
+        "build.development": "pnpm clean && rollup -c ./scripts/rollup.config.js",
         "build.production": "rollup -c ./scripts/rollup.config.js --environment BUILD:production",
-        "build": "yarn clean && yarn lint && yarn test && yarn build.production && yarn build.clean",
-        "prepublishOnly": "yarn build"
+        "build": "pnpm clean && pnpm lint && pnpm test && pnpm build.production && pnpm build.clean",
+        "prepublishOnly": "pnpm build"
     },
     "peerDependencies": {
         "@plurid/plurid-functions": "*",
