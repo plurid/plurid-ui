@@ -102,6 +102,11 @@ const Head: React.FC<HeadProperties> = (
     const ogSiteName = defaults?.ogSiteName || '';
 
     const appleTouchIcon = defaults?.appleTouchIcon || '';
+
+    const {
+        styles,
+        scripts,
+    } = stateHead;
     // #endregion properties
 
 
@@ -156,6 +161,25 @@ const Head: React.FC<HeadProperties> = (
             {appleTouchIcon && (<link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon} />)}
 
             {children}
+
+            {styles?.map((style) => {
+                return (
+                    <link
+                        rel="stylesheet"
+                        key={'head-style' + style}
+                        href={style}
+                    />
+                );
+            })}
+
+            {scripts?.map((script) => {
+                return (
+                    <script
+                        key={'head-script' + script}
+                        src={script}
+                    />
+                );
+            })}
         </>
     );
     // #endregion render
