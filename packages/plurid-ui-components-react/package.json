@@ -38,7 +38,7 @@
         "lint": "eslint -c ./configurations/.eslintrc.js ./source/index.ts",
         "clean": "rm -rf ./distribution",
         "start": "pnpm clean && rollup -c ./scripts/rollup.config.js -w",
-        "build.clean": "rm -rf `find ./distribution/ -type d -name __tests__` && rm -rf `find ./distribution/ -type d -name __stories__` && rm -rf ./distribution/utilities/storybook",
+        "build.clean": "rm -rf `find ./distribution/ -type d -name __tests__`",
         "build.development": "pnpm clean && rollup -c ./scripts/rollup.config.js",
         "build.production": "rollup -c ./scripts/rollup.config.js --environment BUILD:production",
         "build": "pnpm clean && pnpm lint && pnpm test && pnpm build.production && pnpm build.clean",
