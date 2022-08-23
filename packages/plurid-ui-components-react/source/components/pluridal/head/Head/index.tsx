@@ -44,6 +44,7 @@ export interface HeadDefaults {
 }
 
 export interface HeadOwnProperties {
+    Helmet: any;
     defaults?: Partial<head.HeadState> & HeadDefaults;
     selectors: HeadSelectors;
     context: React.Context<any>;
@@ -69,6 +70,7 @@ const Head: React.FC<HeadProperties> = (
     // #region properties
     const {
         // #region own
+        Helmet,
         defaults,
         children,
         // #endregion own
@@ -112,11 +114,10 @@ const Head: React.FC<HeadProperties> = (
 
     // #region render
     return (
-        <>
+        <Helmet>
             <meta charSet="utf-8" />
             <meta name="robots" content={robots} />
             <meta name="viewport" content={viewport} />
-            <meta name="description" content={descriptionValue} />
 
             <title>{titleValue}</title>
             <meta name="title" content={titleValue} />
@@ -180,7 +181,7 @@ const Head: React.FC<HeadProperties> = (
                     />
                 );
             })}
-        </>
+        </Helmet>
     );
     // #endregion render
 }
@@ -190,7 +191,7 @@ const mapStateToProperties =(
     state: HeadState,
     ownProperties: HeadOwnProperties,
 ): HeadStateProperties => ({
-    stateHead: ownProperties.selectors.notifications.getAll(state),
+    stateHead: ownProperties.selectors.head.getHead(state),
 });
 
 
