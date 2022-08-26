@@ -10,7 +10,9 @@
 
 
     // #region external
-    import PluridSwitch from '../Switch';
+    import PluridSwitch, {
+        SwitchProperties,
+    } from '../Switch';
     import PluridFormLeftRight from '../../form/FormLeftRight';
     // #endregion external
 
@@ -41,6 +43,7 @@ export interface InputSwitchProperties {
         // #region values
         theme?: Theme;
         compact?: boolean;
+        switch?: SwitchProperties;
         style?: React.CSSProperties;
         className?: string;
         // #endregion values
@@ -70,6 +73,7 @@ const InputSwitch: React.FC<InputSwitchProperties> = (
             // #region values
             theme: themeProperty,
             compact,
+            switch: switchProperties,
             style,
             className,
             // #endregion values
@@ -107,6 +111,7 @@ const InputSwitch: React.FC<InputSwitchProperties> = (
                     exclusive={true}
                     theme={theme}
                     atChange={() => atChange()}
+                    {...switchProperties}
                 />
             </PluridFormLeftRight>
         </StyledInputSwitch>
