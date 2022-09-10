@@ -45,7 +45,7 @@ export const factory = (
                 text,
             };
 
-            state = [
+            return [
                 ...state,
                 newNotification,
             ];
@@ -86,7 +86,7 @@ export const factory = (
             state,
             action: PayloadAction<Notification>,
         ) => {
-            state = state.map(message => {
+            const newState = state.map(message => {
                 if (message.id === action.payload.id) {
                     const newNotification: Notification = {
                         ...action.payload,
@@ -98,14 +98,18 @@ export const factory = (
                     ...message,
                 };
             });
+
+            return newState;
         },
         remove: (
             state,
             action: PayloadAction<string>,
         ) => {
-            state = state.filter(
+            const newState = state.filter(
                 message => message.id !== action.payload,
             );
+
+            return newState;
         },
     },
 });
