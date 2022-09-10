@@ -1,6 +1,6 @@
 {
     "name": "@plurid/plurid-ui-components-react",
-    "version": "0.0.0-18",
+    "version": "0.0.0-19",
     "description": "Plurid User Interface Components for React",
     "keywords": [
         "plurid",
@@ -62,7 +62,7 @@
         "@plurid/plurid-functions-react": "^0.0.0-5",
         "@plurid/plurid-icons-react": "^0.0.0-5",
         "@plurid/plurid-themes": "^0.0.0-2",
-        "@plurid/plurid-ui-state-react": "^0.0.0-7",
+        "@plurid/plurid-ui-state-react": "^0.0.0-8",
         "@reduxjs/toolkit": "^1.8.5",
         "@types/jest": "^29.0.0",
         "@types/node": "^18.7.16",
