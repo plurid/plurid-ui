@@ -46,6 +46,7 @@ export const StyledNotification = styled.div<IStyledNotification>`
         return props.theme.boxShadowUmbra;
     }};
     animation: ${translateUp} 750ms ease-in-out forwards;
+    transition: opacity 400ms;
 
     a {
         text-decoration: none;

@@ -2,6 +2,7 @@
     // #region libraries
     import React, {
         useRef,
+        useState,
         useEffect,
     } from 'react';
 
@@ -104,6 +105,14 @@ const Notification: React.FC<NotificationProperties> = (
     // #endregion properties
 
 
+    // #region state
+    const [
+        prepareForRemoval,
+        setPrepareForRemoval,
+    ] = useState(false);
+    // #endregion state
+
+
     // #region references
     const notificationTimeout = useRef<NodeJS.Timeout | null>(null);
     // #endregion references
@@ -113,7 +122,10 @@ const Notification: React.FC<NotificationProperties> = (
     useEffect(() => {
         if (timeout) {
             notificationTimeout.current = setTimeout(() => {
-                remove(id);
+                setPrepareForRemoval(true);
+                setTimeout(() => {
+                    remove(id);
+                }, 400);
             }, timeout);
         }
 
@@ -171,6 +183,7 @@ const Notification: React.FC<NotificationProperties> = (
             theme={theme}
             style={{
                 ...style,
+                opacity: prepareForRemoval ? 0 : undefined,
             }}
             className={className}
         >
