@@ -100,7 +100,7 @@ const Notification: React.FC<NotificationProperties> = (
         wordBreak,
     } = data;
 
-    const resolvedWordBreak = wordBreak === false ? 'normal' : 'break-all';
+    const resolvedWordBreak = wordBreak === true ? 'break-all' : 'normal';
     // #endregion properties
 
 
