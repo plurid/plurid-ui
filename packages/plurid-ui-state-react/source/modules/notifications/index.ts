@@ -66,7 +66,7 @@ export const factory = (
             );
 
             if (existingNotification) {
-                state = state.map(notification => {
+                const newState = state.map(notification => {
                     if (notification.id === newNotification.id) {
                         return newNotification;
                     }
@@ -74,10 +74,10 @@ export const factory = (
                     return notification;
                 });
 
-                return;
+                return newState;
             }
 
-            state = [
+            return [
                 ...state,
                 newNotification,
             ];
