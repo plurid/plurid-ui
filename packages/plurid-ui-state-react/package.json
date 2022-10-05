@@ -50,7 +50,7 @@
         "@plurid/plurid-themes": "^0.0.0-2",
         "@reduxjs/toolkit": "^1.8.5",
         "@types/jest": "^29.1.1",
-        "@types/node": "^18.8.0",
+        "@types/node": "^18.8.2",
         "@typescript-eslint/eslint-plugin": "^5.39.0",
         "@typescript-eslint/parser": "^5.39.0",
         "@zerollup/ts-transform-paths": "^1.7.18",
