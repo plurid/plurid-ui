@@ -39,8 +39,8 @@
         "clean": "rm -rf ./distribution",
         "start": "pnpm clean && rollup -c ./scripts/rollup.config.js -w",
         "build.clean": "rm -rf `find ./distribution/ -type d -name __tests__`",
-        "build.development": "pnpm clean && rollup -c ./scripts/rollup.config.js",
-        "build.production": "rollup -c ./scripts/rollup.config.js --environment BUILD:production",
+        "build.development": "pnpm clean && rollup -c ./scripts/rollup.config.js --bundleConfigAsCjs",
+        "build.production": "rollup -c ./scripts/rollup.config.js --environment BUILD:production --bundleConfigAsCjs",
         "build": "pnpm clean && pnpm lint && pnpm test && pnpm build.production && pnpm build.clean",
         "prepublishOnly": "pnpm build"
     },
@@ -62,7 +62,7 @@
         "@plurid/plurid-functions-react": "^0.0.0-5",
         "@plurid/plurid-icons-react": "^0.0.0-5",
         "@plurid/plurid-themes": "^0.0.0-2",
-        "@plurid/plurid-ui-state-react": "^0.0.0-9",
+        "@plurid/plurid-ui-state-react": "^0.0.0-10",
         "@reduxjs/toolkit": "^1.9.2",
         "@types/jest": "^29.4.0",
         "@types/node": "^18.13.0",
@@ -87,6 +87,6 @@
         "styled-components": "^5.3.6",
         "ts-jest": "^29.0.5",
         "ttypescript": "^1.5.15",
-        "typescript": "^4.9.5"
+        "typescript": "==4.7.3"
     }
 }
