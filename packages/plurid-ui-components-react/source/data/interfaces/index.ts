@@ -27,4 +27,16 @@ export interface ToolbarButton {
     first?: boolean;
     last?: boolean;
 }
+
+
+export interface EntityViewSearchTerm {
+    id: string,
+    data: string[],
+}
+
+
+export interface EntityViewRefAttributes {
+    getSearchTerms: () => EntityViewSearchTerm[];
+    resetFilterValue: () => void;
+}
 // #endregion module

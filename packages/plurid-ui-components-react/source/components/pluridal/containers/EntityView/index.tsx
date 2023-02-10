@@ -25,6 +25,11 @@
 
     // #region external
     import universal from '../../../universal';
+
+    import {
+        EntityViewRefAttributes,
+        EntityViewSearchTerm,
+    } from '~data/interfaces';
     // #endregion external
 
 
@@ -43,7 +48,6 @@
     } from './styled';
 
     import {
-        SearchTerm,
         createSearchTerms,
     } from './logic';
     // #endregion internal
@@ -120,11 +124,6 @@ export interface EntityViewProperties {
     // #endregion optional
 }
 
-export interface EntityViewRefAttributes {
-    getSearchTerms: () => SearchTerm[];
-    resetFilterValue: () => void;
-}
-
 export type EntityViewType = EntityViewProperties
     & React.RefAttributes<EntityViewRefAttributes>;
 
@@ -188,7 +187,7 @@ const EntityView: React.ForwardRefExoticComponent<EntityViewType> = forwardRef((
     const [
         searchTerms,
         setSearchTerms,
-    ] = useState<SearchTerm[]>(
+    ] = useState<EntityViewSearchTerm[]>(
         createSearchTerms(entities, searchFields),
     );
 

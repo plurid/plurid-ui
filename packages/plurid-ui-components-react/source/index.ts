@@ -8,6 +8,7 @@
 
 
 // #region exports
+export * from './data/enumerations';
 export * from './data/interfaces';
 
 export default {
@@ -25,6 +26,7 @@ export default {
     ...pluridal.sitting,
     ...pluridal.toolbars,
 };
+
 
 const {
     buttons: {
@@ -74,9 +76,34 @@ const {
     },
 } = universal;
 
+const {
+    containers: {
+        EntityView,
+    },
+    head: {
+        Head,
+    },
+    notifications: {
+        Notification,
+        Notifications,
+    },
+    sitting: {
+        SittingTray,
+    },
+    toolbars: {
+        HorizontalToolbarButton,
+        ToolbarControls,
+        ToolbarGeneral,
+        ToolbarSpecific,
+        VerticalToolbarButton,
+    },
+} = pluridal;
+
+
 export {
     universal,
     pluridal,
+
 
     LinkButton,
     PureButton,
@@ -115,5 +142,21 @@ export {
     NewPageLink,
     ScrollableLine,
     TextItem,
+
+
+    EntityView,
+
+    Head,
+
+    Notification,
+    Notifications,
+
+    SittingTray,
+
+    HorizontalToolbarButton,
+    ToolbarControls,
+    ToolbarGeneral,
+    ToolbarSpecific,
+    VerticalToolbarButton,
 };
 // #endregion exports
