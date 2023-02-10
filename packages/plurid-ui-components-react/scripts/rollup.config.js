@@ -35,12 +35,14 @@ const build = {
             format: 'cjs',
             exports: 'named',
             sourcemap: true,
+            interop: 'auto',
         },
         {
             file: pkg.module,
             format: 'es',
             exports: 'named',
             sourcemap: true,
+            interop: 'auto',
         },
     ],
     plugins: [
