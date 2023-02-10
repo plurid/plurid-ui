@@ -78,6 +78,7 @@ const {
 
 const {
     containers: {
+        DashboardsRenderer,
         EntityView,
     },
     head: {
@@ -144,6 +145,7 @@ export {
     TextItem,
 
 
+    DashboardsRenderer,
     EntityView,
 
     Head,
