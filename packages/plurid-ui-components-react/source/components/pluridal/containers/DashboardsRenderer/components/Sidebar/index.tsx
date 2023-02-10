@@ -113,7 +113,7 @@ const Sidebar: React.FC<SidebarProperties> = (
     } = properties;
 
     const openManualCount = openManual ? 1 : 0;
-    const usageTypeCount = usageType === 'PRIVATE_USAGE' ? 1 : 0;
+    const usageTypeCount = (usageType === 'PRIVATE_USAGE' && logout) ? 1 : 0;
     const helpItemsCount = openManualCount + usageTypeCount;
     // #endregion properties
 
