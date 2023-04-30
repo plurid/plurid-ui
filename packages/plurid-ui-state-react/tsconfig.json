@@ -34,6 +34,8 @@
         "declaration": true,
         "declarationDir": "distribution",
 
+        "preserveSymlinks": true,
+
         "rootDir": "source",
         "outDir": "distribution",
 
