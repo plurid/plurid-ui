@@ -61,6 +61,7 @@ export interface DropdownProperties {
         kind?: string;
         listTop?: string;
         dropdownToggled?: boolean;
+        dropdownSign?: string | boolean;
 
         /**
          * Hide dropdown after click selection.
@@ -127,6 +128,7 @@ const Dropdown: React.FC<DropdownProperties> = (
             kind,
             listTop,
             dropdownToggled,
+            dropdownSign,
             hideAtSelect,
             selectAtHover,
             selectedColor,
@@ -166,6 +168,12 @@ const Dropdown: React.FC<DropdownProperties> = (
     const _level = level ?? 0;
     const _hideAtSelect = hideAtSelect ?? true;
     const _selectAtHover = selectAtHover ?? false;
+
+    const _dropdownSign = typeof dropdownSign === 'string'
+        ? dropdownSign
+        : typeof dropdownSign === 'boolean' && dropdownSign
+            ? '▼'
+            : '';
     // #endregion properties
 
 
@@ -485,6 +493,11 @@ const Dropdown: React.FC<DropdownProperties> = (
                     ? selected
                     : selected.value
                 }
+                {_dropdownSign && (
+                    <>
+                        &nbsp;{_dropdownSign}
+                    </>
+                )}
             </StyledDropdownSelected>
 
             {showList && (
