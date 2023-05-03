@@ -171,9 +171,9 @@ const Dropdown: React.FC<DropdownProperties> = (
 
     const _dropdownSign = typeof dropdownSign === 'string'
         ? dropdownSign
-        : typeof dropdownSign === 'boolean' && dropdownSign
-            ? '▼'
-            : '';
+        : !dropdownSign
+            ? ''
+            : '▼';
     // #endregion properties
 
 
