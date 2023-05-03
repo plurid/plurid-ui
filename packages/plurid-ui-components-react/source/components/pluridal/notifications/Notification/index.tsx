@@ -120,13 +120,21 @@ const Notification: React.FC<NotificationProperties> = (
 
     // #region effects
     useEffect(() => {
-        if (timeout) {
+        const timeoutValue = timeout === undefined
+            ? react
+                ? 4_000
+                : 2_000 + text.length * 40
+            : timeout === 0
+                ? undefined
+                : timeout;
+
+        if (timeoutValue) {
             notificationTimeout.current = setTimeout(() => {
                 setPrepareForRemoval(true);
                 setTimeout(() => {
                     remove(id);
                 }, 400);
-            }, timeout);
+            }, timeoutValue);
         }
 
         return () => {
