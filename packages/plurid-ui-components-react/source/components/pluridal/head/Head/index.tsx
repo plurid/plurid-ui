@@ -83,8 +83,8 @@ const Head: React.FC<HeadProperties> = (
     const robots = defaults?.robots || 'index,follow';
     const viewport = defaults?.viewport || 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, shrink-to-fit=no';
     const faviconIcon = defaults?.faviconIcon ?? '/favicon.ico';
-    const favicon16 = defaults?.favicon16 ?? '/favicon-32x32.png';
-    const favicon32 = defaults?.favicon32 ?? '/favicon-16x16.png';
+    const favicon16 = defaults?.favicon16 ?? '/favicon-16x16.png';
+    const favicon32 = defaults?.favicon32 ?? '/favicon-32x32.png';
     const manifest = defaults?.manifest ?? '/site.webmanifest';
     const themeColor = defaults?.themeColor || '';
 
