@@ -216,6 +216,7 @@ const Textline: React.ForwardRefExoticComponent<TextlineType> = forwardRef<HTMLI
 
                 style={{
                     ...style,
+                    paddingRight: showEnterIcon ? '35px' : undefined,
                 }}
 
                 ref={mergeReferences(
