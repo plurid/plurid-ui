@@ -30,7 +30,7 @@ const DEFAULT_LEVEL = 0;
 export interface LinkButtonProperties {
     // #region required
         // #region values
-        text: string;
+        text: string | JSX.Element;
         // #endregion values
 
         // #region methods

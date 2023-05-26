@@ -32,7 +32,7 @@
 export interface PureButtonProperties {
     // #region required
         // #region values
-        text: string;
+        text: string | JSX.Element;
         // #endregion values
 
         // #region methods
