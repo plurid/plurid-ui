@@ -15,7 +15,7 @@ export interface IStyledInputBox {
     theme: Theme;
 }
 
-export const StyledInputBox = styled.div`
+export const StyledInputBox = styled.div<IStyledInputBox>`
     textarea {
         box-sizing: border-box;
         width: 100%;

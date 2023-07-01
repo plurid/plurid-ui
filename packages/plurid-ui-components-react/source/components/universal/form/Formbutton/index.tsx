@@ -127,7 +127,7 @@ const Formbutton: React.FC<FormbuttonProperties> = (
 
     return (
         <StyledFormbutton
-            onClick={(event) => !_inactive ? atClick(event as any) : null }
+            onClick={(event: any) => !_inactive ? atClick(event as any) : null }
             {...renderProperties}
         >
             {render()}

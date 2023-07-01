@@ -221,11 +221,11 @@ export const StyledPureButton: any = styled.button<IStyledPureButton>`
 `;
 
 
-export interface IStyledPureButtonDiv {
+export type IStyledPureButtonDiv = {
     theme: Theme;
     level: number;
     isDisabled?: boolean;
-}
+} & any; // FORCED
 
 export const StyledPureButtonDiv = styled(StyledPureButton).attrs<IStyledPureButtonDiv>({
     as: 'div',
