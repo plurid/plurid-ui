@@ -24,7 +24,11 @@ export const StyledTooltipString = styled.span`
 `;
 
 
-export const StyledTooltipIcon = styled.span`
+export interface StyledTooltipIcon {
+    theme: Theme;
+}
+
+export const StyledTooltipIcon = styled.span<StyledTooltipIcon>`
     user-select: none;
     cursor: pointer;
 
@@ -38,13 +42,13 @@ export const StyledTooltipIcon = styled.span`
     line-height: 1.4;
     text-align: left;
 
-    font-family: ${(props: IStyledTooltip) => {
+    font-family: ${(props: StyledTooltipIcon) => {
         return props.theme.fontFamilySansSerif;
     }};
-    color: ${(props: IStyledTooltip) => {
+    color: ${(props: StyledTooltipIcon) => {
         return props.theme.colorPrimary;
     }};
-    background-color: ${(props: IStyledTooltip) => {
+    background-color: ${(props: StyledTooltipIcon) => {
         return props.theme.backgroundColorSecondary;
     }};
 `;
@@ -68,13 +72,13 @@ export const StyledTooltipText = styled.div<IStyledTooltipText>`
     line-height: 1.3;
     text-align: left;
 
-    color: ${(props: IStyledTooltip) => {
+    color: ${(props: IStyledTooltipText) => {
         return props.theme.colorPrimary;
     }};
-    background-color: ${(props: IStyledTooltip) => {
+    background-color: ${(props: IStyledTooltipText) => {
         return props.theme.backgroundColorSecondary;
     }};
-    box-shadow: ${(props: IStyledTooltip) => {
+    box-shadow: ${(props: IStyledTooltipText) => {
         return props.theme.boxShadowUmbra;
     }};
 
@@ -101,7 +105,7 @@ export const StyledTooltipText = styled.div<IStyledTooltipText>`
                 return '10px';
             }
             return '0';
-        }} solid ${(props: IStyledTooltip) => {
+        }} solid ${(props: IStyledTooltipText) => {
             return props.theme.backgroundColorSecondary;
         }};
     }

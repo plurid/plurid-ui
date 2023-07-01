@@ -69,11 +69,11 @@ export const StyledEntityListContainer = styled.div`
 `;
 
 
-export interface IStyledEntityList {
+export type IStyledEntityList = {
     theme: Theme;
     header?: boolean;
     loading?: number;
-}
+} & any; // FORCED
 
 export const StyledEntityList = styled.ul<IStyledEntityList>`
     padding: 0;
